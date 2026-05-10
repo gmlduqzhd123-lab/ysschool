@@ -111,6 +111,24 @@ export const awardsData = [
     date: '2024',
     image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800',
   },
+  {
+    id: 9,
+    title: '제25회 전국학생통계활용대회 은상 (통계청장상)',
+    date: '2023. 09. 01.',
+    image: '/images/awards/statistics_2023.jpg',
+  },
+  {
+    id: 10,
+    title: '2023 독서인문교육 실천사례 연구대회 2등급 (교육감표창)',
+    date: '2023. 11. 23.',
+    image: '/images/awards/reading_research_2023.jpg',
+  },
+  {
+    id: 11,
+    title: '초등 1급 정교사 자격연수 모범 표창 (전라남도교육연수원장)',
+    date: '2023. 01. 31.',
+    image: '/images/awards/1st_grade_teacher_2023.jpg',
+  },
 ];
 
 export const mediaData = [
