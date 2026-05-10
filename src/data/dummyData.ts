@@ -235,7 +235,16 @@ export const devLabsData: Array<{
   image: string;
   techStack: string[];
   link: string;
-}> = [];
+}> = [
+  {
+    id: 1,
+    title: '여수한려초 수영부 관리 시스템 (HALLYO SWIM)',
+    description: '여수한려초등학교 수영부 학생 선수들의 효율적인 훈련 관리와 소통을 위해 직접 개발한 종합 관리 웹 애플리케이션입니다.\n\n선수 명단 관리, 대회 일정 조회, 훈련 기록 및 갤러리 영상 아카이빙 기능을 제공하며 PWA(점진적 웹 앱)를 지원하여 모바일에서도 앱처럼 편리하게 사용할 수 있습니다.',
+    image: '/images/projects/hallyo_swim_app.png',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PWA'],
+    link: 'https://hallyo.vercel.app/login'
+  }
+];
 
 export const publicationsData = [
   {
