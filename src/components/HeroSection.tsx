@@ -34,8 +34,8 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep">
-              교육, 개발, 그리고 집필까지. <br className="hidden sm:block" />
-              끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.
+              안녕하세요, 초등교사 김희엽입니다. <br className="hidden sm:block" />
+              늘 배우며 성장하겠습니다.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
