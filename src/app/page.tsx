@@ -9,6 +9,7 @@ import DevLabSection from '@/components/DevLabSection';
 import PublicationsSection from '@/components/PublicationsSection';
 import CVSection from '@/components/CVSection';
 import AcappellaSection from '@/components/AcappellaSection';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
         <PressRoomSection />
         <DevLabSection />
         <PublicationsSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
