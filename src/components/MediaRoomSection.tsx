@@ -24,7 +24,7 @@ export default function MediaRoomSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold mb-4">
             영상 갤러리
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-400">
+          <p className="max-w-2xl mx-auto text-lg text-slate-400 break-keep">
             글로 다 담지 못하는 생생한 아이들의 표정과, 교육 현장의 온기를 영상으로 전합니다.
           </p>
         </motion.div>

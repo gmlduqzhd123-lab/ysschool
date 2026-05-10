@@ -20,7 +20,7 @@ export default function EduArchiveSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             교육 자료실
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             교실의 울타리를 넘어, 아이들의 가능성을 틔우기 위해 연구하고 치열하게 고민했던 교육 자료들을 나눕니다.
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function EduArchiveSection() {
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">
                   {resource.title}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 line-clamp-3 flex-grow">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 line-clamp-3 flex-grow break-keep">
                   {resource.description}
                 </p>
                 

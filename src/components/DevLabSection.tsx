@@ -8,8 +8,16 @@ import { ExternalLink } from 'lucide-react';
 
 export default function DevLabSection() {
   return (
-    <section id="dev-lab" className="py-24 bg-slate-50 dark:bg-slate-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="dev-lab" className="py-24 md:py-32 bg-slate-900 text-white relative overflow-hidden">
+      {/* Tech-inspired decorative background */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-sky/30 blur-[120px]" />
+        <div className="absolute top-[60%] -right-[10%] w-[40%] h-[60%] rounded-full bg-brand-navy/40 blur-[120px]" />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVoNDBNMzkuNSAwdiM0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,11 +25,15 @@ export default function DevLabSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Dev Lab</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-brand-sky/10 border border-brand-sky/20">
+            <h2 className="text-sm font-bold text-brand-sky uppercase tracking-widest">
+              {'< Dev Lab />'}
+            </h2>
+          </div>
+          <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
             교육 웹앱 실험실
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          <p className="max-w-2xl mx-auto text-lg text-slate-300 break-keep">
             교실의 문제들을 기술로 해결합니다. 아이들과 교사 모두의 성장을 돕기 위해 직접 기획하고 개발 중인 맞춤형 교육 도구들입니다.
           </p>
         </motion.div>
@@ -81,16 +93,16 @@ export default function DevLabSection() {
                     transition={{ duration: 0.7 }}
                     className="w-full lg:w-1/2 flex flex-col justify-center"
                   >
-                    <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+                    <h4 className="text-3xl font-bold text-white mb-4">
                       {app.title}
                     </h4>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed whitespace-pre-line">
+                    <p className="text-lg text-slate-300 mb-8 leading-relaxed whitespace-pre-line break-keep">
                       {app.description}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-8">
                       {app.techStack.map((tech) => (
-                        <span key={tech} className="px-4 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 shadow-sm">
+                        <span key={tech} className="px-4 py-1.5 bg-slate-800/80 text-brand-sky text-sm font-semibold rounded-md border border-slate-700 shadow-sm shadow-brand-sky/10 font-mono">
                           {tech}
                         </span>
                       ))}
@@ -100,7 +112,7 @@ export default function DevLabSection() {
                       href={app.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-navy hover:bg-brand-sky text-white rounded-full font-semibold transition-colors duration-300 shadow-md hover:shadow-lg w-max"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-sky hover:bg-brand-sky/80 text-slate-900 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] w-full sm:w-max"
                     >
                       앱 확인하기
                       <ExternalLink className="w-5 h-5" />

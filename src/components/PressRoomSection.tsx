@@ -20,7 +20,7 @@ export default function PressRoomSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             언론 보도 및 기사
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             묵묵히 걸어온 교육적 실천들이 세상과 닿았던 의미 있는 순간들을 기록합니다.
           </p>
         </motion.div>
@@ -65,7 +65,7 @@ export default function PressRoomSection() {
                   <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
                     {app.title}
                   </h4>
-                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed whitespace-pre-line">
+                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed whitespace-pre-line break-keep">
                     {app.description}
                   </p>
                   

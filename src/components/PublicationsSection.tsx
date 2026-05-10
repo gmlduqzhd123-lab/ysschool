@@ -20,7 +20,7 @@ export default function PublicationsSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             저서 소개
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             교실 속 아이들의 생생한 목소리를 담고, 교사로서의 교육적 성찰을 대중과 나누기 위해 집필한 10권의 저서입니다.
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ export default function PublicationsSection() {
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                   {book.title}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-grow">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-grow break-keep">
                   {book.description}
                 </p>
                 

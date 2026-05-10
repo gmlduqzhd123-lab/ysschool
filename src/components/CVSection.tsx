@@ -27,7 +27,7 @@ export default function CVSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             주요 약력 및 활동
           </h3>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             아이들에게 더 넓은 세상을 보여주기 위해, 끊임없이 연구하고 실천해 온 치열한 교육의 발자취입니다.
           </p>
         </motion.div>
@@ -50,7 +50,7 @@ export default function CVSection() {
               {careerHistory.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                 </li>
               ))}
             </ul>
@@ -73,7 +73,7 @@ export default function CVSection() {
               {commendations.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="w-2 h-2 mt-2 rounded-full bg-yellow-500 shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                 </li>
               ))}
             </ul>
@@ -96,7 +96,7 @@ export default function CVSection() {
               {researchAchievements.map((item, idx) => (
                 <div key={idx} className="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
                   <h5 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 break-keep">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -111,7 +111,7 @@ export default function CVSection() {
               {schoolResearch.map((item, idx) => (
                 <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="block bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-purple-500 transition-colors">
                   <h5 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 break-keep">{item.description}</p>
                 </a>
               ))}
             </div>
@@ -134,7 +134,7 @@ export default function CVSection() {
               {studentMentoring.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="w-2 h-2 mt-2 rounded-full bg-green-500 shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                 </li>
               ))}
             </ul>
@@ -157,7 +157,7 @@ export default function CVSection() {
               {lecturesAndConsulting.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="w-2 h-2 mt-2 rounded-full bg-brand-orange shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                 </li>
               ))}
             </ul>
@@ -180,7 +180,7 @@ export default function CVSection() {
               {publicClasses.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="w-2 h-2 mt-2 rounded-full bg-pink-500 shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                 </li>
               ))}
             </ul>

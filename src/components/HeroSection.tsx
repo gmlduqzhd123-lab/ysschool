@@ -33,7 +33,7 @@ export default function HeroSection() {
               </span>에 오신 것을 환영합니다.
             </h1>
             
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep">
               교육, 개발, 그리고 집필까지. <br className="hidden sm:block" />
               끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.
             </p>
