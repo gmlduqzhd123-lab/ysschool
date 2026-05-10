@@ -33,15 +33,15 @@ export default function EduArchiveSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 dark:border-slate-800 flex flex-col h-full"
+              className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group border border-slate-100 dark:border-slate-800 flex flex-col h-full"
             >
-              <div className="relative h-48 w-full overflow-hidden">
+              <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                   src={resource.thumbnail}
                   alt={resource.title}
                   fill
                   unoptimized={true}
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover w-full group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/20 transition-colors duration-300" />
               </div>

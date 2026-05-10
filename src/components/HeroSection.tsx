@@ -61,12 +61,16 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:ml-auto"
           >
-            <div className="relative w-full max-w-md mx-auto aspect-square">
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-md mx-auto aspect-square"
+            >
               {/* Decorative shapes behind image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-sky to-brand-orange rounded-[3rem] rotate-6 opacity-20 blur-lg mix-blend-multiply dark:mix-blend-lighten"></div>
-              <div className="absolute inset-0 bg-brand-navy rounded-[3rem] -rotate-6 transition-transform hover:rotate-0 duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-sky to-brand-orange rounded-2xl rotate-6 opacity-20 blur-lg mix-blend-multiply dark:mix-blend-lighten"></div>
+              <div className="absolute inset-0 bg-brand-navy rounded-2xl -rotate-6 transition-transform hover:rotate-0 duration-500 shadow-lg"></div>
               
-              <div className="absolute inset-2 bg-white dark:bg-slate-800 rounded-[2.5rem] overflow-hidden border-4 border-white/50 dark:border-slate-700 shadow-2xl">
+              <div className="absolute inset-2 bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border-4 border-white/50 dark:border-slate-700 shadow-2xl">
                 <Image
                   src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800"
                   alt="엽쌤 프로필"
@@ -75,7 +79,7 @@ export default function HeroSection() {
                   priority
                 />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

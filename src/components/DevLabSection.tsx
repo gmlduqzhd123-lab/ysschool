@@ -60,7 +60,7 @@ export default function DevLabSection() {
             {devLabsData.map((app, index) => {
               const isEven = index % 2 === 0;
               return (
-                <div key={app.id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}>
+                <div key={app.id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center p-8 rounded-3xl hover:-translate-y-2 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border border-slate-700/50`}>
                   
                   {/* Mockup Display */}
                   <motion.div

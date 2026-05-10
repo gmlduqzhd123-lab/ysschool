@@ -41,7 +41,7 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 group"
+                className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8 shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 group"
               >
                 <div className="w-16 h-16 rounded-2xl bg-brand-navy/10 dark:bg-brand-sky/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-navy dark:group-hover:bg-brand-sky transition-all duration-300">
                   {Icon && <Icon className="w-8 h-8 text-brand-navy dark:text-brand-sky group-hover:text-white transition-colors duration-300" />}

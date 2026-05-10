@@ -37,20 +37,19 @@ export default function HallOfFameSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="break-inside-avoid relative rounded-2xl overflow-hidden cursor-pointer group shadow-md hover:shadow-2xl transition-all"
+              className="break-inside-avoid relative rounded-xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
               onClick={() => setSelectedImage(award.image)}
             >
-              <div className="bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-700 rounded-lg p-2 h-[300px] flex items-center justify-center">
+              <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2 aspect-[3/4] flex items-center justify-center">
                 <Image
                   src={award.image}
                   alt={award.title}
-                  width={800}
-                  height={600}
+                  fill
                   unoptimized={true}
-                  className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-700 shadow-sm"
+                  className="object-cover p-2 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <span className="text-brand-sky font-semibold text-sm mb-1">{award.date}</span>
                 <h4 className="text-white font-bold text-lg leading-tight">{award.title}</h4>
               </div>
@@ -67,28 +66,28 @@ export default function HallOfFameSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 p-2 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
+              className="absolute top-6 right-6 p-3 bg-black/50 hover:bg-black/80 rounded-full text-white transition-all z-[110]"
             >
-              <X className="w-6 h-6" />
+              <X className="w-8 h-8" />
             </button>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full max-h-[90vh] rounded-xl overflow-hidden shadow-2xl"
+              className="relative w-auto h-auto max-w-5xl max-h-[90vh] flex justify-center items-center"
             >
               <Image
                 src={selectedImage}
-                alt="Award"
+                alt="Award Full"
                 width={1200}
-                height={800}
+                height={1600}
                 unoptimized={true}
-                className="w-full h-auto max-h-[90vh] object-contain bg-slate-900/50 p-4 rounded-xl"
+                className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
               />
             </motion.div>
           </motion.div>

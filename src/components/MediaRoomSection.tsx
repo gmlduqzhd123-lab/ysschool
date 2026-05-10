@@ -37,7 +37,7 @@ export default function MediaRoomSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 rounded-2xl"
             >
               <a
                 href={video.url}

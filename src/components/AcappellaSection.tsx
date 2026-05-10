@@ -47,9 +47,9 @@ export default function AcappellaSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-slate-50 dark:bg-slate-800"
+                className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-slate-50 dark:bg-slate-800"
               >
-                <a href={video.url} target="_blank" rel="noopener noreferrer" className="block relative aspect-video overflow-hidden">
+                <a href={video.url} target="_blank" rel="noopener noreferrer" className="block relative aspect-video overflow-hidden w-full">
                   <img
                     src={thumbnailUrl}
                     alt={video.title}
