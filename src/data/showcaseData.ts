@@ -25,6 +25,14 @@ export const miniAppsData: MiniApp[] = [
     techStack: ['HTML', 'CSS', 'JavaScript'],
     appUrl: '/apps/random-excuse.html',
   },
+  {
+    id: 3,
+    title: '교육용 테트리스 🧱',
+    description: '학생들과 함께 즐기는 교육용 테트리스! 논리적 사고력과 공간 지각 능력을 키워보세요.',
+    thumbnail: 'https://images.unsplash.com/photo-1640955014216-75201056c829?auto=format&fit=crop&q=80&w=600',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    appUrl: '/apps/tetris.html',
+  },
 ];
 
 // ========== 에듀테크 갤러리 데이터 ==========

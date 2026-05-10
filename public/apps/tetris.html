@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>교육용 아이템 테트리스</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(circle at 16% 12%, rgba(99, 102, 241, 0.46), transparent 34%),
+        radial-gradient(circle at 82% 15%, rgba(34, 211, 238, 0.32), transparent 29%),
+        radial-gradient(circle at 50% 86%, rgba(244, 114, 182, 0.18), transparent 36%),
+        linear-gradient(135deg, #020617, #111827 56%, #0f172a);
+      font-family: "Pretendard", "Malgun Gothic", Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: auto 280px 330px;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      max-width: 1320px;
+    }
+
+    .game-card, .side-card, .edu-card {
+      background: rgba(255, 255, 255, 0.095);
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 24px;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(12px);
+    }
+
+    .game-card {
+      padding: 18px;
+      position: relative;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: -2px 0 12px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.84;
+    }
+
+    canvas {
+      display: block;
+      background: #0b0f18;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.22);
+    }
+
+    #board {
+      width: 360px;
+      height: 720px;
+    }
+
+    .side-card, .edu-card {
+      padding: 16px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .info-box {
+      margin-bottom: 12px;
+      padding: 13px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .info-grid .info-box {
+      margin-bottom: 0;
+    }
+
+    .label {
+      font-size: 12px;
+      opacity: 0.75;
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: -0.5px;
+    }
+
+    #next {
+      width: 140px;
+      height: 140px;
+      margin-top: 8px;
+      background: #0b0f18;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .controls {
+      font-size: 14px;
+      line-height: 1.72;
+      opacity: 0.92;
+    }
+
+    .btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 11px 9px;
+      background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+      color: white;
+      font-size: 14px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+      transition: 0.12s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    button.secondary {
+      background: rgba(255, 255, 255, 0.17);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.76);
+      text-align: center;
+      padding: 28px;
+      z-index: 5;
+    }
+
+    .overlay.hidden {
+      display: none;
+    }
+
+    .overlay-title {
+      font-size: 36px;
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+
+    .overlay-desc {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.75;
+    }
+
+    .edu-title {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 950;
+      letter-spacing: -0.5px;
+    }
+
+    .edu-section {
+      margin-bottom: 13px;
+      padding: 13px;
+      border-radius: 17px;
+      background: rgba(0, 0, 0, 0.25);
+      line-height: 1.62;
+      font-size: 14px;
+    }
+
+    .edu-section strong {
+      color: #a5f3fc;
+    }
+
+    .mission {
+      min-height: 90px;
+      border: 1px solid rgba(165, 243, 252, 0.32);
+      background: rgba(34, 211, 238, 0.12);
+    }
+
+    .item-box {
+      border: 1px solid rgba(253, 224, 71, 0.35);
+      background: rgba(234, 179, 8, 0.10);
+    }
+
+    .chip {
+      display: inline-block;
+      margin: 2px 3px 2px 0;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 12px;
+      opacity: 0.96;
+    }
+
+    .item-chip {
+      display: block;
+      margin: 6px 0;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 13px;
+    }
+
+    .mini {
+      font-size: 12px;
+      opacity: 0.77;
+      line-height: 1.55;
+    }
+
+    .status {
+      font-size: 13px;
+      color: #fde68a;
+      font-weight: 800;
+      margin-top: 6px;
+      min-height: 20px;
+    }
+
+    .flash {
+      animation: flash 0.5s ease;
+    }
+
+    @keyframes flash {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.03); background: rgba(34, 211, 238, 0.25); }
+      100% { transform: scale(1); }
+    }
+
+    .mobile-controls {
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .mobile-controls button {
+      padding: 11px 0;
+      font-size: 19px;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: none;
+    }
+
+    @media (max-width: 1060px) {
+      body {
+        overflow: auto;
+      }
+
+      .wrap {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .side-card, .edu-card {
+        width: 396px;
+        max-width: calc(100vw - 28px);
+      }
+
+      .mobile-controls {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 430px) {
+      #board {
+        width: 330px;
+        height: 660px;
+      }
+
+      .game-card {
+        padding: 12px;
+      }
+
+      .overlay {
+        inset: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="game-card">
+      <h1>🎮 아이템 교육용 테트리스</h1>
+      <div class="subtitle">넓어진 화면 · 아이템 전략 · 공간감각 훈련</div>
+      <canvas id="board" width="360" height="720"></canvas>
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-title">ITEM TETRIS</div>
+        <div class="overlay-desc">
+          시작 버튼 또는 Enter 키를 누르세요.<br />
+          랜덤 아이템 블록을 활용해 전략적으로 줄을 제거해 보세요.
+        </div>
+      </div>
+
+      <div class="mobile-controls">
+        <button id="leftBtn">◀</button>
+        <button id="rotateBtn">⟳</button>
+        <button id="rightBtn">▶</button>
+        <button id="downBtn">▼</button>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="label">점수</div>
+          <div id="score" class="value">0</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">레벨</div>
+          <div id="level" class="value">1</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">제거한 줄</div>
+          <div id="lines" class="value">0</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">학습 점수</div>
+          <div id="eduScore" class="value">0</div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:12px;">
+        <div class="label">다음 블록</div>
+        <canvas id="next" width="140" height="140"></canvas>
+      </div>
+
+      <div class="info-box item-box">
+        <strong>🎁 아이템 상태</strong>
+        <div id="itemStatus" class="status">아이템 블록을 기다리는 중...</div>
+        <div class="mini">아이템 블록은 블록 안에 작은 아이콘으로 표시됩니다.</div>
+      </div>
+
+      <div class="info-box controls">
+        <strong>조작법</strong><br />
+        ← / → : 좌우 이동<br />
+        ↓ : 빠르게 내리기<br />
+        ↑ : 회전<br />
+        Space : 바로 떨어뜨리기<br />
+        P : 일시정지<br />
+        Enter : 시작 / 재시작
+      </div>
+
+      <div class="btns">
+        <button id="startBtn">게임 시작</button>
+        <button id="pauseBtn" class="secondary">일시정지</button>
+        <button id="musicBtn" class="secondary">BGM 켜기</button>
+        <button id="soundBtn" class="secondary">효과음 켜기</button>
+      </div>
+
+      <p class="mini">
+        ※ 별도 음원 파일 없이 HTML 하나만으로 BGM과 효과음이 재생됩니다.
+      </p>
+    </div>
+
+    <div class="edu-card">
+      <h2 class="edu-title">📚 학습 + 전략 미션</h2>
+
+      <div id="missionBox" class="edu-section mission">
+        <strong>미션</strong><br />
+        블록이 떨어지는 위치를 보고 몇 번째 열에 놓을지 예측해 보세요.
+      </div>
+
+      <div id="conceptBox" class="edu-section">
+        <strong>현재 블록 개념</strong><br />
+        게임을 시작하면 블록별 수학 개념이 여기에 표시됩니다.
+      </div>
+
+      <div id="tipBox" class="edu-section">
+        <strong>전략 힌트</strong><br />
+        아이템을 무조건 빨리 쓰는 것이 아니라, 가장 효과가 큰 위치에 놓는 것이 중요합니다.
+      </div>
+
+      <div class="edu-section item-box">
+        <strong>🎁 아이템 설명</strong>
+        <span class="item-chip">💣 폭탄: 중심 주변 3×3 칸을 제거합니다.</span>
+        <span class="item-chip">➖ 가로줄 제거: 아이템이 놓인 한 줄을 제거합니다.</span>
+        <span class="item-chip">🐢 느린 시간: 10초 동안 블록이 천천히 떨어집니다.</span>
+        <span class="item-chip">⭐ 보너스: 점수와 학습 점수를 추가로 얻습니다.</span>
+      </div>
+
+      <div class="edu-section">
+        <strong>배우는 내용</strong><br />
+        <span class="chip">좌표 감각</span>
+        <span class="chip">회전</span>
+        <span class="chip">대칭</span>
+        <span class="chip">예측</span>
+        <span class="chip">전략 선택</span>
+        <span class="chip">문제 해결</span>
+      </div>
+
+      <div class="edu-section mini">
+        <strong>수업 활용 질문</strong><br />
+        ① 아이템을 어느 위치에 놓았을 때 가장 효과적이었나요?<br />
+        ② 폭탄 아이템은 어떤 좌표에서 쓰면 좋을까요?<br />
+        ③ 다음 블록을 보고 현재 블록의 위치를 바꾼 적이 있나요?
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("board");
+    const ctx = canvas.getContext("2d");
+    const nextCanvas = document.getElementById("next");
+    const nextCtx = nextCanvas.getContext("2d");
+
+    const scoreEl = document.getElementById("score");
+    const levelEl = document.getElementById("level");
+    const linesEl = document.getElementById("lines");
+    const eduScoreEl = document.getElementById("eduScore");
+    const overlay = document.getElementById("overlay");
+
+    const missionBox = document.getElementById("missionBox");
+    const conceptBox = document.getElementById("conceptBox");
+    const tipBox = document.getElementById("tipBox");
+    const itemStatus = document.getElementById("itemStatus");
+
+    const COLS = 10;
+    const ROWS = 20;
+    const BLOCK = 36;
+
+    const COLORS = {
+      I: "#22d3ee",
+      J: "#60a5fa",
+      L: "#fb923c",
+      O: "#facc15",
+      S: "#4ade80",
+      T: "#c084fc",
+      Z: "#f87171"
+    };
+
+    const ITEM_META = {
+      bomb: { icon: "💣", name: "폭탄", color: "#f97316" },
+      row: { icon: "➖", name: "가로줄 제거", color: "#facc15" },
+      slow: { icon: "🐢", name: "느린 시간", color: "#22c55e" },
+      bonus: { icon: "⭐", name: "보너스", color: "#fde047" }
+    };
+
+    const SHAPES = {
+      I: [
+        [0, 0, 0, 0],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ],
+      J: [
+        [1, 0, 0],
+        [1, 1, 1],
+        [0, 0, 0]
+      ],
+      L: [
+        [0, 0, 1],
+        [1, 1, 1],
+        [0, 0, 0]
+      ],
+      O: [
+        [1, 1],
+        [1, 1]
+      ],
+      S: [
+        [0, 1, 1],
+        [1, 1, 0],
+        [0, 0, 0]
+      ],
+      T: [
+        [0, 1, 0],
+        [1, 1, 1],
+        [0, 0, 0]
+      ],
+      Z: [
+        [1, 1, 0],
+        [0, 1, 1],
+        [0, 0, 0]
+      ]
+    };
+
+    const EDUCATION = {
+      I: {
+        name: "I 블록",
+        concept: "직선과 길이",
+        text: "I 블록은 4칸이 일렬로 이어진 모양입니다. 가로와 세로 방향을 비교하며 길이와 방향 감각을 익힐 수 있습니다."
+      },
+      J: {
+        name: "J 블록",
+        concept: "회전과 방향",
+        text: "J 블록은 회전할 때 빈칸을 메우는 방향이 크게 달라집니다. 회전 전후의 위치 변화를 관찰해 보세요."
+      },
+      L: {
+        name: "L 블록",
+        concept: "회전과 도형 변환",
+        text: "L 블록은 J 블록과 닮았지만 방향이 반대입니다. 좌우가 바뀐 모양을 비교하면 대칭 감각을 기를 수 있습니다."
+      },
+      O: {
+        name: "O 블록",
+        concept: "정사각형",
+        text: "O 블록은 2칸 × 2칸의 정사각형입니다. 회전해도 모양이 변하지 않는다는 특징이 있습니다."
+      },
+      S: {
+        name: "S 블록",
+        concept: "대각선 연결",
+        text: "S 블록은 계단처럼 이어지는 모양입니다. 빈틈이 생기지 않도록 주변 블록과 맞물리는 위치를 찾아보세요."
+      },
+      T: {
+        name: "T 블록",
+        concept: "중심과 대칭",
+        text: "T 블록은 가운데 칸을 중심으로 회전합니다. 중심을 기준으로 도형이 어떻게 움직이는지 관찰하기 좋습니다."
+      },
+      Z: {
+        name: "Z 블록",
+        concept: "대칭과 비교",
+        text: "Z 블록은 S 블록과 반대 방향으로 꺾인 모양입니다. 두 블록을 비교하면 좌우 대칭 개념을 익힐 수 있습니다."
+      }
+    };
+
+    const MISSIONS = [
+      "블록을 놓기 전에 마음속으로 열 번호를 예측해 보세요. 왼쪽부터 1열입니다.",
+      "아이템이 포함된 블록은 어디에 놓아야 가장 효과가 클까요? 먼저 이유를 생각해 보세요.",
+      "폭탄 아이템은 주변 칸까지 사라집니다. 빈틈이 많은 곳 근처에 놓으면 유리합니다.",
+      "가로줄 제거 아이템은 높게 쌓인 줄에 놓으면 위기를 줄일 수 있습니다.",
+      "느린 시간 아이템이 나오면 다음 블록까지 여유 있게 관찰해 보세요.",
+      "다음 블록을 보고 지금 블록의 위치를 결정해 보세요. 이것이 예측 전략입니다.",
+      "긴 I 블록을 위해 한 열을 비워두는 전략을 시도해 보세요.",
+      "블록을 회전시키면 중심이 어떻게 바뀌는지 관찰해 보세요."
+    ];
+
+    const TIPS = [
+      "아이템도 좌표 전략이 중요합니다. 같은 아이템이라도 놓는 위치에 따라 효과가 달라집니다.",
+      "높은 탑을 만들기보다 낮고 넓게 쌓으면 오래 버틸 수 있습니다.",
+      "다음 블록을 미리 보면 지금 선택이 더 좋아집니다. 예측은 훌륭한 문제 해결 전략입니다.",
+      "블록을 무작정 회전하지 말고 회전 후 차지할 공간을 먼저 상상해 보세요.",
+      "빈칸 하나가 계속 남으면 나중에 큰 위험이 됩니다. 작은 빈틈을 먼저 줄여 보세요.",
+      "좌표처럼 생각해 보세요. 가로 위치는 x, 세로 위치는 y라고 볼 수 있습니다.",
+      "아이템이 나왔다고 바로 좋은 것은 아닙니다. 가장 필요한 위치까지 안전하게 옮기는 것이 핵심입니다."
+    ];
+
+    let board;
+    let current;
+    let nextPiece;
+    let score = 0;
+    let level = 1;
+    let lines = 0;
+    let eduScore = 0;
+    let dropCounter = 0;
+    let dropInterval = 850;
+    let baseDropInterval = 850;
+    let lastTime = 0;
+    let running = false;
+    let paused = false;
+    let gameOver = false;
+    let pieceCount = 0;
+    let slowUntil = 0;
+
+    let audioCtx = null;
+    let musicOn = false;
+    let soundOn = true;
+    let musicTimer = null;
+    let noteIndex = 0;
+
+    const melody = [
+      659, 494, 523, 587, 523, 494, 440, 440,
+      523, 659, 587, 523, 494, 523, 587, 659,
+      523, 440, 440, 0, 587, 698, 880, 784,
+      698, 659, 523, 659, 587, 523, 494, 494
+    ];
+
+    const bass = [
+      165, 165, 220, 220, 196, 196, 147, 147,
+      165, 165, 220, 220, 196, 196, 247, 247
+    ];
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    }
+
+    function playTone(freq, duration = 0.1, type = "square", volume = 0.04) {
+      if (!soundOn || !audioCtx || freq <= 0) return;
+
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(volume, now + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + duration + 0.02);
+    }
+
+    function playMusicTone(freq, duration = 0.13, type = "square", volume = 0.025) {
+      if (!musicOn || !audioCtx || freq <= 0) return;
+
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(1400, now);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(volume, now + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + duration + 0.03);
+    }
+
+    function startMusic() {
+      initAudio();
+      musicOn = true;
+      document.getElementById("musicBtn").textContent = "BGM 끄기";
+
+      if (musicTimer) clearInterval(musicTimer);
+
+      musicTimer = setInterval(() => {
+        const m = melody[noteIndex % melody.length];
+        const b = bass[noteIndex % bass.length];
+
+        playMusicTone(m, 0.12, "square", 0.024);
+        if (noteIndex % 2 === 0) {
+          playMusicTone(b, 0.16, "triangle", 0.017);
+        }
+        if (noteIndex % 4 === 0) {
+          playMusicTone(90, 0.04, "sawtooth", 0.017);
+        }
+
+        noteIndex++;
+      }, 155);
+    }
+
+    function stopMusic() {
+      musicOn = false;
+      document.getElementById("musicBtn").textContent = "BGM 켜기";
+      if (musicTimer) {
+        clearInterval(musicTimer);
+        musicTimer = null;
+      }
+    }
+
+    function sfxMove() {
+      playTone(330, 0.045, "square", 0.025);
+    }
+
+    function sfxRotate() {
+      playTone(520, 0.055, "square", 0.035);
+      setTimeout(() => playTone(700, 0.045, "square", 0.025), 35);
+    }
+
+    function sfxDrop() {
+      playTone(180, 0.07, "sawtooth", 0.04);
+    }
+
+    function sfxLine(count) {
+      const notes = count >= 4 ? [523, 659, 784, 1046, 1318] : [440, 554, 659, 880];
+      notes.forEach((n, i) => {
+        setTimeout(() => playTone(n, 0.08, "square", 0.045), i * 65);
+      });
+    }
+
+    function sfxItem() {
+      [784, 988, 1175, 1568].forEach((n, i) => {
+        setTimeout(() => playTone(n, 0.075, "square", 0.05), i * 55);
+      });
+    }
+
+    function sfxGameOver() {
+      [392, 330, 262, 196].forEach((n, i) => {
+        setTimeout(() => playTone(n, 0.16, "sawtooth", 0.045), i * 150);
+      });
+    }
+
+    function sfxStart() {
+      [523, 659, 784, 1046].forEach((n, i) => {
+        setTimeout(() => playTone(n, 0.07, "square", 0.04), i * 70);
+      });
+    }
+
+    function createBoard() {
+      return Array.from({ length: ROWS }, () => Array(COLS).fill(null));
+    }
+
+    function randomPiece() {
+      const types = Object.keys(SHAPES);
+      const type = types[Math.floor(Math.random() * types.length)];
+
+      const piece = {
+        type,
+        shape: SHAPES[type].map(row => [...row]),
+        x: Math.floor(COLS / 2) - 2,
+        y: 0,
+        item: null
+      };
+
+      pieceCount++;
+
+      if (pieceCount > 2 && Math.random() < 0.34) {
+        addRandomItem(piece);
+      }
+
+      return piece;
+    }
+
+    function addRandomItem(piece) {
+      const filled = [];
+      piece.shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+          if (value) filled.push({ x, y });
+        });
+      });
+
+      const cell = filled[Math.floor(Math.random() * filled.length)];
+      const itemTypes = Object.keys(ITEM_META);
+      const type = itemTypes[Math.floor(Math.random() * itemTypes.length)];
+      piece.item = { x: cell.x, y: cell.y, type };
+    }
+
+    function makeCell(color, itemType = null) {
+      return { color, itemType };
+    }
+
+    function drawCell(context, x, y, cellOrColor, size = BLOCK, itemType = null) {
+      let color = typeof cellOrColor === "string" ? cellOrColor : cellOrColor.color;
+      let item = itemType || (typeof cellOrColor === "object" ? cellOrColor.itemType : null);
+
+      context.fillStyle = color;
+      context.fillRect(x * size, y * size, size, size);
+
+      context.strokeStyle = "rgba(255,255,255,0.30)";
+      context.lineWidth = 2;
+      context.strokeRect(x * size + 1, y * size + 1, size - 2, size - 2);
+
+      context.fillStyle = "rgba(255,255,255,0.18)";
+      context.fillRect(x * size + 5, y * size + 5, size - 10, 5);
+
+      if (item) {
+        const meta = ITEM_META[item];
+        context.save();
+        context.fillStyle = "rgba(0,0,0,0.42)";
+        context.beginPath();
+        context.arc(x * size + size / 2, y * size + size / 2, size * 0.33, 0, Math.PI * 2);
+        context.fill();
+
+        context.strokeStyle = meta.color;
+        context.lineWidth = 2;
+        context.stroke();
+
+        context.font = `${Math.floor(size * 0.43)}px Arial`;
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillStyle = "#fff";
+        context.fillText(meta.icon, x * size + size / 2, y * size + size / 2 + 1);
+        context.restore();
+      }
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = "rgba(255,255,255,0.055)";
+      ctx.lineWidth = 1;
+
+      for (let x = 0; x <= COLS; x++) {
+        ctx.beginPath();
+        ctx.moveTo(x * BLOCK, 0);
+        ctx.lineTo(x * BLOCK, ROWS * BLOCK);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y <= ROWS; y++) {
+        ctx.beginPath();
+        ctx.moveTo(0, y * BLOCK);
+        ctx.lineTo(COLS * BLOCK, y * BLOCK);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = "rgba(255,255,255,0.36)";
+      ctx.font = "11px Arial";
+      ctx.textAlign = "left";
+      for (let x = 0; x < COLS; x++) {
+        ctx.fillText(String(x + 1), x * BLOCK + 14, 16);
+      }
+    }
+
+    function drawBoard() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0b0f18";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      drawGrid();
+
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          if (board[y][x]) {
+            drawCell(ctx, x, y, board[y][x]);
+          }
+        }
+      }
+
+      if (current) {
+        drawGhostPiece();
+        drawPiece(ctx, current, BLOCK);
+      }
+    }
+
+    function drawGhostPiece() {
+      const ghost = {
+        type: current.type,
+        shape: current.shape,
+        x: current.x,
+        y: current.y,
+        item: current.item
+      };
+
+      while (!collide(ghost, 0, 1)) {
+        ghost.y++;
+      }
+
+      ctx.globalAlpha = 0.22;
+      ghost.shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+          if (value) {
+            const isItem = ghost.item && ghost.item.x === x && ghost.item.y === y;
+            drawCell(ctx, ghost.x + x, ghost.y + y, COLORS[ghost.type], BLOCK, isItem ? ghost.item.type : null);
+          }
+        });
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function drawPiece(context, piece, size) {
+      piece.shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+          if (value) {
+            const isItem = piece.item && piece.item.x === x && piece.item.y === y;
+            drawCell(context, piece.x + x, piece.y + y, COLORS[piece.type], size, isItem ? piece.item.type : null);
+          }
+        });
+      });
+    }
+
+    function drawNext() {
+      nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+      nextCtx.fillStyle = "#0b0f18";
+      nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+
+      if (!nextPiece) return;
+
+      const miniSize = 28;
+      const shape = nextPiece.shape;
+      const offsetX = Math.floor((5 - shape[0].length) / 2);
+      const offsetY = Math.floor((5 - shape.length) / 2);
+
+      shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+          if (value) {
+            const isItem = nextPiece.item && nextPiece.item.x === x && nextPiece.item.y === y;
+            drawCell(
+              nextCtx,
+              x + offsetX,
+              y + offsetY,
+              COLORS[nextPiece.type],
+              miniSize,
+              isItem ? nextPiece.item.type : null
+            );
+          }
+        });
+      });
+    }
+
+    function collide(piece, moveX = 0, moveY = 0, newShape = piece.shape) {
+      for (let y = 0; y < newShape.length; y++) {
+        for (let x = 0; x < newShape[y].length; x++) {
+          if (!newShape[y][x]) continue;
+
+          const newX = piece.x + x + moveX;
+          const newY = piece.y + y + moveY;
+
+          if (newX < 0 || newX >= COLS || newY >= ROWS) return true;
+          if (newY >= 0 && board[newY][newX]) return true;
+        }
+      }
+      return false;
+    }
+
+    function merge() {
+      const itemPositions = [];
+
+      current.shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+          if (value) {
+            const boardY = current.y + y;
+            const boardX = current.x + x;
+            if (boardY >= 0) {
+              const isItem = current.item && current.item.x === x && current.item.y === y;
+              board[boardY][boardX] = makeCell(COLORS[current.type], isItem ? current.item.type : null);
+              if (isItem) {
+                itemPositions.push({ x: boardX, y: boardY, type: current.item.type });
+              }
+            }
+          }
+        });
+      });
+
+      return itemPositions;
+    }
+
+    function applyGravity() {
+      for (let x = 0; x < COLS; x++) {
+        const stack = [];
+        for (let y = ROWS - 1; y >= 0; y--) {
+          if (board[y][x]) stack.push(board[y][x]);
+        }
+
+        for (let y = ROWS - 1; y >= 0; y--) {
+          board[y][x] = stack[ROWS - 1 - y] || null;
+        }
+      }
+    }
+
+    function activateItem(item) {
+      if (!item || !item.type) return;
+
+      const meta = ITEM_META[item.type];
+      itemStatus.textContent = `${meta.icon} ${meta.name} 아이템 발동!`;
+      itemStatus.classList.remove("flash");
+      void itemStatus.offsetWidth;
+      itemStatus.classList.add("flash");
+
+      sfxItem();
+
+      if (item.type === "bomb") {
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            const nx = item.x + dx;
+            const ny = item.y + dy;
+            if (nx >= 0 && nx < COLS && ny >= 0 && ny < ROWS) {
+              board[ny][nx] = null;
+            }
+          }
+        }
+        score += 220;
+        eduScore += 15;
+        applyGravity();
+        updateTipByItem("폭탄 아이템은 중심 좌표 주변 3×3 영역을 제거합니다. 어느 좌표에 두는지가 핵심입니다.");
+      }
+
+      if (item.type === "row") {
+        if (item.y >= 0 && item.y < ROWS) {
+          board.splice(item.y, 1);
+          board.unshift(Array(COLS).fill(null));
+        }
+        score += 300;
+        eduScore += 18;
+        lines += 1;
+        updateTipByItem("가로줄 제거 아이템은 같은 y좌표의 한 줄을 없앱니다. 높게 쌓인 줄에 놓으면 효과가 큽니다.");
+      }
+
+      if (item.type === "slow") {
+        slowUntil = performance.now() + 10000;
+        score += 150;
+        eduScore += 12;
+        updateTipByItem("느린 시간 아이템이 발동했습니다. 속도가 느려진 동안 다음 블록을 보고 전략을 세워 보세요.");
+      }
+
+      if (item.type === "bonus") {
+        score += 650;
+        eduScore += 25;
+        updateTipByItem("보너스 아이템 획득! 좋은 위치까지 블록을 옮긴 선택이 점수로 이어졌습니다.");
+      }
+
+      updateInfo();
+    }
+
+    function updateTipByItem(text) {
+      tipBox.innerHTML = `<strong>아이템 전략 힌트</strong><br />${text}`;
+      tipBox.classList.remove("flash");
+      void tipBox.offsetWidth;
+      tipBox.classList.add("flash");
+    }
+
+    function clearLines() {
+      let cleared = 0;
+
+      for (let y = ROWS - 1; y >= 0; y--) {
+        if (board[y].every(cell => cell !== null)) {
+          board.splice(y, 1);
+          board.unshift(Array(COLS).fill(null));
+          cleared++;
+          y++;
+        }
+      }
+
+      if (cleared > 0) {
+        const points = [0, 100, 300, 500, 900];
+        score += points[cleared] * level;
+        lines += cleared;
+        eduScore += cleared * 10 + (cleared >= 4 ? 30 : 0);
+        level = Math.floor(lines / 10) + 1;
+        baseDropInterval = Math.max(115, 850 - (level - 1) * 70);
+        updateInfo();
+        updateMission(cleared);
+        sfxLine(cleared);
+      }
+    }
+
+    function rotateMatrix(matrix) {
+      const size = matrix.length;
+      const rotated = Array.from({ length: size }, () => Array(size).fill(0));
+
+      for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+          rotated[x][size - 1 - y] = matrix[y][x];
+        }
+      }
+
+      return rotated;
+    }
+
+    function rotateItemPosition(piece) {
+      if (!piece.item) return null;
+      const size = piece.shape.length;
+      return {
+        type: piece.item.type,
+        x: size - 1 - piece.item.y,
+        y: piece.item.x
+      };
+    }
+
+    function rotate() {
+      if (!running || paused || gameOver) return;
+
+      const rotated = rotateMatrix(current.shape);
+      const rotatedItem = rotateItemPosition(current);
+
+      if (!collide(current, 0, 0, rotated)) {
+        current.shape = rotated;
+        current.item = rotatedItem;
+        sfxRotate();
+      } else if (!collide(current, -1, 0, rotated)) {
+        current.x--;
+        current.shape = rotated;
+        current.item = rotatedItem;
+        sfxRotate();
+      } else if (!collide(current, 1, 0, rotated)) {
+        current.x++;
+        current.shape = rotated;
+        current.item = rotatedItem;
+        sfxRotate();
+      }
+
+      drawBoard();
+    }
+
+    function move(dir) {
+      if (!running || paused || gameOver) return;
+      if (!collide(current, dir, 0)) {
+        current.x += dir;
+        sfxMove();
+        drawBoard();
+      }
+    }
+
+    function softDrop() {
+      if (!running || paused || gameOver) return;
+
+      if (!collide(current, 0, 1)) {
+        current.y++;
+        score += 1;
+        updateInfo();
+        playTone(220, 0.025, "triangle", 0.018);
+      } else {
+        lockPiece();
+      }
+
+      dropCounter = 0;
+      drawBoard();
+    }
+
+    function hardDrop() {
+      if (!running || paused || gameOver) return;
+
+      let distance = 0;
+      while (!collide(current, 0, 1)) {
+        current.y++;
+        distance++;
+      }
+
+      score += distance * 2;
+      updateInfo();
+      sfxDrop();
+      lockPiece();
+      drawBoard();
+    }
+
+    function lockPiece() {
+      const itemPositions = merge();
+
+      itemPositions.forEach(item => activateItem(item));
+      clearLines();
+      spawnPiece();
+    }
+
+    function spawnPiece() {
+      current = nextPiece || randomPiece();
+      nextPiece = randomPiece();
+
+      current.x = Math.floor(COLS / 2) - Math.ceil(current.shape[0].length / 2);
+      current.y = 0;
+
+      updateConcept(current.type);
+
+      if (current.item) {
+        const meta = ITEM_META[current.item.type];
+        itemStatus.textContent = `다음 아이템: ${meta.icon} ${meta.name}`;
+      } else if (!itemStatus.textContent.includes("발동")) {
+        itemStatus.textContent = "아이템 블록을 기다리는 중...";
+      }
+
+      if (collide(current)) {
+        endGame();
+      }
+
+      drawNext();
+    }
+
+    function updateInfo() {
+      scoreEl.textContent = score;
+      levelEl.textContent = level;
+      linesEl.textContent = lines;
+      eduScoreEl.textContent = eduScore;
+    }
+
+    function updateConcept(type) {
+      const item = EDUCATION[type];
+      conceptBox.innerHTML = `
+        <strong>현재 블록 개념: ${item.name}</strong><br />
+        <span class="chip">${item.concept}</span><br />
+        ${item.text}
+      `;
+      conceptBox.classList.remove("flash");
+      void conceptBox.offsetWidth;
+      conceptBox.classList.add("flash");
+    }
+
+    function updateMission(cleared = 0) {
+      const mission = MISSIONS[Math.floor(Math.random() * MISSIONS.length)];
+      const tip = TIPS[Math.floor(Math.random() * TIPS.length)];
+
+      let praise = "";
+      if (cleared >= 4) {
+        praise = "대단합니다! 4줄을 한 번에 제거했습니다. 이것이 ‘테트리스’입니다.";
+      } else if (cleared >= 2) {
+        praise = `${cleared}줄을 동시에 제거했습니다. 예측 전략이 잘 통했습니다.`;
+      } else if (cleared === 1) {
+        praise = "한 줄 제거 성공! 빈칸을 끝까지 채우는 집중력이 좋았습니다.";
+      } else {
+        praise = "새로운 미션을 확인하고 전략적으로 블록을 놓아 보세요.";
+      }
+
+      missionBox.innerHTML = `
+        <strong>학습 미션</strong><br />
+        ${praise}<br />
+        <span class="mini">다음 목표: ${mission}</span>
+      `;
+      tipBox.innerHTML = `
+        <strong>전략 힌트</strong><br />
+        ${tip}
+      `;
+
+      missionBox.classList.remove("flash");
+      tipBox.classList.remove("flash");
+      void missionBox.offsetWidth;
+      missionBox.classList.add("flash");
+      tipBox.classList.add("flash");
+    }
+
+    function showOverlay(title, desc) {
+      overlay.classList.remove("hidden");
+      overlay.innerHTML = `
+        <div class="overlay-title">${title}</div>
+        <div class="overlay-desc">${desc}</div>
+      `;
+    }
+
+    function hideOverlay() {
+      overlay.classList.add("hidden");
+    }
+
+    function startGame() {
+      initAudio();
+      if (!musicOn) startMusic();
+
+      board = createBoard();
+      score = 0;
+      level = 1;
+      lines = 0;
+      eduScore = 0;
+      baseDropInterval = 850;
+      dropInterval = 850;
+      dropCounter = 0;
+      lastTime = 0;
+      running = true;
+      paused = false;
+      gameOver = false;
+      pieceCount = 0;
+      slowUntil = 0;
+      current = randomPiece();
+      nextPiece = randomPiece();
+      updateInfo();
+      updateConcept(current.type);
+      updateMission(0);
+      itemStatus.textContent = "아이템 블록을 기다리는 중...";
+      drawNext();
+      hideOverlay();
+      sfxStart();
+      requestAnimationFrame(update);
+    }
+
+    function endGame() {
+      running = false;
+      gameOver = true;
+      sfxGameOver();
+      showOverlay(
+        "GAME OVER",
+        `최종 점수: ${score}<br>학습 점수: ${eduScore}<br><br>
+        오늘의 돌아보기<br>
+        “아이템을 어느 좌표에 놓았을 때 가장 효과적이었나요?”<br><br>
+        Enter 또는 게임 시작 버튼으로 다시 시작`
+      );
+    }
+
+    function togglePause() {
+      if (!running || gameOver) return;
+
+      paused = !paused;
+
+      if (paused) {
+        showOverlay("PAUSE", "P 키 또는 일시정지 버튼을 누르면 계속합니다.<br>멈춘 동안 다음 블록과 아이템 위치를 예측해 보세요.");
+      } else {
+        hideOverlay();
+        lastTime = 0;
+        requestAnimationFrame(update);
+      }
+    }
+
+    function update(time = 0) {
+      if (!running || paused || gameOver) return;
+
+      if (slowUntil > performance.now()) {
+        dropInterval = baseDropInterval + 520;
+        itemStatus.textContent = `🐢 느린 시간 적용 중: ${Math.ceil((slowUntil - performance.now()) / 1000)}초`;
+      } else {
+        dropInterval = baseDropInterval;
+      }
+
+      const deltaTime = time - lastTime;
+      lastTime = time;
+      dropCounter += deltaTime;
+
+      if (dropCounter > dropInterval) {
+        if (!collide(current, 0, 1)) {
+          current.y++;
+        } else {
+          lockPiece();
+        }
+        dropCounter = 0;
+      }
+
+      drawBoard();
+      requestAnimationFrame(update);
+    }
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        startGame();
+      }
+
+      if (event.key === "p" || event.key === "P") {
+        togglePause();
+      }
+
+      if (!running || paused || gameOver) return;
+
+      switch (event.key) {
+        case "ArrowLeft":
+          move(-1);
+          break;
+        case "ArrowRight":
+          move(1);
+          break;
+        case "ArrowDown":
+          softDrop();
+          break;
+        case "ArrowUp":
+          rotate();
+          break;
+        case " ":
+          event.preventDefault();
+          hardDrop();
+          break;
+      }
+    });
+
+    document.getElementById("startBtn").addEventListener("click", startGame);
+    document.getElementById("pauseBtn").addEventListener("click", togglePause);
+
+    document.getElementById("musicBtn").addEventListener("click", () => {
+      initAudio();
+      if (musicOn) {
+        stopMusic();
+      } else {
+        startMusic();
+      }
+    });
+
+    document.getElementById("soundBtn").addEventListener("click", () => {
+      initAudio();
+      soundOn = !soundOn;
+      document.getElementById("soundBtn").textContent = soundOn ? "효과음 끄기" : "효과음 켜기";
+      if (soundOn) sfxStart();
+    });
+
+    document.getElementById("leftBtn").addEventListener("click", () => move(-1));
+    document.getElementById("rightBtn").addEventListener("click", () => move(1));
+    document.getElementById("downBtn").addEventListener("click", softDrop);
+    document.getElementById("rotateBtn").addEventListener("click", rotate);
+
+    board = createBoard();
+    updateInfo();
+    updateMission(0);
+    drawBoard();
+    drawNext();
+  </script>
+</body>
+</html>
