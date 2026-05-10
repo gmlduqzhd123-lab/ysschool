@@ -8,6 +8,7 @@ export const navLinks = [
   { name: '언론보도', href: '#press-room' },
   { name: '개발자료', href: '#dev-lab' },
   { name: '저서', href: '#publications' },
+  { name: '에듀테크 갤러리', href: '/showcase' },
 ];
 
 export const skillsData = [

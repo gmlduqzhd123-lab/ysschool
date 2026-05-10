@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤조퇴사유뽑기 모음</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        /* 기본(초기) 테마 */
+        :root {
+            --bg-color: #f8f9fa;
+            --container-bg: white;
+            --text-color: #212529;
+            --sub-text: #6c757d;
+            --box-bg: #e9ecef;
+            --box-text: #495057;
+            --box-border: #ced4da;
+            --highlight-bg: #fff3cd;
+            --highlight-text: #d32f2f;
+            --highlight-border: #ffc107;
+            --btn-bg: #0d6efd;
+            --btn-hover: #0b5ed7;
+            --shadow-color: rgba(0,0,0,0.08);
+        }
+
+        /* 1. 보편적 조퇴 테마 (블루) */
+        body.blue-theme {
+            --bg-color: #e0f7fa;
+            --highlight-bg: #e1f5fe;
+            --highlight-text: #0288d1;
+            --highlight-border: #4fc3f7;
+            --btn-bg: #0288d1;
+            --btn-hover: #0277bd;
+        }
+
+        /* 2. MZ 트렌디 테마 (퍼플) */
+        body.purple-theme {
+            --bg-color: #f3e5f5;
+            --highlight-bg: #f3e5f5;
+            --highlight-text: #8e24aa;
+            --highlight-border: #ba68c8;
+            --btn-bg: #8e24aa;
+            --btn-hover: #7b1fa2;
+        }
+
+        /* 3. 병조퇴 힐링 테마 (민트) */
+        body.mint-theme {
+            --bg-color: #e8f5e9;
+            --highlight-bg: #e8f5e9;
+            --highlight-text: #2e7d32;
+            --highlight-border: #81c784;
+            --btn-bg: #2e7d32;
+            --btn-hover: #1b5e20;
+        }
+
+        /* 4. 선배/원로교사 고상한 테마 (브라운) */
+        body.brown-theme {
+            --bg-color: #efebe9;
+            --highlight-bg: #d7ccc8;
+            --highlight-text: #5d4037;
+            --highlight-border: #a1887f;
+            --btn-bg: #6d4c41;
+            --btn-hover: #5d4037;
+        }
+
+        /* 5. 41조 연수 학구적 테마 (그린/올리브) */
+        body.green-theme {
+            --bg-color: #f1f8e9;
+            --highlight-bg: #f1f8e9;
+            --highlight-text: #558b2f;
+            --highlight-border: #aed581;
+            --btn-bg: #689f38;
+            --btn-hover: #558b2f;
+        }
+
+        /* 6. 파워 MZ 예능용 극대노 테마 (다크/레드) */
+        body.dark-theme {
+            --bg-color: #1a1a1a;
+            --container-bg: #2d2d2d;
+            --text-color: #ff4757;
+            --sub-text: #a4b0be;
+            --box-bg: #3d3d3d;
+            --box-text: #f1f2f6;
+            --box-border: #747d8c;
+            --highlight-bg: #ffeaa7;
+            --highlight-text: #d63031;
+            --highlight-border: #fdcb6e;
+            --btn-bg: #ff4757;
+            --btn-hover: #ff6b81;
+            --shadow-color: rgba(0,0,0,0.5);
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            margin: 0;
+            transition: background-color 0.5s ease; /* 부드러운 배경색 전환 */
+        }
+        .container {
+            text-align: center;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        body.dark-theme .container {
+            border: 2px solid #ff4757;
+        }
+        h1 {
+            color: var(--text-color);
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .cheer-message {
+            color: var(--sub-text);
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .menu-btn {
+            background-color: var(--box-bg);
+            color: var(--text-color);
+            border: 2px solid var(--box-border);
+            padding: 16px;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .menu-btn:hover {
+            background-color: #e2e6ea;
+            border-color: #adb5bd;
+            transform: translateY(-2px);
+        }
+        .menu-btn.special {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+        }
+        .menu-btn.special:hover {
+            background-color: #ff6b81;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: var(--sub-text);
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        .back-btn:hover {
+            background-color: var(--box-bg);
+        }
+        .result-wrapper {
+            position: relative;
+        }
+        .result-box {
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--box-bg);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--box-text);
+            padding: 20px;
+            line-height: 1.4;
+            word-break: keep-all;
+            transition: all 0.2s ease;
+            border: 2px dashed var(--box-border);
+            user-select: none;
+        }
+        .result-box.highlight {
+            background: var(--highlight-bg);
+            color: var(--highlight-text);
+            border-color: var(--highlight-border);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        body.dark-theme .result-box.highlight {
+            box-shadow: 0 5px 20px rgba(253, 203, 110, 0.4);
+        }
+        .copy-hint {
+            display: none;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--sub-text);
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .action-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 18px 32px;
+            font-size: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.1s;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .action-btn:hover {
+            background-color: var(--btn-hover);
+        }
+        .action-btn:active {
+            transform: scale(0.95);
+        }
+        .action-btn:disabled {
+            background-color: #adb5bd;
+            color: #e9ecef;
+            cursor: not-allowed;
+            transform: none;
+        }
+        body.dark-theme .action-btn:disabled {
+            background-color: #57606f;
+            color: #a4b0be;
+        }
+        
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: var(--sub-text);
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        .credit {
+            margin-top: 5px;
+            font-size: 14px;
+            color: var(--sub-text);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="menu-screen">
+        <h1>🎲 랜덤조퇴사유뽑기</h1>
+        <div class="cheer-message">원하시는 테마를 선택해 주세요!</div>
+        
+        <div class="menu-grid">
+            <button class="menu-btn" onclick="selectCategory('general')">보편적 조퇴 사유 (무난함)</button>
+            <button class="menu-btn" onclick="selectCategory('mz')">MZ 선생님 조퇴 사유 (트렌디)</button>
+            <button class="menu-btn" onclick="selectCategory('sick')">병조퇴 사유 (건강/진료)</button>
+            <button class="menu-btn" onclick="selectCategory('senior')">선배/원로 교사 조퇴 사유 (고상함)</button>
+            <button class="menu-btn" onclick="selectCategory('training')">41조 연수 주제 뽑기</button>
+            <button class="menu-btn special" onclick="selectCategory('power')">🚨 파워 MZ 조퇴 사유(예능용)</button>
+        </div>
+        
+        <div class="disclaimer">*결재가 나지 않는 것은 전적으로 사용자의 책임입니다:)</div>
+        <div class="credit">Made by. 엽쌤</div>
+    </div>
+
+    <div class="container" id="picker-screen" style="display: none;">
+        <button class="back-btn" onclick="showMenu()">⬅ 메뉴로</button>
+        
+        <h1 id="picker-title">제목</h1>
+        <div class="cheer-message" id="picker-cheer">응원 문구</div>
+        
+        <div class="result-wrapper">
+            <div class="result-box" id="result" onclick="copyToClipboard()">버튼을 눌러 사유를 뽑아보세요!</div>
+            <div class="copy-hint" id="copyHint">👆 텍스트를 클릭하면 복사됩니다!</div>
+        </div>
+        <button class="action-btn" onclick="startDraw()" id="drawBtn">사유 뽑기</button>
+        
+        <div class="disclaimer">*결재가 나지 않는 것은 전적으로 사용자의 책임입니다:)</div>
+        <div class="credit">Made by. 엽쌤</div>
+    </div>
+
+    <script>
+        // 카테고리별 데이터 및 설정
+        const data = {
+            general: {
+                title: "🎲 보편적 조퇴 사유 뽑기",
+                cheer: "선생님, 오늘도 수고 많으셨습니다 ☕️",
+                theme: "blue-theme",
+                copyMsg: "✅ 복사되었습니다!",
+                reasons: [
+                    "이사 준비 및 짐 정리", "포장이사 방문 견적 상담", "부동산 전/월세 계약서 작성", "부동산 보증금 잔금 처리", "전입신고 및 확정일자 신청",
+                    "아파트/오피스텔 관리사무소 행정 처리", "인터넷 및 TV 이전 설치", "가전제품 출장 수리 기사 방문", "정수기 정기 점검 기사 방문", "대형 가구 배송 수령 및 조립",
+                    "자택 누수 점검 및 보수 공사", "디지털 도어락 고장 수리", "창틀 및 방충망 보수 시공", "겨울철 보일러 점검 및 수리", "도시가스 안전 점검 및 전출입 신고",
+                    "자택 수도 배관 및 전기 설비 수리", "자택 인테리어/도배 시공 입회", "에어컨/세탁기 분해 세척 기사 방문", "거주지 해충 방역 및 소독 작업", "층간소음 관련 관리사무소 방문",
+                    "대형 폐기물 스티커 발급 및 배출", "무인택배함 비밀번호 오류 해결", "실내 조명 기구 및 차단기 교체", "거주지 소방 안전 점검 입회", "주택 방범용 CCTV 설치",
+                    "은행 대출 연장 및 금융 상담", "은행 창구 대면 필수 업무 처리", "여권 신규 발급 및 구청 방문 수령", "운전면허증 적성검사 및 갱신", "주민등록증 분실 재발급 신청",
+                    "개인 인감증명서 방문 발급", "세무서 방문 및 세금 납부 상담", "경찰서 민원실 서류 제출", "법률 상담 및 공증 사무소 방문", "관공서/법원 증명서 방문 발급",
+                    "우체국 방문 및 내용증명 우편 발송", "통신사 대리점(명의변경/유심교체) 방문", "연말정산 누락 서류 행정복지센터 방문", "자동차 정기 검사 및 배출가스 검사", "차량 엔진오일 및 소모품 교체",
+                    "타이어 교체 및 휠 점검", "자동차 보험 갱신 대면 상담", "차량 접촉 사고 견적 확인 및 수리", "차량 블랙박스 및 내비게이션 교체", "하이패스 단말기 오류 수리",
+                    "중고차 매매 및 차량 명의 이전", "증권사 영업점 방문 및 계좌 정지 해제", "보안카드/OTP 분실에 따른 은행 방문", "개인 연금 및 보험 보장 분석 상담", "가족 명의 통신/금융 업무 대행",
+                    "가족 제사 참석 및 준비", "조상 묘소 벌초 및 관리", "가족 동반 여행 사전 준비 및 출발", "군 입대 가족 배웅 및 훈련소 동행", "해외 출국 가족 공항 배웅",
+                    "가족 창업/개업 축하 방문 및 일손 돕기", "명절 전 친지 방문 및 명절 선물 준비", "지인 및 친척 결혼식 참석 이동", "친척/지인 장례식 조문", "형제/자매 독립 및 분가 이사 돕기",
+                    "가족의 중요한 자격시험/면접 수송", "친척 생신 등 가족 행사 참석", "타 지역 거주 본가/처가/시댁 방문", "가족 행사 관련 식당 및 장소 사전 예약", "부모님 연말정산 인적공제 서류 발급",
+                    "부모님 댁 가전제품/가구 설치 입회", "부모님 댁 이사 및 대청소 지원", "부모님 은행 보이스피싱 예방 이체한도 설정", "부모님 휴대폰 기기 변경 및 개통 대행", "형제자매 차량 정비 및 자동차 검사 대행",
+                    "대학원/평생교육원 수강 신청 및 상담", "국가공인 자격증(한국사, 컴활 등) 시험 응시", "외부 직무 세미나 및 포럼 개인 참석", "도서관 방문 및 도서 대출/자료 수집", "어학 시험 응시 및 어학원 레벨테스트",
+                    "직무 관련 컴퓨터/에듀테크 학원 수강", "개인 출판 및 원고 관련 출판사 미팅", "문화센터 평일 오후 정기 강좌 수강", "직무 관련 박람회 및 전시회 참관", "목공/도예/가죽 공방 평일 원데이 클래스",
+                    "예약된 평일 문화 공연(뮤지컬, 연극) 관람", "장거리 여행을 위한 공항/KTX역 조기 이동", "고속버스터미널 이동 및 탑승 수속", "반려동물 예방접종 및 동물병원 방문", "반려동물 위탁 및 미용 시설 방문",
+                    "생활 체육(수영, 테니스, 필라테스) 정기 레슨", "귀중품(명품 시계, 구두 등) 전문 수리점 방문", "개인 프로필 및 증명사진 촬영 스튜디오 방문", "명절/휴가철 극심한 고속도로 정체 회피 조기 출발", "거주지 단수/정전 등 비상 상황 현장 대기",
+                    "장기간 근무 후 심신 재충전을 위한 개인 휴식", "지역 전통시장 방문 및 특산물 구매", "지역 사회 봉사활동(배식, 유기견 등) 참여", "거주지 주변 환경 정화 캠페인 참여", "종교 시설 방문 및 시민 단체 행사 참석"
+                ]
+            },
+            mz: {
+                title: "🎲 MZ 선생님을 위한 조퇴 사유",
+                cheer: "선생님, 오늘도 수고 많으셨습니다 ☕️",
+                theme: "purple-theme",
+                copyMsg: "✅ 복사되었습니다!",
+                reasons: [
+                    "필라테스 개인 레슨 참석", "요가 개인 레슨 참석", "퍼스널 트레이닝(PT) 예약", "바디프로필 촬영 준비", "퍼스널 컬러 진단",
+                    "체형 맞춤 스타일링 클래스", "라식 안과 정기 검진", "라섹 안과 정기 검진", "심리 상담 센터 방문", "멘탈 케어 프로그램 참여",
+                    "피부과 레이저 시술 예약", "에스테틱 정기 관리", "정형외과 도수치료", "거북목 체형 교정 센터 방문", "치아 미백 진료",
+                    "치과 스케일링 예약", "테니스 원포인트 평일 레슨", "골프 원포인트 평일 레슨", "클라이밍 부상 물리치료", "크로스핏 부상 물리치료",
+                    "수면 클리닉 진료", "번아웃 예방을 위한 심신 리프레시", "두피 케어 센터 정기 관리", "탈모 케어 센터 방문", "프리다이빙 자격 강습",
+                    "스쿠버다이빙 자격증 강습", "명상 리트릿 프로그램 참여", "요가 리트릿 프로그램 참여", "비건 쿠킹 클래스 참석", "건강 검진 재검사 방문",
+                    "한의원 추나요법 진료", "안구건조증 안과 진료", "네일아트 예약", "패디큐어 예약", "속눈썹 펌 예약",
+                    "퍼스널 향수 제작 클래스", "성수 한정판 팝업스토어 예약 방문", "홍대 팝업스토어 오픈런", "한정판 운동화 오프라인 응모", "최애 아이돌 생일 카페 투어",
+                    "최애 배우 팬미팅 티켓팅 준비", "피켓팅 성공한 콘서트 직관", "인기 뮤지컬 평일 캐스팅 직관", "유명 파인다이닝 평일 런치 예약", "오마카세 평일 런치 예약",
+                    "니치 향수 조향 원데이 클래스", "터프팅 원데이 클래스 참석", "가죽공예 원데이 클래스 참석", "베이킹 원데이 클래스 참석", "레터링 케이크 원데이 클래스",
+                    "독립출판물 페어 평일 관람", "아트북 페어 평일 관람", "미술관 평일 도슨트 투어", "갤러리 평일 도슨트 투어", "e스포츠 결승전 직관 이동",
+                    "야구장 테이블석 직관 조기 이동", "축구장 프리미엄석 직관 이동", "와인 시음회 참석", "와인 페어링 클래스 참석", "위스키 바 팝업 이벤트 참석",
+                    "플라워 레슨 참석", "실내 가드닝 클래스 참석", "반려동물 수제 간식 클래스", "유기견 보호소 평일 봉사활동", "유기묘 보호소 평일 봉사활동",
+                    "로스터리 카페 바리스타 원데이 클래스", "드로잉 카페 방문", "이색 전시회 얼리버드 관람", "독립영화관 평일 낮 관람", "전북 임실 오수 지역 향토 역사 탐방",
+                    "목공방 도마 만들기 클래스", "도예 공방 물레 체험", "나만의 칵테일 만들기 클래스", "실내 서핑장 평일 강습", "폴댄스 1회 체험 수강",
+                    "방송댄스 평일 저녁반 참석", "금요일 반차 호캉스 얼리 체크인", "일본 주말여행 공항 조기 이동", "동남아 주말여행 공항 조기 이동", "제주도 서핑 트립 출발",
+                    "양양 서핑 트립 출발", "수업 자료 수집 겸 감성 촌캉스", "인기 캠핑장 평일 선착순 체크인", "글램핑장 평일 선착순 체크인", "차박 텐트 피칭 세팅",
+                    "오토캠핑 텐트 피칭 세팅", "풀빌라 얼리 체크인", "감성 숙소 예약 방문", "유튜버 추천 로컬 맛집 오픈런", "에버랜드 눈치게임 성공 기원 방문",
+                    "롯데월드 눈치게임 성공 기원 방문", "대형 베이커리 카페 투어", "워케이션 장소 사전 답사", "게스트하우스 파티 참석 조기 이동", "친구들과의 브라이덜 샤워 준비",
+                    "지역 감성 소품샵 쇼핑 투어", "빈티지 의류 편집샵 투어", "유명 베이글 맛집 평일 웨이팅", "지역 유명 축제 개막식 참석", "템플스테이 입소 조기 이동",
+                    "밤도깨비 여행 출국 수속", "애플스토어 전자기기 수리", "삼성서비스센터 스마트폰 수리", "당근마켓 레어템 직거래", "번개장터 레어템 직거래",
+                    "레터링 케이크 픽업 예약", "파티 데코레이션 용품 구매", "MBTI 기반 심리 상담소 방문", "유명 사주 상담소 방문", "타로 맛집 방문 상담",
+                    "넷플릭스 정주행을 위한 완벽한 집콕", "OTT 정주행 리프레시", "청년주택 청약 서류 방문 제출", "행복주택 청약 서류 방문 제출", "중소기업 청년 전세자금대출 상담",
+                    "자취방 원룸 매물 투어", "자취방 전세 만기 이사 준비", "자취방 오늘의집 스타일 인테리어 시공", "자취방 빔프로젝터 설치 기사 방문", "자취방 홈시어터 설치 기사 방문",
+                    "당근마켓 무료나눔 용달 직거래", "대형 가구 용달 직거래", "알뜰폰 요금제 번호이동 개통", "알뜰폰 유심 현장 수령", "청년도약계좌 은행 창구 방문",
+                    "희망적금 만기 해지 창구 방문", "트래블월렛 오프라인 카드 수령", "첫 차 신차 출고 현장 인수", "중고차 출고 차량 현장 인수", "자동차 감성 랩핑 샵 방문",
+                    "자동차 틴팅 썬팅 샵 방문", "셀프 세차장 평일 방문", "디테일링 세차 예약 방문", "전동 킥보드 수리", "전기 자전거 수리",
+                    "거주지 무인 택배함 오류 해결", "로봇청소기 AS 센터 방문", "캡슐 커피머신 AS 센터 방문", "겨울철 자취방 보일러 긴급 점검", "여름철 에어컨 분해 청소 기사 방문",
+                    "공기청정기 필터 교체 및 점검", "개인 아카이빙 프로젝트(과거 기록물 정리) 작업", "과거 사진 및 기록물 스캔 센터 방문", "부동산 경매 평일 스터디 모임", "파이어족 달성 재무설계 대면 상담",
+                    "퇴근 후 앱 개발 사이드 프로젝트 팀 미팅", "노션 오프라인 실무 강의 참석", "피그마 오프라인 실무 강의 참석", "어학연수 유학원 대면 상담", "해외 한 달 살기 유학원 상담",
+                    "챗GPT 활용 에듀테크 워크숍", "AI 도구 활용 에듀테크 워크숍", "퍼스널 브랜딩 컨설팅 미팅", "인스타그램 운영 컨설팅 미팅", "개인 화보 원본 셀렉 미팅",
+                    "브이로그 촬영용 카메라 렌탈샵 방문", "영어 회화 오프라인 밋업 참석", "언어 교환 랭기지 익스체인지 밋업", "독립출판 에세이 글쓰기 워크숍", "교사 인플루언서 네트워킹 모임",
+                    "교사 크리에이터 네트워킹 모임", "베스트셀러 저자 강연 참석", "트렌드 분석 오프라인 세미나 참석", "공유 오피스 정기권 투어", "프리미엄 스터디 카페 투어",
+                    "카카오톡 이모티콘 제작 클래스", "아이패드 디지털 드로잉 클래스", "직장인 밴드 정기 연습 참여", "직장인 댄스 동호회 연습 참여", "와디즈 펀딩 성공 기념 파티 참석",
+                    "텀블벅 펀딩 성공 기념 파티 참석", "반려견 유치원 하원 픽업", "반려견 생일 파티 준비", "반려묘 생일 파티 준비", "아무것도 안 하고 격렬하게 쉬기",
+                    "나만의 맞춤 디퓨저 블렌딩 체험", "퍼스널 스멜 찾기 향수 공방 방문", "유튜브 채널 기획 스터디 모임", "퍼스널컬러 재진단 상담", "주식 투자 평일 오프라인 강연 참석",
+                    "미국 주식 투자 스터디 모임", "암호화폐 블록체인 밋업 참석", "스마트스토어 창업 오프라인 세미나", "프리미엄 독서 모임 평일 참석", "소규모 북클럽 오프라인 모임",
+                    "일러스트레이터 오프라인 원데이 클래스", "영상 편집 프리미어 프로 강좌 수강", "감성 사진 촬영 출사 모임 참석", "보컬 트레이닝 개인 레슨", "피아노 개인 레슨 평일 수강",
+                    "일렉 기타 평일 원데이 레슨", "평일 낮 동네 한 바퀴 러닝 크루 참석", "한강공원 피크닉 명당 선점 조기 퇴근", "퍼스널 쇼퍼 동행 쇼핑 서비스 이용", "스피치 및 발성 교정 학원 수강",
+                    "연극 치료 프로그램 평일 세션", "컬러 테라피 심리 상담", "사운드 배스 명상 프로그램", "식물 큐레이팅 및 가드닝 센터 방문", "인디 밴드 평일 소공연 직관", "코인 노래방 혼코노 3시간 달리기"
+                ]
+            },
+            sick: {
+                title: "💊 병조퇴 사유 뽑기",
+                cheer: "선생님, 아프지 마시고 쾌유하세요 ☕️",
+                theme: "mint-theme",
+                copyMsg: "✅ 복사되었습니다!",
+                reasons: [
+                    "감기 몸살 내과 진료", "장염 내과 진료", "위경련 의심 내과 방문", "소화불량 내과 진료", "만성 위염 정기 진료",
+                    "과민성 대장 증후군 진료", "발열 및 오한 내과 방문", "독감 의심 증상 병원 검사", "코로나19 신속항원검사", "기관지염 증상 내과 진료",
+                    "천식 증상 내과 진료", "갑상선 질환 정기 검진", "혈압 관련 정기 약 처방 방문", "혈당 정기 검진 및 진료", "편두통 완화 내과 방문",
+                    "빈혈 증상 내과 진료", "원인 불명 복통 내과 진료", "어지럼증 완화 내과 진료", "음식 알레르기 반응 내과 진료", "피로 누적 수액 처방 방문",
+                    "편도선염 이비인후과 진료", "성대결절 이비인후과 진료", "후두염 이비인후과 진료", "중이염 이비인후과 진료", "만성 비염 이비인후과 진료",
+                    "축농증 증상 이비인후과 진료", "알레르기성 비염 이비인후과 진료", "이명 증상 이비인후과 방문", "이석증 의심 어지럼증 진료", "성대 보호 음성 치료",
+                    "목소리 쉼 증상 이비인후과 방문", "인후염 이비인후과 진료", "코피 지혈 및 이비인후과 검사", "청력 저하 이비인후과 진료", "수면무호흡증 진료 및 상담",
+                    "편도결석 제거 이비인후과 진료", "부비동염 진료 및 약 처방", "이비인후과 알레르기 검사 진행", "귀 통증 증상 정밀 검사", "편도 부종 이비인후과 진료",
+                    "허리 디스크 통증 정형외과 진료", "거북목 증후군 물리치료", "일자목 통증 물리치료 방문", "손목 터널 증후군 정형외과 진료", "족저근막염 정형외과 진료",
+                    "발목 염좌 정형외과 진료", "무릎 관절 통증 정형외과 방문", "어깨 회전근개 염증 정형외과 진료", "오십견 증상 물리치료", "테니스 엘보 통증 정형외과 진료",
+                    "손가락 관절 통증 정형외과 진료", "척추관 협착증 정형외과 정기 진료", "교통사고 후유증 물리치료 방문", "허리 통증 정형외과 진료", "근육통 완화 한의원 침술 치료",
+                    "목 디스크 통증 완화 한의원 방문", "손목 건초염 증상 정형외과 진료", "발가락 통증 엑스레이 촬영", "무릎 인대 정형외과 초음파 검사", "만성 통증 체외충격파 치료 방문",
+                    "결막염 안과 진료", "알레르기성 결막염 안과 진료", "안구건조증 안과 정밀 진료", "눈 다래끼 안과 진료", "각막 통증 안과 방문",
+                    "시력 저하 의심 안과 정밀 검사", "비문증 증상 안과 방문 진료", "백내장 수술 경과 관찰 정기 검진", "충치 치과 신경 치료", "사랑니 통증 치과 발치 예약",
+                    "치아 파절 치과 진료", "치주염 잇몸 염증 치과 진료", "구강 검진 및 치과 스케일링", "임플란트 수술 후 치과 정기 검진", "치아 시림 증상 치과 방문",
+                    "두드러기 피부과 진료", "아토피 피부염 피부과 진료", "접촉성 피부염 피부과 방문", "여드름 염증 주사 처방 진료", "원형 탈모 증상 피부과 진료",
+                    "두통 신경과 진료", "우울감 정신건강의학과 진료", "수면 장애 정신건강의학과 진료", "불안 증상 정신건강의학과 방문", "스트레스 완화 심리 상담 방문",
+                    "화상 치료 외과 진료", "찰과상 소독 외과 진료", "대상포진 의심 피부과 방문", "국가 일반 건강검진 수검", "특수 건강검진 위내시경 수검",
+                    "특수 건강검진 대장내시경 수검", "건강검진 결과 이상 소견 재진 방문", "코로나19 백신 예방 접종 방문", "독감 백신 예방 접종 방문", "만성 질환 정기 약 처방 조제",
+                    "불면증 완화 신경과 진료", "손발 저림 증상 신경과 방문", "소화 기관 정기 검진", "만성 피로 증후군 진료", "목 뻐근함 통증의학과 진료"
+                ]
+            },
+            senior: {
+                title: "☕️ 선배/원로 교사 조퇴 사유",
+                cheer: "선생님, 그동안의 노고에 깊이 감사드립니다 🌿",
+                theme: "brown-theme",
+                copyMsg: "✅ 복사되었습니다. 평안한 오후 보내십시오.",
+                reasons: [
+                    "정기 건강검진 및 정밀 검사 수검", "만성 질환 정기 병원 방문 및 약 처방", "치과 보철 및 임플란트 정기 점검", "노안 및 백내장 경과 관찰 안과 진료", "관절 및 척추 건강을 위한 한의원 진료",
+                    "체력 저하로 인한 수액 처방 및 휴식", "도수치료 및 재활 물리치료 방문", "면역력 증진을 위한 건강 클리닉 방문", "이비인후과 청력 정기 검진", "한방 병원 침술 및 뜸 치료",
+                    "배우자 건강검진 동행 및 보호자 대기", "배우자 병원 진료 동행 및 간병", "자녀 출산 준비 지원 및 산후조리원 방문", "손자녀(외손자녀) 탄생 축하 방문", "손자녀 백일 및 첫돌 가족 식사 참석",
+                    "손자녀 유치원/학교 학예회 및 졸업식 참관", "자녀 상견례 및 결혼식 준비 동행", "자녀 신혼집 이사 및 가전 설치 지원", "노부모님 요양원 면회 및 건강 상태 확인", "노부모님 병원 진료 모셔다드리기",
+                    "가족 친지 장례 및 조문 참석", "문중 제사 및 종친회 행사 참석", "조상 묘소 벌초 및 선산 관리", "칠순(고희) 및 팔순(산수) 가족 행사 준비", "형제자매 칠순 가족 모임 참석",
+                    "자녀 독립 및 분가 관련 부동산 계약 동행", "자녀 대출 상담 및 금융 업무 지원", "은사님 찾아뵙기 및 안부 인사", "대학 동문회 및 동기회 정기 모임 참석", "교직 선배(퇴직 교원) 오찬 및 안부 모임",
+                    "퇴직 연금 및 노후 설계 관련 사학연금관리공단 방문", "노후 대비 자산 관리 및 은행 PB 상담", "법률 상담 및 세무서 상속/증여 상담", "주민센터 가족관계 서류 직접 발급", "자동차 보험 갱신 및 대면 상담",
+                    "본인 소유 부동산 계약 및 세입자 면담", "주택 노후 설비 점검 및 보수 공사 입회", "전원주택/주말농장 시설 관리 및 보수", "자택 정원 가드닝 및 조경수 관리", "자택 동파 방지 및 보일러 정기 점검",
+                    "건강 관리를 위한 평일 요가/필라테스 수강", "관절 부담 없는 아쿠아로빅 평일 강습", "지역 문화센터 서예 및 문인화 강좌 수강", "클래식/국악 등 고상한 평일 문화 공연 관람", "미술관 및 박물관 기획 전시 평일 관람",
+                    "다도 및 전통 차 문화 예절 클래스 참석", "지역 향토사 연구 및 문화유산 답사", "인문학 아카데미 및 명사 초청 특강 참석", "평생교육원 시 창작 및 수필 글쓰기 강좌", "수채화 및 동양화 평일 강습 참여",
+                    "화훼 장식 및 플로리스트 기초 과정 수강", "평일 낮 조용한 국립 도서관 방문 및 독서", "교직 회고록 및 자서전 집필 관련 자료 수집", "퇴직 후 대비 바리스타 자격증 과정 수강", "지역 사회 복지관 평일 자원봉사 참여",
+                    "독거노인 배식 봉사 및 나눔 활동 참석", "거주지 주민자치위원회 평일 회의 참석", "종교 단체 구역 예배 및 평일 행사 참석", "사찰 템플스테이 및 명상 프로그램 참여", "심신 수련 및 평화를 위한 묵언 명상",
+                    "지인 자녀 결혼식 청첩장 수령 및 오찬", "오랫동안 뵙지 못한 옛 동료 교사와의 만남", "교육 경력 나눔 및 후배 교사 멘토링", "교직 상담 및 수석교사/원로교사 간담회 참석", "교육청 주관 원로교사 초청 행사 참석",
+                    "교과 연구회 자문 위원 자격으로 회의 참석", "장학재단 및 장학회 이사회 평일 참석", "교육 봉사 단체 평일 정기 모임", "퇴직 교직원 협의회 관련 업무 처리", "교육 유공자 포상 관련 행정 서류 제출",
+                    "배우자와의 조용한 평일 근교 온천 여행", "복잡한 주말을 피한 평일 국내 명산 등반", "건강을 위한 평일 낮 수목원 및 둘레길 산책", "지역 특산물 축제 및 5일장 평일 방문", "명절 귀성길 교통 체증 회피를 위한 조기 출발",
+                    "침구류 세탁 등 대형 가사 노동을 위한 휴식", "김장철 배추 절임 및 가족 김장 준비", "전통 장 담그기(된장, 고추장) 가족 행사", "친지 방문을 위한 고속열차 평일 탑승", "장거리 해외여행(크루즈 등) 출국 수속 대기",
+                    "백화점 문화센터 평일 낮 강좌 참석", "맞춤 양복 및 한복 가봉을 위한 매장 방문", "건강식품 및 보약 지으러 유명 한의원 방문", "노안 안경 및 다초점 렌즈 맞춤 방문", "보청기 점검 및 청력 보조 기기 상담",
+                    "운전면허 갱신 및 고령 운전자 교통안전 교육", "차량 정기 검사 및 노후 부품 교체", "은행 영업점 방문하여 만기 적금 대면 수령", "국민연금공단 방문 및 노령 연금 상담", "유언장 작성 관련 법률 사무소 공증",
+                    "거주지 이장/통장 관련 지역사회 행정 업무", "마을 공동체 화단 가꾸기 및 환경 정화 활동", "지역 농협 방문 및 조합원 관련 업무 처리", "평일 지정 시간에만 진행되는 명인 초청 특강", "분재 가꾸기 및 난초 관리 관련 전시회 관람",
+                    "체질 개선을 위한 사상체질 전문 한의원 상담", "장기간의 교직 생활로 인한 심신 피로 회복", "조용하고 차분한 나만의 휴식 시간(리프레시)", "손자녀 돌봄으로 인한 체력 고갈 및 휴식", "오랜 교직 생활을 돌아보는 재충전의 시간"
+                ]
+            },
+            training: {
+                title: "📚 41조 연수 주제 뽑기",
+                cheer: "선생님, 방학 중에도 열정이 넘치십니다 ☕️",
+                theme: "green-theme",
+                copyMsg: "✅ 복사되었습니다!",
+                reasons: [
+                    "2022 개정 교육과정 총론의 이해", "2022 개정 교육과정 교과별 성취기준 분석", "학교자율시간 교육과정 편성 방안 연구", "깊이 있는 학습을 위한 프로젝트 수업 설계", "학생 주도성 강화를 위한 수업 모형 탐구",
+                    "과정 중심 평가 루브릭 개발 및 적용", "초3~4학년군 국어과 기초 문해력 지도 방안", "교과 융합형 프로젝트 수업 지도안 작성", "학년 교육과정 재구성 실습", "초등 학습 부진 학생 기초 학력 지도 방안",
+                    "바이브 코딩을 활용한 교실 수업", "챗GPT를 활용한 수업 자료 제작 연수", "초등 AI 교육과정 연계 수업 사례 탐구", "캔바(Canva)를 활용한 학생 참여형 수업 디자인", "에듀테크 활용 하이브리드 수업 설계",
+                    "메타버스 플랫폼을 활용한 교과 융합 수업", "AI 디지털 교과서(AIDT) 도입 대비 활용 방안 연구", "패들렛(Padlet)을 활용한 협력 학습 모형 탐구", "스마트패드 활용 에듀테크 수업 실습", "구글 워크스페이스 활용 효율적 학급 운영 연수",
+                    "회복적 생활교육을 통한 평화로운 교실 만들기", "학기 초 학생 관계 형성(빌드업) 활동 연구", "비폭력 대화(NVC)를 활용한 학급 긍정 훈육", "ADHD 및 경계선 지능 학생 맞춤형 지도 방안", "위기 학생 심리 정서 지원 상담 기법",
+                    "학부모 상담 스킬 및 학부모 민원 대처 방안", "교우관계 개선을 위한 또래 조정 프로그램 연수", "학교폭력 예방 교육 및 사안 처리 절차 숙지", "학급 긍정 행동 지원(PBIS) 시스템 구축 연구", "감정코칭을 활용한 학생 공감 대화법",
+                    "초등 온작품 읽기 수업 설계 및 실습", "그림책을 활용한 인성 교육 및 감정 수업", "질문이 살아있는 하브루타 독서 토론 수업", "미디어 리터러시 교육과정 연계 방안", "문해력 향상을 위한 어휘력 지도 방법",
+                    "슬로리딩(Slow Reading) 수업 사례 탐구", "초등학생을 위한 쉽게 쓰는 글쓰기 지도법", "시와 함께하는 생태 감수성 국어 교육", "연극놀이를 활용한 국어과 수업 디자인", "낭독 및 독서 연극을 통한 표현력 향상 지도",
+                    "수포자 예방을 위한 초등 수학 놀이 수업", "조작 교구를 활용한 초등 수학 개념 지도", "과정 중심 수학 탐구 과제 개발", "2022 개정 수학과 정보 교육 연계 방안", "학생 참여형 과학 실험 수업 설계",
+                    "팅커캐드 활용 3D 모델링 수업 실습", "탄소중립 실천을 위한 생태 전환 교육", "학교 텃밭 활용 생태 환경 교육 연수", "초등 과학 탐구 토론 대회 지도 방안", "기후 변화 대응 지속가능발전교육(ESD) 연구",
+                    "초등 체육 표현 활동 및 뉴스포츠 지도법", "교실에서 할 수 있는 안전한 신체 놀이 활동", "줄넘기 및 맨손 체조 단계별 지도 방안", "칼림바 및 소고 활용 1인 1악기 음악 수업", "오르프 음악 교육법을 활용한 리듬 수업",
+                    "학생 주도형 미술 감상 및 비평 수업", "명화와 함께하는 초등 미술 창작 활동", "태블릿을 활용한 디지털 드로잉 미술 수업", "초등 실과 발명 및 메이커 교육 연수", "지속가능한 식생활 교육 및 요리 실습 지도",
+                    "새 학기 학급 경영 계획 수립 및 환경 미화 설계", "놀이 중심 학급 세우기 프로그램 연구", "교실 속 보드게임을 활용한 공동체 놀이", "효율적인 나이스(NEIS) 학적 및 성적 처리 연수", "교사 교육과정 전문성 향상 직무 연수",
+                    "초임 교사를 위한 학급 경영 가이드 분석", "창의적 체험활동 운영 아이디어 연구", "다문화 학생을 위한 한국어 및 학교 적응 지도 방안", "특수 교육 대상자 통합 교육 지원 방안", "아동 학대 예방 및 신고 의무자 교육 숙지",
+                    "초등 영어 파닉스 놀이 중심 지도법", "영어 그림책을 활용한 스토리텔링 수업", "챈트와 노래를 활용한 즐거운 영어 수업", "에듀테크 활용 초등 영어 말하기 지도", "세계 시민 교육 및 다문화 이해 교육",
+                    "AI 펭톡 활용 자기주도적 영어 학습 지도", "초등 영어 과정 중심 평가 문항 개발", "원어민 교사와의 협력 수업(Co-teaching) 모형", "놀이와 게임을 활용한 영어 어휘 지도", "초등학생 글로벌 역량 강화를 위한 프로젝트",
+                    "초등 사회과 지역화 교재 활용 방안", "역사 보드게임을 활용한 재미있는 역사 수업", "학생 자치 활동 활성화 및 민주시민교육", "마을 교육 공동체 연계 사회 수업 설계", "인물 중심 초등 한국사 스토리텔링 지도법",
+                    "토의·토론 중심 사회과 문제 해결 학습", "미디어를 활용한 시사 및 계기 교육 방안", "경제 금융 교육을 위한 교실 화폐 활동", "법 체험 및 생활 안전 교육 지도 방안", "지리 정보 시스템(GIS) 활용 사회 수업 연구",
+                    "심폐소생술 및 학교 응급 처치 교육 연수", "교통안전 및 생활 안전 교육 지도안 작성", "디지털 성범죄 예방 및 양성평등 교육", "감염병 예방 및 보건 위생 교육 방안", "생명 존중 및 자살 예방 교육 연수",
+                    "진로 적성 검사 활용 및 초등 진로 교육", "초등학생 기업가 정신 및 창업 교육", "AI 시대 교사의 역할과 에듀테크 윤리 교육", "교사 성대 보호 및 올바른 발성법 연수", "교원 힐링 및 직무 스트레스 해소 명상 연수"
+                ]
+            },
+            power: {
+                title: "🚨 파워 MZ 조퇴 사유(예능용)",
+                cheer: "선생님, 짐 싸서 교장실로 오세요 ☕️",
+                theme: "dark-theme",
+                copyMsg: "✅ 복사완료 (결재 시 책임 안 짐)",
+                reasons: [
+                    "마라탕 혈중 농도 저하로 인한 긴급 수혈", "두바이 초콜릿 편의점 입고 시간 오픈런", "최애 아이돌 공항 출국 배웅 및 직캠 촬영", "임영웅 콘서트 티켓팅 실패로 인한 극심한 우울감", "오늘 OOTD가 마음에 안 들어서 자존감 하락",
+                    "퍼스널 컬러와 교실 형광등 조명이 안 맞아서", "MBTI 'P' 성향 폭발로 인한 무계획 조퇴", "넷플릭스 흑백요리사 스포 당하기 전에 정주행", "아침에 침대에서 일어날 결심 실패", "롤(LOL) 다이아 승급전 막판 스퍼트",
+                    "출근길 지옥철에서 기를 다 빨려서 배터리 0%", "교장선생님 훈화 말씀 듣고 급성 피로 증후군", "점심 급식 메뉴가 선넘게 맛없어서 맛집 원정", "흑당 버블티 펄이 너무 땡겨서 당 충전", "앞머리 고데기 풀림으로 인한 심리적 불안감",
+                    "옆 반 선생님이랑 기싸움에서 밀려서 멘탈 붕괴", "헬스장 스쿼트 랙 비었다는 소식 듣고 득근하러", "어제 마신 산토리 하이볼 숙취로 인한 요양", "우리 집 댕댕이가 출근할 때 너무 슬프게 쳐다봐서", "길고양이 츄르 챙겨주느라 시간 가는 줄 몰라서",
+                    "날씨가 너무 찢어지게 좋아서 한강 피크닉 마려움", "비 오는 날 파전에 막걸리 감성 도저히 못 참음", "에어팟 집에 두고 와서 노이즈 캔슬링 불가 스트레스", "애플워치 활동 링 마저 채우러 조기 퇴근", "스타벅스 프리퀀시 마감 임박 굿즈 긴급 수령",
+                    "당근마켓 네고 없는 쿨거래 약속 시간이 다가와서", "아이패드 배터리 1% 남아서 심장 떨림", "인스타 스토리 각 잡으러 성수동 팝업스토어 이동", "릴스 쇼츠 떡상해서 실시간 댓글 확인하러", "탕비실 맥심 모카골드가 다 떨어져서 강제 귀가",
+                    "슬릭백 챌린지 연습하다가 발목 삐끗", "전북 오수 지역 역사 탐방 빙자한 촌캉스 힐링", "우리 집 아이들 성장 기록 포트폴리오 밀린 거 정리", "최애 웹소설 웹툰 연재 시간 맞춰서 대기", "방금 코인 떡락해서 심신 안정이 매우 필요함",
+                    "퇴근 4시간 전부터 이미 마음은 퇴근해서", "점심 먹고 식곤증이 미친 듯이 몰려와서 기절 직전", "에어컨 바람이 내 꿀피부 수분을 앗아가서", "퇴근 지옥철 인파를 피하기 위한 선제적 조치", "나만의 소확행을 위한 무지성 무계획 반차",
+                    "멍 때리기 대회 출전 대비 맹훈련", "집 문앞에 둔 택배 도난당할까봐 심장이 쿵쾅거려", "새로 나온 포켓몬빵 띠부띠부씰 신상 헌팅", "올리브영 빅세일 마지막 날 매장 털러 감", "피부과 피지 압출 후 붉은기 가라앉히기",
+                    "새로 산 향수 냄새가 나랑 안 맞아서 샤워하러", "어제 산 로또 1등 당첨 확인하러 농협 본점 갈 준비", "친구가 갑자기 마라엽떡 먹자며 번개 약속 잡아줌", "다이어트 중인데 교무실 간식 유혹을 참을 수 없어서", "바디프로필 D-10, 수분 조절 및 태닝 샵 긴급 방문",
+                    "오늘은 일할 기분이 전혀 아니라는 내면의 목소리", "유튜브 프리미엄 결제일이라 뽕 뽑으러 영상 몰아보기", "어제 너무 열심히 일해서 나 자신에게 주는 보상", "오늘이 금요일인 줄 착각해서 이미 뇌가 정지됨", "교실 와이파이가 끊겨서 현대인의 생존 위협 느낌",
+                    "교감선생님이랑 3초 이상 눈 마주쳐서 급성 심박수 증가", "오늘 급식에 나온 오이 극혐이라 입맛 상실", "당근에서 최애 아이돌 희귀 포카 직거래 잡힘", "무선 마우스 배터리 방전으로 인한 강제 업무 중단", "내 기계식 키보드 타건음이 오늘따라 거슬려서",
+                    "나만의 퍼스널 스멜을 찾기 위한 조향 클래스", "아이폰 액정 박살 나서 애플케어플러스 리퍼 받으러", "내일 연차인데 오늘 오후부터 미리 쉬고 싶어서", "만성 질환인 '집에 가고 싶다 병' 급성 발작", "출근하자마자 격렬하게 퇴근 마려움 증후군",
+                    "탕후루 꼬치에 찔린 마음의 상처 치유", "요아정 벌집꿀 및 초코쉘 토핑 품절 전 방문", "밤샘 게임으로 인한 현재 내 HP 1 상태", "집에 있는 고양이 젤리 발바닥 만져주러", "인형 뽑기 기계에서 오기 생겨서 지갑 털러",
+                    "붕어빵 아저씨 퇴근하기 전에 가슴 속 3천원 털러", "첫눈 와서 낭만 터져서 도저히 일 못함", "날씨가 흐려서 우울증 초기 증상 몰려옴", "날씨가 맑아서 인간 광합성 절실함", "새 신발 신고 왔는데 비 와서 화가 잔뜩 남",
+                    "내 인생의 진리를 찾기 위해 용한 사주 타로 보러", "요즘 내 사주에 역마살이 꼈다고 해서 이동해야 함", "그냥, 아묻따(아무것도 묻지도 따지지도 말고) 조퇴", "카톡 멀티프로필 설정하다 갑자기 현타 와서", "갤럭시에서 아이폰으로 갈아타서 데이터 백업하러",
+                    "짱구 수면 파자마 입고 전기장판에서 귤 까먹으려고", "성수동 5성급 호캉스 얼리 체크인 성공해서", "해외 직구 택배 도착 알림 받고 가슴이 설레서", "오픈런 필수인 유명 베이글 맛집 웨이팅 번호 다가옴", "친구 브라이덜 샤워 풍선 100개 불어주러",
+                    "전남친/전여친 결혼 소식 듣고 멘탈 붕괴 수습", "거울 속 내 모습이 오늘따라 폼 미쳐서 놀러 가야 함", "집에서 애지중지 키우는 몬스테라 분갈이 골든타임", "새로 산 커스텀 키보드 축 윤활 작업하러", "퇴근길 차 막히면 도로에서 분노조절장애 올까봐",
+                    "교무실 에어컨/히터 온도가 내 쿨톤/웜톤 체질과 안 맞음", "내일이 주말이라 마음이 이미 에버랜드에 가 있음", "여름 쿨톤인데 가을 웜톤 옷 입고 와서 빨리 갈아입으러", "줌바 댄스 학원 맨 앞자리 센터 사수하러", "방금 산 아이스크림 녹기 전에 빨리 집에 냉동실 직행",
+                    "나 빼고 딴 쌤들 다 반차 써서 나도 군중심리로", "일주일의 중간인 수요일이라 고비 넘기기용 자체 휴강", "갑자기 내 인생의 주인공은 나라는 걸 깊게 깨달아서", "통장 잔고 보고 슬퍼서 무지출 챌린지 하러 집에 감", "AI가 지금 당장 조퇴하는 게 정신 건강에 좋다고 해서"
+                ]
+            }
+        };
+
+        let currentCategory = '';
+        let currentReasons = [];
+        let isSpinning = false;
+
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function selectCategory(categoryKey) {
+            currentCategory = categoryKey;
+            const config = data[categoryKey];
+            currentReasons = config.reasons;
+
+            document.body.className = config.theme;
+            
+            document.getElementById('picker-title').textContent = config.title;
+            document.getElementById('picker-cheer').textContent = config.cheer;
+            
+            const resultBox = document.getElementById('result');
+            resultBox.textContent = "버튼을 눌러 뽑아보세요!";
+            resultBox.classList.remove('highlight');
+            document.getElementById('copyHint').style.display = 'none';
+            document.getElementById('drawBtn').disabled = false;
+            document.getElementById('drawBtn').textContent = "사유 뽑기";
+
+            document.getElementById('menu-screen').style.display = 'none';
+            document.getElementById('picker-screen').style.display = 'block';
+        }
+
+        function showMenu() {
+            document.body.className = ''; 
+            document.getElementById('picker-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'block';
+        }
+
+        // 룰렛 돌아가는 틱 소리
+        function playTick() {
+            if(!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, audioCtx.currentTime); 
+            gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+        }
+
+        // 테마별 개별 당첨 효과음 플레이어
+        function playSequence(freqs, type, interval, decay, vol = 0.1) {
+            if(!audioCtx) return;
+            const now = audioCtx.currentTime;
+            freqs.forEach((freq, index) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.type = type;
+                
+                const start = now + index * interval;
+                osc.frequency.setValueAtTime(freq, start);
+                
+                gain.gain.setValueAtTime(0, start);
+                gain.gain.linearRampToValueAtTime(vol, start + 0.02);
+                const currentDecay = index === freqs.length - 1 ? decay : interval;
+                gain.gain.exponentialRampToValueAtTime(0.001, start + currentDecay);
+                
+                osc.start(start);
+                osc.stop(start + currentDecay);
+            });
+        }
+
+        // 고상하고 차분한 테마용 부드러운 화음 플레이어
+        function playChord(freqs, type, decay, lowPass = false) {
+            if(!audioCtx) return;
+            const now = audioCtx.currentTime;
+            freqs.forEach(freq => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                if (lowPass) {
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 600;
+                    gain.connect(filter);
+                    filter.connect(audioCtx.destination);
+                } else {
+                    gain.connect(audioCtx.destination);
+                }
+
+                osc.connect(gain);
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, now);
+
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(0.1, now + 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + decay);
+
+                osc.start(now);
+                osc.stop(now + decay);
+            });
+        }
+
+        // 당첨음 분기 처리
+        function playTada() {
+            if(!audioCtx) return;
+            
+            if (currentCategory === 'general') {
+                // 1. 보편적: 깔끔하고 산뜻한 정석 띠링~ (C Major)
+                playSequence([523.25, 659.25, 783.99, 1046.50], 'sine', 0.1, 0.4);
+            } 
+            else if (currentCategory === 'mz') {
+                // 2. MZ: 트렌디하고 통통 튀는 뾰로롱~! (빠른 아르페지오)
+                playSequence([880, 1108.73, 1318.51, 1760], 'triangle', 0.06, 0.5);
+            } 
+            else if (currentCategory === 'sick') {
+                // 3. 병조퇴: 부드럽고 차분한 힐링 사운드
+                playChord([392.00, 493.88], 'sine', 2.0); // G4, B4 여운 길게
+            } 
+            else if (currentCategory === 'senior') {
+                // 4. 선배교사: 묵직하고 품격있는 징/종소리
+                playChord([220.00, 329.63], 'sine', 2.5, true); // A3, E4 (로우패스 필터)
+            } 
+            else if (currentCategory === 'training') {
+                // 5. 41조 연수: 아이디어가 떠오르는 맑고 경쾌한 띵동!
+                playSequence([1046.50, 1567.98], 'square', 0.1, 0.3, 0.05); // C6, G6
+            } 
+            else if (currentCategory === 'power') {
+                // 6. 파워 MZ 예능용: 킹받는 레트로 오락실 에러음 (하행음)
+                playSequence([600, 500, 400, 300], 'square', 0.15, 0.3, 0.15);
+            }
+        }
+
+        function startDraw() {
+            initAudio(); 
+            
+            const resultBox = document.getElementById('result');
+            const btn = document.getElementById('drawBtn');
+            const hint = document.getElementById('copyHint');
+            
+            isSpinning = true;
+            btn.disabled = true;
+            resultBox.classList.remove('highlight');
+            hint.style.display = 'none'; 
+            
+            let shuffleCount = 0;
+            const maxShuffles = 40; 
+            const intervalTime = 25; 
+
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * currentReasons.length);
+                resultBox.textContent = currentReasons[randomIndex];
+                playTick(); 
+                shuffleCount++;
+
+                if (shuffleCount >= maxShuffles) {
+                    clearInterval(interval);
+                    const finalIndex = Math.floor(Math.random() * currentReasons.length);
+                    resultBox.textContent = currentReasons[finalIndex]; 
+                    resultBox.classList.add('highlight');
+                    
+                    playTada(); 
+                    
+                    isSpinning = false;
+                    btn.disabled = false;
+                    btn.textContent = "다시 뽑기";
+                    hint.style.display = 'block'; 
+                }
+            }, intervalTime);
+        }
+
+        function copyToClipboard() {
+            const resultBox = document.getElementById('result');
+            const hint = document.getElementById('copyHint');
+            
+            if (isSpinning || resultBox.textContent === "버튼을 눌러 뽑아보세요!") return;
+
+            const textToCopy = resultBox.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = resultBox.textContent;
+                const copyMsg = data[currentCategory].copyMsg;
+                
+                resultBox.textContent = copyMsg;
+                hint.style.display = 'none';
+                
+                setTimeout(() => {
+                    resultBox.textContent = originalText;
+                    hint.style.display = 'block';
+                }, 1200);
+            }).catch(err => {
+                alert("복사에 실패했습니다. 직접 드래그하여 복사해주세요.");
+            });
+        }
+    </script>
+</body>
+</html>

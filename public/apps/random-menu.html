@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘 뭐 먹지?? 랜덤 뽑기 (링크 이동형)</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        /* 기본 및 테마별 색상 설정 */
+        :root {
+            --bg-color: #fffaf0;
+            --container-bg: #ffffff;
+            --text-color: #212529;
+            --sub-text: #6c757d;
+            --box-bg: #f8f9fa;
+            --box-text: #495057;
+            --box-border: #dee2e6;
+            --highlight-bg: #fff3cd;
+            --highlight-text: #d32f2f;
+            --highlight-border: #ffc107;
+            --btn-bg: #ff9800;
+            --btn-hover: #f57c00;
+            --shadow-color: rgba(0,0,0,0.08);
+        }
+
+        body.morning-theme {
+            --bg-color: #fffde7;
+            --highlight-bg: #fff9c4;
+            --highlight-text: #f57f17;
+            --highlight-border: #fbc02d;
+            --btn-bg: #fbc02d;
+            --btn-hover: #f9a825;
+        }
+
+        body.lunch-theme {
+            --bg-color: #e0f2f1;
+            --highlight-bg: #e0f7fa;
+            --highlight-text: #00695c;
+            --highlight-border: #4dd0e1;
+            --btn-bg: #26a69a;
+            --btn-hover: #00897b;
+        }
+
+        body.dinner-theme {
+            --bg-color: #fbe9e7;
+            --highlight-bg: #ffccbc;
+            --highlight-text: #bf360c;
+            --highlight-border: #ff8a65;
+            --btn-bg: #d84315;
+            --btn-hover: #bf360c;
+        }
+
+        body.night-theme {
+            --bg-color: #121212;
+            --container-bg: #212121;
+            --text-color: #e0e0e0;
+            --sub-text: #9e9e9e;
+            --box-bg: #303030;
+            --box-text: #ffffff;
+            --box-border: #616161;
+            --highlight-bg: #311b92;
+            --highlight-text: #b388ff;
+            --highlight-border: #651fff;
+            --btn-bg: #651fff;
+            --btn-hover: #6200ea;
+            --shadow-color: rgba(0,0,0,0.5);
+        }
+
+        body.snack-theme {
+            --bg-color: #fce4ec;
+            --highlight-bg: #f8bbd0;
+            --highlight-text: #c2185b;
+            --highlight-border: #f06292;
+            --btn-bg: #ec407a;
+            --btn-hover: #d81b60;
+        }
+
+        body.delivery-theme {
+            --bg-color: #fff3e0;
+            --highlight-bg: #ffecb3;
+            --highlight-text: #d50000;
+            --highlight-border: #ff1744;
+            --btn-bg: #d50000;
+            --btn-hover: #b71c1c;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            margin: 0;
+            transition: background-color 0.4s ease;
+        }
+        .container {
+            text-align: center;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px var(--shadow-color);
+            max-width: 480px;
+            width: 90%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        body.night-theme .container { border: 2px solid #651fff; }
+        
+        h1 {
+            color: var(--text-color);
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+        .cheer-message {
+            color: var(--sub-text);
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .menu-btn {
+            background-color: var(--box-bg);
+            color: var(--text-color);
+            border: 2px solid var(--box-border);
+            padding: 20px 10px;
+            font-size: 18px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .menu-btn span { font-size: 28px; }
+        .menu-btn:hover {
+            background-color: var(--highlight-bg);
+            border-color: var(--highlight-border);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: var(--sub-text);
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .back-btn:hover { background-color: var(--box-bg); color: var(--text-color); }
+        
+        .result-wrapper { position: relative; }
+        .result-box {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--box-bg);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px dashed var(--box-border);
+            user-select: none;
+            gap: 15px;
+        }
+        
+        .emoji-display {
+            font-size: 70px;
+            line-height: 1;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: transform 0.2s;
+        }
+        .text-display {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--box-text);
+            word-break: keep-all;
+        }
+
+        .result-box.highlight {
+            background: var(--highlight-bg);
+            border-color: var(--highlight-border);
+            border-style: solid;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+        .result-box.highlight .text-display { color: var(--highlight-text); text-decoration: underline; text-underline-offset: 6px; }
+        .result-box.highlight .emoji-display {
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        .link-hint {
+            display: none;
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--sub-text);
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+            white-space: nowrap;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .action-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 22px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-weight: 800;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        .action-btn:hover { background-color: var(--btn-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .action-btn:active { transform: scale(0.96); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .action-btn:disabled {
+            background-color: #ced4da;
+            color: #f8f9fa;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        body.night-theme .action-btn:disabled { background-color: #424242; color: #757575; }
+
+        .credit { margin-top: 20px; font-size: 14px; color: var(--sub-text); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="menu-screen">
+        <h1>🤤 오늘 뭐 먹지??</h1>
+        <div class="cheer-message">메뉴 결정 장애, 이제 안녕! 상황을 선택하세요.</div>
+        
+        <div class="menu-grid">
+            <button class="menu-btn" onclick="selectCategory('morning')"><span>🍳</span> 상쾌한 아침</button>
+            <button class="menu-btn" onclick="selectCategory('lunch')"><span>🍱</span> 든든한 점심</button>
+            <button class="menu-btn" onclick="selectCategory('dinner')"><span>🥩</span> 근사한 저녁</button>
+            <button class="menu-btn" onclick="selectCategory('night')"><span>🍺</span> 유혹의 야식</button>
+            <button class="menu-btn" onclick="selectCategory('snack')"><span>🍰</span> 달콤한 간식</button>
+            <button class="menu-btn" onclick="selectCategory('delivery')"><span>🛵</span> 배달 음식</button>
+        </div>
+        <div class="credit">Made by. 엽쌤</div>
+    </div>
+
+    <div class="container" id="picker-screen" style="display: none;">
+        <button class="back-btn" onclick="showMenu()">⬅ 홈으로</button>
+        
+        <h1 id="picker-title">제목</h1>
+        <div class="cheer-message" id="picker-cheer">응원 문구</div>
+        
+        <div class="result-wrapper">
+            <div class="result-box" id="result" onclick="openLink()">
+                <div class="emoji-display" id="emoji-display">🍽️</div>
+                <div class="text-display" id="text-display">버튼을 눌러 메뉴를 뽑으세요!</div>
+            </div>
+            <div class="link-hint" id="linkHint">👆 클릭하면 레시피/맛집 검색으로 이동해요!</div>
+        </div>
+        <button class="action-btn" onclick="startDraw()" id="drawBtn">메뉴 뽑기</button>
+        <div class="credit">Made by. 엽쌤</div>
+    </div>
+
+    <script>
+        // 6개 테마별 100개 메뉴 데이터 (총 600개)
+        const data = {
+            morning: {
+                title: "🍳 상쾌한 아침 메뉴", cheer: "하루의 시작, 속 편하고 든든하게!", theme: "morning-theme",
+                items: [
+                    "🍳 계란후라이와 간장계란밥", "🍞 버터 발른 토스트", "🥣 부드러운 전복죽", "🥗 닭가슴살 샐러드", "🥞 수플레 팬케이크", "🥪 에그드랍 샌드위치", "🍎 사과와 그릭요거트", "🥓 베이컨 에그 맥머핀", "🥣 야채스프와 모닝빵", "🍙 소고기 주먹밥",
+                    "🍲 시원한 황태미역국", "🥛 오트밀과 견과류", "🍌 바나나와 우유 한잔", "🥐 크루아상과 커피", "🥚 촉촉한 스크램블 에그", "🥣 달콤한 호박죽", "🍚 흰쌀밥과 스팸 구이", "🥪 햄치즈 샌드위치", "🍅 토마토 카프레제", "🍜 맑은 콩나물국",
+                    "🥯 베이글과 크림치즈", "🥛 시리얼과 우유", "🍙 참치마요 삼각김밥", "🥑 아보카도 오픈 토스트", "🥣 구수한 누룽지", "🍲 얼큰한 콩나물국밥", "🥗 연어 샐러드", "🍞 프렌치 토스트", "🥚 삶은 계란과 고구마", "🍜 잔치국수",
+                    "🍚 명란 간장버터밥", "🥪 참치 샌드위치", "🥣 잣죽", "🥓 소시지 야채 볶음", "🍎 과일 스무디 볼", "🥐 뺑오쇼콜라", "🍙 명란 삼각김밥", "🍲 소고기 뭇국", "🍞 길거리 토스트", "🥚 에그타르트",
+                    "🍚 현미밥과 김구이", "🥗 단호박 샐러드", "🥣 참치죽", "🥪 감자 에그 샌드위치", "🥞 블루베리 팬케이크", "🥛 따뜻한 우유와 시리얼", "🍌 바나나 팬케이크", "🍲 아욱국", "🍙 스팸 주먹밥", "🥐 몽블랑 페스츄리",
+                    "🍞 갈릭 버터 빵", "🥚 에그 마요 빵", "🥣 닭죽", "🥗 리코타 치즈 샐러드", "🥓 베이컨 토마토 토스트", "🍚 두부조림과 밥", "🍜 냄비 우동", "🥯 연어 크림치즈 베이글", "🍎 사과 브리치즈 샌드위치", "🍲 맑은 무국",
+                    "🥪 클럽 샌드위치", "🥣 팥죽", "🥚 온천란과 간장", "🍞 모닝빵과 딸기잼", "🥗 버섯 샐러드", "🍚 연두부와 볶음김치", "🥐 소금빵", "🍌 바나나 쉐이크", "🍙 소고기 고추장 주먹밥", "🍲 시금치 된장국",
+                    "🥓 해쉬브라운과 계란", "🥞 바나나 와플", "🥛 아몬드 브리즈와 그래놀라", "🥣 소라죽", "🥪 카야 토스트", "🍎 그래놀라 요거트", "🍞 바게트와 버터", "🥚 프리타타", "🍚 비엔나 소시지와 밥", "🍲 북엇국",
+                    "🥗 콥 샐러드", "🥐 단팥빵", "🍙 참치김치 주먹밥", "🥣 흑임자죽", "🥪 아보카도 베이컨 샌드위치", "🍌 바나나 오트밀", "🍞 마늘바게트", "🥚 토마토 달걀 볶음(토달볶)", "🍚 계란찜과 밥", "🍲 조개스프",
+                    "🥓 잉글리시 브렉퍼스트", "🥞 딸기 팬케이크", "🥛 두유와 에너지바", "🥣 녹두죽", "🥪 닭가슴살 샌드위치", "🍎 과일 모듬", "🥐 식빵과 크림스프", "🥚 치즈 오믈렛", "🍚 버터장조림 덮밥", "🍲 건새우 미역국"
+                ]
+            },
+            lunch: {
+                title: "🍱 든든한 점심 메뉴", cheer: "오후를 버틸 힘! 맛있는 점심 식사하세요.", theme: "lunch-theme",
+                items: [
+                    "🍱 제육볶음 백반", "🍜 얼큰한 짬뽕", "🥩 돈까스 정식", "🍛 진한 카레라이스", "🍔 수제 햄버거 세트", "🍣 모둠 초밥", "🍲 뚝배기 불고기", "🍝 베이컨 까르보나라", "🍙 참치김밥과 라면", "🥗 연어 포케 보울",
+                    "🍚 비빔밥과 된장찌개", "🍜 시원한 물냉면", "🍗 치킨마요 덮밥", "🥘 차돌박이 된장찌개", "🥪 든든한 클럽 샌드위치", "🥩 찹스테이크 덮밥", "🍲 뼈해장국", "🍝 매콤한 알리오올리오", "🥟 떡볶이와 튀김 세트", "🥗 닭가슴살 샐러드",
+                    "🍱 오징어볶음 백반", "🍜 바지락 칼국수", "🧀 치즈 돈까스", "🍛 일본식 돈카츠 카레", "🍔 치즈버거 세트", "🍣 연어 덮밥(사케동)", "🍲 순대국밥", "🍝 해산물 토마토 파스타", "🍙 돈까스 김밥", "🥗 콥 샐러드 보울",
+                    "🍚 돌솥 비빔밥", "🍜 비빔냉면", "🍗 가라아게 덮밥", "🥘 참치 김치찌개", "🥪 불고기 샌드위치", "🥩 큐브 스테이크", "🍲 설렁탕", "🍝 명란 크림 파스타", "🥟 라볶이와 순대", "🥗 리코타 치즈 샐러드",
+                    "🍱 생선구이 백반", "🍜 멸치 국수", "🍠 고구마 치즈 돈까스", "🍛 비프 카레라이스", "🍔 통새우버거", "🍣 광어 연어 반반 초밥", "🍲 소고기 뭇국", "🍝 봉골레 파스타", "🍙 소고기 김밥", "🥗 파스타 샐러드",
+                    "🍚 꼬막 비빔밥", "🍜 판모밀 소바", "🍗 춘천 닭갈비 덮밥", "🥘 돼지고기 김치찌개", "🥪 치킨 텐더 샌드위치", "🥩 소고기 덮밥(규동)", "🍲 왕갈비탕", "🍝 로제 파스타", "🥟 쫄면과 납작만두", "🥗 쉬림프 포케 보울",
+                    "🍱 고등어조림 백반", "🍜 우동과 돈까스 세트", "🥩 안심 돈까스(히레카츠)", "🍛 해산물 카레", "🍔 싸이버거 세트", "🍣 연어 캘리포니아 롤", "🍲 수육국밥", "🍝 트러플 크림 파스타", "🍙 참치마요 김밥", "🥗 우삼겹 샐러드",
+                    "🍚 낙지 비빔밥", "🍜 얼큰 장칼국수", "🍗 찜닭 덮밥", "🥘 우렁 강된장 쌈밥", "🥪 B.L.T 샌드위치", "🥩 간장 불고기 덮밥", "🍲 맑은 닭곰탕", "🍝 새우 로제 파스타", "🥟 비빔만두", "🥗 연어 아보카도 샐러드",
+                    "🍱 돼지 불고기 백반", "🍜 얼얼한 마라탕", "🥩 경양식 왕돈까스", "🍛 버섯 카레라이스", "🍔 한우 수제버거", "🍣 새우 초밥 세트", "🍲 소머리국밥", "🍝 매콤 토마토 파스타", "🍙 진미채 김밥", "🥗 치킨 텐더 샐러드",
+                    "🍚 육회 비빔밥", "🍜 김치말이 국수", "🍗 마파두부 덮밥", "🥘 얼큰 부대찌개", "🥪 에그마요 샌드위치", "🥩 항정살 덮밥", "🍲 전통 육개장", "🍝 베이컨 오일 파스타", "🥟 짜장면과 군만두", "🥗 구운 버섯 샐러드"
+                ]
+            },
+            dinner: {
+                title: "🥩 근사한 저녁 메뉴", cheer: "수고한 나를 위한 보상, 맛있는 저녁 되세요!", theme: "dinner-theme",
+                items: [
+                    "🥩 두툼한 삼겹살 구이", "🍣 고급 숙성회(사시미)", "🥘 얼큰한 소곱창 전골", "🍗 바삭한 후라이드 치킨", "🍕 페퍼로니 피자", "🍲 매콤한 아귀찜", "🍖 달콤짭짤 돼지갈비", "🍝 꾸덕한 크림 파스타", "🍱 정갈한 소고기 편백찜", "🥘 마라샹궈",
+                    "🥩 육즙 가득 소고기 안심", "🍣 연어와 광어 사시미", "🥘 보글보글 부대찌개", "🍗 옛날 통닭", "🍕 불고기 피자", "🍲 해물 듬뿍 해물탕", "🍖 매운 갈비찜", "🍝 토마토 씨푸드 파스타", "🍱 일본식 스키야키", "🥘 훠궈",
+                    "🥩 철판 목살 구이", "🍣 참치회 스페셜", "🥘 얼큰한 감자탕", "🍗 마늘 간장 치킨", "🍕 고구마 피자", "🍲 꽃게탕", "🍖 LA 갈비 구이", "🍝 트러플 머쉬룸 리조또", "🍱 장어 덮밥 정식", "🥘 소고기 버섯 전골",
+                    "🥩 한우 채끝 스테이크", "🍣 대방어 회", "🥘 묵은지 돼지갈비찜", "🍗 오븐 구이 치킨", "🍕 포테이토 피자", "🍲 얼큰 소고기 버섯 전골", "🍖 바베큐 폭립", "🍝 해산물 로제 파스타", "🍱 오마카세 스시", "🥘 밀푀유 나베",
+                    "🥩 쫄깃한 항정살 구이", "🍣 활어회 모둠", "🥘 곱도리탕 (곱창+닭도리탕)", "🍗 양념 반 후라이드 반", "🍕 하와이안 피자", "🍲 조개 맑은 전골", "🍖 치즈 등갈비", "🍝 클래식 라자냐", "🍱 연어 스테이크 정식", "🥘 낙곱새 (낙지+곱창+새우)",
+                    "🥩 냉동 대패 삼겹살", "🍣 도미 껍질 숙회", "🥘 매콤 철판 닭갈비", "🍗 숯불 바베큐 치킨", "🍕 치즈 듬뿍 피자", "🍲 얼큰한 알탕", "🍖 양꼬치와 칭따오", "🍝 쉬림프 알리오올리오", "🍱 일식 함박 스테이크", "🥘 해물 누룽지탕",
+                    "🥩 고소한 차돌박이 구이", "🍣 산오징어회", "🥘 매콤 닭볶음탕", "🍗 파채 듬뿍 파닭", "🍕 쉬림프 골드 피자", "🍲 맑은 연포탕", "🍖 숯불 쪽갈비 구이", "🍝 감바스 알 아히요와 바게트", "🍱 소고기 타다끼", "🥘 수제 만두 전골",
+                    "🥩 소갈비살 화로구이", "🍣 쫄깃한 우럭회", "🥘 불낙전골 (불고기+낙지)", "🍗 매콤한 깐풍 치킨", "🍕 마르게리타 피자", "🍲 칼칼한 생태탕", "🍖 양갈비 프렌치랙", "🍝 볼로네제 파스타", "🍱 우니(성게알) 덮밥", "🥘 버섯 샤브샤브",
+                    "🥩 숯불 양대창 구이", "🍣 고소한 전어회", "🥘 등갈비 김치찜", "🍗 닭강정과 맥주", "🍕 콤비네이션 피자", "🍲 아구탕", "🍖 훈제 오리 무쌈말이", "🍝 스테이크 크림 파스타", "🍱 모둠 카이센동", "🥘 차돌 짬뽕탕",
+                    "🥩 쫀득한 갈매기살 구이", "🍣 고급 농어회", "🥘 해물 떡찜", "🍗 고추바사삭 치킨", "🍕 고르곤졸라 피자와 꿀", "🍲 시원한 대구탕", "🍖 철판 모둠 소세지", "🍝 바질 페스토 파스타", "🍱 바다장어 구이", "🥘 두부 짜글이 전골"
+                ]
+            },
+            night: {
+                title: "🍺 유혹의 야식 메뉴", cheer: "맛있게 먹으면 0칼로리! 야식 타임", theme: "night-theme",
+                items: [
+                    "🍗 반반 치킨과 생맥주", "🐷 쫀득한 족발", "🌶️ 엽기적인 매운 떡볶이", "🍜 얼큰한 틈새라면", "🍢 길거리 어묵과 물떡", "🍕 남은 피자 데워먹기", "🐙 가문어 타코야끼", "🥓 베이컨 팽이버섯말이", "🥟 바삭한 고기 군만두", "🍺 매콤 새콤 골뱅이 소면",
+                    "🍗 순살 양념 치킨", "🐷 부드러운 수육 보쌈", "🌶️ 베이컨 로제 떡볶이", "🍜 얼큰 너구리와 계란", "🍢 매콤달콤 닭꼬치", "🍕 콤비네이션 조각 피자", "🐙 불향 가득 쭈꾸미 볶음", "🥓 소시지 야채 볶음(쏘야)", "🥟 매콤 비빔 만두", "🍺 바삭 구운 먹태",
+                    "🍗 달콤 마늘 간장 치킨", "🐷 불맛 나는 불족발", "🌶️ 꾸덕 까르보 불닭", "🍜 불닭볶음면과 스트링치즈", "🍢 데리야끼 염통 꼬치", "🍕 치즈 오븐 스파게티", "🐙 극장판 오징어 버터구이", "🥓 스팸 구이와 케첩", "🥟 촉촉한 물만두", "🍺 콘치즈 철판구이",
+                    "🍗 단짠단짠 허니콤보", "🐷 알싸한 마늘 보쌈", "🌶️ 얼얼한 마라 떡볶이", "🍜 진라면 매운맛 파송송", "🍢 휴게소 소떡소떡", "🍕 짭짤한 맥앤치즈", "🐙 반건조 오징어와 청양마요", "🥓 에어프라이어 통삼겹", "🥟 큼직한 고기 왕만두", "🍺 오돌뼈 볶음과 소주",
+                    "🍗 청양고추 마요 치킨", "🐷 톡 쏘는 냉채 족발", "🌶️ 단짠단짠 짜장 떡볶이", "🍜 신라면과 묵은지 파김치", "🍢 파송송 파닭 꼬치", "🍕 매콤 바삭 핫윙", "🐙 달콤 쥐포 구이", "🥓 얇은 대패 삼겹살 구이", "🥟 김치 군만두", "🍺 돼지 야채 곱창 볶음",
+                    "🍗 뿌링뿌링 치즈 치킨", "🐷 쌈장 콕 찍은 편육", "🌶️ 국물 떡볶이와 모둠 튀김", "🍜 짜파게티와 반숙 계란후라이", "🍢 옛날 학교 앞 떡꼬치", "🍕 쭈욱 늘어나는 치즈스틱", "🐙 짭짤한 소고기 육포", "🥓 차돌박이 숙주 볶음", "🥟 달콤한 갈비 만두", "🍺 매운 무뼈 닭발과 주먹밥",
+                    "🍗 코끝 찡한 파닭", "🐷 야들야들 미니 족발", "🌶️ 통인시장 기름 떡볶이", "🍜 매콤달콤 비빔면과 삼겹살", "🍢 쯔란 듬뿍 양꼬치", "🍕 갈릭 딥핑 피자꼬다리", "🐙 가문어 슬라이스 버터구이", "🥓 고소한 스팸 마요 덮밥", "🥟 탱글탱글 새우 만두", "🍺 오돌뼈 주먹밥 뭉치기",
+                    "🍗 뼈 없는 순살 파닭", "🐷 쟁반 막국수와 족발 한 점", "🌶️ 쌀떡 베이스 시장 떡볶이", "🍜 쫄깃한 불막창 라면", "🍢 짭짤한 은행 꼬치", "🍕 갓 튀긴 감자튀김과 맥주", "🐙 코 찡한 타코와사비", "🥓 불향 통삼겹살 바베큐", "🥟 따끈한 고기 찐만두", "🍺 버터 알감자 구이",
+                    "🍗 바삭한 크리스피 텐더", "🐷 남은 족발로 만든 볶음밥", "🌶️ 쫀득한 가래떡 떡볶이", "🍜 컵라면 육개장 사발면", "🍢 베이컨 떡말이 꼬치", "🍕 매콤짭짤 버팔로 윙", "🐙 달달한 오징어 입 버터구이", "🥓 머스타드 찍은 훈제 삼겹살", "🥟 바삭하게 튀긴 팝만두", "🍺 쫄깃한 닭모래집(똥집) 볶음",
+                    "🍗 담백한 오븐 로스트 치킨", "🐷 굴보쌈 정식 세트", "🌶️ 고기 듬뿍 차돌 떡볶이", "🍜 고소한 참깨라면", "🍢 크리스피 닭껍질 꼬치", "🍕 녹진한 나쵸 치즈", "🐙 쫄깃한 쭈꾸미 숙회", "🥓 편의점 전자레인지 훈제 닭다리", "🥟 당면 가득 김말이 튀김", "🍺 고소한 볶음김치와 두부"
+                ]
+            },
+            snack: {
+                title: "🍰 달콤한 간식 메뉴", cheer: "당 충전 시간! 기분 좋아지는 디저트", theme: "snack-theme",
+                items: [
+                    "🍰 상큼한 딸기 생크림 케이크", "🍦 부드러운 바닐라 아이스크림", "☕ 시원한 아이스 아메리카노", "🍪 초코칩이 씹히는 르뱅 쿠키", "🍩 쫀득한 오리지널 글레이즈드", "🥐 겉바속촉 프랑스 크루아상", "🍮 탱글탱글한 커스터드 푸딩", "🍧 시원한 눈꽃 팥빙수", "🍬 꼬끄가 쫀득한 뚱카롱", "🧋 달달한 흑당 버블 밀크티",
+                    "🍰 꾸덕꾸덕 초코 퍼지 케이크", "🍦 쌉쌀한 초코 젤라또", "☕ 부드러운 거품의 따뜻한 라떼", "🍪 고소한 마카다미아 넛 쿠키", "🍩 시나몬 슈가 꽈배기 도넛", "🥐 초코 코팅 뺑오쇼콜라", "🍮 입에서 녹는 우유 푸딩", "🍧 상큼 달달 애플 망고 빙수", "🍬 상큼한 레몬 필링 마카롱", "🧋 고소한 타로 밀크티",
+                    "🍰 뉴욕 치즈 케이크", "🍦 호불호 갈리는 민트초코 아이스크림", "☕ 달콤한 바닐라 라떼", "🍪 커피 찰떡궁합 로투스 쿠키", "🍩 바바리안 크림 듬뿍 도넛", "🥐 달콤 짭짤 앙버터 크루아상", "🍮 쌉싸름한 녹차 푸딩", "🍧 콩고물 듬뿍 인절미 빙수", "🍬 쌉싸름한 얼그레이 마카롱", "🧋 추억의 달고나 밀크티",
+                    "🍰 에스프레소향 가득 티라미수", "🍦 상큼한 딸기 젤라또", "☕ 달달한 카라멜 마끼아또", "🍪 쫀득한 오트밀 레이즌 쿠키", "🍩 우유 생크림 가득 도넛", "🥐 아몬드 슬라이스 크루아상", "🍮 달달한 초코 푸딩", "🍧 쌉싸름 달콤 녹차 빙수", "🍬 진한 초코 가나슈 마카롱", "🧋 진한 말차 버블티",
+                    "🍰 크림치즈 프로스팅 레드벨벳 케이크", "🍦 진한 녹차 아이스크림", "☕ 깔끔한 콜드브루 커피", "🍪 꾸덕한 피넛버터 쿠키", "🍩 놀이공원 필수템 츄러스", "🥐 버터 풍미 가득 소금빵", "🍮 쫀득한 젤리 뽀이", "🍧 동글동글 멜론 빙수", "🍬 부드러운 바닐라 빈 마카롱", "🧋 시원한 밀크티 블렌디드",
+                    "🍰 시나몬향 솔솔 당근 케이크", "🍦 새콤달콤 요거트 아이스크림", "☕ 밤에도 부담 없는 디카페인 아메리카노", "🍪 마시멜로가 늘어나는 스모어 쿠키", "🍩 퍽퍽한 매력 올드훼션 도넛", "🥐 겹겹이 바삭한 페스츄리", "🍮 꼬소한 흑임자 푸딩", "🍧 깔끔한 우유 얼음 빙수", "🍬 단짠단짠 황치즈 마카롱", "🧋 찐한 초콜릿 밀크티",
+                    "🍰 부드러운 고구마 무스 케이크", "🍦 고소한 피스타치오 아이스크림", "☕ 향긋한 헤이즐넛 라떼", "🍪 사르르 녹는 버터 링 쿠키", "🍩 한입 쏙 먼치킨", "🥐 달콤한 밤 듬뿍 몽블랑", "🍮 이탈리아 디저트 판나코타", "🍧 초코시럽 듬뿍 초코 빙수", "🍬 상큼한 산딸기 마카롱", "🧋 홍차 향 가득 얼그레이 버블티",
+                    "🍰 망고 무스 케이크", "🍦 바삭한 쿠키앤크림 아이스크림", "☕ 달콤한 크림 듬뿍 아인슈페너", "🍪 사람 모양 진저브레드 쿠키", "🍩 딸기잼 듬뿍 젤리 도넛", "🥐 아이스크림 올린 크로플", "🍮 겉바속촉 크림브륄레", "🍧 제철 과일 듬뿍 생과일 빙수", "🍬 고소한 피스타치오 마카롱", "🧋 코코넛 젤리 추가한 밀크티",
+                    "🍰 촉촉한 도지마 롤 케이크", "🍦 상큼 터지는 레몬 셔벗", "☕ 진하고 부드러운 플랫 화이트", "🍪 홈메이드 스타일 초코칩 소보로", "🍩 쫄깃한 식감 폰데링", "🥐 버터 카라멜 코팅 퀸아망", "🍮 타피오카 펄 푸딩", "🍧 큐브 치즈가 씹히는 치즈 빙수", "🍬 단짠 솔티드 카라멜 마카롱", "🧋 고소한 우롱 밀크티",
+                    "🍰 폭신폭신한 얼그레이 쉬폰 케이크", "🍦 달달한 옥수수 콘 아이스크림", "☕ 달콤 쌉싸름 카페 모카", "🍪 바삭바삭한 프랑스 사블레", "🍩 시장통 찹쌀 튀기 도넛", "🥐 초코 범벅 빨미까레", "🍮 부드러운 고구마 푸딩", "🍧 달콤 시원한 수박 빙수", "🍬 상큼한 유자 필링 마카롱", "🧋 쫀득한 망고 펄 버블티"
+                ]
+            },
+            delivery: {
+                title: "🛵 실패 없는 배달 음식", cheer: "문 앞까지 찾아오는 맛있는 행복!", theme: "delivery-theme",
+                items: [
+                    "🛵 짜장면과 바삭한 탕수육 세트", "🛵 토핑 가득 배달 피자 L사이즈", "🛵 진리의 반반 치킨 (후라이드/양념)", "🛵 야들야들 보쌈과 막국수 세트", "🛵 치즈 추가 엽기 떡볶이와 튀김", "🛵 취향대로 고른 마라탕과 꿔바로우", "🛵 입에서 녹는 생연어 초밥 세트", "🛵 육즙 가득 프리미엄 수제버거", "🛵 콩나물 듬뿍 얼큰한 알고니찜", "🛵 우거지 듬뿍 푸짐한 감자탕",
+                    "🛵 계란후라이 올린 간짜장과 군만두", "🛵 치즈 크러스트 추가한 고구마 피자", "🛵 단짠단짠 간장 마늘 치킨", "🛵 앞발로 썬 야들야들 족발 대짜", "🛵 중국당면 추가 로제 떡볶이", "🛵 밥도둑 매콤 얼얼 마라샹궈", "🛵 다양하게 즐기는 모둠 특초밥", "🛵 두툼한 치킨 패티 버거 세트", "🛵 살코기 듬뿍 매콤 아귀찜", "🛵 얼큰하고 든든한 뼈해장국",
+                    "🛵 해물 가득 짬뽕과 고슬고슬 볶음밥", "🛵 옥수수 듬뿍 마약 콘치즈 피자", "🛵 알싸한 마늘 소스 듬뿍 마늘 치킨", "🛵 숯불향 가득 매콤 불족발", "🛵 아이들도 좋아하는 짜장 떡볶이", "🛵 가지와 감자의 조화 지삼선", "🛵 참다랑어 고급 참치 초밥", "🛵 단짠 소스 불고기버거 세트", "🛵 해물 산더미 매콤 해물찜", "🛵 뽀얀 국물 진한 순대국밥",
+                    "🛵 해물 가득 쟁반짜장 2인분", "🛵 파인애플 듬뿍 하와이안 피자", "🛵 파채와 겨자 소스 듬뿍 파닭", "🛵 새콤 톡 쏘는 해파리 냉채 족발", "🛵 국물 자작한 국물 떡볶이와 순대", "🛵 매콤 바삭한 새우 요리 향라대하", "🛵 오동통한 간장 직화 새우 초밥", "🛵 통새우 패티 새우버거 세트", "🛵 속이 꽉 찬 매콤 꽃게찜", "🛵 부추 팍팍 진한 돼지국밥",
+                    "🛵 두반장 소스 진한 마파두부밥", "🛵 짭짤한 페퍼로니 가득 피자", "🛵 뼈 바를 필요 없는 순살 치킨", "🛵 제철 생굴과 함께 먹는 굴보쌈", "🛵 중국당면 필수 마라 로제 떡볶이", "🛵 부드럽고 달콤한 크림 새우", "🛵 쫄깃쫄깃 숙성 광어 초밥", "🛵 트러플 향 가득 머쉬룸 버거", "🛵 쫄깃한 대구살 가득 대구뽈찜", "🛵 당면 듬뿍 파송송 소머리국밥",
+                    "🛵 당면 듬뿍 불향 가득 잡채밥", "🛵 한국인 입맛 저격 불고기 피자", "🛵 기름기 쫙 뺀 오븐 베이크 치킨", "🛵 혼자서도 든든한 미니 족발", "🛵 오징어, 고구마 등 모둠 튀김 세트", "🛵 톡 쏘는 겨자 소스 양장피", "🛵 달달한 소스 발린 민물 장어 초밥", "🛵 고기 패티 2장 더블 쿼터파운더 버거", "🛵 통통한 낙지 듬뿍 낙지찜", "🛵 맑고 깊은 국물 왕 갈비탕",
+                    "🛵 해삼 새우 버섯 듬뿍 유산슬밥", "🛵 토핑이 골고루 들어간 콤비네이션 피자", "🛵 불향 가득 숯불 바베큐 치킨", "🛵 볶음 김치와 함께 먹는 마늘 보쌈", "🛵 내장 골고루 섞은 찰순대 세트", "🛵 매콤 달콤 바삭한 깐풍기", "🛵 불향 입힌 직화 소고기 초밥", "🛵 치즈가 녹아내리는 치즈버거 세트", "🛵 날치알 볶음밥 필수 쭈꾸미찜", "🛵 소면사리 듬뿍 진한 설렁탕",
+                    "🛵 매콤 달콤 짭짤 고추잡채와 꽃빵", "🛵 오동통 칵테일 새우 가득 쉬림프 피자", "🛵 라면사리 비벼먹는 숯불 양념 치킨", "🛵 1인 가구 맞춤 1인 보쌈 정식", "🛵 참치, 치즈 등 모둠 김밥 세트", "🛵 해산물과 채소의 만남 팔보채", "🛵 달달하고 푹신한 일본식 계란 초밥", "🛵 베이컨 듬뿍 들어간 베이컨 토마토 버거", "🛵 전복, 조개 가득 시원한 해물탕", "🛵 몸보신용 진한 꼬리 곰탕",
+                    "🛵 뜨끈하고 구수한 해물 누룽지탕", "🛵 통감자와 베이컨 포테이토 피자", "🛵 바삭바삭 매콤한 핫후라이드 치킨", "🛵 오리지널 반 불족발 반 반반 족발", "🛵 꼬들꼬들 라면사리 가득 라볶이", "🛵 부드럽게 넘어가는 해물 류산슬", "🛵 게살 아보카도 캘리포니아 롤", "🛵 머스타드 찍어먹는 바삭 치킨 텐더", "🛵 알과 고니 듬뿍 시원한 동태탕", "🛵 대파 듬뿍 얼큰한 전통 육개장",
+                    "🛵 매콤새콤 칠리 소스 깐쇼새우", "🛵 큐브 스테이크 올라간 스테이크 피자", "🛵 단짠단짠 간장 허니 치킨", "🛵 달콤 짭짤 간장 소스 족발", "🛵 야끼만두 곁들인 매콤 쫄면 세트", "🛵 꼬들꼬들 식감 해파리 냉채", "🛵 양파와 타르타르 소스 얹은 연어 롤", "🛵 갓 튀긴 짭짤한 케이준 감자튀김", "🛵 미나리 듬뿍 시원칼칼 알탕", "🛵 곱창 양평 해장국 스타일 내장탕"
+                ]
+            }
+        };
+
+        let currentCategory = '';
+        let currentReasons = [];
+        let isSpinning = false;
+
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function selectCategory(categoryKey) {
+            currentCategory = categoryKey;
+            const config = data[categoryKey];
+            currentReasons = config.items;
+
+            document.body.className = config.theme;
+            
+            document.getElementById('picker-title').textContent = config.title;
+            document.getElementById('picker-cheer').textContent = config.cheer;
+            
+            const resultBox = document.getElementById('result');
+            document.getElementById('emoji-display').textContent = "🍽️";
+            document.getElementById('text-display').textContent = "버튼을 눌러 메뉴를 뽑으세요!";
+            resultBox.classList.remove('highlight');
+            
+            document.getElementById('linkHint').style.display = 'none';
+            document.getElementById('drawBtn').disabled = false;
+            document.getElementById('drawBtn').textContent = "메뉴 뽑기";
+
+            document.getElementById('menu-screen').style.display = 'none';
+            document.getElementById('picker-screen').style.display = 'block';
+        }
+
+        function showMenu() {
+            document.body.className = ''; 
+            document.getElementById('picker-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'block';
+        }
+
+        // 룰렛 돌아가는 소리
+        function playTick() {
+            if(!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(900, audioCtx.currentTime); 
+            gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+        }
+
+        // 당첨 소리
+        function playTada() {
+            if(!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const freqs = [523.25, 659.25, 783.99, 1046.50]; 
+            
+            freqs.forEach((freq, index) => {
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                osc.type = 'triangle';
+                
+                const startTime = now + index * 0.08; 
+                osc.frequency.setValueAtTime(freq, startTime);
+                
+                gainNode.gain.setValueAtTime(0, startTime);
+                gainNode.gain.linearRampToValueAtTime(0.15, startTime + 0.02);
+                
+                const decay = index === freqs.length - 1 ? 0.5 : 0.2;
+                gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + decay);
+                
+                osc.start(startTime);
+                osc.stop(startTime + decay);
+            });
+        }
+
+        function startDraw() {
+            initAudio(); 
+            
+            const resultBox = document.getElementById('result');
+            const emojiDisplay = document.getElementById('emoji-display');
+            const textDisplay = document.getElementById('text-display');
+            const btn = document.getElementById('drawBtn');
+            const hint = document.getElementById('linkHint');
+            
+            isSpinning = true;
+            btn.disabled = true;
+            resultBox.classList.remove('highlight');
+            hint.style.display = 'none'; 
+            
+            let shuffleCount = 0;
+            const maxShuffles = 40; 
+            const intervalTime = 25; 
+
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * currentReasons.length);
+                const rawText = currentReasons[randomIndex];
+                
+                const spaceIndex = rawText.indexOf(' ');
+                emojiDisplay.textContent = rawText.substring(0, spaceIndex);
+                textDisplay.textContent = rawText.substring(spaceIndex + 1);
+                
+                playTick(); 
+                shuffleCount++;
+
+                if (shuffleCount >= maxShuffles) {
+                    clearInterval(interval);
+                    
+                    const finalIndex = Math.floor(Math.random() * currentReasons.length);
+                    const finalRawText = currentReasons[finalIndex];
+                    const finalSpaceIndex = finalRawText.indexOf(' ');
+                    
+                    emojiDisplay.textContent = finalRawText.substring(0, finalSpaceIndex);
+                    textDisplay.textContent = finalRawText.substring(finalSpaceIndex + 1);
+                    
+                    resultBox.classList.add('highlight');
+                    playTada(); 
+                    
+                    isSpinning = false;
+                    btn.disabled = false;
+                    btn.textContent = "다시 뽑기";
+                    hint.style.display = 'block'; 
+                }
+            }, intervalTime);
+        }
+
+        // 새 탭으로 검색 결과 이동 (복사 기능 대체)
+        function openLink() {
+            const textDisplay = document.getElementById('text-display');
+            
+            // 뽑기 진행 중이거나 초기 상태일 때는 링크 이동 방지
+            if (isSpinning || textDisplay.textContent === "버튼을 눌러 메뉴를 뽑으세요!") return;
+
+            const menuName = textDisplay.textContent;
+            let url = "";
+
+            // 배달, 야식은 네이버 맛집 검색 / 그 외(아침, 점심, 저녁, 간식)는 유튜브 레시피 검색
+            if (currentCategory === 'delivery' || currentCategory === 'night') {
+                url = `https://search.naver.com/search.naver?query=${encodeURIComponent(menuName + ' 맛집')}`;
+            } else {
+                url = `https://www.youtube.com/results?search_query=${encodeURIComponent(menuName + ' 레시피')}`;
+            }
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>천하제일한려벽돌깨기: Master Edition v3.2</title>
+    <style>
+        body { background: #050a06; display: flex; flex-direction: column; align-items: center; margin: 0; color: white; font-family: 'Malgun Gothic', sans-serif; overflow: hidden; }
+        .game-header { width: 100%; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.8) 100%); padding: 20px 0; text-align: center; border-bottom: 2px solid #a8e063; }
+        .main-wrapper { display: flex; align-items: flex-start; gap: 30px; padding: 20px; }
+        canvas { background: linear-gradient(to bottom, #1a3c22 0%, #050a06 100%); border: 4px solid #3e5e42; border-radius: 12px; box-shadow: 0 0 80px rgba(168, 224, 99, 0.2); }
+        #ui-side { width: 340px; background: rgba(15, 30, 15, 0.9); padding: 25px; border-radius: 15px; border: 1px solid #a8e063; }
+        .item-row { margin-bottom: 18px; font-size: 13px; border-left: 3px solid #3e5e42; padding-left: 10px; }
+        .tag { font-weight: bold; display: inline-block; padding: 3px 10px; border-radius: 5px; margin-bottom: 5px; color: #000; font-size: 11px; }
+        #ui-info { font-size: 26px; color: #a8e063; font-weight: 800; }
+    </style>
+</head>
+<body>
+
+<div class="game-header">
+    <div id="ui-info">
+        STAGE <span id="round">1</span> &nbsp;&nbsp;&nbsp; 
+        SCORE: <span id="score">0</span> &nbsp;&nbsp;&nbsp;
+        <span id="item-msg" style="color:#ffcc00; font-size: 20px;">[ 아무 키나 눌러 시작 ]</span>
+    </div>
+</div>
+
+<div class="main-wrapper">
+    <canvas id="gameCanvas" width="1600" height="900"></canvas>
+    <div id="ui-side">
+        <h2 style="color:#a8e063; margin-top:0; font-size: 18px;">ITEM DICTIONARY</h2>
+        <div class="item-row"><span class="tag" style="background:#FF4500; color:white;">F</span> <b>Red Stone의 분노</b> (관통)</div>
+        <div class="item-row"><span class="tag" style="background:#FFFFFF;">B</span> <b>경민킴은여전히배고프다</b> (멀티)</div>
+        <div class="item-row"><span class="tag" style="background:#00FFFF;">M</span> <b>아직한발남았다</b> (미사일 15발)</div>
+        <div class="item-row"><span class="tag" style="background:#FFD700;">G</span> <b>삼전떡상까주앙</b> (패들 확장)</div>
+        <div class="item-row"><span class="tag" style="background:#FF00FF; color:white;">S</span> <b>트럼프사망기원</b> (슬로우)</div>
+    </div>
+</div>
+
+<audio id="bgm" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg"></audio>
+
+<script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const bgm = document.getElementById("bgm");
+    const breakSound = new Audio("https://actions.google.com/sounds/v1/science_fiction/beep_short.ogg");
+
+    let score = 0, round = 1;
+    let balls = [], items = [], bricks = [], sparks = [], missiles = [];
+    let paddle = { x: 0, y: 840, w: 300, h: 25, speed: 25, targetW: 300 };
+    let isFireball = false, isSlowed = false, missileCount = 0, isClearing = false, gameStarted = false;
+    let keys = {};
+    let currentBaseSpeed = 8; // 버그 방지용 전역 속도 관리
+
+    function initBricks() {
+        bricks = [];
+        const cols = 16, rows = 6;
+        const w = 85, h = 35, pad = 12;
+        const offLeft = (canvas.width - (cols * (w + pad))) / 2;
+        for(let c=0; c<cols; c++) {
+            bricks[c] = [];
+            for(let r=0; r<rows; r++) {
+                let isRed = (r === 0);
+                bricks[c][r] = { x: c*(w+pad) + offLeft, y: r*(h+pad) + 120, w: w, h: h, status: 1, isRare: isRed, color: isRed ? "#FF4136" : `hsl(${r*40 + 200}, 70%, 50%)` };
+            }
+        }
+    }
+
+    function createBall(x, y, dx, dy) {
+        let mult = isSlowed ? 0.5 : 1.0;
+        balls.push({ x: x, y: y, dx: dx * mult, dy: dy * mult, r: 12 });
+    }
+
+    function resetLevel() {
+        // [수정] 패들 위치 초기화 로직 강제화
+        paddle.targetW = 300;
+        paddle.w = 300;
+        paddle.x = (canvas.width - 300) / 2;
+        
+        balls = [];
+        items = []; missiles = []; sparks = [];
+        currentBaseSpeed = Math.min(7 + (round * 0.5), 14);
+        createBall(canvas.width/2, 800, currentBaseSpeed, -currentBaseSpeed);
+        
+        isFireball = false; isSlowed = false; missileCount = 0;
+        initBricks();
+    }
+
+    window.addEventListener("keydown", e => {
+        keys[e.code] = true;
+        if(!gameStarted) { bgm.play().catch(()=>{}); bgm.volume = 0.1; gameStarted = true; }
+        if(e.code === "Space" && missileCount > 0) {
+            missiles.push({ x: paddle.x + paddle.w/2, y: paddle.y });
+            missileCount--;
+        }
+    });
+    window.addEventListener("keyup", e => keys[e.code] = false);
+
+    function onBrickHit(b) {
+        if(b.status === 0) return;
+        b.status = 0; score += b.isRare ? 100 : 10;
+        document.getElementById("score").innerText = score;
+        let s = breakSound.cloneNode(); s.volume = 0.1; s.play();
+
+        for(let i=0; i<8; i++) sparks.push({ x: b.x + b.w/2, y: b.y + b.h/2, vx: (Math.random()-0.5)*12, vy: (Math.random()-0.5)*12, life: 1, color: b.color });
+        
+        if(b.isRare || Math.random() < 0.4) {
+            const p = ['fire', 'multi', 'missile', 'wide', 'slow'];
+            items.push({ x: b.x + b.w/2, y: b.y, type: p[Math.floor(Math.random()*p.length)] });
+        }
+
+        let remains = 0;
+        bricks.forEach(col => col.forEach(bk => { if(bk.status) remains++; }));
+        if(remains === 0 && !isClearing) {
+            isClearing = true;
+            setTimeout(() => { alert(`STAGE ${round} 클리어!`); round++; resetLevel(); isClearing = false; }, 200);
+        }
+    }
+
+    function applyItem(type) {
+        // [버그 수정] switch문을 통해 아이템 획득 시 정지 현상 방지
+        switch(type) {
+            case 'fire':
+                isFireball = true;
+                setTimeout(() => isFireball = false, 6000);
+                break;
+            case 'multi':
+                // 현재 속도값을 참조하여 안전하게 생성
+                createBall(paddle.x + paddle.w/2, 800, currentBaseSpeed, -currentBaseSpeed);
+                createBall(paddle.x + paddle.w/2, 800, -currentBaseSpeed, -currentBaseSpeed);
+                break;
+            case 'missile':
+                missileCount += 15;
+                break;
+            case 'wide':
+                paddle.targetW = 550;
+                setTimeout(() => paddle.targetW = 300, 8000);
+                break;
+            case 'slow':
+                if(!isSlowed) {
+                    isSlowed = true;
+                    balls.forEach(b => { b.dx *= 0.5; b.dy *= 0.5; });
+                    setTimeout(() => {
+                        isSlowed = false;
+                        balls.forEach(b => { b.dx *= 2; b.dy *= 2; });
+                    }, 5000);
+                }
+                break;
+        }
+    }
+
+    function update() {
+        if(!gameStarted) return;
+
+        if(keys["ArrowRight"] && paddle.x < canvas.width - paddle.w) paddle.x += paddle.speed;
+        if(keys["ArrowLeft"] && paddle.x > 0) paddle.x -= paddle.speed;
+        paddle.w += (paddle.targetW - paddle.w) * 0.1;
+
+        missiles = missiles.filter(m => m.y > 0);
+        missiles.forEach(m => {
+            m.y -= 15;
+            bricks.forEach(col => col.forEach(b => {
+                if(b.status && m.x > b.x && m.x < b.x + b.w && m.y > b.y && m.y < b.y + b.h) {
+                    onBrickHit(b); m.y = -100;
+                }
+            }));
+        });
+
+        balls.forEach((b, idx) => {
+            b.x += b.dx; b.y += b.dy;
+            if(b.x < b.r || b.x > canvas.width - b.r) b.dx *= -1;
+            if(b.y < b.r) b.dy *= -1;
+            
+            if(b.y > paddle.y - b.r && b.x > paddle.x && b.x < paddle.x + paddle.w) {
+                b.dy = -Math.abs(b.dy);
+                let hitPos = (b.x - (paddle.x + paddle.w/2)) / (paddle.w/2);
+                b.dx = hitPos * 10;
+                b.y = paddle.y - b.r - 1;
+            } else if(b.y > canvas.height) {
+                balls.splice(idx, 1);
+                if(balls.length === 0) location.reload();
+            }
+
+            bricks.forEach(col => col.forEach(brick => {
+                if(brick.status && b.x > brick.x - b.r && b.x < brick.x + brick.w + b.r && b.y > brick.y - b.r && b.y < brick.y + brick.h + b.r) {
+                    if(!isFireball) {
+                        if (b.x < brick.x || b.x > brick.x + brick.w) b.dx *= -1;
+                        else b.dy *= -1;
+                    }
+                    onBrickHit(brick);
+                }
+            }));
+        });
+
+        items = items.filter(it => it.y < canvas.height);
+        items.forEach((it, idx) => {
+            it.y += 4;
+            if(it.y > paddle.y && it.y < paddle.y + paddle.h && it.x > paddle.x && it.x < paddle.x + paddle.w) {
+                applyItem(it.type); items.splice(idx, 1);
+            }
+        });
+
+        sparks.forEach((s, i) => { s.x += s.vx; s.y += s.vy; s.life -= 0.03; if(s.life <= 0) sparks.splice(i,1); });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // 배경 그라데이션
+        let g = ctx.createLinearGradient(0,0,0,canvas.height);
+        g.addColorStop(0, "#1a3c22"); g.addColorStop(1, "#050a06");
+        ctx.fillStyle = g; ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        if(!gameStarted) {
+            ctx.fillStyle = "#a8e063"; ctx.font = "bold 40px Arial"; ctx.textAlign = "center";
+            ctx.fillText("READY? PRESS ANY KEY", canvas.width/2, canvas.height/2);
+        }
+
+        bricks.forEach(col => col.forEach(b => {
+            if(b.status) {
+                ctx.fillStyle = b.color; ctx.fillRect(b.x, b.y, b.w, b.h);
+                ctx.strokeStyle = "rgba(255,255,255,0.2)"; ctx.strokeRect(b.x, b.y, b.w, b.h);
+                if(b.isRare) { ctx.fillStyle = "#fff"; ctx.font = "bold 11px Arial"; ctx.textAlign = "center"; ctx.fillText("RED STONE", b.x + b.w/2, b.y + 22); }
+            }
+        }));
+
+        items.forEach(it => {
+            const colors = {fire:'#FF4500', multi:'#FFFFFF', missile:'#00FFFF', wide:'#FFD700', slow:'#FF00FF'};
+            ctx.shadowBlur = 15; ctx.shadowColor = colors[it.type]; ctx.fillStyle = colors[it.type]; 
+            ctx.beginPath(); ctx.arc(it.x, it.y, 18, 0, Math.PI*2); ctx.fill();
+            ctx.shadowBlur = 0; ctx.fillStyle = "#000"; ctx.font = "bold 16px Arial"; ctx.textAlign = "center"; ctx.fillText(it.type[0].toUpperCase(), it.x, it.y+6);
+        });
+
+        missiles.forEach(m => { ctx.fillStyle = "#FF4136"; ctx.fillRect(m.x-4, m.y, 8, 30); });
+
+        balls.forEach(b => {
+            ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fillStyle = isFireball ? "#ff4500" : "#fff"; ctx.fill();
+        });
+
+        ctx.fillStyle = isFireball ? "#ff4500" : "#fff";
+        ctx.beginPath(); ctx.roundRect(paddle.x, paddle.y, paddle.w, paddle.h, 10); ctx.fill();
+
+        sparks.forEach(s => { ctx.globalAlpha = s.life; ctx.fillStyle = s.color; ctx.fillRect(s.x, s.y, 4, 4); ctx.globalAlpha = 1; });
+        
+        document.getElementById("item-msg").innerText = isFireball ? "[Red Stone의 분노]" : (missileCount > 0 ? `[아직한발남았다: ${missileCount}]` : (gameStarted ? "[준비됨]" : "[대기중]"));
+        document.getElementById("round").innerText = round;
+        update();
+        requestAnimationFrame(draw);
+    }
+
+    initBricks(); resetLevel(); draw();
+</script>
+</body>
+</html>
