@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { acappellaData } from '../data/cvData';
-import { Music } from 'lucide-react';
+import { Music, Play } from 'lucide-react';
 
 export default function AcappellaSection() {
   return (
@@ -56,8 +56,8 @@ export default function AcappellaSection() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/90 dark:bg-slate-900/90 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <Music className="w-6 h-6 text-indigo-600 dark:text-indigo-400 ml-1" />
+                    <div className="w-14 h-14 rounded-full bg-brand-orange/80 backdrop-blur-sm flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-brand-orange/30">
+                      <Play className="w-6 h-6 text-white ml-1 fill-current" />
                     </div>
                   </div>
                 </a>
