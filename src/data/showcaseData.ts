@@ -41,6 +41,14 @@ export const miniAppsData: MiniApp[] = [
     techStack: ['HTML', 'CSS', 'JavaScript'],
     appUrl: '/apps/grip-test.html',
   },
+  {
+    id: 5,
+    title: '매쓰 서바이벌 🌍',
+    description: '수학 문제를 풀며 몬스터를 물리치는 서바이벌 게임! 맵·무기·아이템을 선택하고 성장하세요.',
+    thumbnail: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=600',
+    techStack: ['HTML', 'CSS', 'Canvas', 'JavaScript'],
+    appUrl: '/apps/math-survival.html',
+  },
 ];
 
 // ========== 에듀테크 갤러리 데이터 ==========
