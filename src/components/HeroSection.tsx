@@ -47,7 +47,7 @@ export default function HeroSection() {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="#web-app-lab"
+                href="#dev-lab"
                 className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-white font-semibold border-2 border-brand-navy/10 hover:border-brand-sky transition-all shadow-sm hover:shadow-md"
               >
                 최신 웹앱 체험하기
