@@ -261,7 +261,7 @@ export const devLabsData: Array<{
     id: 1,
     title: '여수한려초등학교 수영부 관리 어플리케이션 (HALLYO SWIM)',
     description: '수영부 학생 선수들의 효율적인 훈련 기록, 경기 영상 분석 및 소통을 위해 직접 기획·개발한 모바일 최적화 웹 애플리케이션입니다.\n\n개인별 기록 변화 추이 시각화 및 학부모와의 실시간 공유 기능을 통해 학생들의 체계적인 성장을 지원합니다.',
-    image: '/images/projects/hallyo_swim_app.png',
+    image: '/images/new_media/media__1778425795314.jpg',
     techStack: ['Next.js', 'PWA', 'Supabase', 'Data Viz'],
     link: 'https://hallyo.vercel.app/login'
   }

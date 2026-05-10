@@ -71,13 +71,13 @@ export default function DevLabSection() {
                     className="w-full lg:w-1/2 relative"
                   >
                     <div className="relative w-full aspect-[16/10] bg-slate-200 dark:bg-slate-700 rounded-xl lg:rounded-2xl border-[8px] lg:border-[12px] border-slate-800 dark:border-slate-900 shadow-2xl overflow-hidden">
-                      {/* Mockup Screen */}
-                      <div className="absolute inset-0 bg-slate-900 overflow-hidden">
+                      <div className="absolute inset-0 bg-slate-900 overflow-hidden flex items-center justify-center p-4">
                         <Image
                           src={app.image}
                           alt={app.title}
                           fill
-                          className="object-cover object-top hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
+                          unoptimized={true}
+                          className="object-contain hover:scale-[1.02] transition-transform duration-1000 ease-in-out p-4"
                         />
                       </div>
                     </div>
