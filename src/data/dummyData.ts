@@ -94,24 +94,7 @@ export const awardsData = [
     date: '2023. 11. 25.',
     image: '/images/awards/yes24_2023.jpg',
   },
-  {
-    id: 6,
-    title: '2024 수업혁신사례연구대회 전국 2등급 (교육부장관표창)',
-    date: '2024',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 7,
-    title: '2024 대한민국 글로컬 박람회 유공교원 (교육감표창)',
-    date: '2024',
-    image: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 8,
-    title: '2024 과학교육 및 자연관찰탐구방법개선 연구대회 3등급 (교육감표창)',
-    date: '2024',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800',
-  },
+
   {
     id: 9,
     title: '제25회 전국학생통계활용대회 은상 (통계청장상)',
