@@ -186,21 +186,21 @@ export const webAppsData = [
 export const publicationsData = [
   {
     id: 1,
-    title: '선생님 교실 인문(독서논술) 수업을 훔쳐내다',
-    description: '여수(미)사랑, 우리들의 이야기 2 외 다수 집필 (18,900원)',
+    title: '선생님 교실 인문(독서논술) 수업(노하우)을 훔치다',
+    description: '여수의(義) 사랑, 우리들의 이야기 2 외 다수 집필 (18,900원)',
     cover: 'https://image.yes24.com/goods/152574991/XL',
     link: 'https://www.yes24.com/product/goods/152574991',
   },
   {
     id: 2,
-    title: '여수(美)사랑, 우리들의 이야기',
+    title: '여수의(義) 사랑, 우리들의 이야기',
     description: '나, 그리고 우리들의 이야기 외 공저 (14,000원)',
     cover: 'https://image.yes24.com/goods/152467965/XL',
     link: 'https://www.yes24.com/product/goods/152467965',
   },
   {
     id: 3,
-    title: '우리들의 뇌물 상자',
+    title: '우리들의 눈물 상자',
     description: '예스24 추천 저서 (16,000원)',
     cover: 'https://image.yes24.com/goods/147796751/XL',
     link: 'https://www.yes24.com/product/goods/147796751',
@@ -221,7 +221,7 @@ export const publicationsData = [
   },
   {
     id: 6,
-    title: 'AI와 킹콩 그림 꿈의 조각',
+    title: 'AI와 함께 그린 꿈의 조각',
     description: '예스24 추천 저서 (11,000원)',
     cover: 'https://image.yes24.com/goods/138744485/XL',
     link: 'https://www.yes24.com/product/goods/138744485',
