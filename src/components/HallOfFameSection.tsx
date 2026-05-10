@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { awardsData } from '../data/dummyData';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import ClickDiscoverWrapper from './wrappers/ClickDiscoverWrapper';
 
 export default function HallOfFameSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -30,31 +31,43 @@ export default function HallOfFameSection() {
 
         {/* Masonry-like Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {awardsData.map((award, index) => (
-            <motion.div
-              key={award.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="break-inside-avoid relative rounded-xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
-              onClick={() => setSelectedImage(award.image)}
-            >
-              <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2 aspect-[3/4] flex items-center justify-center">
-                <Image
-                  src={award.image}
-                  alt={award.title}
-                  fill
-                  unoptimized={true}
-                  className="object-cover p-2 group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <span className="text-brand-sky font-semibold text-sm mb-1">{award.date}</span>
-                <h4 className="text-white font-bold text-lg leading-tight">{award.title}</h4>
-              </div>
-            </motion.div>
-          ))}
+          {awardsData.map((award, index) => {
+            const card = (
+              <motion.div
+                key={award.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="break-inside-avoid relative rounded-xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                onClick={() => setSelectedImage(award.image)}
+              >
+                <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2 aspect-[3/4] flex items-center justify-center">
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    fill
+                    unoptimized={true}
+                    className="object-cover p-2 group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span className="text-brand-sky font-semibold text-sm mb-1">{award.date}</span>
+                  <h4 className="text-white font-bold text-lg leading-tight">{award.title}</h4>
+                </div>
+              </motion.div>
+            );
+
+            // 첫 번째 상장에 이스터에그 적용
+            if (index === 0) {
+              return (
+                <ClickDiscoverWrapper key={award.id}>
+                  {card}
+                </ClickDiscoverWrapper>
+              );
+            }
+            return card;
+          })}
         </div>
       </div>
 

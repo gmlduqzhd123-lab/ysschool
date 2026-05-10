@@ -8,6 +8,7 @@ export const navLinks = [
   { name: '언론보도', href: '#press-room' },
   { name: '개발자료', href: '#dev-lab' },
   { name: '저서', href: '#publications' },
+  { name: '연수 자료', href: '/training' },
   { name: '에듀테크 갤러리', href: '/showcase' },
 ];
 
@@ -255,7 +256,7 @@ export const publicationsData = [
   {
     id: 3,
     title: '우리들의 눈물 상자',
-    description: '문예노트 외 19명 공저 (16,000원)',
+    description: '이채민 외 19명 공저 (16,000원)',
     cover: 'https://image.yes24.com/goods/147796751/XL',
     link: 'https://www.yes24.com/product/goods/147796751',
   },

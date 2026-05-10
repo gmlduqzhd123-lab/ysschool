@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { navLinks } from '../data/dummyData';
 import { BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,22 +33,34 @@ export default function Header() {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
+            <ThemeToggle />
           </nav>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-600 hover:text-brand-navy focus:outline-none"
+              className="text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {mobileMenuOpen ? (
@@ -65,16 +78,27 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden glass-header absolute top-20 left-0 w-full shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
           </div>
         </div>
       )}
