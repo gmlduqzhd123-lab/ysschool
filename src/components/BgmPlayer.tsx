@@ -1,86 +1,143 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Music } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function BgmPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasAutoPlayed = useRef(false);
 
-  // YouTube Video ID
+  // YouTube embed URL for background audio (looped)
   const videoId = 'sYe-RMXn3KI';
 
+  // Initialize the hidden YouTube iframe for audio
   useEffect(() => {
-    const handleInteraction = () => {
-      if (!hasInteracted) {
-        setHasInteracted(true);
-        setIsPlaying(true);
-      }
-    };
+    // We'll use a YouTube iframe approach but with proper API
+    const iframe = document.createElement('iframe');
+    iframe.id = 'bgm-iframe';
+    iframe.width = '0';
+    iframe.height = '0';
+    iframe.style.position = 'fixed';
+    iframe.style.top = '-9999px';
+    iframe.style.left = '-9999px';
+    iframe.style.opacity = '0';
+    iframe.style.pointerEvents = 'none';
+    iframe.allow = 'autoplay';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=0&loop=1&playlist=${videoId}&controls=0`;
+    iframe.title = 'BGM';
+    document.body.appendChild(iframe);
 
-    // Listen for user interactions to start autoplay
-    document.addEventListener('click', handleInteraction, { once: true });
-    document.addEventListener('keydown', handleInteraction, { once: true });
-    document.addEventListener('scroll', handleInteraction, { once: true });
+    // Store reference
+    audioRef.current = iframe as unknown as HTMLAudioElement;
 
     return () => {
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('keydown', handleInteraction);
-      document.removeEventListener('scroll', handleInteraction);
+      const el = document.getElementById('bgm-iframe');
+      if (el) el.remove();
     };
-  }, [hasInteracted]);
+  }, [videoId]);
 
-  useEffect(() => {
-    if (iframeRef.current && iframeRef.current.contentWindow) {
-      if (isPlaying) {
-        iframeRef.current.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      } else {
-        iframeRef.current.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-      }
+  // Post message to control YouTube iframe
+  const postCommand = useCallback((command: string) => {
+    const iframe = document.getElementById('bgm-iframe') as HTMLIFrameElement | null;
+    if (iframe?.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: command, args: '' }),
+        '*'
+      );
     }
-  }, [isPlaying]);
+  }, []);
+
+  // Try to autoplay on first user interaction
+  useEffect(() => {
+    const attemptAutoPlay = () => {
+      if (hasAutoPlayed.current) return;
+      hasAutoPlayed.current = true;
+
+      // Small delay to ensure iframe is loaded
+      setTimeout(() => {
+        postCommand('playVideo');
+        setIsPlaying(true);
+      }, 800);
+    };
+
+    const events = ['click', 'touchstart', 'keydown', 'scroll'];
+    events.forEach((evt) =>
+      document.addEventListener(evt, attemptAutoPlay, { once: true, passive: true })
+    );
+
+    return () => {
+      events.forEach((evt) =>
+        document.removeEventListener(evt, attemptAutoPlay)
+      );
+    };
+  }, [postCommand]);
+
+  // Show tooltip on first load to guide user
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTooltip(true), 2000);
+    const hideTimer = setTimeout(() => setShowTooltip(false), 8000);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
 
   const togglePlay = () => {
-    setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      postCommand('pauseVideo');
+      setIsPlaying(false);
+    } else {
+      postCommand('playVideo');
+      setIsPlaying(true);
+      hasAutoPlayed.current = true;
+    }
+    setShowTooltip(false);
   };
 
   return (
     <>
-      {/* Hidden YouTube Iframe */}
-      <div className="fixed -top-[2000px] -left-[2000px] w-0 h-0 opacity-0 pointer-events-none">
-        <iframe
-          ref={iframeRef}
-          width="100"
-          height="100"
-          src={`https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=0&loop=1&playlist=${videoId}&controls=0&showinfo=0&autohide=1`}
-          title="BGM"
-          allow="autoplay"
-        ></iframe>
-      </div>
-
       {/* Floating Toggle Button */}
-      <motion.button
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
-        onClick={togglePlay}
-        className="fixed bottom-6 left-6 z-[100] p-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 transition-all duration-300 group"
-        aria-label="Toggle Background Music"
-      >
-        {isPlaying ? (
-          <div className="relative">
-            <Volume2 className="w-6 h-6 text-brand-sky" />
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-sky opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-sky"></span>
-            </span>
-          </div>
-        ) : (
-          <VolumeX className="w-6 h-6 text-slate-400" />
-        )}
-      </motion.button>
+      <div className="fixed bottom-8 left-8 z-[100] flex items-end gap-3">
+        <motion.button
+          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
+          onClick={togglePlay}
+          className="relative p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.2)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+          aria-label={isPlaying ? '배경음악 끄기' : '배경음악 켜기'}
+        >
+          {isPlaying ? (
+            <div className="relative">
+              <Volume2 className="w-6 h-6 text-brand-sky" />
+              {/* Pulsing indicator */}
+              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-sky opacity-75" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-sky" />
+              </span>
+            </div>
+          ) : (
+            <VolumeX className="w-6 h-6 text-slate-400" />
+          )}
+        </motion.button>
+
+        {/* Tooltip */}
+        <AnimatePresence>
+          {showTooltip && !isPlaying && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium px-4 py-2 rounded-xl shadow-lg whitespace-nowrap pointer-events-none"
+            >
+              🎵 클릭하면 힐링 음악이 재생돼요
+              <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 w-2 h-2 bg-slate-900 dark:bg-white rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }

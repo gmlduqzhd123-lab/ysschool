@@ -170,7 +170,7 @@ export const mediaData = [
 export const pressData = [
   {
     id: 1,
-    title: '[언론보도] 예스24 어린이 독후감 대회 우수 지도교사',
+    title: '예스24 어린이 독후감 대회 우수 지도교사',
     description: '나도 작가 프로젝트 등 학생 저자 육성에 힘쓴 결과, YES24 어린이 독후감 대회에서 전국 단위 우수 지도교사상(전국 1위)을 수상했습니다.',
     image: 'https://image.yes24.com/images/chyes24/b/a/d/a/bada6de10e8c9403ed87d4f101f832cc.jpg',
     techStack: ['YES24', '독후감대회', '지도교사상'],
@@ -178,7 +178,7 @@ export const pressData = [
   },
   {
     id: 2,
-    title: '[언론보도] 대한민국 창의력 챔피언 대회 석권',
+    title: '대한민국 창의력 챔피언 대회 석권',
     description: '2023년 대한민국 창의력 챔피언 대회 및 2024년 대회를 석권하며 창의융합인재 양성에 기여한 지도 활동이 소개되었습니다.',
     image: 'https://images.unsplash.com/photo-1511629091441-ee46146481b6?auto=format&fit=crop&q=80&w=1200',
     techStack: ['창의력대회', '창의융합', '언론보도'],
@@ -186,7 +186,7 @@ export const pressData = [
   },
   {
     id: 3,
-    title: '[언론보도] 전남 여수교육지원청, 디지털 수업역량 연수',
+    title: '전남 여수교육지원청, 디지털 수업역량 연수',
     description: 'KENTEC 미래 교육 전문 강사 및 에듀테크 현장 지원단으로서 교사들의 에듀테크 활용 능력과 AI 기반 수업 역량을 강화하기 위한 연수를 운영했습니다.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200',
     techStack: ['에듀테크', '디지털선도', 'KENTEC'],
@@ -194,7 +194,7 @@ export const pressData = [
   },
   {
     id: 4,
-    title: '[언론보도] 글로컬 미래교육 박람회 미래교실 공개수업',
+    title: '글로컬 미래교육 박람회 미래교실 공개수업',
     description: '2024 글로컬 미래교육 박람회에서 미래교실 공동 공개수업(국어과)을 진행하며 새로운 교육 패러다임을 제시했습니다.',
     image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200',
     techStack: ['글로컬미래교육', '공개수업', '언론보도'],
@@ -202,7 +202,7 @@ export const pressData = [
   },
   {
     id: 5,
-    title: '[언론보도] 독서인문선도교실 우수 사례',
+    title: '독서인문선도교실 우수 사례',
     description: '지역 역사와 연계한 글로-CAL 프로젝트 등 독서인문 선도교실 선도교사로서 학생 주도형 독서인문교육을 실천한 사례가 보도되었습니다.',
     image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200',
     techStack: ['독서인문', '선도교실', '우수사례'],
@@ -210,7 +210,7 @@ export const pressData = [
   },
   {
     id: 6,
-    title: '[언론보도] 불조심어린이마당 및 통계활용대회 1위',
+    title: '불조심어린이마당 및 통계활용대회 1위',
     description: '제 23회 불조심어린이마당 전남 1위 및 제 25회 전국학생통계활용대회 은상 등 학생 지도에 힘쓴 성과가 기사화되었습니다.',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200',
     techStack: ['불조심마당', '통계대회', '지도상'],
@@ -298,6 +298,6 @@ export const publicationsData = [
     title: '자작자작, 우리들의 이야기',
     description: '문에녹 외 19명 공저 (13,000원)',
     cover: '/images/new_media/media__1778421386007.png',
-    link: 'https://bookk.co.kr/bookStore/68da404cee308e902a61b900',
+    link: 'https://www.yes24.com/product/goods/160462951',
   }
 ];
