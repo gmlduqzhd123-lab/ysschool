@@ -25,7 +25,7 @@ export default function MediaRoomSection() {
             영상 갤러리
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-400">
-            직접 제작한 생생한 교육 영상을 만나보세요.
+            글로 다 담지 못하는 생생한 아이들의 표정과, 교육 현장의 온기를 영상으로 전합니다.
           </p>
         </motion.div>
 

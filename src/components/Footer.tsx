@@ -1,4 +1,4 @@
-import { Mail, Code2, Tv, BookOpen } from 'lucide-react';
+import { Mail, BookOpen } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

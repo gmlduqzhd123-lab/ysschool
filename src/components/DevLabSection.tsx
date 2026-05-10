@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { devLabsData } from '../data/dummyData';
-import { Code, Construction } from 'lucide-react';
+import { Construction } from 'lucide-react';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
@@ -19,10 +19,10 @@ export default function DevLabSection() {
         >
           <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Dev Lab</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            개발 자료 및 웹앱
+            교육 웹앱 실험실
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            직접 기획하고 개발하여 교육 현장에 혁신을 가져온 웹 애플리케이션 및 개발 자료입니다.
+            교실의 문제들을 기술로 해결합니다. 아이들과 교사 모두의 성장을 돕기 위해 직접 기획하고 개발 중인 맞춤형 교육 도구들입니다.
           </p>
         </motion.div>
 

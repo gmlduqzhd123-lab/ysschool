@@ -15,12 +15,12 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">About</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            핵심 역량 및 철학
+          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Education Philosophy</h2>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
+            경계를 넘어서는 교육,<br/>아이들의 가능성을 세상과 연결합니다.
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            끊임없이 배우고 성장하며, 배운 것을 나누는 교육자이자 크리에이터입니다.
+            교실이라는 공간을 넘어 독서인문, AI·디지털, 발명영재교육, 예술(아카펠라) 등 다양한 영역을 융합하여 미래 인재를 양성하는 현직 초등 교사이자 교육 크리에이터입니다.
           </p>
         </motion.div>
 

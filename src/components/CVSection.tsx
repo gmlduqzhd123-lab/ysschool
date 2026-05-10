@@ -10,7 +10,7 @@ import {
   commendations, 
   lecturesAndConsulting 
 } from '../data/cvData';
-import { Briefcase, Award, BookOpen, Presentation, Users, Star, GraduationCap } from 'lucide-react';
+import { Briefcase, Award, BookOpen, Presentation, Users, GraduationCap } from 'lucide-react';
 
 export default function CVSection() {
   return (
@@ -28,7 +28,7 @@ export default function CVSection() {
             주요 약력 및 활동
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            교육 현장에서의 다양한 연구, 강의, 지도 실적을 소개합니다.
+            아이들에게 더 넓은 세상을 보여주기 위해, 끊임없이 연구하고 실천해 온 치열한 교육의 발자취입니다.
           </p>
         </motion.div>
 

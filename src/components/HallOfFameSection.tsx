@@ -24,7 +24,7 @@ export default function HallOfFameSection() {
             수상 내역
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            교육과 개발 분야에서의 노력과 성과를 기록합니다.
+            아이들의 성장이 곧 저의 성장이었습니다. 치열하게 도전하며 맺은 결실들을 기록합니다.
           </p>
         </motion.div>
 

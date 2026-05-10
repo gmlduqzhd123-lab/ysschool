@@ -21,7 +21,7 @@ export default function PublicationsSection() {
             저서 소개
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            교육 현장의 경험을 바탕으로 누구나 쉽게 이해할 수 있는 책을 집필했습니다.
+            교실 속 아이들의 생생한 목소리를 담고, 교사로서의 교육적 성찰을 대중과 나누기 위해 집필한 10권의 저서입니다.
           </p>
         </motion.div>
 

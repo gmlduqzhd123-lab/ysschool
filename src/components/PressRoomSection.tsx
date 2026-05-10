@@ -21,7 +21,7 @@ export default function PressRoomSection() {
             언론 보도 및 기사
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            교육 현장에서의 혁신적인 활동과 뜻깊은 성과들이 소개된 언론 보도 및 기사 모음입니다.
+            묵묵히 걸어온 교육적 실천들이 세상과 닿았던 의미 있는 순간들을 기록합니다.
           </p>
         </motion.div>
 

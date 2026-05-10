@@ -21,7 +21,7 @@ export default function EduArchiveSection() {
             교육 자료실
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            직접 연구하고 제작한 양질의 교육 자료를 공유합니다.
+            교실의 울타리를 넘어, 아이들의 가능성을 틔우기 위해 연구하고 치열하게 고민했던 교육 자료들을 나눕니다.
           </p>
         </motion.div>
 

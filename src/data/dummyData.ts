@@ -259,11 +259,67 @@ export const devLabsData: Array<{
 }> = [
   {
     id: 1,
-    title: '여수한려초 수영부 관리 시스템 (HALLYO SWIM)',
-    description: '여수한려초등학교 수영부 학생 선수들의 효율적인 훈련 관리와 소통을 위해 직접 개발한 종합 관리 웹 애플리케이션입니다.\n\n선수 명단 관리, 대회 일정 조회, 훈련 기록 및 갤러리 영상 아카이빙 기능을 제공하며 PWA(점진적 웹 앱)를 지원하여 모바일에서도 앱처럼 편리하게 사용할 수 있습니다.',
+    title: '여수한려초 수영부 기록 분석 대시보드 (HALLYO SWIM)',
+    description: '수영부 학생 선수들의 효율적인 훈련 기록, 경기 영상 분석 및 소통을 위해 직접 기획·개발한 모바일 최적화 웹 애플리케이션입니다.\n\n개인별 기록 변화 추이 시각화 및 학부모와의 실시간 공유 기능을 통해 학생들의 체계적인 성장을 지원합니다.',
     image: '/images/projects/hallyo_swim_app.png',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PWA'],
+    techStack: ['Next.js', 'PWA', 'Supabase', 'Data Viz'],
     link: 'https://hallyo.vercel.app/login'
+  },
+  {
+    id: 2,
+    title: '글로-CAL 프로젝트 아카이브',
+    description: '지역의 역사와 생태를 탐구하고 세계와 연결하는 "글로-CAL(Global+Local) 프로젝트"의 학생 산출물을 기록하고 공유하는 디지털 아카이브 공간입니다.\n\n학생들의 창의적인 해결책과 성찰이 담긴 프로젝트 결과물을 누구나 쉽게 열람할 수 있도록 구축할 예정입니다.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['React', 'Next.js', 'Vercel', 'Database'],
+    link: '#'
+  },
+  {
+    id: 3,
+    title: '학생 작가 프로젝트 관리 도구',
+    description: '학생들이 직접 책을 집필하고 출판하는 "학생 저자 프로젝트"의 전 과정을 체계적으로 돕는 맞춤형 관리 솔루션입니다.\n\n원고 작성 진행률 추적, 피드백 주고받기, 최종 출판 포맷 변환 등의 기능을 구상 중이며 학생들의 작가 데뷔를 적극 지원합니다.',
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['UI/UX', 'Editor', 'Collaboration'],
+    link: '#'
+  },
+  {
+    id: 4,
+    title: 'AI 독서인문 수업 설계 도구',
+    description: '생성형 AI 기술을 활용하여 교사들이 빠르고 효과적으로 독서인문 수업 흐름과 발문을 설계할 수 있도록 돕는 프롬프트 엔지니어링 웹앱입니다.\n\n도서의 핵심 키워드를 입력하면, 비판적 사고력을 길러주는 단계별 하브루타 질문과 활동 스키마를 제안합니다.',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['AI API', 'Prompt', 'Next.js'],
+    link: '#'
+  },
+  {
+    id: 5,
+    title: '바이브 코딩 체험 웹앱',
+    description: '복잡한 코딩 문법 없이 블록이나 직관적인 UI를 통해 학생 스스로 아이디어를 구현해 볼 수 있는 체험형 소프트웨어 교육 도구입니다.\n\n에듀테크 현장 적용성을 극대화하기 위해 개발 단계에 있으며, 아이들의 컴퓨팅 사고력을 놀이처럼 키울 수 있습니다.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['Web App', 'Blockly', 'Game Engine'],
+    link: '#'
+  },
+  {
+    id: 6,
+    title: 'PAPS 건강체력교실 관리표',
+    description: '학생 건강 체력 평가(PAPS) 데이터를 기반으로 체력 증진이 필요한 학생들의 운동 이력과 신체 변화를 기록·관리하는 대시보드입니다.\n\n개인 건강 정보는 철저히 보안을 유지하며(비식별화 적용), 운동 처방에 따른 건강 성취도를 게임화(Gamification)하여 흥미를 유발합니다.',
+    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['Chart.js', 'Health Data', 'Security'],
+    link: '#'
+  },
+  {
+    id: 7,
+    title: 'AI·디지털 예산 산출 도구',
+    description: '디지털 선도학교 및 AI 중점학교 운영을 맡은 교사들의 업무 경감을 위해 제작한 지능형 예산 자동 산출 엑셀/웹앱 변환 도구입니다.\n\n품목별 단가, 권장 비율 등을 설정하면 자동으로 기안 및 품의에 활용 가능한 예산 내역서 초안을 생성합니다.',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['Calculator', 'Automation', 'Utility'],
+    link: '#'
+  },
+  {
+    id: 8,
+    title: '엽쌤스쿨 자료 허브',
+    description: '초등 교육 현장에서 즉시 활용 가능한 수백 개의 수업 혁신 자료, 학급 경영 팁, 컨설팅 및 연수 아카이브를 하나로 모은 중앙 허브 페이지입니다.\n\n전국 단위의 선생님들이 쉽게 검색하고 피드백을 나눌 수 있는 지식 공유 생태계를 지향합니다.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200',
+    techStack: ['CMS', 'Search', 'Archive'],
+    link: '#'
   }
 ];
 
