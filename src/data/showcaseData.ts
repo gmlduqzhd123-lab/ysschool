@@ -25,22 +25,6 @@ export const miniAppsData: MiniApp[] = [
     techStack: ['HTML', 'CSS', 'JavaScript'],
     appUrl: '/apps/random-excuse.html',
   },
-  {
-    id: 3,
-    title: '천하제일 한려 벽돌깨기 🧱',
-    description: '학생들과 함께 만든 클래식 벽돌깨기 게임! 마우스로 패들을 움직여 벽돌을 모두 깨보세요.',
-    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=600',
-    techStack: ['HTML5 Canvas', 'JavaScript', 'Game Dev'],
-    appUrl: '/apps/brick-breaker.html',
-  },
-  {
-    id: 4,
-    title: '웜즈 아마겟돈 🐛',
-    description: '추억의 웜즈 게임을 웹으로 재현! 턴제 전략 슈팅 게임을 즐겨보세요.',
-    thumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
-    techStack: ['HTML5 Canvas', 'JavaScript', 'Physics'],
-    appUrl: '/apps/worms-game.html',
-  },
 ];
 
 // ========== 에듀테크 갤러리 데이터 ==========
