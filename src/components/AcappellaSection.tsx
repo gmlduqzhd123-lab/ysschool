@@ -25,7 +25,7 @@ export default function AcappellaSection() {
             아카펠라 공연 영상
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            전남초등아카펠라교육연구회 활동 및 다채로운 공연 실황을 감상해보세요.
+            2024 대한민국글로컬박람회 축하 공연을 비롯해 총 85회 이상의 다채로운 아카펠라 공연 실황을 감상해보세요.
           </p>
         </motion.div>
 

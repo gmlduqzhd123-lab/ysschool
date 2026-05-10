@@ -17,19 +17,16 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex space-x-6">
-            <a href="#" className="text-slate-400 hover:text-brand-sky transition-colors">
-              <span className="sr-only">Email</span>
-              <Mail className="h-6 w-6" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              <span className="sr-only">GitHub</span>
-              <Code2 className="h-6 w-6" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-red-500 transition-colors">
-              <span className="sr-only">YouTube</span>
-              <Tv className="h-6 w-6" />
-            </a>
+          <div className="flex flex-col items-center md:items-end text-sm mt-6 md:mt-0">
+            <p className="font-semibold text-white mb-2">😀 연수, 컨설팅, 공연 의뢰 😀</p>
+            <div className="flex items-center gap-2 mb-1">
+              <Mail className="h-4 w-4 text-brand-sky" />
+              <a href="mailto:gmlduqzhd@naver.com" className="hover:text-white transition-colors">gmlduqzhd@naver.com</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="bg-yellow-400 text-yellow-900 text-[10px] font-extrabold px-1.5 py-0.5 rounded">TALK</div>
+              <span>yeop24</span>
+            </div>
           </div>
 
         </div>
