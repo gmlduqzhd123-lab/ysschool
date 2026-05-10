@@ -204,11 +204,16 @@ export default function ShowcasePage() {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                   >
-                    {sunoData.map((song, i) => (
-                      <SunoCard key={song.id} song={song} delay={i * 0.1} />
-                    ))}
+                    {sunoData.length > 0 ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {sunoData.map((song, i) => (
+                          <SunoCard key={song.id} song={song} delay={i * 0.1} />
+                        ))}
+                      </div>
+                    ) : (
+                      <EmptyState icon="🎵" title="Suno AI 음악" description="AI로 작곡한 교육용 음악 콘텐츠가 준비되면 이곳에 공개됩니다." />
+                    )}
                   </motion.div>
                 )}
 
@@ -219,35 +224,40 @@ export default function ShowcasePage() {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                   >
-                    {canvaData.map((item, i) => (
-                      <motion.div
-                        key={item.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="group cursor-pointer bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
-                        onClick={() => setLightboxImg(item.image)}
-                      >
-                        <div className="relative aspect-[3/4] overflow-hidden">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                            <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
-                              <ImageIcon className="w-5 h-5 text-slate-700" />
+                    {canvaData.length > 0 ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {canvaData.map((item, i) => (
+                          <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group cursor-pointer bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
+                            onClick={() => setLightboxImg(item.image)}
+                          >
+                            <div className="relative aspect-[3/4] overflow-hidden">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
+                                  <ImageIcon className="w-5 h-5 text-slate-700" />
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
-                          <p className="text-xs text-slate-500 mt-1">{item.description}</p>
-                        </div>
-                      </motion.div>
-                    ))}
+                            <div className="p-4">
+                              <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
+                              <p className="text-xs text-slate-500 mt-1">{item.description}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    ) : (
+                      <EmptyState icon="🎨" title="Canva 시각 자료" description="Canva로 제작한 교육용 포스터와 시각 자료가 준비되면 이곳에 공개됩니다." />
+                    )}
                   </motion.div>
                 )}
 
@@ -258,61 +268,66 @@ export default function ShowcasePage() {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
-                    className="space-y-4 max-w-3xl"
                   >
-                    {notebookData.map((item, i) => (
-                      <motion.div
-                        key={item.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-                      >
-                        <button
-                          onClick={() => setExpandedNotebook(expandedNotebook === item.id ? null : item.id)}
-                          className="w-full flex items-center gap-4 p-5 text-left cursor-pointer"
-                        >
-                          <span className="text-3xl">{item.icon}</span>
-                          <div className="flex-grow">
-                            <h4 className="font-bold text-slate-900 dark:text-white">{item.title}</h4>
-                            <p className="text-xs text-slate-500 mt-0.5">NotebookLM AI 분석 결과물</p>
-                          </div>
-                          <ChevronDown
-                            className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
-                              expandedNotebook === item.id ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {expandedNotebook === item.id && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden"
+                    {notebookData.length > 0 ? (
+                      <div className="space-y-4 max-w-3xl">
+                        {notebookData.map((item, i) => (
+                          <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                          >
+                            <button
+                              onClick={() => setExpandedNotebook(expandedNotebook === item.id ? null : item.id)}
+                              className="w-full flex items-center gap-4 p-5 text-left cursor-pointer"
                             >
-                              <div className="px-5 pb-5 pt-0">
-                                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                                  {item.summary}
-                                </p>
-                                {item.link !== '#' && (
-                                  <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy dark:text-brand-sky hover:underline"
-                                  >
-                                    <FileText className="w-4 h-4" />
-                                    전체 자료 보기
-                                  </a>
-                                )}
+                              <span className="text-3xl">{item.icon}</span>
+                              <div className="flex-grow">
+                                <h4 className="font-bold text-slate-900 dark:text-white">{item.title}</h4>
+                                <p className="text-xs text-slate-500 mt-0.5">NotebookLM AI 분석 결과물</p>
                               </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </motion.div>
-                    ))}
+                              <ChevronDown
+                                className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                                  expandedNotebook === item.id ? 'rotate-180' : ''
+                                }`}
+                              />
+                            </button>
+                            <AnimatePresence>
+                              {expandedNotebook === item.id && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="px-5 pb-5 pt-0">
+                                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                                      {item.summary}
+                                    </p>
+                                    {item.link !== '#' && (
+                                      <a
+                                        href={item.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy dark:text-brand-sky hover:underline"
+                                      >
+                                        <FileText className="w-4 h-4" />
+                                        전체 자료 보기
+                                      </a>
+                                    )}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </motion.div>
+                        ))}
+                      </div>
+                    ) : (
+                      <EmptyState icon="📝" title="NotebookLM 결과물" description="NotebookLM으로 분석·정리한 교육 자료가 준비되면 이곳에 공개됩니다." />
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -436,5 +451,20 @@ function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) 
         </p>
       </div>
     </motion.div>
+  );
+}
+
+// ===== Empty State Placeholder =====
+function EmptyState({ icon, title, description }: { icon: string; title: string; description: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center py-20 text-center">
+      <div className="text-6xl mb-6">{icon}</div>
+      <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3">{title}</h3>
+      <p className="text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">{description}</p>
+      <div className="mt-8 inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-sm font-medium px-5 py-2.5 rounded-full">
+        <Sparkles className="w-4 h-4" />
+        콘텐츠 준비 중
+      </div>
+    </div>
   );
 }
