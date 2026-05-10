@@ -186,8 +186,8 @@ export const webAppsData = [
 export const publicationsData = [
   {
     id: 1,
-    title: '선생님 교실 인문(독서논술) 수업(노하우)을 훔치다',
-    description: '여수(美)사랑, 우리들의 이야기 2 외 다수 집필 (18,900원)',
+    title: '선생님 교실 인문(독서논술) 수업(노하우)을 훔쳐내다',
+    description: '고영욱 에세이 (18,900원)',
     cover: 'https://image.yes24.com/goods/152574991/XL',
     link: 'https://www.yes24.com/product/goods/152574991',
   },
@@ -242,8 +242,8 @@ export const publicationsData = [
   },
   {
     id: 9,
-    title: '작가작가, 우리들의 이야기',
-    description: '문예노트 외 19명 공저 (13,000원)',
+    title: '자작자작, 우리들의 이야기',
+    description: '문에녹 외 19명 공저 (13,000원)',
     cover: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800',
     link: 'https://bookk.co.kr/bookStore/68da404cee308e902a61b900',
   }
