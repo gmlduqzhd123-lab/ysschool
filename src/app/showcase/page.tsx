@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Gamepad2, Rocket, Play, X, ExternalLink,
   Music, Image as ImageIcon, FileText, ChevronDown, Pause,
-  Sparkles, BookOpen
+  Sparkles, BookOpen, LayoutGrid
 } from 'lucide-react';
 import Link from 'next/link';
 import {
-  miniAppsData, sunoData, canvaData, notebookData,
+  miniAppsData, sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
 type Tab = 'apps' | 'gallery';
-type GallerySub = 'suno' | 'canva' | 'notebook';
+type GallerySub = 'suno' | 'canva' | 'notebook' | 'padlet';
 
 export default function ShowcasePage() {
   const [activeTab, setActiveTab] = useState<Tab>('apps');
@@ -180,6 +180,7 @@ export default function ShowcasePage() {
                   { key: 'suno' as GallerySub, label: '🎵 Suno AI 음악', icon: Music },
                   { key: 'canva' as GallerySub, label: '🎨 Canva 시각 자료', icon: ImageIcon },
                   { key: 'notebook' as GallerySub, label: '📝 NotebookLM', icon: FileText },
+                  { key: 'padlet' as GallerySub, label: '📌 패들렛 아카이빙', icon: LayoutGrid },
                 ]).map((sub) => (
                   <button
                     key={sub.key}
@@ -327,6 +328,43 @@ export default function ShowcasePage() {
                       </div>
                     ) : (
                       <EmptyState icon="📝" title="NotebookLM 결과물" description="NotebookLM으로 분석·정리한 교육 자료가 준비되면 이곳에 공개됩니다." />
+                    )}
+                  </motion.div>
+                )}
+
+                {/* ===== Padlet ===== */}
+                {gallerySub === 'padlet' && (
+                  <motion.div
+                    key="padlet"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                  >
+                    {padletData.length > 0 ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {padletData.map((item, i) => (
+                          <motion.a
+                            key={item.id}
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
+                          >
+                            <div className="relative aspect-video overflow-hidden">
+                              <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <div className="p-5">
+                              <h4 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h4>
+                              <p className="text-xs text-slate-500 dark:text-slate-400">{item.description}</p>
+                            </div>
+                          </motion.a>
+                        ))}
+                      </div>
+                    ) : (
+                      <EmptyState icon="📌" title="패들렛 아카이빙" description="교육 현장에서 활용한 패들렛 자료가 준비되면 이곳에 공개됩니다." />
                     )}
                   </motion.div>
                 )}

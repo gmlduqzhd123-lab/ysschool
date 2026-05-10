@@ -28,7 +28,7 @@ export const miniAppsData: MiniApp[] = [
 ];
 
 // ========== 에듀테크 갤러리 데이터 ==========
-export type GalleryCategory = 'suno' | 'canva' | 'notebook';
+export type GalleryCategory = 'suno' | 'canva' | 'notebook' | 'padlet';
 
 export interface SunoItem {
   id: number;
@@ -59,4 +59,14 @@ export const sunoData: SunoItem[] = [];
 export const canvaData: CanvaItem[] = [];
 
 export const notebookData: NotebookItem[] = [];
+
+export interface PadletItem {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+}
+
+export const padletData: PadletItem[] = [];
 
