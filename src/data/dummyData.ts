@@ -65,51 +65,51 @@ export const eduResourcesData = [
 export const awardsData = [
   {
     id: 1,
-    title: '2024 수업혁신사례연구대회 전국 2등급 (부총리 겸 교육부장관표창)',
+    title: '제23회 전남학생발명 공모전 지도교사상 (교육감표창)',
+    date: '2024. 09. 13.',
+    image: '/images/awards/invention_2024.jpg',
+  },
+  {
+    id: 2,
+    title: '독서인문교육 활성화 기여 표창 (교육감표창)',
+    date: '2023. 12. 31.',
+    image: '/images/awards/reading_2023.jpg',
+  },
+  {
+    id: 3,
+    title: '제23회 불조심 어린이마당 탁월 지도상',
+    date: '2023. 10. 26.',
+    image: '/images/awards/fire_safety_2023.jpg',
+  },
+  {
+    id: 4,
+    title: '제22회 전남 학생 발명 공모전 우수 지도 표창 (교육감표창)',
+    date: '2023. 12. 29.',
+    image: '/images/awards/invention_2023.jpg',
+  },
+  {
+    id: 5,
+    title: '제20회 예스24 어린이 독후감 대회 우수 지도교사상',
+    date: '2023. 11. 25.',
+    image: '/images/awards/yes24_2023.jpg',
+  },
+  {
+    id: 6,
+    title: '2024 수업혁신사례연구대회 전국 2등급 (교육부장관표창)',
     date: '2024',
     image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800',
   },
   {
-    id: 2,
+    id: 7,
     title: '2024 대한민국 글로컬 박람회 유공교원 (교육감표창)',
     date: '2024',
     image: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=800',
   },
   {
-    id: 3,
+    id: 8,
     title: '2024 과학교육 및 자연관찰탐구방법개선 연구대회 3등급 (교육감표창)',
     date: '2024',
     image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 4,
-    title: '2023 독서인문실천사례 연구대회 2등급 (교육감표창)',
-    date: '2023',
-    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 5,
-    title: '(21~23) Yes24 어린이 독후감 대회 지도교사상 및 최우수 (전국 2위)',
-    date: '2021-2023',
-    image: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 6,
-    title: '(22~24) 발명 교육 유공 교원 표창 (교육감표창)',
-    date: '2022-2024',
-    image: 'https://images.unsplash.com/photo-1507676184212-d0c30a3c37ce?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 7,
-    title: '제23회 불조심 어린이 마당 전남 1위, 전국 7위 (교육감표창)',
-    date: '2023',
-    image: 'https://images.unsplash.com/photo-1565843708714-52ecf69ab81f?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: 8,
-    title: '제20회 전국어린이통계활용대회 은상 (통계청장상)',
-    date: '2022',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
   },
 ];
 
