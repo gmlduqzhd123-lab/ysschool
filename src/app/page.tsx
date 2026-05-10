@@ -4,7 +4,8 @@ import AboutSection from '@/components/AboutSection';
 import EduArchiveSection from '@/components/EduArchiveSection';
 import HallOfFameSection from '@/components/HallOfFameSection';
 import MediaRoomSection from '@/components/MediaRoomSection';
-import WebAppLabSection from '@/components/WebAppLabSection';
+import PressRoomSection from '@/components/PressRoomSection';
+import DevLabSection from '@/components/DevLabSection';
 import PublicationsSection from '@/components/PublicationsSection';
 import CVSection from '@/components/CVSection';
 import AcappellaSection from '@/components/AcappellaSection';
@@ -22,7 +23,8 @@ export default function Home() {
         <HallOfFameSection />
         <AcappellaSection />
         <MediaRoomSection />
-        <WebAppLabSection />
+        <PressRoomSection />
+        <DevLabSection />
         <PublicationsSection />
       </main>
       <Footer />

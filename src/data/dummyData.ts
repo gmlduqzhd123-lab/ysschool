@@ -5,7 +5,8 @@ export const navLinks = [
   { name: '수상내역', href: '#hall-of-fame' },
   { name: '아카펠라', href: '#acappella' },
   { name: '영상', href: '#media-room' },
-  { name: '웹앱/보도', href: '#web-app-lab' },
+  { name: '언론보도', href: '#press-room' },
+  { name: '개발자료', href: '#dev-lab' },
   { name: '저서', href: '#publications' },
 ];
 
@@ -176,7 +177,7 @@ export const mediaData = [
   },
 ];
 
-export const webAppsData = [
+export const pressData = [
   {
     id: 1,
     title: '[언론보도] 예스24 어린이 독후감 대회 우수 지도교사',
@@ -226,6 +227,15 @@ export const webAppsData = [
     link: 'https://www.eduyonhap.com/news/view.php?no=76732',
   }
 ];
+
+export const devLabsData: Array<{
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  techStack: string[];
+  link: string;
+}> = [];
 
 export const publicationsData = [
   {

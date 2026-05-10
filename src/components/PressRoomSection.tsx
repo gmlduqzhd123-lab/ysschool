@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { webAppsData } from '../data/dummyData';
+import { pressData } from '../data/dummyData';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
-export default function WebAppLabSection() {
+export default function PressRoomSection() {
   return (
-    <section id="web-app-lab" className="py-24 bg-white dark:bg-slate-800">
+    <section id="press-room" className="py-24 bg-white dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -26,7 +26,7 @@ export default function WebAppLabSection() {
         </motion.div>
 
         <div className="space-y-32">
-          {webAppsData.map((app, index) => {
+          {pressData.map((app, index) => {
             const isEven = index % 2 === 0;
             return (
               <div key={app.id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}>
