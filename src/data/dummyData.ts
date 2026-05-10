@@ -259,7 +259,7 @@ export const devLabsData: Array<{
 }> = [
   {
     id: 1,
-    title: '여수한려초 수영부 기록 분석 대시보드 (HALLYO SWIM)',
+    title: '여수한려초등학교 수영부 관리 어플리케이션 (HALLYO SWIM)',
     description: '수영부 학생 선수들의 효율적인 훈련 기록, 경기 영상 분석 및 소통을 위해 직접 기획·개발한 모바일 최적화 웹 애플리케이션입니다.\n\n개인별 기록 변화 추이 시각화 및 학부모와의 실시간 공유 기능을 통해 학생들의 체계적인 성장을 지원합니다.',
     image: '/images/projects/hallyo_swim_app.png',
     techStack: ['Next.js', 'PWA', 'Supabase', 'Data Viz'],
@@ -270,10 +270,10 @@ export const devLabsData: Array<{
 export const publicationsData = [
   {
     id: 1,
-    title: '선생님 교실 인문(독서논술) 수업(노하우)을 훔쳐내다',
-    description: '고영욱 에세이 (18,900원)',
-    cover: 'https://image.yes24.com/goods/152574991/XL',
-    link: 'https://www.yes24.com/product/goods/152574991',
+    title: '고학년 독서인문교육, 독서미션으로 끝장내기',
+    description: '엽쌤의 17년 교육 노하우를 담은 베스트셀러',
+    cover: '/images/new_media/media__1778421223742.png',
+    link: 'https://www.yes24.com/Product/Search?domain=ALL&query=독서미션으로+끝장내기',
   },
   {
     id: 2,
@@ -328,7 +328,7 @@ export const publicationsData = [
     id: 9,
     title: '자작자작, 우리들의 이야기',
     description: '문에녹 외 19명 공저 (13,000원)',
-    cover: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800',
+    cover: '/images/new_media/media__1778421386007.png',
     link: 'https://bookk.co.kr/bookStore/68da404cee308e902a61b900',
   }
 ];

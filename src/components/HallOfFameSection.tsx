@@ -40,13 +40,16 @@ export default function HallOfFameSection() {
               className="break-inside-avoid relative rounded-2xl overflow-hidden cursor-pointer group shadow-md hover:shadow-2xl transition-all"
               onClick={() => setSelectedImage(award.image)}
             >
-              <Image
-                src={award.image}
-                alt={award.title}
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+              <div className="bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-700 rounded-lg p-2 h-[300px] flex items-center justify-center">
+                <Image
+                  src={award.image}
+                  alt={award.title}
+                  width={800}
+                  height={600}
+                  unoptimized={true}
+                  className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-700 shadow-sm"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <span className="text-brand-sky font-semibold text-sm mb-1">{award.date}</span>
                 <h4 className="text-white font-bold text-lg leading-tight">{award.title}</h4>
@@ -84,7 +87,8 @@ export default function HallOfFameSection() {
                 alt="Award"
                 width={1200}
                 height={800}
-                className="w-full h-auto max-h-[90vh] object-contain bg-black/50"
+                unoptimized={true}
+                className="w-full h-auto max-h-[90vh] object-contain bg-slate-900/50 p-4 rounded-xl"
               />
             </motion.div>
           </motion.div>

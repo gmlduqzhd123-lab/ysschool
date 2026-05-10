@@ -42,6 +42,7 @@ export default function PublicationsSection() {
                     src={book.cover}
                     alt={book.title}
                     fill
+                    unoptimized={true}
                     className="object-cover rounded-r-lg"
                   />
                   {/* Book spine effect */}

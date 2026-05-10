@@ -39,30 +39,38 @@ export default function MediaRoomSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 shadow-lg ring-1 ring-white/10 group-hover:ring-brand-sky/50 transition-all duration-300">
-                <Image
-                  src={video.thumbnail}
-                  alt={video.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-orange/80 backdrop-blur-sm flex items-center justify-center text-white scale-90 group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-brand-orange/30">
-                    <Play className="w-6 h-6 ml-1 fill-current" />
+              <a
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 shadow-lg ring-1 ring-white/10 group-hover:ring-brand-sky/50 transition-all duration-300">
+                  <Image
+                    src={video.thumbnail}
+                    alt={video.title}
+                    fill
+                    unoptimized={true}
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
+                  
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-brand-orange/80 backdrop-blur-sm flex items-center justify-center text-white scale-90 group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-brand-orange/30">
+                      <Play className="w-6 h-6 ml-1 fill-current" />
+                    </div>
+                  </div>
+                  
+                  {/* Duration Badge */}
+                  <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2 py-1 text-xs font-medium rounded-md">
+                    {video.duration}
                   </div>
                 </div>
-                
-                {/* Duration Badge */}
-                <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2 py-1 text-xs font-medium rounded-md">
-                  {video.duration}
-                </div>
-              </div>
-              <h4 className="text-lg font-semibold group-hover:text-brand-sky transition-colors duration-200 line-clamp-2">
-                {video.title}
-              </h4>
+                <h4 className="text-lg font-semibold group-hover:text-brand-sky transition-colors duration-200 line-clamp-2">
+                  {video.title}
+                </h4>
+              </a>
             </motion.div>
           ))}
         </div>
