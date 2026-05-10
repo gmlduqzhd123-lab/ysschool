@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 포트폴리오",
 };
 
+import BgmPlayer from "@/components/BgmPlayer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <BgmPlayer />
       </body>
     </html>
   );
