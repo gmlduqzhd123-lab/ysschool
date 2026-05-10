@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Maplestory';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Maplestory';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 @theme {
   --color-brand-navy: #1E3A8A;
   --color-brand-sky: #38BDF8;
@@ -50,4 +64,10 @@ body {
 .dark .glass-header {
   background: rgba(15, 23, 42, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  html, body {
+    font-family: 'Maplestory', sans-serif !important;
+  }
 }
