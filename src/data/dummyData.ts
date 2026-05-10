@@ -10,6 +10,7 @@ export const navLinks = [
   { name: '저서', href: '#publications' },
   { name: '연수 자료', href: '/training' },
   { name: '에듀테크 갤러리', href: '/showcase' },
+  { name: '프롬프트 놀이터', href: '/playground' },
 ];
 
 export const skillsData = [
