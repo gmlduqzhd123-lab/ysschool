@@ -298,7 +298,7 @@ export const publicationsData = [
     id: 9,
     title: '자작자작, 우리들의 이야기',
     description: '문에녹 외 19명 공저 (13,000원)',
-    cover: '/images/new_media/media__1778421386007.png',
+    cover: 'https://image.yes24.com/goods/160462951/XL',
     link: 'https://www.yes24.com/product/goods/160462951',
   }
 ];
