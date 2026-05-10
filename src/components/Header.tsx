@@ -1,11 +1,107 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { navLinks } from '../data/dummyData';
-import { BookOpen } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { navLinks, NavItem } from '../data/dummyData';
+import { BookOpen, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 
+// ========== 데스크톱 드롭다운 ==========
+function DesktopDropdown({ item }: { item: NavItem }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // 외부 클릭 시 닫기
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap cursor-pointer"
+      >
+        {item.name}
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50">
+          {item.children!.map((child) =>
+            child.href.startsWith('/') ? (
+              <Link
+                key={child.name}
+                href={child.href}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-navy dark:hover:text-brand-sky transition-colors whitespace-nowrap"
+              >
+                {child.name}
+              </Link>
+            ) : (
+              <a
+                key={child.name}
+                href={child.href}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-navy dark:hover:text-brand-sky transition-colors whitespace-nowrap"
+              >
+                {child.name}
+              </a>
+            )
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ========== 모바일 아코디언 ==========
+function MobileAccordion({ item, onClose }: { item: NavItem; onClose: () => void }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+      >
+        {item.name}
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="pl-4 pb-1">
+          {item.children!.map((child) =>
+            child.href.startsWith('/') ? (
+              <Link
+                key={child.name}
+                href={child.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-brand-navy dark:hover:text-brand-sky rounded-lg"
+              >
+                {child.name}
+              </Link>
+            ) : (
+              <a
+                key={child.name}
+                href={child.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-brand-navy dark:hover:text-brand-sky rounded-lg"
+              >
+                {child.name}
+              </a>
+            )
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ========== 메인 Header ==========
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,6 +118,7 @@ export default function Header() {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-header shadow-sm' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
@@ -32,35 +129,39 @@ export default function Header() {
               </span>
             </Link>
           </div>
-          
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) =>
-              link.href.startsWith('/') ? (
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((item) =>
+              item.children ? (
+                <DesktopDropdown key={item.name} item={item} />
+              ) : item.href?.startsWith('/') ? (
                 <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200"
+                  key={item.name}
+                  href={item.href}
+                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap"
                 >
-                  {link.name}
+                  {item.name}
                 </Link>
               ) : (
                 <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200"
+                  key={item.name}
+                  href={item.href}
+                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap"
                 >
-                  {link.name}
+                  {item.name}
                 </a>
               )
             )}
             <ThemeToggle />
           </nav>
 
-          <div className="md:hidden flex items-center gap-3">
+          {/* Mobile toggle */}
+          <div className="lg:hidden flex items-center gap-3">
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none"
+              className="text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none cursor-pointer"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {mobileMenuOpen ? (
@@ -76,26 +177,28 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-header absolute top-20 left-0 w-full shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) =>
-              link.href.startsWith('/') ? (
+        <div className="lg:hidden glass-header absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
+          <div className="px-3 pt-2 pb-4 space-y-1">
+            {navLinks.map((item) =>
+              item.children ? (
+                <MobileAccordion key={item.name} item={item} onClose={() => setMobileMenuOpen(false)} />
+              ) : item.href?.startsWith('/') ? (
                 <Link
-                  key={link.name}
-                  href={link.href}
+                  key={item.name}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="block px-4 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
-                  {link.name}
+                  {item.name}
                 </Link>
               ) : (
                 <a
-                  key={link.name}
-                  href={link.href}
+                  key={item.name}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="block px-4 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
-                  {link.name}
+                  {item.name}
                 </a>
               )
             )}

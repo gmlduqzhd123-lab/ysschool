@@ -1,17 +1,48 @@
-export const navLinks = [
-  { name: '소개', href: '#about' },
-  { name: '약력/활동', href: '#cv' },
-  { name: '교육자료', href: '#edu-archive' },
-  { name: '수상내역', href: '#hall-of-fame' },
-  { name: '아카펠라', href: '#acappella' },
-  { name: '영상', href: '#media-room' },
-  { name: '언론보도', href: '#press-room' },
-  { name: '개발자료', href: '#dev-lab' },
-  { name: '저서', href: '#publications' },
+export interface NavChild {
+  name: string;
+  href: string;
+}
+
+export interface NavItem {
+  name: string;
+  href?: string;          // 직접 링크 (드롭다운이 없는 경우)
+  children?: NavChild[];  // 드롭다운 메뉴
+}
+
+export const navLinks: NavItem[] = [
+  {
+    name: '프로필',
+    children: [
+      { name: '소개', href: '#about' },
+      { name: '약력/활동', href: '#cv' },
+      { name: '수상내역', href: '#hall-of-fame' },
+    ],
+  },
+  {
+    name: '미디어',
+    children: [
+      { name: '교육 자료실', href: '#edu-archive' },
+      { name: '영상 갤러리', href: '#media-room' },
+      { name: '아카펠라', href: '#acappella' },
+    ],
+  },
+  {
+    name: '활동 기록',
+    children: [
+      { name: '언론 보도', href: '#press-room' },
+      { name: '저서', href: '#publications' },
+      { name: '개발 프로젝트', href: '#dev-lab' },
+    ],
+  },
+  {
+    name: '에듀테크',
+    children: [
+      { name: '에듀테크 갤러리', href: '/showcase' },
+      { name: '나눔 서재', href: '/library' },
+      { name: '프롬프트 놀이터', href: '/playground' },
+    ],
+  },
   { name: '연수 자료', href: '/training' },
-  { name: '에듀테크 갤러리', href: '/showcase' },
-  { name: '나눔 서재', href: '/library' },
-  { name: '프롬프트 놀이터', href: '/playground' },
 ];
 
 export const skillsData = [
