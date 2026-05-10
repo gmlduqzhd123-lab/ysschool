@@ -16,12 +16,12 @@ export default function WebAppLabSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Web App Lab</h2>
+          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Press & News</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            웹앱 포트폴리오
+            언론 보도 및 기사
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            직접 기획하고 개발하여 교육 현장에 혁신을 가져온 웹 애플리케이션들입니다.
+            교육 현장에서의 혁신적인 활동과 뜻깊은 성과들이 소개된 언론 보도 및 기사 모음입니다.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function WebAppLabSection() {
                   <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
                     {app.title}
                   </h4>
-                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed whitespace-pre-line">
                     {app.description}
                   </p>
                   
@@ -79,9 +79,11 @@ export default function WebAppLabSection() {
                   
                   <a
                     href={app.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-brand-navy hover:bg-brand-sky text-white rounded-full font-semibold transition-colors duration-300 shadow-md hover:shadow-lg w-max"
                   >
-                    앱 실행해보기
+                    기사 원문 보기
                     <ExternalLink className="w-5 h-5" />
                   </a>
                 </motion.div>

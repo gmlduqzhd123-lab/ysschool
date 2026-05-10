@@ -6,6 +6,8 @@ import HallOfFameSection from '@/components/HallOfFameSection';
 import MediaRoomSection from '@/components/MediaRoomSection';
 import WebAppLabSection from '@/components/WebAppLabSection';
 import PublicationsSection from '@/components/PublicationsSection';
+import CVSection from '@/components/CVSection';
+import AcappellaSection from '@/components/AcappellaSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -15,8 +17,10 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <AboutSection />
+        <CVSection />
         <EduArchiveSection />
         <HallOfFameSection />
+        <AcappellaSection />
         <MediaRoomSection />
         <WebAppLabSection />
         <PublicationsSection />
