@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💪 가상 악력 측정기</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Timer & Score */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1.2;
+    }
+
+    .stat-value.time { color: #f5576c; }
+    .stat-value.score { color: #667eea; }
+
+    /* Gauge */
+    .gauge-wrapper {
+      margin: 1.5rem 0;
+    }
+
+    .gauge-bg {
+      width: 100%;
+      height: 30px;
+      background: #eee;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gauge-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f5576c);
+      border-radius: 15px;
+      transition: width 0.15s ease-out;
+      position: relative;
+    }
+
+    .gauge-fill::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+      border-radius: 15px;
+    }
+
+    .gauge-label {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.5rem;
+      font-weight: 700;
+    }
+
+    /* Action Button */
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 900;
+      font-family: 'Noto Sans KR', sans-serif;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: white;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(102,126,234,0.5);
+    }
+
+    .action-btn:active {
+      transform: translateY(0);
+    }
+
+    .action-btn.ready {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      box-shadow: 0 8px 25px rgba(17,153,142,0.4);
+      animation: pulse-btn 1.5s ease-in-out infinite;
+    }
+
+    .action-btn.playing {
+      background: linear-gradient(135deg, #f5576c, #ff6b6b);
+      box-shadow: 0 8px 25px rgba(245,87,108,0.4);
+      font-size: 1.5rem;
+      padding: 1.5rem 3rem;
+    }
+
+    .action-btn.playing:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes pulse-btn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Tap area for mobile */
+    .tap-zone {
+      display: none;
+      width: 100%;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #f5576c, #ff6b6b);
+      border: none;
+      border-radius: 1.5rem;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 900;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(245,87,108,0.4);
+      transition: transform 0.1s;
+    }
+
+    .tap-zone:active {
+      transform: scale(0.97);
+    }
+
+    .tap-zone.show {
+      display: block;
+    }
+
+    /* Instructions */
+    .instructions {
+      background: #f8f9ff;
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .instructions strong {
+      color: #667eea;
+    }
+
+    /* Result Screen */
+    .result-screen { display: none; }
+    .result-screen.show { display: block; }
+
+    .result-rank {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-message {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+      line-height: 1.6;
+    }
+
+    .result-score {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #667eea;
+      margin: 1rem 0;
+      padding: 0.8rem;
+      background: #f0f2ff;
+      border-radius: 1rem;
+    }
+
+    .result-detail {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .detail-item {
+      text-align: center;
+    }
+
+    .detail-label {
+      font-size: 0.7rem;
+      color: #888;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #1a1a2e;
+    }
+
+    .retry-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 900;
+      font-family: 'Noto Sans KR', sans-serif;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .retry-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Floating particles */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.5rem;
+      opacity: 0;
+      z-index: 100;
+    }
+
+    /* Screen shake */
+    .shake {
+      animation: shake 0.1s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-3px) rotate(-1deg); }
+      75% { transform: translateX(3px) rotate(1deg); }
+    }
+
+    /* Hidden during game */
+    .hide { display: none !important; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .card { padding: 1.8rem 1.2rem; }
+      .stat-value { font-size: 2rem; }
+      .action-btn.playing { font-size: 1.2rem; padding: 1.2rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="card">
+
+      <!-- READY SCREEN -->
+      <div id="readyScreen">
+        <h1>💪 가상 악력 측정기</h1>
+        <p class="subtitle">10초 안에 얼마나 빠르게 연타할 수 있을까?!</p>
+
+        <div class="instructions">
+          🖥️ <strong>PC</strong>: 스페이스바를 연타하세요!<br>
+          📱 <strong>모바일</strong>: 화면을 빠르게 탭하세요!<br>
+          🎯 <strong>목표</strong>: 최대한 많이 눌러서 게이지를 채우세요!
+        </div>
+
+        <button class="action-btn ready" onclick="startGame()">
+          🏁 측정 시작!
+        </button>
+      </div>
+
+      <!-- PLAYING SCREEN -->
+      <div id="playingScreen" class="hide">
+        <h1>💥 연타하세요!</h1>
+
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-label">⏱️ 남은 시간</div>
+            <div class="stat-value time" id="timer">10.0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">👊 연타 횟수</div>
+            <div class="stat-value score" id="tapCount">0</div>
+          </div>
+        </div>
+
+        <div class="gauge-wrapper">
+          <div class="gauge-bg">
+            <div class="gauge-fill" id="gauge"></div>
+          </div>
+          <div class="gauge-label" id="gaugeLabel">게이지를 채워보세요!</div>
+        </div>
+
+        <!-- PC: spacebar -->
+        <button class="action-btn playing" id="spaceBtn" onclick="handleTap()">
+          ⌨️ 스페이스바 연타!
+        </button>
+
+        <!-- Mobile: large tap zone -->
+        <button class="tap-zone" id="tapZone" onclick="handleTap()">
+          👆 여기를 빠르게 탭하세요!
+        </button>
+      </div>
+
+      <!-- RESULT SCREEN -->
+      <div id="resultScreen" class="result-screen">
+        <div class="result-rank" id="resultEmoji">💪</div>
+        <div class="result-title" id="resultTitle">결과</div>
+        <div class="result-message" id="resultMessage">측정 중...</div>
+
+        <div class="result-score" id="resultScore">0회</div>
+
+        <div class="result-detail">
+          <div class="detail-item">
+            <div class="detail-label">초당 연타</div>
+            <div class="detail-value" id="resultCps">0</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">최고 속도</div>
+            <div class="detail-value" id="resultPeak">0</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">등급</div>
+            <div class="detail-value" id="resultGrade">-</div>
+          </div>
+        </div>
+
+        <button class="retry-btn" onclick="resetGame()">
+          🔄 다시 도전하기
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let tapCount = 0;
+    let timeLeft = 10.0;
+    let gameInterval = null;
+    let isPlaying = false;
+    let peakCps = 0;
+    let lastSecondTaps = 0;
+    let cpsInterval = null;
+    const MAX_GAUGE = 150; // max taps for full gauge
+    const emojis = ['💪', '🔥', '⚡', '💥', '🌟', '✨', '👊', '🎯'];
+
+    const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+
+    function startGame() {
+      tapCount = 0;
+      timeLeft = 10.0;
+      peakCps = 0;
+      lastSecondTaps = 0;
+      isPlaying = true;
+
+      document.getElementById('readyScreen').classList.add('hide');
+      document.getElementById('resultScreen').classList.remove('show');
+      document.getElementById('playingScreen').classList.remove('hide');
+
+      if (isMobile) {
+        document.getElementById('spaceBtn').classList.add('hide');
+        document.getElementById('tapZone').classList.add('show');
+      }
+
+      updateDisplay();
+
+      gameInterval = setInterval(() => {
+        timeLeft -= 0.1;
+        if (timeLeft <= 0) {
+          timeLeft = 0;
+          endGame();
+        }
+        document.getElementById('timer').textContent = timeLeft.toFixed(1);
+      }, 100);
+
+      // Track CPS (clicks per second)
+      cpsInterval = setInterval(() => {
+        const currentCps = tapCount - lastSecondTaps;
+        if (currentCps > peakCps) peakCps = currentCps;
+        lastSecondTaps = tapCount;
+      }, 1000);
+    }
+
+    function handleTap() {
+      if (!isPlaying) return;
+
+      tapCount++;
+      updateDisplay();
+
+      // Shake effect
+      const card = document.getElementById('card');
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
+
+      // Spawn particle
+      spawnParticle();
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && isPlaying) {
+        e.preventDefault();
+        handleTap();
+      }
+      if (e.code === 'Space' && !isPlaying && document.getElementById('readyScreen').classList.contains('hide') === false) {
+        e.preventDefault();
+        startGame();
+      }
+    });
+
+    function updateDisplay() {
+      document.getElementById('tapCount').textContent = tapCount;
+
+      const pct = Math.min((tapCount / MAX_GAUGE) * 100, 100);
+      document.getElementById('gauge').style.width = pct + '%';
+
+      let label = '게이지를 채워보세요!';
+      if (pct >= 100) label = '🔥 MAX!! 대단해요!';
+      else if (pct >= 80) label = '💪 거의 다 채웠어요!';
+      else if (pct >= 50) label = '⚡ 좋아요! 더 빠르게!';
+      else if (pct >= 20) label = '👊 잘하고 있어요!';
+      document.getElementById('gaugeLabel').textContent = label;
+    }
+
+    function endGame() {
+      isPlaying = false;
+      clearInterval(gameInterval);
+      clearInterval(cpsInterval);
+
+      // Final CPS check
+      const finalCps = tapCount - lastSecondTaps;
+      if (finalCps > peakCps) peakCps = finalCps;
+
+      showResult();
+    }
+
+    function showResult() {
+      document.getElementById('playingScreen').classList.add('hide');
+
+      const cps = (tapCount / 10).toFixed(1);
+      let emoji, title, message, grade;
+
+      if (tapCount >= 120) {
+        emoji = '🏆';
+        title = '전설의 악력왕!';
+        message = '당신의 가상 악력은 6학년 전체 평균을 돌파했습니다! 혹시 프로게이머 지망생...?!';
+        grade = 'S+';
+      } else if (tapCount >= 100) {
+        emoji = '💪';
+        title = '악력 챔피언!';
+        message = '6학년 상위 10%에 해당하는 엄청난 연타 실력! 손가락 근육이 보여요!';
+        grade = 'S';
+      } else if (tapCount >= 80) {
+        emoji = '🔥';
+        title = '불꽃 연타러!';
+        message = '6학년 평균을 넘는 대단한 실력! 이 정도면 악력도 꽤 센 편이에요!';
+        grade = 'A';
+      } else if (tapCount >= 60) {
+        emoji = '⚡';
+        title = '번개 손가락!';
+        message = '평균적인 6학년 수준이에요! 조금만 더 연습하면 챔피언도 가능!';
+        grade = 'B';
+      } else if (tapCount >= 40) {
+        emoji = '🌱';
+        title = '성장 중!';
+        message = '아직 워밍업 단계! 유연성 측정 준비 운동부터 다시 하세요! 😄';
+        grade = 'C';
+      } else if (tapCount >= 20) {
+        emoji = '🐢';
+        title = '느긋한 거북이';
+        message = '천천히 여유롭게... 혹시 명상 중이셨나요? 다시 도전해보세요!';
+        grade = 'D';
+      } else {
+        emoji = '😴';
+        title = '잠에서 깨어나세요!';
+        message = '손가락이 아직 잠에서 안 깬 것 같아요... 커피 한 잔 하고 다시!';
+        grade = 'F';
+      }
+
+      document.getElementById('resultEmoji').textContent = emoji;
+      document.getElementById('resultTitle').textContent = title;
+      document.getElementById('resultMessage').textContent = message;
+      document.getElementById('resultScore').textContent = `총 ${tapCount}회 연타! (${cps}회/초)`;
+      document.getElementById('resultCps').textContent = cps;
+      document.getElementById('resultPeak').textContent = peakCps;
+      document.getElementById('resultGrade').textContent = grade;
+
+      document.getElementById('resultScreen').classList.add('show');
+    }
+
+    function resetGame() {
+      document.getElementById('resultScreen').classList.remove('show');
+      document.getElementById('playingScreen').classList.add('hide');
+      document.getElementById('readyScreen').classList.remove('hide');
+      document.getElementById('tapZone').classList.remove('show');
+    }
+
+    function spawnParticle() {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+      const x = Math.random() * window.innerWidth;
+      const y = window.innerHeight * 0.5 + (Math.random() - 0.5) * 200;
+
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.opacity = 1;
+      el.style.transition = 'all 0.8s ease-out';
+      document.body.appendChild(el);
+
+      requestAnimationFrame(() => {
+        el.style.top = (y - 100 - Math.random() * 100) + 'px';
+        el.style.left = (x + (Math.random() - 0.5) * 80) + 'px';
+        el.style.opacity = 0;
+        el.style.transform = `scale(${0.5 + Math.random()}) rotate(${Math.random() * 360}deg)`;
+      });
+
+      setTimeout(() => el.remove(), 900);
+    }
+  </script>
+</body>
+</html>

@@ -33,6 +33,14 @@ export const miniAppsData: MiniApp[] = [
     techStack: ['HTML', 'CSS', 'JavaScript'],
     appUrl: '/apps/tetris.html',
   },
+  {
+    id: 4,
+    title: '가상 악력 측정기 💪',
+    description: '10초 안에 스페이스바를 얼마나 빠르게 연타할 수 있을까? 6학년 평균을 돌파해보세요!',
+    thumbnail: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=600',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    appUrl: '/apps/grip-test.html',
+  },
 ];
 
 // ========== 에듀테크 갤러리 데이터 ==========
