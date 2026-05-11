@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ysschool.vercel.app"),
   title: "엽쌤스쿨 | 경계를 넘어서는 교육",
   description:
     "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
@@ -20,9 +21,10 @@ export const metadata: Metadata = {
     title: "엽쌤스쿨 | 경계를 넘어서는 교육",
     description:
       "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
+    url: "https://ysschool.vercel.app",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
+        url: "/images/profile_hero.jpg",
         width: 1200,
         height: 630,
         alt: "엽쌤스쿨 - 경계를 넘어서는 교육",
@@ -37,9 +39,7 @@ export const metadata: Metadata = {
     title: "엽쌤스쿨 | 경계를 넘어서는 교육",
     description:
       "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
-    images: [
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-    ],
+    images: ["/images/profile_hero.jpg"],
   },
 };
 
