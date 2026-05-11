@@ -1,0 +1,93 @@
+﻿
+C:\Users\user\Desktop\ysschool\public\learning-games-3\01_reading_detective_run.js
+  19:23  warning  'max' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-3\arcade-core.js
+  6:9  warning  'now' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-4\arcade-mini.js
+   9:1823  warning  'timer' is assigned a value but never used                             @typescript-eslint/no-unused-vars
+  18:396   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  18:486   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\user\Desktop\ysschool\public\learning-games-5\arcade-mini.js
+   9:1823  warning  'timer' is assigned a value but never used                             @typescript-eslint/no-unused-vars
+  18:396   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  18:486   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\user\Desktop\ysschool\public\learning-games-all\dashboard_v10_patch.js
+   5:129  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  35:137  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-all\dashboard_v9_patch.js
+   5:129  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  29:137  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-assets\cute_fonts_patch.js
+  31:10  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  41:12  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-assets\difficulty_bridge.js
+    8:117  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   70:94   warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   71:172  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   72:89   warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   77:148  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   82:86   warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   83:223  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+   84:185  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  154:182  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  155:189  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  171:112  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\public\learning-games-assets\edu_game_engine_v6.js
+   86:84   warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+   87:79   warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+  265:73   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  291:12   warning  'drawTextBox' is defined but never used                                @typescript-eslint/no-unused-vars
+  373:22   warning  'x' is defined but never used                                          @typescript-eslint/no-unused-vars
+  373:24   warning  'y' is defined but never used                                          @typescript-eslint/no-unused-vars
+  373:200  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  374:192  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\user\Desktop\ysschool\public\learning-games-assets\ysschool_game_polish_v4.js
+  16:178  warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+  17:89   warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+  55:177  warning  '_' is defined but never used                                          @typescript-eslint/no-unused-vars
+  89:14   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  89:103  warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+  99:181  warning  'e' is defined but never used                                          @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\src\app\blog\page.tsx
+  20:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\user\Desktop\ysschool\src\app\playground\page.tsx
+  5:20  warning  'Star' is defined but never used    @typescript-eslint/no-unused-vars
+  5:76  warning  'Trophy' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\src\app\showcase\page.tsx
+  129:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  241:31  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  357:31  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  457:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\user\Desktop\ysschool\src\app\training\page.tsx
+    6:27  warning  'FileText' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   10:29  warning  'TrainingMaterial' is defined but never used                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+  152:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\user\Desktop\ysschool\src\components\AcappellaSection.tsx
+  53:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\user\Desktop\ysschool\src\components\StatsSection.tsx
+  3:29  warning  'useAnimation' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\Desktop\ysschool\src\components\ThemeToggle.tsx
+  22:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/set-state-in-effect')
+
+C:\Users\user\Desktop\ysschool\src\components\wrappers\ClickDiscoverWrapper.tsx
+  39:24  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+??53 problems (1 error, 52 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

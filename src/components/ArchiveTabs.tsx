@@ -35,6 +35,7 @@ export default function ArchiveTabs() {
     const hash = window.location.hash.replace('#', '');
     const validTabs = ['edu-archive', 'dev-lab', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
     if (validTabs.includes(hash)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(hash);
     }
     

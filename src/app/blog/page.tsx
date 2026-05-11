@@ -17,7 +17,7 @@ export default function BlogIndex() {
       <Header />
       <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-          Teacher's Journal
+          Teacher&apos;s Journal
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 mb-12">
           교육과 기술이 만나는 지점에서, 더 나은 교실을 위한 고민들을 기록합니다.
