@@ -39,21 +39,31 @@ export default function HallOfFameSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="break-inside-avoid relative rounded-xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                className="break-inside-avoid relative group shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer mb-8"
                 onClick={() => setSelectedImage(award.image)}
               >
-                <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2 aspect-[3/4] flex items-center justify-center">
-                  <Image
-                    src={award.image}
-                    alt={award.title}
-                    fill
-                    unoptimized={true}
-                    className="object-cover p-2 group-hover:scale-105 transition-transform duration-700"
-                  />
+                {/* Premium Certificate Frame Design */}
+                <div className="relative bg-white dark:bg-slate-800 p-2 sm:p-3 rounded-md border border-slate-200 dark:border-slate-700 aspect-[1/1.414] overflow-hidden flex flex-col justify-center items-center">
+                  
+                  {/* Inner Gold Line Accent */}
+                  <div className="absolute inset-2 sm:inset-3 border border-amber-200/60 dark:border-amber-500/30 z-10 pointer-events-none rounded-sm" />
+                  
+                  {/* The Certificate Image */}
+                  <div className="relative w-full h-full p-3 sm:p-4 bg-slate-50/50 dark:bg-slate-900/50">
+                    <Image
+                      src={award.image}
+                      alt={award.title}
+                      fill
+                      unoptimized={true}
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out p-3 sm:p-4"
+                    />
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <span className="text-brand-sky font-semibold text-sm mb-1">{award.date}</span>
-                  <h4 className="text-white font-bold text-lg leading-tight">{award.title}</h4>
+                
+                {/* Overlay Text Information */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 rounded-md">
+                  <span className="text-amber-400 font-semibold text-sm mb-1 tracking-wider">{award.date}</span>
+                  <h4 className="text-white font-bold text-lg leading-snug drop-shadow-md">{award.title}</h4>
                 </div>
               </motion.div>
             );
