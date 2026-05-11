@@ -1,0 +1,452 @@
+[
+  {
+    "pack": 6,
+    "title": "고대 문자 러너",
+    "subject": "국어",
+    "mode": "lane",
+    "url": "/learning-games-6/01_ancient_letter_runner.html",
+    "icon": "🏺",
+    "intro": "받침과 맞춤법 문자를 골라 유적을 통과하는 러너 게임"
+  },
+  {
+    "pack": 6,
+    "title": "소수 잠수함 탐사",
+    "subject": "수학",
+    "mode": "catcher",
+    "url": "/learning-games-6/02_decimal_submarine.html",
+    "icon": "🛟",
+    "intro": "같은 크기의 소수와 분수를 모아 바닷속 보물을 찾는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "식물 성장 타이쿤",
+    "subject": "과학",
+    "mode": "builder",
+    "url": "/learning-games-6/03_plant_growth_tycoon.html",
+    "icon": "🌱",
+    "intro": "식물 성장 순서를 맞춰 농장을 키우는 타이쿤 게임"
+  },
+  {
+    "pack": 6,
+    "title": "우리 동네 직업 디펜스",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-6/04_community_helper_defense.html",
+    "icon": "🏘️",
+    "intro": "직업과 역할을 맞혀 마을을 지키는 디펜스 게임"
+  },
+  {
+    "pack": 6,
+    "title": "영어 쿠키 공장",
+    "subject": "영어",
+    "mode": "sorting",
+    "url": "/learning-games-6/05_english_cookie_factory.html",
+    "icon": "🍪",
+    "intro": "영어 낱말을 뜻별로 분류해 쿠키를 굽는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "삼각형 클라임 오비",
+    "subject": "수학",
+    "mode": "maze",
+    "url": "/learning-games-6/06_triangle_climb_obby.html",
+    "icon": "🔺",
+    "intro": "도형 성질 문제를 풀며 오비 탑을 오르는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "소리 파동 DJ",
+    "subject": "과학",
+    "mode": "rhythm",
+    "url": "/learning-games-6/07_sound_wave_dj.html",
+    "icon": "🎧",
+    "intro": "소리와 진동 개념을 리듬에 맞춰 익히는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "독해 유령 호텔",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-6/08_reading_ghost_hotel.html",
+    "icon": "👻",
+    "intro": "중심 내용과 세부 내용을 맞혀 유령 보스를 물리치는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "지도 기호 택배왕",
+    "subject": "사회",
+    "mode": "catcher",
+    "url": "/learning-games-6/09_map_symbol_delivery.html",
+    "icon": "🗺️",
+    "intro": "지도 기호와 뜻을 모아 정확히 배달하는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "디지털 안전 순찰대",
+    "subject": "안전",
+    "mode": "lane",
+    "url": "/learning-games-6/10_digital_safety_patrol.html",
+    "icon": "🛡️",
+    "intro": "개인정보와 온라인 예절을 익히는 안전 러너"
+  },
+  {
+    "pack": 7,
+    "title": "구구단 드래곤 레이드",
+    "subject": "수학",
+    "mode": "defense",
+    "url": "/learning-games-7/01_multiplication_dragon_raid.html",
+    "icon": "🐉",
+    "intro": "곱셈 정답으로 드래곤의 공격을 막는 보스 레이드"
+  },
+  {
+    "pack": 7,
+    "title": "속담 낚시왕",
+    "subject": "국어",
+    "mode": "catcher",
+    "url": "/learning-games-7/02_proverb_fishing.html",
+    "icon": "🎣",
+    "intro": "속담 뜻 물고기를 낚는 국어 게임"
+  },
+  {
+    "pack": 7,
+    "title": "날씨 실험실 구조대",
+    "subject": "과학",
+    "mode": "sorting",
+    "url": "/learning-games-7/03_weather_lab_rescue.html",
+    "icon": "🌦️",
+    "intro": "날씨 현상과 설명을 분류하는 과학 게임"
+  },
+  {
+    "pack": 7,
+    "title": "세계 예절 파티",
+    "subject": "사회",
+    "mode": "memory",
+    "url": "/learning-games-7/04_global_manners_party.html",
+    "icon": "🌏",
+    "intro": "세계 문화와 예절을 짝지어 기억하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "영어 문장 기차",
+    "subject": "영어",
+    "mode": "builder",
+    "url": "/learning-games-7/05_english_sentence_train.html",
+    "icon": "🚂",
+    "intro": "영어 어순에 맞게 문장 칸을 연결하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "분수 캔디 매치",
+    "subject": "수학",
+    "mode": "memory",
+    "url": "/learning-games-7/06_fraction_candy_match.html",
+    "icon": "🍬",
+    "intro": "분수와 그림 표현을 짝맞추는 기억 게임"
+  },
+  {
+    "pack": 7,
+    "title": "몸속 기관 러시",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-7/07_body_organ_rush.html",
+    "icon": "🫀",
+    "intro": "기관과 역할을 찾아 달리는 생명 과학 러너"
+  },
+  {
+    "pack": 7,
+    "title": "평화 다리 퀘스트",
+    "subject": "사회",
+    "mode": "maze",
+    "url": "/learning-games-7/08_peace_bridge_quest.html",
+    "icon": "🌉",
+    "intro": "갈등 해결 선택지를 고르며 다리를 완성하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "맞춤법 버블 구조대",
+    "subject": "국어",
+    "mode": "rhythm",
+    "url": "/learning-games-7/09_spelling_bubble_rescue.html",
+    "icon": "🫧",
+    "intro": "올바른 표현을 박자에 맞춰 터뜨리는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "거스름돈 마켓",
+    "subject": "수학",
+    "mode": "boss",
+    "url": "/learning-games-7/10_money_change_market.html",
+    "icon": "💰",
+    "intro": "거스름돈 계산으로 마켓 보스를 이기는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "태양계 카트 투어",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-8/01_solar_system_kart.html",
+    "icon": "🪐",
+    "intro": "행성 순서와 특징을 익히는 카트 러너"
+  },
+  {
+    "pack": 8,
+    "title": "요약 닌자",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-8/02_summary_ninja.html",
+    "icon": "🥷",
+    "intro": "글의 핵심을 골라 요약력을 키우는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "비율 스무디 가게",
+    "subject": "수학",
+    "mode": "builder",
+    "url": "/learning-games-8/03_ratio_smoothie_shop.html",
+    "icon": "🥤",
+    "intro": "재료 비율을 맞춰 스무디를 만드는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "권리와 책임 선거장",
+    "subject": "사회",
+    "mode": "sorting",
+    "url": "/learning-games-8/04_rights_vote_arena.html",
+    "icon": "🗳️",
+    "intro": "권리와 책임 사례를 분류하는 민주시민 게임"
+  },
+  {
+    "pack": 8,
+    "title": "영어 단어 로켓",
+    "subject": "영어",
+    "mode": "catcher",
+    "url": "/learning-games-8/05_english_word_rocket.html",
+    "icon": "🚀",
+    "intro": "뜻에 맞는 단어 연료를 모아 로켓을 발사하는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "자석 광산 탈출",
+    "subject": "과학",
+    "mode": "maze",
+    "url": "/learning-games-8/06_magnet_mine_escape.html",
+    "icon": "🧲",
+    "intro": "자석의 성질 문제를 풀며 광산을 빠져나가는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "시각 타임머신",
+    "subject": "수학",
+    "mode": "rhythm",
+    "url": "/learning-games-8/07_time_machine_clock.html",
+    "icon": "⏰",
+    "intro": "시각과 경과 시간을 박자에 맞춰 맞히는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "한자 보물방",
+    "subject": "국어",
+    "mode": "memory",
+    "url": "/learning-games-8/08_hanja_treasure_room.html",
+    "icon": "🈶",
+    "intro": "한자와 뜻을 짝지어 보물을 여는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "여수 역사 수호자",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-8/09_local_history_guardian.html",
+    "icon": "⚓",
+    "intro": "지역 역사 퀴즈로 항구를 지키는 디펜스"
+  },
+  {
+    "pack": 8,
+    "title": "학교 안전 오비",
+    "subject": "안전",
+    "mode": "maze",
+    "url": "/learning-games-8/10_school_safety_obby.html",
+    "icon": "🚸",
+    "intro": "학교 생활 안전 선택지를 통과하는 오비 게임"
+  },
+  {
+    "pack": 9,
+    "title": "그래프 탐정 사무소",
+    "subject": "수학",
+    "mode": "boss",
+    "url": "/learning-games-9/01_graph_detective_agency.html",
+    "icon": "📊",
+    "intro": "표와 그래프를 읽고 사건을 해결하는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "시 상상 스튜디오",
+    "subject": "국어",
+    "mode": "builder",
+    "url": "/learning-games-9/02_poem_imagination_studio.html",
+    "icon": "🎨",
+    "intro": "시어와 장면을 연결해 감상력을 키우는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "생태계 밸런스",
+    "subject": "과학",
+    "mode": "sorting",
+    "url": "/learning-games-9/03_ecosystem_balance.html",
+    "icon": "🦊",
+    "intro": "생산자 소비자 분해자를 분류하는 생태계 게임"
+  },
+  {
+    "pack": 9,
+    "title": "경제 섬 타이쿤",
+    "subject": "사회",
+    "mode": "catcher",
+    "url": "/learning-games-9/04_economy_island_tycoon.html",
+    "icon": "🏝️",
+    "intro": "희소성과 선택 개념을 아이템으로 익히는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "영어 동물 사파리",
+    "subject": "영어",
+    "mode": "lane",
+    "url": "/learning-games-9/05_english_animal_safari.html",
+    "icon": "🦁",
+    "intro": "동물 영어 낱말을 찾아 달리는 사파리 게임"
+  },
+  {
+    "pack": 9,
+    "title": "각도 궁수",
+    "subject": "수학",
+    "mode": "rhythm",
+    "url": "/learning-games-9/06_angle_archer.html",
+    "icon": "🏹",
+    "intro": "각도 크기를 리듬 타이밍으로 맞히는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "물질 상태 연구소",
+    "subject": "과학",
+    "mode": "memory",
+    "url": "/learning-games-9/07_matter_state_lab.html",
+    "icon": "🧊",
+    "intro": "고체 액체 기체와 예시를 짝맞추는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "미디어 리터러시 실드",
+    "subject": "국어",
+    "mode": "defense",
+    "url": "/learning-games-9/08_media_literacy_shield.html",
+    "icon": "📰",
+    "intro": "사실과 의견을 구분해 가짜뉴스를 막는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "문화 지도 러너",
+    "subject": "사회",
+    "mode": "lane",
+    "url": "/learning-games-9/09_culture_map_runner.html",
+    "icon": "🧭",
+    "intro": "문화유산과 지역 특징을 찾아 달리는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "비밀번호 금고",
+    "subject": "안전",
+    "mode": "boss",
+    "url": "/learning-games-9/10_internet_password_vault.html",
+    "icon": "🔐",
+    "intro": "안전한 비밀번호와 보안 습관을 익히는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "어휘 몬스터 농장",
+    "subject": "국어",
+    "mode": "catcher",
+    "url": "/learning-games-10/01_vocab_monster_farm.html",
+    "icon": "👾",
+    "intro": "낱말의 뜻을 모아 몬스터 농장을 키우는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "넓이 성 짓기",
+    "subject": "수학",
+    "mode": "builder",
+    "url": "/learning-games-10/02_area_castle_builder.html",
+    "icon": "🏰",
+    "intro": "도형 넓이 공식을 순서대로 조립하는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "물의 순환 롤러",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-10/03_water_cycle_roller.html",
+    "icon": "💧",
+    "intro": "증발 응결 강수 흐름을 따라 달리는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "독도 수호 퀴즈",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-10/04_dokdo_guardian_quiz.html",
+    "icon": "🌊",
+    "intro": "우리 땅과 바다 지식을 익히는 디펜스 게임"
+  },
+  {
+    "pack": 10,
+    "title": "영어 직업 아케이드",
+    "subject": "영어",
+    "mode": "sorting",
+    "url": "/learning-games-10/05_english_job_arcade.html",
+    "icon": "👩‍🚀",
+    "intro": "직업 영어 단어를 분류하는 아케이드 게임"
+  },
+  {
+    "pack": 10,
+    "title": "소수 탐험 퀘스트",
+    "subject": "수학",
+    "mode": "maze",
+    "url": "/learning-games-10/06_prime_number_quest.html",
+    "icon": "🔢",
+    "intro": "소수와 합성수를 구분하며 미로를 통과하는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "빛과 그림자 추격전",
+    "subject": "과학",
+    "mode": "rhythm",
+    "url": "/learning-games-10/07_light_shadow_chase.html",
+    "icon": "🔦",
+    "intro": "빛의 직진과 그림자 개념을 리듬으로 익히는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "토론 아레나 주니어",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-10/08_debate_arena_junior.html",
+    "icon": "🎤",
+    "intro": "주장과 근거를 골라 토론 보스를 이기는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "미래 도시 플래너",
+    "subject": "사회",
+    "mode": "memory",
+    "url": "/learning-games-10/09_future_city_planner.html",
+    "icon": "🏙️",
+    "intro": "도시 문제와 해결 방법을 짝맞추는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "마음 안전 구조대",
+    "subject": "안전",
+    "mode": "sorting",
+    "url": "/learning-games-10/10_emotion_safety_rescue.html",
+    "icon": "💛",
+    "intro": "감정 표현과 도움 요청 방법을 분류하는 게임"
+  }
+]

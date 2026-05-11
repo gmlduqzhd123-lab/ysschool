@@ -1,0 +1,92 @@
+[
+  {
+    "pack": 9,
+    "title": "그래프 탐정 사무소",
+    "subject": "수학",
+    "mode": "boss",
+    "url": "/learning-games-9/01_graph_detective_agency.html",
+    "icon": "📊",
+    "intro": "표와 그래프를 읽고 사건을 해결하는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "시 상상 스튜디오",
+    "subject": "국어",
+    "mode": "builder",
+    "url": "/learning-games-9/02_poem_imagination_studio.html",
+    "icon": "🎨",
+    "intro": "시어와 장면을 연결해 감상력을 키우는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "생태계 밸런스",
+    "subject": "과학",
+    "mode": "sorting",
+    "url": "/learning-games-9/03_ecosystem_balance.html",
+    "icon": "🦊",
+    "intro": "생산자 소비자 분해자를 분류하는 생태계 게임"
+  },
+  {
+    "pack": 9,
+    "title": "경제 섬 타이쿤",
+    "subject": "사회",
+    "mode": "catcher",
+    "url": "/learning-games-9/04_economy_island_tycoon.html",
+    "icon": "🏝️",
+    "intro": "희소성과 선택 개념을 아이템으로 익히는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "영어 동물 사파리",
+    "subject": "영어",
+    "mode": "lane",
+    "url": "/learning-games-9/05_english_animal_safari.html",
+    "icon": "🦁",
+    "intro": "동물 영어 낱말을 찾아 달리는 사파리 게임"
+  },
+  {
+    "pack": 9,
+    "title": "각도 궁수",
+    "subject": "수학",
+    "mode": "rhythm",
+    "url": "/learning-games-9/06_angle_archer.html",
+    "icon": "🏹",
+    "intro": "각도 크기를 리듬 타이밍으로 맞히는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "물질 상태 연구소",
+    "subject": "과학",
+    "mode": "memory",
+    "url": "/learning-games-9/07_matter_state_lab.html",
+    "icon": "🧊",
+    "intro": "고체 액체 기체와 예시를 짝맞추는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "미디어 리터러시 실드",
+    "subject": "국어",
+    "mode": "defense",
+    "url": "/learning-games-9/08_media_literacy_shield.html",
+    "icon": "📰",
+    "intro": "사실과 의견을 구분해 가짜뉴스를 막는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "문화 지도 러너",
+    "subject": "사회",
+    "mode": "lane",
+    "url": "/learning-games-9/09_culture_map_runner.html",
+    "icon": "🧭",
+    "intro": "문화유산과 지역 특징을 찾아 달리는 게임"
+  },
+  {
+    "pack": 9,
+    "title": "비밀번호 금고",
+    "subject": "안전",
+    "mode": "boss",
+    "url": "/learning-games-9/10_internet_password_vault.html",
+    "icon": "🔐",
+    "intro": "안전한 비밀번호와 보안 습관을 익히는 게임"
+  }
+]

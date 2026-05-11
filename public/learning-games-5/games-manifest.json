@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lg5-01",
+    "title": "시 이미지 스튜디오",
+    "description": "시구에 어울리는 심상을 골라 감상 능력을 키우는 게임",
+    "subject": "국어/문학",
+    "genre": "감상 퀴즈",
+    "url": "/learning-games-5/01_poetry_image_studio.html"
+  },
+  {
+    "id": "lg5-02",
+    "title": "비와 비율 레시피 키친",
+    "description": "주스 재료의 비율을 맞춰 맛있는 레시피를 완성하는 게임",
+    "subject": "수학",
+    "genre": "레시피 퀴즈",
+    "url": "/learning-games-5/02_ratio_recipe_kitchen.html"
+  },
+  {
+    "id": "lg5-03",
+    "title": "우리 몸 기관 구조대",
+    "description": "기관과 하는 일을 연결해 인체를 구하는 과학 매칭 게임",
+    "subject": "과학",
+    "genre": "카드 매칭",
+    "url": "/learning-games-5/03_body_system_rescue.html"
+  },
+  {
+    "id": "lg5-04",
+    "title": "민주주의 선거 게임",
+    "description": "학급 선거 상황에서 공정한 선택과 규칙을 배우는 사회 게임",
+    "subject": "사회/민주시민",
+    "genre": "선택 퀴즈",
+    "url": "/learning-games-5/04_democracy_election_game.html"
+  },
+  {
+    "id": "lg5-05",
+    "title": "한자 보물 사냥",
+    "description": "한자의 뜻과 음을 찾아 보물을 여는 기초 한자 게임",
+    "subject": "국어/한자",
+    "genre": "좌표 찾기",
+    "url": "/learning-games-5/05_hanja_treasure_hunt.html"
+  },
+  {
+    "id": "lg5-06",
+    "title": "속독 버스 정류장",
+    "description": "짧은 안내문을 읽고 필요한 정보를 골라 버스를 타는 독해 게임",
+    "subject": "국어/실용문",
+    "genre": "3라인 러너",
+    "url": "/learning-games-5/06_speed_reading_bus.html"
+  },
+  {
+    "id": "lg5-07",
+    "title": "소리 파동 연구소",
+    "description": "소리의 높낮이와 세기를 실험처럼 고르는 과학 게임",
+    "subject": "과학",
+    "genre": "실험 퀴즈",
+    "url": "/learning-games-5/07_sound_wave_lab.html"
+  },
+  {
+    "id": "lg5-08",
+    "title": "지도 기호 탐험대",
+    "description": "지도 기호와 실제 장소를 연결해 길을 찾는 사회 게임",
+    "subject": "사회/지리",
+    "genre": "카드 매칭",
+    "url": "/learning-games-5/08_map_symbol_quiz.html"
+  },
+  {
+    "id": "lg5-09",
+    "title": "곱셈 보스 레이드",
+    "description": "구구단 정답을 빠르게 터치해 보스를 물리치는 액션 게임",
+    "subject": "수학",
+    "genre": "보스 레이드",
+    "url": "/learning-games-5/09_multiplication_boss_raid.html"
+  },
+  {
+    "id": "lg5-10",
+    "title": "평화 다리 건설자",
+    "description": "갈등 상황에서 공감과 대화의 순서를 맞춰 평화 다리를 세우는 게임",
+    "subject": "도덕/인성",
+    "genre": "순서 퍼즐",
+    "url": "/learning-games-5/10_peace_bridge_builder.html"
+  }
+]

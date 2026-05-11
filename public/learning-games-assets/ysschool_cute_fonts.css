@@ -1,0 +1,85 @@
+/* YSSCHOOL Learning Game World Font Pack V12
+   V11에서 제목용 장식 글꼴이 한글을 지나치게 뭉개 보이게 하던 문제를 해결했습니다.
+   원칙: 제목은 귀엽게(Jua), 본문/문제는 선명하게(Noto Sans KR/Gowun Dodum), 버튼은 둥글게(Jua).
+*/
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
+
+:root{
+  --ys-font-title:'Jua','Noto Sans KR','Gowun Dodum',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ys-font-main:'Noto Sans KR','Gowun Dodum',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ys-font-soft:'Gowun Dodum','Noto Sans KR',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ys-font-ui:'Jua','Noto Sans KR',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+
+html,body{
+  font-family:var(--ys-font-main)!important;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+
+button,input,select,textarea,a,.btn,.chip,.tab,.pill,.tag,.card,.panel,.game,.hud,.overlay,.choice,.ctrl,.memo,.cell,
+#ys-v9-hub,#ys-v9-hub button,#ys-v9-toast,#ys-v9-recap,#ys-v9-result,#ys-arcade-end-overlay{
+  font-family:var(--ys-font-main)!important;
+}
+
+h1,h2,h3,h4,.title,.dashboard-title,.game-title,.logo,.hero h1,.heroBox h1,.eyebrow,.top .title,.game h3,
+.ys-v9-recap-card h2,.ys-v9-result-card h2,.ys-arcade-end-box h2{
+  font-family:var(--ys-font-title)!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  line-height:1.18!important;
+  word-break:keep-all!important;
+  overflow-wrap:break-word!important;
+  text-shadow:none!important;
+}
+
+/* 대시보드의 큰 제목은 둥글게 보이되 한글 획이 뭉개지지 않게 크기와 줄간격 보정 */
+.hero h1,.heroBox h1{
+  font-family:var(--ys-font-title)!important;
+  font-size:clamp(2.4rem, 7vw, 5.1rem)!important;
+  line-height:1.08!important;
+  letter-spacing:-0.01em!important;
+  font-weight:400!important;
+}
+
+p,.hint,.notice,.desc,.card-desc,.learning-tip,.review-card,.ys-v9-recap-card p,.ys-v9-result-card p,.switch p,.game p,.feature p,
+textarea::placeholder,input::placeholder{
+  font-family:var(--ys-font-soft)!important;
+  line-height:1.65!important;
+  letter-spacing:-0.01em!important;
+  word-break:keep-all!important;
+}
+
+.question,.quiz,.problem,.choice,.answer,.score,.scoreboard,#problem,#score,#level,#hp,#combo,.pill b,.summary b,
+.stat,.badge,.count,.timer,.mission,.result{
+  font-family:var(--ys-font-main)!important;
+  font-weight:700!important;
+  letter-spacing:-0.01em!important;
+}
+
+button,.btn,.chip,.tab,.play-button,.menu-button,.ctrl,.miniIcon,.filter-btn,.game button{
+  font-family:var(--ys-font-ui)!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  border-radius:999px!important;
+}
+
+/* 기존 V11 장식 글꼴 계열이 남아 있는 요소도 강제로 정상화 */
+[style*="Bagel"],[style*="Gaegu"],[style*="Gamja"],[style*="Dongle"]{
+  font-family:var(--ys-font-main)!important;
+}
+
+/* 카드 제목과 버튼은 살짝 귀엽게 */
+.game-card h3,.card h3,.game h3,.play-button,.btn.primary{
+  font-family:var(--ys-font-ui)!important;
+}
+
+/* 모바일에서 글자가 뭉개져 보이지 않게 글자 크기와 줄간격 확보 */
+@media(max-width:640px){
+  .hero h1,.heroBox h1{font-size:clamp(2.1rem, 12vw, 3.4rem)!important; line-height:1.08!important;}
+  h1,h2,h3,.title{letter-spacing:0!important;}
+  p,.hint,.notice,.desc,.card-desc{line-height:1.72!important;}
+}

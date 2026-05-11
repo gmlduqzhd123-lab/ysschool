@@ -1,0 +1,92 @@
+[
+  {
+    "pack": 10,
+    "title": "어휘 몬스터 농장",
+    "subject": "국어",
+    "mode": "catcher",
+    "url": "/learning-games-10/01_vocab_monster_farm.html",
+    "icon": "👾",
+    "intro": "낱말의 뜻을 모아 몬스터 농장을 키우는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "넓이 성 짓기",
+    "subject": "수학",
+    "mode": "builder",
+    "url": "/learning-games-10/02_area_castle_builder.html",
+    "icon": "🏰",
+    "intro": "도형 넓이 공식을 순서대로 조립하는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "물의 순환 롤러",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-10/03_water_cycle_roller.html",
+    "icon": "💧",
+    "intro": "증발 응결 강수 흐름을 따라 달리는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "독도 수호 퀴즈",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-10/04_dokdo_guardian_quiz.html",
+    "icon": "🌊",
+    "intro": "우리 땅과 바다 지식을 익히는 디펜스 게임"
+  },
+  {
+    "pack": 10,
+    "title": "영어 직업 아케이드",
+    "subject": "영어",
+    "mode": "sorting",
+    "url": "/learning-games-10/05_english_job_arcade.html",
+    "icon": "👩‍🚀",
+    "intro": "직업 영어 단어를 분류하는 아케이드 게임"
+  },
+  {
+    "pack": 10,
+    "title": "소수 탐험 퀘스트",
+    "subject": "수학",
+    "mode": "maze",
+    "url": "/learning-games-10/06_prime_number_quest.html",
+    "icon": "🔢",
+    "intro": "소수와 합성수를 구분하며 미로를 통과하는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "빛과 그림자 추격전",
+    "subject": "과학",
+    "mode": "rhythm",
+    "url": "/learning-games-10/07_light_shadow_chase.html",
+    "icon": "🔦",
+    "intro": "빛의 직진과 그림자 개념을 리듬으로 익히는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "토론 아레나 주니어",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-10/08_debate_arena_junior.html",
+    "icon": "🎤",
+    "intro": "주장과 근거를 골라 토론 보스를 이기는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "미래 도시 플래너",
+    "subject": "사회",
+    "mode": "memory",
+    "url": "/learning-games-10/09_future_city_planner.html",
+    "icon": "🏙️",
+    "intro": "도시 문제와 해결 방법을 짝맞추는 게임"
+  },
+  {
+    "pack": 10,
+    "title": "마음 안전 구조대",
+    "subject": "안전",
+    "mode": "sorting",
+    "url": "/learning-games-10/10_emotion_safety_rescue.html",
+    "icon": "💛",
+    "intro": "감정 표현과 도움 요청 방법을 분류하는 게임"
+  }
+]

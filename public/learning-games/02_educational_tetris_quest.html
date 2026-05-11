@@ -1,0 +1,140 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>교육용 테트리스 QUEST</title><style>
+:root{--bg:#0f172a;--panel:#111827;--card:#1f2937;--text:#f8fafc;--muted:#cbd5e1;--accent:#38bdf8;--good:#22c55e;--bad:#ef4444;--warn:#f59e0b;--pink:#ec4899}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent} html,body{margin:0;min-height:100%;min-height:100dvh;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#08111f,#111827 58%,#172554);color:var(--text);touch-action:manipulation;user-select:none}body{display:flex;align-items:center;justify-content:center;padding:10px;overflow-x:hidden}.wrap{width:min(100%,1040px);margin:auto}.panel{background:rgba(15,23,42,.90);border:1px solid rgba(255,255,255,.12);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.42);overflow:hidden}.top{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,.07);flex-wrap:wrap}.title{font-weight:1000;font-size:clamp(19px,4vw,31px);letter-spacing:-.04em}.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.105);font-weight:900;white-space:nowrap}.game{position:relative;min-height:560px;padding:12px}.hud{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center}.btn{border:0;border-radius:14px;padding:10px 14px;background:#2563eb;color:white;font-weight:950;box-shadow:0 4px 0 rgba(0,0,0,.28);cursor:pointer}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.28)}.btn.secondary{background:#475569}.btn.good{background:#16a34a}.btn.warn{background:#d97706}.btn.bad{background:#dc2626}.hint{color:var(--muted);font-size:14px;line-height:1.45}.screen{background:rgba(255,255,255,.06);border-radius:18px;border:1px solid rgba(255,255,255,.11);overflow:hidden;position:relative}canvas{display:block;width:100%;height:auto;background:#0b1220;border-radius:18px}.controls{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:10px}.ctrl{min-width:58px;min-height:50px;border:0;border-radius:16px;background:rgba(255,255,255,.15);color:#fff;font-size:22px;font-weight:1000}.overlay{position:absolute;inset:12px;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,.78);backdrop-filter:blur(6px);border-radius:18px;z-index:10}.card{width:min(94%,600px);padding:22px;background:#101827;border:1px solid rgba(255,255,255,.16);border-radius:24px;text-align:center}.card h2{margin:0 0 8px;font-size:clamp(24px,6vw,40px)}.row{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}.grid{display:grid;gap:8px}.choice{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.10);color:white;border-radius:16px;padding:12px;font-weight:950;font-size:18px}.choice:active,.choice:hover{background:rgba(56,189,248,.35)}.tiny{font-size:12px;color:#94a3b8}.soundbar{position:fixed;right:12px;bottom:12px;z-index:30}.soundbtn{border:1px solid rgba(255,255,255,.18);background:rgba(15,23,42,.84);color:white;border-radius:999px;padding:10px 12px;font-weight:950;box-shadow:0 8px 28px rgba(0,0,0,.35)}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(15,23,42,.94);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:9px 14px;font-weight:900;z-index:50;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;bottom:28px}.badge{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:5px 8px;background:rgba(255,255,255,.10);font-size:12px;font-weight:950}.meter{height:12px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}.meter>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#38bdf8,#f59e0b)}
+@media(max-width:640px){body{padding:0}.panel{border-radius:0;min-height:100vh}.game{min-height:calc(100vh - 74px);padding:8px}.top{padding:10px}.ctrl{min-width:62px;min-height:54px}.btn{padding:11px 13px}.hint{font-size:13px}.soundbar{right:8px;bottom:8px}.pill{font-size:13px;padding:6px 8px}}
+
+
+.tetrisLayout{display:grid;grid-template-columns:minmax(260px,390px) 1fr;gap:14px;align-items:start}.board{display:grid;grid-template-columns:repeat(10,1fr);gap:2px;background:#020617;padding:5px;border-radius:18px;margin:auto}.cell{aspect-ratio:1;border-radius:5px;background:#1e293b}.cell.f{background:var(--c,#38bdf8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}.cell.bomb{background:#ef4444}.sidebox{padding:12px;background:rgba(255,255,255,.08);border-radius:18px;margin-bottom:10px}.itemBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mini{font-size:13px}.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}@media(max-width:780px){.tetrisLayout{grid-template-columns:1fr}.side{order:-1}.board{width:min(94vw,370px)}}
+
+/* V2 checked learning/game enhancement */
+.eduBox{margin:10px 0;padding:12px;border-radius:18px;background:linear-gradient(135deg,rgba(34,197,94,.16),rgba(56,189,248,.12));border:1px solid rgba(255,255,255,.14);display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:9px;align-items:stretch}.eduItem{padding:10px;border-radius:14px;background:rgba(15,23,42,.45);border:1px solid rgba(255,255,255,.08)}.eduItem b{display:block;margin-bottom:4px;color:#fef3c7}.miniTool{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.miniBtn{border:0;border-radius:999px;padding:8px 10px;background:rgba(255,255,255,.14);color:white;font-weight:950}.bestPill{background:rgba(250,204,21,.16)!important;border:1px solid rgba(250,204,21,.25)}.rankPill{background:rgba(236,72,153,.16)!important;border:1px solid rgba(236,72,153,.25)}.errorBox{position:fixed;left:10px;right:10px;top:10px;z-index:9999;background:#7f1d1d;color:white;border:2px solid #fecaca;border-radius:16px;padding:12px;font-weight:800;box-shadow:0 12px 40px rgba(0,0,0,.45)}.teacherNote{display:none;margin-top:8px;padding:11px;border-radius:16px;background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.22);color:#e2e8f0;line-height:1.5}.teacherNote.show{display:block}@media(max-width:760px){.eduBox{grid-template-columns:1fr}.miniBtn{font-size:13px;padding:8px 9px}}
+
+
+/* V3 extra QA + classroom mode */
+.v3Panel{margin-top:8px;padding:12px;border-radius:18px;background:linear-gradient(135deg,rgba(14,165,233,.16),rgba(168,85,247,.12));border:1px solid rgba(255,255,255,.14);display:none;line-height:1.5}.v3Panel.show{display:block}.v3Panel textarea{width:100%;min-height:82px;margin-top:8px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(15,23,42,.68);color:white;padding:10px;font-family:inherit;resize:vertical}.v3Mission{display:inline-flex;align-items:center;gap:6px;margin:6px 0;padding:8px 11px;border-radius:999px;background:rgba(250,204,21,.14);border:1px solid rgba(250,204,21,.25);font-weight:950}.v3Timer{display:inline-flex;align-items:center;gap:6px;margin-left:6px;padding:8px 11px;border-radius:999px;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.25);font-weight:950}.classMode .hint{font-size:16px}.classMode .title{font-size:clamp(22px,4.5vw,35px)}.classMode .pill{font-size:15px}.classMode canvas{image-rendering:auto}.lowMotion *{scroll-behavior:auto!important;animation-duration:.001ms!important;transition-duration:.001ms!important}.v3Safety{margin-top:8px;font-size:12px;color:#cbd5e1}.v3Safety b{color:#fde68a}
+@media(max-width:640px){.v3Timer,.v3Mission{display:flex;width:100%;justify-content:center;margin-left:0}.v3Panel textarea{min-height:72px}}
+
+</style><script src="../learning-games-assets/difficulty_bridge.js"></script>
+<link rel="stylesheet" href="../learning-games-assets/ysschool_game_polish_v4.css" />
+
+<link rel="stylesheet" href="../learning-games-assets/ysschool_cute_fonts.css" />
+<script src="../learning-games-assets/cute_fonts_patch.js"></script>
+</head><body>
+<div class="wrap"><div class="panel"><div class="top"><div class="title">🧱 교육용 테트리스 QUEST</div><div class="row"><span class="pill">점수 <b id="score">0</b></span><span class="pill">줄 <b id="lines">0</b></span><span class="pill">LV <b id="lv">1</b></span><span class="pill">콤보 <b id="combo">0</b></span></div></div><div class="game"><div class="tetrisLayout"><div><div id="board" class="board"></div><div class="controls"><button class="ctrl" onclick="move(-1)">◀</button><button class="ctrl" onclick="rotate()">↻</button><button class="ctrl" onclick="move(1)">▶</button><button class="ctrl" onclick="softDrop()">▼</button><button class="ctrl" onclick="hardDrop()">⬇</button></div></div><div class="side"><div class="hud"><button class="btn good" onclick="start()">시작/재시작</button><button class="btn secondary" onclick="paused=!paused">일시정지</button></div><div class="sidebox"><b>🎒 아이템 가방</b><div class="itemBtns"><button class="btn warn mini" onclick="useItem('hammer')">망치 <b id="hammer">0</b></button><button class="btn warn mini" onclick="useItem('bomb')">폭탄 <b id="bomb">0</b></button><button class="btn warn mini" onclick="useItem('slow')">느림 <b id="slow">0</b></button><button class="btn warn mini" onclick="useItem('hint')">힌트 <b id="hint">0</b></button></div></div><div class="sidebox"><b id="qtitle">줄을 지우면 보너스 문제가 나와요.</b><div id="qgrid" class="qgrid"></div><p class="hint">폭탄 블록은 줄 삭제 시 주변까지 정리합니다. 보너스 정답을 맞히면 아이템이 나옵니다.</p></div></div></div><div id="over" class="overlay"><div class="card"><h2>테트리스 + 곱셈 퀘스트</h2><p class="hint">모바일 버튼으로 조작하고, 학습 퀴즈로 아이템을 얻으세요.</p><button class="btn good" onclick="start()">게임 시작</button></div></div></div></div></div>
+<div class="soundbar"><button id="soundToggle" class="soundbtn" onclick="Sound.toggle()">🔊 사운드 켜짐</button></div><script>
+const Sound=(()=>{let ctx=null,muted=false,bgm=null,step=0,style=0,tempo=330;const scales=[[262,330,392,523,392,330,294,392],[220,277,330,440,330,277,247,330],[196,294,349,392,523,392,349,294],[330,392,494,659,587,494,392,330]];function ensure(){const AC=window.AudioContext||window.webkitAudioContext;if(!AC){muted=true;return} if(!ctx){try{ctx=new AC()}catch(e){muted=true;return}} if(ctx&&ctx.state==='suspended'){const p=ctx.resume(); if(p&&p.catch)p.catch(()=>{})}}function tone(f=440,d=.08,type='sine',gain=.05,when=0){if(muted)return;ensure();let o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,ctx.currentTime+when);g.gain.setValueAtTime(0.0001,ctx.currentTime+when);g.gain.exponentialRampToValueAtTime(gain,ctx.currentTime+when+.01);g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+when+d);o.connect(g).connect(ctx.destination);o.start(ctx.currentTime+when);o.stop(ctx.currentTime+when+d+.03)}function noise(d=.12,gain=.05){if(muted)return;ensure();let len=Math.max(1,Math.floor(ctx.sampleRate*d)),buf=ctx.createBuffer(1,len,ctx.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++)data[i]=(Math.random()*2-1)*(1-i/len);let src=ctx.createBufferSource(),g=ctx.createGain();g.gain.value=gain;src.buffer=buf;src.connect(g).connect(ctx.destination);src.start()}function sfx(name){if(muted)return;ensure();const map={good:[523,659,784],bad:[180,120],hit:[140,90],coin:[880,1175],power:[392,523,659,1046],level:[330,415,523,659,880],click:[430],pop:[650,860],drop:[110,150],win:[523,659,784,1046],lose:[240,180,120],quiz:[494,587],shield:[294,392,494],bomb:[90,70,55]};let arr=map[name]||map.click;arr.forEach((f,i)=>tone(f,.07+i*.01,i%2?'triangle':'square',.045,i*.055));if(name==='bomb'||name==='hit'||name==='bad')noise(.16,.035)}function start(s=0,t=330){style=s;tempo=t;if(bgm)clearInterval(bgm);ensure();step=0;bgm=setInterval(()=>{if(muted)return;let sc=scales[style%scales.length];let f=sc[step%sc.length];tone(f,.11,'triangle',.022);if(step%4===0)tone(f/2,.16,'sine',.018);step++},tempo)}function stop(){if(bgm){clearInterval(bgm);bgm=null}}function toggle(){muted=!muted;let b=document.getElementById('soundToggle');if(b)b.textContent=muted?'🔇 사운드 꺼짐':'🔊 사운드 켜짐';if(!muted)ensure()}return{ensure,tone,sfx,start,stop,toggle,get muted(){return muted}}})();
+window.Sound = Sound;
+function toast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>t.classList.remove('show'),1300)}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))} function rand(a,b){return Math.random()*(b-a)+a} function randi(a,b){return Math.floor(rand(a,b+1))} function pick(a){return a[Math.floor(Math.random()*a.length)]}
+window.addEventListener('pointerdown',()=>Sound.ensure(),{once:true});
+
+
+const COL=10,ROW=20,boardEl=document.getElementById('board');let cells=[];for(let i=0;i<COL*ROW;i++){let d=document.createElement('div');d.className='cell';boardEl.appendChild(d);cells.push(d)}
+const SHAPES=[[[1,1,1,1]],[[1,1],[1,1]],[[0,1,0],[1,1,1]],[[1,0,0],[1,1,1]],[[0,0,1],[1,1,1]],[[1,1,0],[0,1,1]],[[0,1,1],[1,1,0]]],COLORS=['#38bdf8','#facc15','#a78bfa','#60a5fa','#fb923c','#22c55e','#ec4899'];let grid,piece,score=0,lines=0,lv=1,combo=0,timer=null,paused=false,bag={hammer:1,bomb:1,slow:1,hint:1},question=null,slowTime=0;
+function newPiece(){let id=randi(0,SHAPES.length-1);piece={m:SHAPES[id].map(r=>r.slice()),x:3,y:0,c:COLORS[id],bomb:Math.random()<.12};if(collide(piece,0,0)){gameOver()}}
+function start(){Sound.start(1,315);grid=Array.from({length:ROW},()=>Array(COL).fill(null));score=lines=combo=0;lv=1;bag={hammer:2,bomb:2,slow:2,hint:2}; if(window.YS_GAME_DIFFICULTY){let pr=window.YS_GAME_DIFFICULTY.preset||{}; bag={hammer:Math.max(2,Math.round((pr.itemMul||2))),bomb:Math.max(2,Math.round((pr.itemMul||2))),slow:Math.max(2,Math.round((pr.itemMul||2))),hint:Math.max(2,Math.round((pr.itemMul||2)))};} paused=false;question=null;newPiece();over.style.display='none';clearInterval(timer);timer=setInterval(tick,(window.YS_GAME_DIFFICULTY?.preset?.tetrisStartDelay||860));draw();hud()}
+function hud(){document.getElementById('score').textContent=score;document.getElementById('lines').textContent=lines;document.getElementById('lv').textContent=lv;document.getElementById('combo').textContent=combo;['hammer','bomb','slow','hint'].forEach(k=>document.getElementById(k).textContent=bag[k])}
+function collide(p,dx,dy,m=p.m){for(let y=0;y<m.length;y++)for(let x=0;x<m[y].length;x++)if(m[y][x]){let nx=p.x+x+dx,ny=p.y+y+dy;if(nx<0||nx>=COL||ny>=ROW||(ny>=0&&grid[ny][nx]))return true}return false}
+function merge(){piece.m.forEach((r,y)=>r.forEach((v,x)=>{if(v&&piece.y+y>=0)grid[piece.y+y][piece.x+x]={c:piece.c,bomb:piece.bomb&&x===0&&y===0}}));clearLines();newPiece()}
+function tick(){if(paused||question)return;let P=(window.YS_GAME_DIFFICULTY&&window.YS_GAME_DIFFICULTY.preset)||{}; let speed=Math.max(P.tetrisMinDelay||260,(P.tetrisStartDelay||760)-lv*(P.tetrisLevelDrop||28))+(slowTime>0?650:0);clearInterval(timer);timer=setInterval(tick,speed);slowTime=Math.max(0,slowTime-.5);if(!collide(piece,0,1))piece.y++;else{Sound.sfx('drop');merge()}draw();hud()}
+function clearLines(){let cleared=[];for(let y=ROW-1;y>=0;y--)if(grid[y].every(Boolean))cleared.push(y);if(cleared.length){Sound.sfx('good');let bombed=new Set(cleared);cleared.forEach(y=>grid[y].forEach((cell,x)=>{if(cell&&cell.bomb){for(let yy=Math.max(0,y-1);yy<=Math.min(ROW-1,y+1);yy++)bombed.add(yy)}}));[...bombed].sort((a,b)=>b-a).forEach(y=>{grid.splice(y,1);grid.unshift(Array(COL).fill(null))});lines+=bombed.size;combo++;score+=bombed.size*100*combo;lv=1+Math.floor(lines/4);askQuiz()}else combo=0}
+function askQuiz(){let a=randi(2,9),b=randi(2,9),ans=a*b;question=ans;qtitle.textContent=`보너스 문제: ${a} × ${b} = ?`;let opts=[ans];while(opts.length<4){let v=ans+randi(-12,12);if(v>0&&!opts.includes(v))opts.push(v)}opts.sort(()=>Math.random()-.5);qgrid.innerHTML='';opts.forEach(o=>{let btn=document.createElement('button');btn.className='choice';btn.textContent=o;btn.onclick=()=>{if(o===question){score+=80;let it=pick(['hammer','bomb','slow','hint']);bag[it]++;Sound.sfx('power');toast(`정답! ${it} 아이템 획득`)}else{score=Math.max(0,score-30);Sound.sfx('bad');toast('아쉽지만 계속 도전!')}question=null;qgrid.innerHTML='';qtitle.textContent='줄을 지우면 보너스 문제가 나와요.';hud();draw()};qgrid.appendChild(btn)})}
+function move(d){if(!collide(piece,d,0)){piece.x+=d;Sound.sfx('click');draw()}}function softDrop(){if(!collide(piece,0,1)){piece.y++;score++;Sound.sfx('click');draw()}}function hardDrop(){while(!collide(piece,0,1)){piece.y++;score+=2}merge();Sound.sfx('drop');draw();hud()}function rotate(){let m=piece.m[0].map((_,i)=>piece.m.map(r=>r[i]).reverse());if(!collide(piece,0,0,m)){piece.m=m;Sound.sfx('click');draw()}}
+function useItem(k){if(bag[k]<=0){toast('아이템이 없어요');return}bag[k]--;Sound.sfx('power');if(k==='hammer'){grid.pop();grid.unshift(Array(COL).fill(null));score+=50;toast('망치로 맨 아래 줄 제거!')}if(k==='bomb'){for(let y=ROW-1;y>=ROW-3;y--)grid[y]=Array(COL).fill(null);toast('폭탄으로 아래 3줄 정리!')}if(k==='slow'){slowTime=8;toast('블록이 천천히 내려와요')}if(k==='hint'){askQuiz();toast('힌트 문제 등장!')}hud();draw()}
+function draw(){cells.forEach((c,i)=>{let y=Math.floor(i/COL),x=i%COL,cell=grid[y][x];c.className='cell'+(cell?' f':'')+(cell&&cell.bomb?' bomb':'');c.style.setProperty('--c',cell?cell.c:'#1e293b')});if(piece){piece.m.forEach((r,y)=>r.forEach((v,x)=>{if(v){let nx=piece.x+x,ny=piece.y+y;if(ny>=0&&nx>=0&&nx<COL&&ny<ROW){let c=cells[ny*COL+nx];c.className='cell f'+(piece.bomb&&x===0&&y===0?' bomb':'');c.style.setProperty('--c',piece.bomb&&x===0&&y===0?'#ef4444':piece.c)}}}))}}
+function gameOver(){clearInterval(timer);Sound.sfx('lose');over.style.display='flex';over.querySelector('h2').textContent=`게임 종료! ${score}점`; if(window.YS_GAME_FINISH)setTimeout(()=>window.YS_GAME_FINISH({score:score}),350)}
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1);if(e.key==='ArrowUp')rotate();if(e.key==='ArrowDown')softDrop();if(e.key===' ')hardDrop()});
+
+
+(function(){
+  const GAME_FILE = "02_educational_tetris_quest.html";
+  const GAME_META = ['곱셈구구와 공간 지각', '2줄 이상 지우고 보너스 문제 맞히기', '블록을 돌리기 전에 들어갈 공간을 예측하면 도형 감각이 좋아짐', '블록 전략가'];
+  const BEST_KEY = 'ys_edu_game_best_v2_' + GAME_FILE;
+  function safeNum(text){ const m=String(text||'').replace(/,/g,'').match(/-?\d+/); return m?Number(m[0]):0; }
+  function safeGet(key){ try{return localStorage.getItem(key)}catch(e){return null} }
+  function safeSet(key,val){ try{localStorage.setItem(key,val)}catch(e){} }
+  function rank(best){ if(best>=1200)return '🏆 '+GAME_META[3]; if(best>=600)return '⭐ 성장왕'; if(best>=250)return '🔥 도전자'; return '🌱 연습생'; }
+  function init(){
+    const game=document.querySelector('.game')||document.body;
+    const hud=document.querySelector('.hud')||game;
+    if(!document.querySelector('.eduBox')){
+      const box=document.createElement('section'); box.className='eduBox';
+      box.innerHTML=`<div class="eduItem"><b>🎯 학습 목표</b><span>${GAME_META[0]}</span></div><div class="eduItem"><b>🎮 오늘의 도전</b><span>${GAME_META[1]}</span></div><div class="eduItem"><b>💡 배움 팁</b><span>${GAME_META[2]}</span></div>`;
+      hud.insertAdjacentElement('afterend',box);
+      const tools=document.createElement('div'); tools.className='miniTool';
+      tools.innerHTML=`<button class="miniBtn" id="miniSoundTest">🎵 소리 테스트</button><button class="miniBtn" id="miniFull">📱 전체화면</button><button class="miniBtn" id="miniResetBest">🏅 최고점 초기화</button><button class="miniBtn" id="miniTeacher">👩‍🏫 수업 활용</button><a class="miniBtn" href="../learning-games-all/index.html" style="text-decoration:none">🏠 100게임 메인보드</a><a class="miniBtn" href="https://ysschool.vercel.app/" style="text-decoration:none">🏫 엽쌤스쿨 홈</a>`;
+      box.insertAdjacentElement('afterend',tools);
+      const note=document.createElement('div'); note.className='teacherNote'; note.id='teacherNote';
+      note.textContent='수업 활용: 3분 플레이 → 짝과 전략 설명 → 틀린 문제 또는 헷갈린 개념 1개를 공책에 적기 순서로 운영하면 게임성과 학습 정리가 함께 살아납니다.';
+      tools.insertAdjacentElement('afterend',note);
+    }
+    const topRow=document.querySelector('.top .row')||document.querySelector('.top')||document.body;
+    let best=safeNum(safeGet(BEST_KEY));
+    const bestChip=document.createElement('span'); bestChip.className='pill bestPill'; bestChip.innerHTML=`🏅 최고 <b id="bestScoreV2">${best}</b>`; topRow.appendChild(bestChip);
+    const rankChip=document.createElement('span'); rankChip.className='pill rankPill'; rankChip.innerHTML=`칭호 <b id="rankV2">${rank(best)}</b>`; topRow.appendChild(rankChip);
+    const scoreEl=document.getElementById('score');
+    function updateBest(){ if(!scoreEl)return; const now=safeNum(scoreEl.textContent); if(now>best){ best=now; safeSet(BEST_KEY,String(best)); const b=document.getElementById('bestScoreV2'); if(b)b.textContent=best; const r=document.getElementById('rankV2'); if(r)r.textContent=rank(best); if(window.toast)toast('신기록 달성! 🏅'); if(window.Sound&&Sound.sfx)Sound.sfx('level'); }}
+    if(scoreEl && window.MutationObserver){ new MutationObserver(updateBest).observe(scoreEl,{childList:true,characterData:true,subtree:true}); } else { setInterval(updateBest,800); }
+    const st=document.getElementById('miniSoundTest'); if(st)st.onclick=()=>{ if(window.Sound){Sound.ensure();Sound.sfx('good');Sound.sfx('coin');toast&&toast('소리 정상 작동!');} };
+    const fs=document.getElementById('miniFull'); if(fs)fs.onclick=()=>{ const el=document.documentElement; if(el.requestFullscreen)el.requestFullscreen().catch(()=>{}); if(window.Sound)Sound.sfx('click'); };
+    const rb=document.getElementById('miniResetBest'); if(rb)rb.onclick=()=>{ best=0; safeSet(BEST_KEY,'0'); const b=document.getElementById('bestScoreV2'); if(b)b.textContent='0'; const r=document.getElementById('rankV2'); if(r)r.textContent=rank(0); if(window.Sound)Sound.sfx('click'); if(window.toast)toast('최고점 초기화 완료'); };
+    const tb=document.getElementById('miniTeacher'); if(tb)tb.onclick=()=>{ const n=document.getElementById('teacherNote'); if(n)n.classList.toggle('show'); if(window.Sound)Sound.sfx('quiz'); };
+  }
+  window.addEventListener('error',function(e){
+    if(document.querySelector('.errorBox'))return;
+    const d=document.createElement('div'); d.className='errorBox';
+    d.textContent='게임 실행 중 오류가 감지되었습니다. 새로고침 후 다시 시작해 주세요. 오류: '+(e.message||'알 수 없음');
+    document.body.appendChild(d);
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init); else init();
+})();
+
+
+(function(){
+  const file = (location.pathname.split('/').pop() || document.title || 'game').replace(/[^\w가-힣.-]/g,'_');
+  const LOG_KEY = 'ys_edu_game_learning_log_v3_' + file;
+  const missions = [
+    '오늘은 정답을 고르기 전에 이유를 한 문장으로 말하기',
+    '친구에게 내가 쓴 전략 하나 설명하기',
+    '틀린 문제나 헷갈린 개념을 1개만 기록하기',
+    '3분 동안 포기하지 않고 다시 도전하기',
+    '점수보다 정확도와 차분한 판단을 목표로 하기',
+    '게임 후 오늘 배운 낱말·공식·개념을 2개 적기'
+  ];
+  function $(id){return document.getElementById(id)}
+  function safeGet(k){try{return localStorage.getItem(k)||''}catch(e){return ''}}
+  function safeSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function say(msg){ if(window.toast) toast(msg); else console.log(msg); }
+  function ensureTools(){
+    const anchor=document.querySelector('.teacherNote') || document.querySelector('.miniTool') || document.querySelector('.eduBox') || document.querySelector('.game') || document.body;
+    if(!document.getElementById('v3Tools')){
+      const tools=document.createElement('div'); tools.className='miniTool'; tools.id='v3Tools';
+      tools.innerHTML='<button class="miniBtn" id="v3MissionBtn">🎲 미션 뽑기</button><button class="miniBtn" id="v3LogBtn">📝 배움 기록장</button><button class="miniBtn" id="v3FiveBtn">⏱️ 5분 집중</button><button class="miniBtn" id="v3ClassBtn">🖥️ 수업 모드</button><button class="miniBtn" id="v3MotionBtn">🪶 저사양 모드</button><span class="v3Timer" id="v3Timer" style="display:none">⏱️ 05:00</span>';
+      anchor.insertAdjacentElement('afterend',tools);
+      const panel=document.createElement('section'); panel.className='v3Panel'; panel.id='v3Panel';
+      panel.innerHTML='<div class="v3Mission" id="v3Mission">🎯 미션을 뽑아 보세요.</div><div><b>📝 오늘의 배움 기록</b><br><span class="hint">게임을 마친 뒤 알게 된 점, 헷갈린 점, 다음 목표를 적어 두면 수업 후 정리에 좋습니다.</span><textarea id="v3Log" placeholder="예: 분수는 분모와 분자를 같은 수로 나누어도 크기가 같다는 것을 알았다."></textarea><div class="row" style="margin-top:8px"><button class="btn good" id="v3SaveLog">기록 저장</button><button class="btn secondary" id="v3ClearLog">기록 지우기</button></div><div class="v3Safety"><b>점검 메모</b> 모든 파일은 단일 HTML로 실행되며, 외부 음원·이미지 없이 작동하도록 구성되어 있습니다.</div></div>';
+      tools.insertAdjacentElement('afterend',panel);
+    }
+    const log=$('v3Log'); if(log) log.value=safeGet(LOG_KEY);
+    const mission=$('v3Mission');
+    $('v3MissionBtn').onclick=()=>{ const m=missions[Math.floor(Math.random()*missions.length)]; if(mission) mission.textContent='🎯 '+m; if(window.Sound)Sound.sfx('quiz'); say('오늘의 미션이 정해졌어요!'); };
+    $('v3LogBtn').onclick=()=>{ $('v3Panel').classList.toggle('show'); if(window.Sound)Sound.sfx('click'); };
+    $('v3SaveLog').onclick=()=>{ safeSet(LOG_KEY, $('v3Log').value.trim()); if(window.Sound)Sound.sfx('good'); say('배움 기록 저장 완료'); };
+    $('v3ClearLog').onclick=()=>{ $('v3Log').value=''; safeSet(LOG_KEY,''); if(window.Sound)Sound.sfx('click'); say('배움 기록을 비웠어요'); };
+    $('v3ClassBtn').onclick=()=>{ document.body.classList.toggle('classMode'); if(window.Sound)Sound.sfx('power'); say(document.body.classList.contains('classMode')?'수업 모드 ON':'수업 모드 OFF'); };
+    $('v3MotionBtn').onclick=()=>{ document.body.classList.toggle('lowMotion'); if(window.Sound)Sound.sfx('click'); say(document.body.classList.contains('lowMotion')?'저사양 모드 ON':'저사양 모드 OFF'); };
+    let timer=null, left=0;
+    function drawTime(){ const t=$('v3Timer'); if(!t)return; const m=String(Math.floor(left/60)).padStart(2,'0'), s=String(left%60).padStart(2,'0'); t.textContent='⏱️ '+m+':'+s; t.style.display='inline-flex'; }
+    $('v3FiveBtn').onclick=()=>{ clearInterval(timer); left=300; drawTime(); if(window.Sound)Sound.sfx('level'); say('5분 집중 도전 시작!'); timer=setInterval(()=>{left--; drawTime(); if(left<=0){clearInterval(timer); if(window.Sound)Sound.sfx('win'); say('5분 집중 도전 완료! 배움 기록을 남겨 보세요.');}},1000); };
+  }
+  const prevOnError = window.onerror;
+  window.onerror=function(msg,src,line,col,err){
+    try{console.error('Game error captured:',msg,src,line,col,err); const box=document.querySelector('.errorBox'); if(box) box.textContent='게임 실행 중 오류가 감지되었습니다. 새로고침 후 다시 시작해 주세요. 오류: '+msg;}catch(e){}
+    if(typeof prevOnError==='function')return prevOnError.apply(this,arguments);
+    return false;
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureTools); else ensureTools();
+})();
+
+</script><script src="../learning-games-assets/ysschool_game_polish_v4.js"></script>
+</body></html>

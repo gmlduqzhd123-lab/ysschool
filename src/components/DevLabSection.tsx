@@ -140,11 +140,11 @@ export default function DevLabSection() {
                       
                       <a
                         href={app.link}
-                        target="_blank"
+                        target={app.target || "_blank"}
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-sky hover:bg-brand-sky/80 text-slate-900 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] w-full sm:w-max"
                       >
-                        앱 확인하기
+                        {app.buttonText || "앱 확인하기"}
                         <ExternalLink className="w-5 h-5" />
                       </a>
                     </div>

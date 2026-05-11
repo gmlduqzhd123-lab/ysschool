@@ -1,0 +1,92 @@
+[
+  {
+    "pack": 6,
+    "title": "고대 문자 러너",
+    "subject": "국어",
+    "mode": "lane",
+    "url": "/learning-games-6/01_ancient_letter_runner.html",
+    "icon": "🏺",
+    "intro": "받침과 맞춤법 문자를 골라 유적을 통과하는 러너 게임"
+  },
+  {
+    "pack": 6,
+    "title": "소수 잠수함 탐사",
+    "subject": "수학",
+    "mode": "catcher",
+    "url": "/learning-games-6/02_decimal_submarine.html",
+    "icon": "🛟",
+    "intro": "같은 크기의 소수와 분수를 모아 바닷속 보물을 찾는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "식물 성장 타이쿤",
+    "subject": "과학",
+    "mode": "builder",
+    "url": "/learning-games-6/03_plant_growth_tycoon.html",
+    "icon": "🌱",
+    "intro": "식물 성장 순서를 맞춰 농장을 키우는 타이쿤 게임"
+  },
+  {
+    "pack": 6,
+    "title": "우리 동네 직업 디펜스",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-6/04_community_helper_defense.html",
+    "icon": "🏘️",
+    "intro": "직업과 역할을 맞혀 마을을 지키는 디펜스 게임"
+  },
+  {
+    "pack": 6,
+    "title": "영어 쿠키 공장",
+    "subject": "영어",
+    "mode": "sorting",
+    "url": "/learning-games-6/05_english_cookie_factory.html",
+    "icon": "🍪",
+    "intro": "영어 낱말을 뜻별로 분류해 쿠키를 굽는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "삼각형 클라임 오비",
+    "subject": "수학",
+    "mode": "maze",
+    "url": "/learning-games-6/06_triangle_climb_obby.html",
+    "icon": "🔺",
+    "intro": "도형 성질 문제를 풀며 오비 탑을 오르는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "소리 파동 DJ",
+    "subject": "과학",
+    "mode": "rhythm",
+    "url": "/learning-games-6/07_sound_wave_dj.html",
+    "icon": "🎧",
+    "intro": "소리와 진동 개념을 리듬에 맞춰 익히는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "독해 유령 호텔",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-6/08_reading_ghost_hotel.html",
+    "icon": "👻",
+    "intro": "중심 내용과 세부 내용을 맞혀 유령 보스를 물리치는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "지도 기호 택배왕",
+    "subject": "사회",
+    "mode": "catcher",
+    "url": "/learning-games-6/09_map_symbol_delivery.html",
+    "icon": "🗺️",
+    "intro": "지도 기호와 뜻을 모아 정확히 배달하는 게임"
+  },
+  {
+    "pack": 6,
+    "title": "디지털 안전 순찰대",
+    "subject": "안전",
+    "mode": "lane",
+    "url": "/learning-games-6/10_digital_safety_patrol.html",
+    "icon": "🛡️",
+    "intro": "개인정보와 온라인 예절을 익히는 안전 러너"
+  }
+]

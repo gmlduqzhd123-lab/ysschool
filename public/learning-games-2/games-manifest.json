@@ -1,0 +1,92 @@
+[
+  {
+    "file": "01_spelling_kart_racer.html",
+    "icon": "🏎️",
+    "title": "맞춤법 카트 레이싱",
+    "description": "정답 단어 차선을 골라 질주하는 3라인 레이싱",
+    "subject": "국어",
+    "learningGoal": "맞춤법·어휘",
+    "url": "/learning-games-2/01_spelling_kart_racer.html"
+  },
+  {
+    "file": "02_fraction_pizza_tycoon.html",
+    "icon": "🍕",
+    "title": "분수 피자 타이쿤",
+    "description": "동치분수 피자를 골라 가게를 키우는 탭 게임",
+    "subject": "수학",
+    "learningGoal": "분수·동치분수",
+    "url": "/learning-games-2/02_fraction_pizza_tycoon.html"
+  },
+  {
+    "file": "03_english_monster_catcher.html",
+    "icon": "👾",
+    "title": "영어 몬스터 캐처",
+    "description": "뜻에 맞는 영어 몬스터를 포획하는 캐주얼 게임",
+    "subject": "영어",
+    "learningGoal": "기초 어휘",
+    "url": "/learning-games-2/03_english_monster_catcher.html"
+  },
+  {
+    "file": "04_science_meteor_blaster.html",
+    "icon": "🚀",
+    "title": "과학 운석 블래스터",
+    "description": "과학 개념 운석을 맞히는 슈팅 퀴즈",
+    "subject": "과학",
+    "learningGoal": "개념 분류",
+    "url": "/learning-games-2/04_science_meteor_blaster.html"
+  },
+  {
+    "file": "05_history_time_portal.html",
+    "icon": "🌀",
+    "title": "역사 타임포털 러너",
+    "description": "역사 사건과 인물을 따라 달리는 타임런 게임",
+    "subject": "사회",
+    "learningGoal": "역사 이해",
+    "url": "/learning-games-2/05_history_time_portal.html"
+  },
+  {
+    "file": "06_code_robot_maze.html",
+    "icon": "🤖",
+    "title": "코딩 로봇 미로",
+    "description": "순서와 조건을 생각하며 로봇을 움직이는 미로 게임",
+    "subject": "실과/정보",
+    "learningGoal": "순차·조건",
+    "url": "/learning-games-2/06_code_robot_maze.html"
+  },
+  {
+    "file": "07_geometry_stack_tower.html",
+    "icon": "🏗️",
+    "title": "도형 타워 스택",
+    "description": "도형 속성을 판단해 탑을 쌓는 아케이드 게임",
+    "subject": "수학",
+    "learningGoal": "도형 속성",
+    "url": "/learning-games-2/07_geometry_stack_tower.html"
+  },
+  {
+    "file": "08_time_delivery_dash.html",
+    "icon": "⏰",
+    "title": "시계 배달 대작전",
+    "description": "시각 읽기와 경과 시간을 연습하는 배달 게임",
+    "subject": "수학",
+    "learningGoal": "시각·시간",
+    "url": "/learning-games-2/08_time_delivery_dash.html"
+  },
+  {
+    "file": "09_environment_rhythm_hero.html",
+    "icon": "🌱",
+    "title": "환경 리듬 히어로",
+    "description": "리듬에 맞춰 환경 실천을 고르는 음악형 퀴즈",
+    "subject": "과학/창체",
+    "learningGoal": "환경 실천",
+    "url": "/learning-games-2/09_environment_rhythm_hero.html"
+  },
+  {
+    "file": "10_coordinate_treasure_map.html",
+    "icon": "🗺️",
+    "title": "좌표 보물지도",
+    "description": "격자 좌표를 찾아 보물을 여는 탐험 게임",
+    "subject": "수학/사회",
+    "learningGoal": "좌표·지도",
+    "url": "/learning-games-2/10_coordinate_treasure_map.html"
+  }
+]

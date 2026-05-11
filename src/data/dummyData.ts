@@ -279,7 +279,20 @@ export const devLabsData: Array<{
   techStack: string[];
   link: string;
   category: string;
+  buttonText?: string;
+  target?: '_self' | '_blank';
 }> = [
+  {
+    id: 0,
+    title: '엽쌤스쿨 배움게임월드',
+    description: '초등학생들이 국어, 수학, 사회, 과학, 영어, 안전, 디지털 리터러시를 게임처럼 즐기며 배울 수 있는 100개의 HTML 학습 게임 모음입니다.',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800',
+    techStack: ['HTML5', 'Vanilla JS', 'Gamification', 'EduTech'],
+    link: '/learning-games-all/index.html',
+    category: '미니게임',
+    buttonText: '100개 학습게임 시작하기',
+    target: '_self'
+  },
   {
     id: 1,
     title: '여수한려초등학교 수영부 관리 어플리케이션 (HALLYO SWIM)',

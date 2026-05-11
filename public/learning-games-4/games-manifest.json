@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lg4-01",
+    "title": "관용어 닌자 슬라이스",
+    "description": "문장에 어울리는 관용어를 빠르게 터치하는 국어 액션 게임",
+    "subject": "국어",
+    "genre": "터치 액션",
+    "url": "/learning-games-4/01_idiom_ninja_slice.html"
+  },
+  {
+    "id": "lg4-02",
+    "title": "넓이 농장 타이쿤",
+    "description": "직사각형 밭의 넓이를 계산해 작물을 수확하는 수학 게임",
+    "subject": "수학",
+    "genre": "타이쿤 퀴즈",
+    "url": "/learning-games-4/02_area_farm_tycoon.html"
+  },
+  {
+    "id": "lg4-03",
+    "title": "태양계 행성 러너",
+    "description": "행성의 특징을 보고 알맞은 행성 라인으로 이동하는 과학 러너",
+    "subject": "과학",
+    "genre": "3라인 러너",
+    "url": "/learning-games-4/03_solar_system_runner.html"
+  },
+  {
+    "id": "lg4-04",
+    "title": "세계 문화 축제 매칭",
+    "description": "나라와 문화 특징을 짝지어 세계 시민 감각을 키우는 카드 게임",
+    "subject": "사회",
+    "genre": "카드 매칭",
+    "url": "/learning-games-4/04_culture_festival_match.html"
+  },
+  {
+    "id": "lg4-05",
+    "title": "영어 문장 블록 빌더",
+    "description": "흩어진 영어 단어 블록을 올바른 문장 순서로 조립하는 게임",
+    "subject": "영어",
+    "genre": "순서 퍼즐",
+    "url": "/learning-games-4/05_english_sentence_builder.html"
+  },
+  {
+    "id": "lg4-06",
+    "title": "단위 변환 공장",
+    "description": "길이·무게·들이 단위를 변환해 공장을 작동시키는 퀴즈",
+    "subject": "수학",
+    "genre": "퀴즈 공장",
+    "url": "/learning-games-4/06_unit_conversion_factory.html"
+  },
+  {
+    "id": "lg4-07",
+    "title": "날씨 예보 센터",
+    "description": "날씨 기호와 생활 모습을 연결해 알맞은 예보를 만드는 게임",
+    "subject": "과학/사회",
+    "genre": "예보 퀴즈",
+    "url": "/learning-games-4/07_weather_forecast_center.html"
+  },
+  {
+    "id": "lg4-08",
+    "title": "도서관 방탈출",
+    "description": "책 분류와 도서관 예절 문제를 풀어 방을 탈출하는 게임",
+    "subject": "국어/독서",
+    "genre": "방탈출 퀴즈",
+    "url": "/learning-games-4/08_library_escape_room.html"
+  },
+  {
+    "id": "lg4-09",
+    "title": "분수 다리 오비",
+    "description": "크기가 같은 분수 발판을 밟아 강을 건너는 로블록스풍 오비",
+    "subject": "수학",
+    "genre": "오비/미로",
+    "url": "/learning-games-4/09_fractions_bridge_obby.html"
+  },
+  {
+    "id": "lg4-10",
+    "title": "에너지 절약 리듬팝",
+    "description": "리듬에 맞춰 에너지 절약 행동을 고르는 환경 리듬 게임",
+    "subject": "환경/창체",
+    "genre": "리듬",
+    "url": "/learning-games-4/10_energy_saving_rhythm.html"
+  }
+]

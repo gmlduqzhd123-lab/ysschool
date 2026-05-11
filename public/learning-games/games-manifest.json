@@ -1,0 +1,92 @@
+[
+  {
+    "file": "01_math_survivors_plus.html",
+    "icon": "🧙",
+    "title": "매쓰 서바이버즈 PLUS",
+    "description": "사칙연산 정답 보석을 먹고 몬스터를 피하는 생존형 수학 게임",
+    "subject": "수학",
+    "learningGoal": "사칙연산·순발력",
+    "url": "/learning-games/01_math_survivors_plus.html"
+  },
+  {
+    "file": "02_educational_tetris_quest.html",
+    "icon": "🧱",
+    "title": "교육용 테트리스 QUEST",
+    "description": "블록을 지우며 곱셈 보너스 퀴즈와 아이템을 활용하는 테트리스",
+    "subject": "수학",
+    "learningGoal": "곱셈·공간감각",
+    "url": "/learning-games/02_educational_tetris_quest.html"
+  },
+  {
+    "file": "03_vocabulary_runner_power.html",
+    "icon": "🏃",
+    "title": "어휘 러너 3라인",
+    "description": "제시어의 뜻을 고르며 달리는 3라인 러너형 어휘 게임",
+    "subject": "국어",
+    "learningGoal": "어휘력·문해력",
+    "url": "/learning-games/03_vocabulary_runner_power.html"
+  },
+  {
+    "file": "04_fraction_ninja_fever.html",
+    "icon": "🍉",
+    "title": "분수 닌자 FEVER",
+    "description": "동치분수 과일을 베고 피버를 터뜨리는 분수 감각 게임",
+    "subject": "수학",
+    "learningGoal": "분수·동치분수",
+    "url": "/learning-games/04_fraction_ninja_fever.html"
+  },
+  {
+    "file": "05_times_table_defense_arena.html",
+    "icon": "🏰",
+    "title": "구구단 디펜스 ARENA",
+    "description": "정답 포탄과 포탑으로 몬스터 웨이브를 막는 구구단 디펜스",
+    "subject": "수학",
+    "learningGoal": "구구단·계산 fluency",
+    "url": "/learning-games/05_times_table_defense_arena.html"
+  },
+  {
+    "file": "06_geometry_obby_maze_items.html",
+    "icon": "🧩",
+    "title": "도형 오비 미로",
+    "description": "로블록스 오비 느낌으로 정답 도형 문을 통과하는 도형 미로",
+    "subject": "수학",
+    "learningGoal": "도형·속성 분류",
+    "url": "/learning-games/06_geometry_obby_maze_items.html"
+  },
+  {
+    "file": "07_yeosu_history_expedition_items.html",
+    "icon": "🗺️",
+    "title": "여수 역사 탐험대",
+    "description": "여수 지역 역사와 가치 퀴즈를 풀며 보석을 모으는 탐험 게임",
+    "subject": "사회",
+    "learningGoal": "지역사·가치교육",
+    "url": "/learning-games/07_yeosu_history_expedition_items.html"
+  },
+  {
+    "file": "08_spelling_bubble_pop_items.html",
+    "icon": "🫧",
+    "title": "맞춤법 버블팝",
+    "description": "올바른 표기 버블만 터뜨리는 맞춤법 순발력 게임",
+    "subject": "국어",
+    "learningGoal": "맞춤법·표준어",
+    "url": "/learning-games/08_spelling_bubble_pop_items.html"
+  },
+  {
+    "file": "09_science_merge_lab_items.html",
+    "icon": "🔬",
+    "title": "과학 머지 연구소",
+    "description": "물의 순환 개념을 2048 방식으로 합치는 과학 퍼즐",
+    "subject": "과학",
+    "learningGoal": "물의 순환·개념 연결",
+    "url": "/learning-games/09_science_merge_lab_items.html"
+  },
+  {
+    "file": "10_money_market_challenge_items.html",
+    "icon": "🛒",
+    "title": "용돈 마켓 챌린지",
+    "description": "예산에 맞춰 물건을 고르고 할인·쿠폰을 계산하는 경제 게임",
+    "subject": "수학/실과",
+    "learningGoal": "금액 계산·합리적 소비",
+    "url": "/learning-games/10_money_market_challenge_items.html"
+  }
+]

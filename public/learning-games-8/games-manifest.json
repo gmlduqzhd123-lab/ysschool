@@ -1,0 +1,92 @@
+[
+  {
+    "pack": 8,
+    "title": "태양계 카트 투어",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-8/01_solar_system_kart.html",
+    "icon": "🪐",
+    "intro": "행성 순서와 특징을 익히는 카트 러너"
+  },
+  {
+    "pack": 8,
+    "title": "요약 닌자",
+    "subject": "국어",
+    "mode": "boss",
+    "url": "/learning-games-8/02_summary_ninja.html",
+    "icon": "🥷",
+    "intro": "글의 핵심을 골라 요약력을 키우는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "비율 스무디 가게",
+    "subject": "수학",
+    "mode": "builder",
+    "url": "/learning-games-8/03_ratio_smoothie_shop.html",
+    "icon": "🥤",
+    "intro": "재료 비율을 맞춰 스무디를 만드는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "권리와 책임 선거장",
+    "subject": "사회",
+    "mode": "sorting",
+    "url": "/learning-games-8/04_rights_vote_arena.html",
+    "icon": "🗳️",
+    "intro": "권리와 책임 사례를 분류하는 민주시민 게임"
+  },
+  {
+    "pack": 8,
+    "title": "영어 단어 로켓",
+    "subject": "영어",
+    "mode": "catcher",
+    "url": "/learning-games-8/05_english_word_rocket.html",
+    "icon": "🚀",
+    "intro": "뜻에 맞는 단어 연료를 모아 로켓을 발사하는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "자석 광산 탈출",
+    "subject": "과학",
+    "mode": "maze",
+    "url": "/learning-games-8/06_magnet_mine_escape.html",
+    "icon": "🧲",
+    "intro": "자석의 성질 문제를 풀며 광산을 빠져나가는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "시각 타임머신",
+    "subject": "수학",
+    "mode": "rhythm",
+    "url": "/learning-games-8/07_time_machine_clock.html",
+    "icon": "⏰",
+    "intro": "시각과 경과 시간을 박자에 맞춰 맞히는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "한자 보물방",
+    "subject": "국어",
+    "mode": "memory",
+    "url": "/learning-games-8/08_hanja_treasure_room.html",
+    "icon": "🈶",
+    "intro": "한자와 뜻을 짝지어 보물을 여는 게임"
+  },
+  {
+    "pack": 8,
+    "title": "여수 역사 수호자",
+    "subject": "사회",
+    "mode": "defense",
+    "url": "/learning-games-8/09_local_history_guardian.html",
+    "icon": "⚓",
+    "intro": "지역 역사 퀴즈로 항구를 지키는 디펜스"
+  },
+  {
+    "pack": 8,
+    "title": "학교 안전 오비",
+    "subject": "안전",
+    "mode": "maze",
+    "url": "/learning-games-8/10_school_safety_obby.html",
+    "icon": "🚸",
+    "intro": "학교 생활 안전 선택지를 통과하는 오비 게임"
+  }
+]

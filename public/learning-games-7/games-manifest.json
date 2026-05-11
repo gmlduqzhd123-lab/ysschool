@@ -1,0 +1,92 @@
+[
+  {
+    "pack": 7,
+    "title": "구구단 드래곤 레이드",
+    "subject": "수학",
+    "mode": "defense",
+    "url": "/learning-games-7/01_multiplication_dragon_raid.html",
+    "icon": "🐉",
+    "intro": "곱셈 정답으로 드래곤의 공격을 막는 보스 레이드"
+  },
+  {
+    "pack": 7,
+    "title": "속담 낚시왕",
+    "subject": "국어",
+    "mode": "catcher",
+    "url": "/learning-games-7/02_proverb_fishing.html",
+    "icon": "🎣",
+    "intro": "속담 뜻 물고기를 낚는 국어 게임"
+  },
+  {
+    "pack": 7,
+    "title": "날씨 실험실 구조대",
+    "subject": "과학",
+    "mode": "sorting",
+    "url": "/learning-games-7/03_weather_lab_rescue.html",
+    "icon": "🌦️",
+    "intro": "날씨 현상과 설명을 분류하는 과학 게임"
+  },
+  {
+    "pack": 7,
+    "title": "세계 예절 파티",
+    "subject": "사회",
+    "mode": "memory",
+    "url": "/learning-games-7/04_global_manners_party.html",
+    "icon": "🌏",
+    "intro": "세계 문화와 예절을 짝지어 기억하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "영어 문장 기차",
+    "subject": "영어",
+    "mode": "builder",
+    "url": "/learning-games-7/05_english_sentence_train.html",
+    "icon": "🚂",
+    "intro": "영어 어순에 맞게 문장 칸을 연결하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "분수 캔디 매치",
+    "subject": "수학",
+    "mode": "memory",
+    "url": "/learning-games-7/06_fraction_candy_match.html",
+    "icon": "🍬",
+    "intro": "분수와 그림 표현을 짝맞추는 기억 게임"
+  },
+  {
+    "pack": 7,
+    "title": "몸속 기관 러시",
+    "subject": "과학",
+    "mode": "lane",
+    "url": "/learning-games-7/07_body_organ_rush.html",
+    "icon": "🫀",
+    "intro": "기관과 역할을 찾아 달리는 생명 과학 러너"
+  },
+  {
+    "pack": 7,
+    "title": "평화 다리 퀘스트",
+    "subject": "사회",
+    "mode": "maze",
+    "url": "/learning-games-7/08_peace_bridge_quest.html",
+    "icon": "🌉",
+    "intro": "갈등 해결 선택지를 고르며 다리를 완성하는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "맞춤법 버블 구조대",
+    "subject": "국어",
+    "mode": "rhythm",
+    "url": "/learning-games-7/09_spelling_bubble_rescue.html",
+    "icon": "🫧",
+    "intro": "올바른 표현을 박자에 맞춰 터뜨리는 게임"
+  },
+  {
+    "pack": 7,
+    "title": "거스름돈 마켓",
+    "subject": "수학",
+    "mode": "boss",
+    "url": "/learning-games-7/10_money_change_market.html",
+    "icon": "💰",
+    "intro": "거스름돈 계산으로 마켓 보스를 이기는 게임"
+  }
+]

@@ -1,0 +1,9 @@
+
+const shell=Arcade.setupShell({id:'safety_obby',seed:1,emoji:'🧗',title:'안전 오비 퀘스트',subtitle:'안전한 선택문을 통과하며 장애물 코스를 완주하세요.',goal:'생활 속 위험 상황에서 안전한 행동을 선택할 수 있습니다.',mission:'안전문 12개를 통과하세요.',missions:['응급상황 문제 맞히기','교통안전 문제 3개 맞히기','콤보 8 달성','생명 2개 이상 남기기']});
+const root=shell.els.root;root.innerHTML=`<div class="question-box"><b id="q"></b></div><div class="choices" id="choices"></div><div class="question-box" id="road">🏃‍♀️ ▱ ▱ ▱ 🚩</div>`;
+const qs=[['횡단보도를 건널 때 먼저 할 일은?','멈추고 좌우를 살핀다',['친구와 뛰어간다','휴대폰을 보며 걷는다','차 사이로 건넌다']],['화재가 났을 때 알맞은 행동은?','낮은 자세로 대피한다',['엘리베이터를 탄다','다시 교실로 들어간다','연기를 깊게 마신다']],['낯선 사람이 따라오면?','가까운 어른에게 도움을 요청한다',['혼자 따라간다','비밀로 한다','외진 곳으로 간다']],['물놀이 전 해야 할 일은?','준비운동을 한다',['바로 깊은 곳에 들어간다','친구를 밀친다','구명조끼를 벗는다']]];
+let score=0,combo=0,level=1,time=100,lives=3,timer,cur,step=0;
+function start(){shell.startAudio();score=0;combo=0;level=1;time=100;lives=YS_easyLives(3);step=0;newQ();clearInterval(timer);timer=setInterval(()=>{time--;shell.setHud({score,combo,level,time,lives});if(time<=0)finish();},1000);}shell.els.start.onclick=start;
+function newQ(){cur=Arcade.choice(qs);document.querySelector('#q').textContent=cur[0];const opts=Arcade.shuffle([cur[1],...cur[2]]);const box=document.querySelector('#choices');box.innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.className='choice';b.textContent=o;b.onclick=()=>pick(o,b);box.appendChild(b);});document.querySelector('#road').textContent='🏃‍♀️ '+'▱ '.repeat(step%6)+'🚩';}
+function pick(o,b){if(o===cur[1]){b.classList.add('correct');score+=100+combo*12;combo++;step++;Arcade.sfx('good');if(combo%6===0){level++;Arcade.sfx('level');}setTimeout(newQ,550);}else{b.classList.add('wrong');lives=YS_miss(lives);combo=0;Arcade.sfx('bad');if(lives<=0)finish();}shell.setHud({score,combo,level,time,lives});}
+function finish(){clearInterval(timer);shell.end(score);}addEventListener('arcade-focus',e=>{time=Math.min(time,e.detail)});

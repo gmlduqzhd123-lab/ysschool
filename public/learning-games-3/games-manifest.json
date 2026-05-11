@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lg3-01",
+    "title": "독해 탐정 런",
+    "description": "단서를 모아 글의 중심 내용을 찾는 독해 러너",
+    "subject": "국어·독해",
+    "genre": "런게임",
+    "url": "/learning-games-3/01_reading_detective_run.html"
+  },
+  {
+    "id": "lg3-02",
+    "title": "소수 우주 채굴단",
+    "description": "목표 소수와 같은 값을 찾아 우주 광물을 캐는 슈팅 게임",
+    "subject": "수학·소수",
+    "genre": "슈팅",
+    "url": "/learning-games-3/02_decimal_space_miner.html"
+  },
+  {
+    "id": "lg3-03",
+    "title": "속담 기억력 대결",
+    "description": "속담과 뜻을 짝지어 기억력과 어휘력을 키우는 매칭 게임",
+    "subject": "국어·속담",
+    "genre": "카드매칭",
+    "url": "/learning-games-3/03_proverb_memory_match.html"
+  },
+  {
+    "id": "lg3-04",
+    "title": "자료해석 마트 챌린지",
+    "description": "막대그래프와 표를 읽고 알맞은 상품을 고르는 자료해석 게임",
+    "subject": "수학·자료",
+    "genre": "타이쿤",
+    "url": "/learning-games-3/04_data_mart_challenge.html"
+  },
+  {
+    "id": "lg3-05",
+    "title": "전기회로 구조대",
+    "description": "도체와 부도체를 구분하고 전구를 밝히는 과학 퍼즐",
+    "subject": "과학·전기",
+    "genre": "퍼즐",
+    "url": "/learning-games-3/05_circuit_rescue_lab.html"
+  },
+  {
+    "id": "lg3-06",
+    "title": "먹이사슬 아레나",
+    "description": "생산자와 소비자의 순서를 맞춰 생태계를 지키는 게임",
+    "subject": "과학·생태",
+    "genre": "전략",
+    "url": "/learning-games-3/06_food_chain_arena.html"
+  },
+  {
+    "id": "lg3-07",
+    "title": "음표 리듬 히어로",
+    "description": "음표 길이와 박자를 리듬으로 익히는 음악 게임",
+    "subject": "음악·박자",
+    "genre": "리듬",
+    "url": "/learning-games-3/07_music_note_rhythm.html"
+  },
+  {
+    "id": "lg3-08",
+    "title": "지리 드론 배달부",
+    "description": "방위와 좌표를 읽어 목적지에 배달하는 지도 게임",
+    "subject": "사회·지리",
+    "genre": "좌표",
+    "url": "/learning-games-3/08_geo_drone_delivery.html"
+  },
+  {
+    "id": "lg3-09",
+    "title": "안전 오비 퀘스트",
+    "description": "생활 안전 상황에서 올바른 선택문을 통과하는 오비 게임",
+    "subject": "안전교육",
+    "genre": "오비",
+    "url": "/learning-games-3/09_safety_obby_quest.html"
+  },
+  {
+    "id": "lg3-10",
+    "title": "코딩 버그 헌터",
+    "description": "순차·반복·조건 명령으로 로봇을 움직이는 코딩 퍼즐",
+    "subject": "실과·코딩",
+    "genre": "로봇퍼즐",
+    "url": "/learning-games-3/10_coding_bug_hunter.html"
+  }
+]
