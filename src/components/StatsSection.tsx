@@ -32,10 +32,11 @@ function Counter({ from = 0, to, duration = 2, suffix = '' }: { from?: number, t
 
 export default function StatsSection() {
   const stats = [
-    { label: '교육 경력', value: 9, suffix: '년+', delay: 0.1 },
-    { label: '개발한 웹/앱', value: 15, suffix: '개+', delay: 0.2 },
-    { label: '지도한 학생', value: 300, suffix: '명+', delay: 0.3 },
-    { label: '강의 및 컨설팅', value: 80, suffix: '회+', delay: 0.4 },
+    { label: '수업 자료', value: 100, suffix: '개+', delay: 0.1 },
+    { label: '공연 횟수', value: 30, suffix: '회+', delay: 0.2 },
+    { label: '개발한 웹/앱', value: 15, suffix: '개+', delay: 0.3 },
+    { label: '지도한 학생', value: 300, suffix: '명+', delay: 0.4 },
+    { label: '강의 및 컨설팅', value: 80, suffix: '회+', delay: 0.5 },
   ];
 
   return (
@@ -53,7 +54,7 @@ export default function StatsSection() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 text-center">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
