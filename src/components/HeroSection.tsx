@@ -73,7 +73,7 @@ export default function HeroSection() {
               
               <div className="absolute inset-2 bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border-4 border-white/50 dark:border-slate-700 shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800"
+                  src="/images/profile_hero.jpg"
                   alt="엽쌤 프로필"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
