@@ -14,6 +14,8 @@
     font-style: normal;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-navy: #1E3A8A;
   --color-brand-sky: #38BDF8;
@@ -25,11 +27,9 @@
   --foreground: #0f172a; /* slate-900 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a; /* slate-900 */
-    --foreground: #f8fafc; /* slate-50 */
-  }
+.dark {
+  --background: #0f172a; /* slate-900 */
+  --foreground: #f8fafc; /* slate-50 */
 }
 
 body {
