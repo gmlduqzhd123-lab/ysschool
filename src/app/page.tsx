@@ -15,8 +15,8 @@ export default function Home() {
         <HeroSection />
         <StatsSection />
         <AboutSection />
-        <CVSection />
         <ArchiveTabs />
+        <CVSection />
         <ContactSection />
       </main>
       <Footer />
