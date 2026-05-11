@@ -1,0 +1,39 @@
+export const metadata = {
+  title: '에듀테크 크리에이터로서의 첫 발걸음',
+  date: '2026-05-11',
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date}</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+이곳은 엽쌤스쿨의 새로운 시작을 알리는 블로그 공간입니다.
+
+에듀테크 강사로서 다양한 연수와 컨설팅을 진행하다 보면, 미처 현장에서 다 나누지 못했던 깊은 고민과 유용한 기술적 노하우들이 남기 마련입니다. 이제는 이 MDX 기반의 블로그를 통해 **"교육과 기술의 결합"**에 관한 생생한 경험담을 기록하려 합니다.
+
+## 앞으로 연재될 내용
+- **에듀테크 활용 팁**: 현장에서 바로 써먹을 수 있는 도구 활용법
+- **수업 혁신 사례**: 글로컬 미래교실 및 학생 주도형 수업 경험
+- **앱 개발 일지**: 매쓰 서바이벌, Hallyo 수영부 앱 등 직접 개발한 웹앱의 비하인드 스토리
+
+코드로 작성되는 문서(Markdown)의 편리함 덕분에, 앞으로는 아이디어가 떠오를 때마다 빠르게 이곳에 기록을 남길 예정입니다.
+
+> "교실의 문제를 기술로 해결하고, 아이들과 교사 모두의 성장을 돕습니다."
+
+새로운 도전과 여정을 함께 지켜봐 주세요! 🚀

@@ -1,12 +1,21 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { devLabsData } from '../data/dummyData';
 import { Construction } from 'lucide-react';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
+import { useState } from 'react';
 
 export default function DevLabSection() {
+  const [activeCategory, setActiveCategory] = useState<string>('전체');
+  
+  const categories = ['전체', ...Array.from(new Set(devLabsData.map(item => item.category).filter(Boolean)))];
+
+  const filteredData = activeCategory === '전체' 
+    ? devLabsData 
+    : devLabsData.filter(app => app.category === activeCategory);
+
   return (
     <section id="dev-lab" className="py-24 md:py-32 bg-slate-900 text-white relative overflow-hidden">
       {/* Tech-inspired decorative background */}
@@ -23,7 +32,7 @@ export default function DevLabSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-brand-sky/10 border border-brand-sky/20">
             <h2 className="text-sm font-bold text-brand-sky uppercase tracking-widest">
@@ -38,7 +47,31 @@ export default function DevLabSection() {
           </p>
         </motion.div>
 
-        {devLabsData.length === 0 ? (
+        {/* Filter Buttons */}
+        {categories.length > 1 && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-3 mb-16"
+          >
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-2 rounded-full font-bold transition-all duration-300 ${
+                  activeCategory === category 
+                    ? 'bg-brand-sky text-slate-900 shadow-lg shadow-brand-sky/30' 
+                    : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </motion.div>
+        )}
+
+        {filteredData.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -57,71 +90,69 @@ export default function DevLabSection() {
           </motion.div>
         ) : (
           <div className="space-y-32">
-            {devLabsData.map((app, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <div key={app.id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center p-8 rounded-3xl hover:-translate-y-2 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border border-slate-700/50`}>
-                  
-                  {/* Mockup Display */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7 }}
-                    className="w-full lg:w-1/2 relative"
+            <AnimatePresence mode="popLayout">
+              {filteredData.map((app, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <motion.div 
+                    key={app.id} 
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.5 }}
+                    className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center p-8 rounded-3xl hover:-translate-y-2 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border border-slate-700/50`}
                   >
-                    <div className="relative w-full aspect-[16/10] bg-slate-200 dark:bg-slate-700 rounded-xl lg:rounded-2xl border-[8px] lg:border-[12px] border-slate-800 dark:border-slate-900 shadow-2xl overflow-hidden">
-                      <div className="absolute inset-0 bg-slate-900 overflow-hidden flex items-center justify-center p-4">
-                        <Image
-                          src={app.image}
-                          alt={app.title}
-                          fill
-                          unoptimized={true}
-                          className="object-contain hover:scale-[1.02] transition-transform duration-1000 ease-in-out p-4"
-                        />
+                    
+                    {/* Mockup Display */}
+                    <div className="w-full lg:w-1/2 relative">
+                      <div className="relative w-full aspect-[16/10] bg-slate-200 dark:bg-slate-700 rounded-xl lg:rounded-2xl border-[8px] lg:border-[12px] border-slate-800 dark:border-slate-900 shadow-2xl overflow-hidden">
+                        <div className="absolute inset-0 bg-slate-900 overflow-hidden flex items-center justify-center p-4">
+                          <Image
+                            src={app.image}
+                            alt={app.title}
+                            fill
+                            unoptimized={true}
+                            className="object-contain hover:scale-[1.02] transition-transform duration-1000 ease-in-out p-4"
+                          />
+                        </div>
                       </div>
+                      {/* Decorative element behind mockup */}
+                      <div className={`absolute -inset-4 bg-gradient-to-r from-brand-sky/30 to-brand-navy/30 blur-2xl -z-10 rounded-[3rem] ${isEven ? '-rotate-3' : 'rotate-3'}`}></div>
                     </div>
-                    {/* Decorative element behind mockup */}
-                    <div className={`absolute -inset-4 bg-gradient-to-r from-brand-sky/30 to-brand-navy/30 blur-2xl -z-10 rounded-[3rem] ${isEven ? '-rotate-3' : 'rotate-3'}`}></div>
-                  </motion.div>
 
-                  {/* App Info */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7 }}
-                    className="w-full lg:w-1/2 flex flex-col justify-center"
-                  >
-                    <h4 className="text-3xl font-bold text-white mb-4">
-                      {app.title}
-                    </h4>
-                    <p className="text-lg text-slate-300 mb-8 leading-relaxed whitespace-pre-line break-keep">
-                      {app.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {app.techStack.map((tech) => (
-                        <span key={tech} className="px-4 py-1.5 bg-slate-800/80 text-brand-sky text-sm font-semibold rounded-md border border-slate-700 shadow-sm shadow-brand-sky/10 font-mono">
-                          {tech}
-                        </span>
-                      ))}
+                    {/* App Info */}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                      <h4 className="text-3xl font-bold text-white mb-4">
+                        {app.title}
+                      </h4>
+                      <p className="text-lg text-slate-300 mb-8 leading-relaxed whitespace-pre-line break-keep">
+                        {app.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {app.techStack.map((tech) => (
+                          <span key={tech} className="px-4 py-1.5 bg-slate-800/80 text-brand-sky text-sm font-semibold rounded-md border border-slate-700 shadow-sm shadow-brand-sky/10 font-mono">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <a
+                        href={app.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-sky hover:bg-brand-sky/80 text-slate-900 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] w-full sm:w-max"
+                      >
+                        앱 확인하기
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
                     </div>
                     
-                    <a
-                      href={app.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-sky hover:bg-brand-sky/80 text-slate-900 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] w-full sm:w-max"
-                    >
-                      앱 확인하기
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
                   </motion.div>
-                  
-                </div>
-              );
-            })}
+                );
+              })}
+            </AnimatePresence>
           </div>
         )}
       </div>

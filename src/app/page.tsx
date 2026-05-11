@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
 import EduArchiveSection from '@/components/EduArchiveSection';
 import HallOfFameSection from '@/components/HallOfFameSection';
@@ -18,6 +19,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <StatsSection />
         <AboutSection />
         <CVSection />
         <EduArchiveSection />

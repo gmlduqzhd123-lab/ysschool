@@ -42,6 +42,7 @@ export const navLinks: NavItem[] = [
       { name: '프롬프트 놀이터', href: '/playground' },
     ],
   },
+  { name: '저널', href: '/blog' },
   { name: '연수 자료', href: '/training' },
 ];
 
@@ -260,6 +261,7 @@ export const devLabsData: Array<{
   image: string;
   techStack: string[];
   link: string;
+  category: string;
 }> = [
   {
     id: 1,
@@ -267,7 +269,17 @@ export const devLabsData: Array<{
     description: '수영부 학생 선수들의 효율적인 훈련 기록, 경기 영상 분석 및 소통을 위해 직접 기획·개발한 모바일 최적화 웹 애플리케이션입니다.\n\n개인별 기록 변화 추이 시각화 및 학부모와의 실시간 공유 기능을 통해 학생들의 체계적인 성장을 지원합니다.',
     image: '/images/new_media/media__1778425795314.jpg',
     techStack: ['Next.js', 'PWA', 'Supabase', 'Data Viz'],
-    link: 'https://hallyo.vercel.app/login'
+    link: 'https://hallyo.vercel.app/login',
+    category: '웹앱'
+  },
+  {
+    id: 2,
+    title: '매쓰 서바이벌 (Math Survival)',
+    description: '초등 수학 연산 능력을 재미있게 기를 수 있는 미니 게임형 학습 도구입니다. 학생들이 흥미를 잃지 않고 꾸준히 연산 연습을 할 수 있도록 게임화(Gamification) 요소를 적극 적용했습니다.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800',
+    techStack: ['React', 'Framer Motion', 'Gamification'],
+    link: '/playground',
+    category: '미니게임'
   }
 ];
 
