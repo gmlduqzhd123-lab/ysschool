@@ -43,7 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-import BgmPlayer from "@/components/BgmPlayer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
@@ -62,7 +61,6 @@ export default function RootLayout({
         <ScrollProgressBar />
         {children}
         <ScrollToTopButton />
-        <BgmPlayer />
       </body>
     </html>
   );
