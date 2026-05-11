@@ -44,7 +44,7 @@
   }
   function ignoreTarget(t){return t && (t.closest && t.closest('input,textarea,select,[contenteditable="true"]'));}
   function inGameArea(t){return t && t.closest && t.closest('canvas,.ctrl,.pad,.joystick,.gamebox,.playarea,#play,.screen,.stage,.board,.mergeGrid,.controls,.game-shell,.game');}
-  function inTouchBlockArea(t){return t && t.closest && t.closest('canvas,.ctrl,.pad,.joystick,.playarea,#play,.board,.mergeGrid,.controls');}
+  function inTouchBlockArea(t){return t && t.closest && t.closest('canvas,.ctrl,.pad,.joystick,.board,.mergeGrid,.controls');}
   const blockKeys=new Set(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ']);
   window.addEventListener('keydown', function(e){ if(blockKeys.has(e.key) && !ignoreTarget(e.target) && inGameArea(document.activeElement || e.target || document.body)){ e.preventDefault(); } }, {capture:true});
   window.addEventListener('keyup', function(e){ if(blockKeys.has(e.key) && !ignoreTarget(e.target) && inGameArea(document.activeElement || e.target || document.body)){ e.preventDefault(); } }, {capture:true});
