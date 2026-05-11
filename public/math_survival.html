@@ -117,6 +117,47 @@
       margin-top: 18px;
     }
 
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      transform: none;
+    }
+
+    .tab-btn:hover { filter: brightness(1.1); }
+    .tab-btn:active { transform: none; box-shadow: none; }
+
+    .tab-btn.active {
+      background: #38bdf8;
+      color: #0f172a;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 0 #0284c7;
+      font-weight: 1000;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     #hud {
       position: absolute;
       top: 14px;
@@ -502,27 +543,39 @@
           이제 작은 화면 안에서만 움직이지 않습니다. 큰 월드를 돌아다니며 몬스터를 피하고, 맵·무기·아이템을 선택해 수학 문제를 풀며 성장하는 버전입니다.
         </div>
 
-        <div class="grid">
-          <div class="info">
-            <b>🎮 조작</b><br>
-            이동: <kbd>WASD</kbd> 또는 <kbd>방향키</kbd><br>
-            대시: <kbd>Space</kbd> / 일시정지: <kbd>P</kbd><br>
-            메인 메뉴: <kbd>ESC</kbd> 또는 화면 버튼<br>
-            게임 종료: <kbd>Q</kbd> 또는 종료 버튼
+        <div class="tabs">
+          <button class="tab-btn active" id="tabBtn1" onclick="document.getElementById('tabContent1').classList.add('active'); document.getElementById('tabContent2').classList.remove('active'); document.getElementById('tabBtn1').classList.add('active'); document.getElementById('tabBtn2').classList.remove('active');">🎮 조작 & 맵</button>
+          <button class="tab-btn" id="tabBtn2" onclick="document.getElementById('tabContent2').classList.add('active'); document.getElementById('tabContent1').classList.remove('active'); document.getElementById('tabBtn2').classList.add('active'); document.getElementById('tabBtn1').classList.remove('active');">🎁 아이템 & 무기</button>
+        </div>
+
+        <div id="tabContent1" class="tab-content active">
+          <div class="grid">
+            <div class="info">
+              <b>🎮 조작</b><br>
+              이동: <kbd>WASD</kbd> 또는 <kbd>방향키</kbd><br>
+              대시: <kbd>Space</kbd> / 일시정지: <kbd>P</kbd><br>
+              메인 메뉴: <kbd>ESC</kbd> 또는 화면 버튼<br>
+              게임 종료: <kbd>Q</kbd> 또는 종료 버튼
+            </div>
+            <div class="info">
+              <b>🗺️ 맵 선택</b><br>
+              연산의 숲, 분수 사막, 별빛 도서관<br>
+              맵마다 배경과 장식, 분위기가 다릅니다.
+            </div>
           </div>
-          <div class="info">
-            <b>🗺️ 맵 선택</b><br>
-            연산의 숲, 분수 사막, 별빛 도서관<br>
-            맵마다 배경과 장식, 분위기가 다릅니다.
-          </div>
-          <div class="info">
-            <b>🔫 무기 확장</b><br>
-            마법구, 다중 발사, 관통 마법, 회전 위성, 수학 레이저, 부메랑 칠판, 분필 비<br>
-            레벨업 때 강화 가능<br>보스전, 포털, 펫 공격까지 추가
-          </div>
-          <div class="info">
-            <b>🎁 아이템 확장</b><br>
-            회복하트, 보호막, 시간얼음, 자석, 폭탄, 별사탕, 연산노트, 번개신발, 경험치책, 무지개연필, 지우개, 시계, 보물상자, 행운클로버, 보석, 순간이동깃털, 경험치 젤리
+        </div>
+
+        <div id="tabContent2" class="tab-content">
+          <div class="grid">
+            <div class="info">
+              <b>🔫 무기 확장</b><br>
+              마법구, 다중 발사, 관통 마법, 회전 위성, 수학 레이저, 부메랑 칠판, 분필 비<br>
+              레벨업 때 강화 가능<br>보스전, 포털, 펫 공격까지 추가
+            </div>
+            <div class="info">
+              <b>🎁 아이템 확장</b><br>
+              회복하트, 보호막, 시간얼음, 자석, 폭탄, 별사탕, 연산노트, 번개신발, 경험치책, 무지개연필, 지우개, 시계, 보물상자, 행운클로버, 보석, 순간이동깃털, 경험치 젤리
+            </div>
           </div>
         </div>
 
