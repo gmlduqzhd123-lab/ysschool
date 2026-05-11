@@ -177,7 +177,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden glass-header absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
+        <div className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
           <div className="px-3 pt-2 pb-4 space-y-1">
             {navLinks.map((item) =>
               item.children ? (
