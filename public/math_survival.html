@@ -498,6 +498,13 @@
       .upgradeGrid { grid-template-columns: 1fr; }
       select { width: 100%; }
     }
+
+    /* Mobile Joystick */
+    #joystickZone { position: absolute; bottom: 30px; left: 30px; width: 140px; height: 140px; z-index: 100; border-radius: 50%; background: rgba(255, 255, 255, 0.15); border: 2px solid rgba(255, 255, 255, 0.3); display: none; touch-action: none; }
+    #joystickStick { position: absolute; top: 50%; left: 50%; width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.3); pointer-events: none; transition: transform 0.05s; }
+    #dashBtn { position: absolute; bottom: 40px; right: 30px; width: 80px; height: 80px; z-index: 100; border-radius: 50%; background: rgba(250, 204, 21, 0.8); border: 2px solid rgba(255, 255, 255, 0.5); display: none; touch-action: none; color: #000; font-weight: bold; font-size: 18px; align-items: center; justify-content: center; box-shadow: 0 6px 0 #a16207; user-select: none; }
+    #dashBtn:active { transform: translateY(5px); box-shadow: 0 1px 0 #a16207; }
+    @media (max-width: 768px) { #joystickZone { display: block; } #dashBtn { display: flex; } }
   </style>
 </head>
 <body>
@@ -620,6 +627,12 @@
         <p class="small">브금은 이 화면에서도 계속 재생됩니다. 소리가 필요 없으면 소리 버튼을 눌러 끌 수 있습니다.</p>
       </div>
     </section>
+
+    <!-- Mobile UI -->
+    <div id="joystickZone">
+      <div id="joystickStick"></div>
+    </div>
+    <div id="dashBtn">대시</div>
   </div>
 
   <script>
@@ -653,6 +666,56 @@
     const achievementPop = document.getElementById("achievementPop");
     const levelUpPanel = document.getElementById("levelUpPanel");
     const upgradeChoices = document.getElementById("upgradeChoices");
+
+    const joystickZone = document.getElementById("joystickZone");
+    const joystickStick = document.getElementById("joystickStick");
+    const dashBtn = document.getElementById("dashBtn");
+    
+    let isJoystickActive = false;
+    let joystickCenter = { x: 0, y: 0 };
+    let joystickDelta = { x: 0, y: 0 };
+
+    joystickZone.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      const touch = e.changedTouches[0];
+      isJoystickActive = true;
+      const rect = joystickZone.getBoundingClientRect();
+      joystickCenter = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      updateJoystick(touch.clientX, touch.clientY);
+    }, { passive: false });
+
+    joystickZone.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+      if (!isJoystickActive) return;
+      const touch = e.changedTouches[0];
+      updateJoystick(touch.clientX, touch.clientY);
+    }, { passive: false });
+
+    joystickZone.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      isJoystickActive = false;
+      joystickDelta = { x: 0, y: 0 };
+      joystickStick.style.transform = `translate(0px, 0px)`;
+    }, { passive: false });
+
+    function updateJoystick(clientX, clientY) {
+      const maxDist = 40;
+      let dx = clientX - joystickCenter.x;
+      let dy = clientY - joystickCenter.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist > maxDist) { dx = (dx / dist) * maxDist; dy = (dy / dist) * maxDist; }
+      joystickStick.style.transform = `translate(${dx}px, ${dy}px)`;
+      joystickDelta = { x: dx / maxDist, y: dy / maxDist };
+    }
+
+    dashBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      keys[" "] = true;
+    }, { passive: false });
+    dashBtn.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      keys[" "] = false;
+    }, { passive: false });
 
     const keys = {};
     let muted = false;
@@ -1856,6 +1919,11 @@
       if (keys["ArrowRight"] || keys["d"]) mx += 1;
       if (keys["ArrowUp"] || keys["w"]) my -= 1;
       if (keys["ArrowDown"] || keys["s"]) my += 1;
+      
+      if (joystickDelta.x !== 0 || joystickDelta.y !== 0) {
+        mx += joystickDelta.x;
+        my += joystickDelta.y;
+      }
 
       const mag = Math.hypot(mx, my) || 1;
       player.x += (mx / mag) * player.speed * slow * speedBoost;
