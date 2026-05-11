@@ -46,6 +46,7 @@ export const metadata: Metadata = {
 import BgmPlayer from "@/components/BgmPlayer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
 
 export default function RootLayout({
   children,
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-[100vw] w-full`}
       >
+        <ScrollToTopOnMount />
         <ScrollProgressBar />
         {children}
         <ScrollToTopButton />
