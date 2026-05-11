@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, User, FolderOpen, Code2, Trophy, Music, Video, BookText } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -54,6 +54,36 @@ export default function HeroSection() {
                 최신 웹앱 체험하기
               </a>
             </div>
+
+            {/* Quick Links Grid */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800"
+            >
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 font-semibold">아카이브 바로가기 ⚡</p>
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  { id: 'cv', label: '주요 약력', icon: User },
+                  { id: 'edu-archive', label: '교육 자료', icon: FolderOpen },
+                  { id: 'dev-lab', label: '개발 랩', icon: Code2 },
+                  { id: 'hall-of-fame', label: '명예의 전당', icon: Trophy },
+                  { id: 'acappella', label: '아카펠라', icon: Music },
+                  { id: 'media-room', label: '미디어룸', icon: Video },
+                  { id: 'publications', label: '저서', icon: BookText },
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-brand-sky/10 hover:text-brand-sky hover:border-brand-sky/40 hover:-translate-y-0.5 transition-all shadow-sm hover:shadow-md"
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
