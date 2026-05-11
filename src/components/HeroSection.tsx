@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -39,13 +40,13 @@ export default function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#about"
+              <Link
+                href="/showcase"
                 className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-brand-navy text-white font-semibold hover:bg-brand-navy/90 transition-all shadow-lg hover:shadow-brand-navy/30"
               >
-                엽쌤 스토리 보기
+                에듀테크 갤러리
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
               <a
                 href="#dev-lab"
                 className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-white font-semibold border-2 border-brand-navy/10 hover:border-brand-sky transition-all shadow-sm hover:shadow-md"
