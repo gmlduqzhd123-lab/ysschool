@@ -79,7 +79,7 @@ export default function CVSection() {
                     </div>
                     <h4 className="text-2xl font-bold text-slate-900 dark:text-white">주요 약력</h4>
                   </div>
-                  <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 pl-6 space-y-5 mt-4">
+                  <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 pl-6 space-y-5 mt-4 max-h-[600px] overflow-y-auto pr-4">
                     {careerHistory.map((item, idx) => (
                       <motion.div
                         key={idx}
@@ -108,7 +108,7 @@ export default function CVSection() {
                     </div>
                     <h4 className="text-2xl font-bold text-slate-900 dark:text-white">표창 내역</h4>
                   </div>
-                  <ul className="space-y-8 mt-8">
+                  <ul className="space-y-8 mt-8 max-h-[600px] overflow-y-auto pr-4">
                     {commendations.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-4">
                         <span className="w-2.5 h-2.5 mt-2 rounded-full bg-yellow-500 shrink-0 shadow-sm" />
