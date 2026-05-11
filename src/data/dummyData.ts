@@ -317,7 +317,7 @@ export const publicationsData = [
     id: 1,
     title: '고학년 독서인문교육, 독서미션으로 끝장내기',
     description: '엽쌤의 17년 교육 노하우를 담은 베스트셀러',
-    cover: '/images/new_media/media__1778421223742.png',
+    cover: '/images/book_cover_2.png',
     link: 'https://www.yes24.com/Product/Search?domain=ALL&query=독서미션으로+끝장내기',
   },
   {
