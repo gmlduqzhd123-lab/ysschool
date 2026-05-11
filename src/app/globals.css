@@ -69,5 +69,7 @@ body {
 @layer base {
   html, body {
     font-family: 'Maplestory', sans-serif !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 }

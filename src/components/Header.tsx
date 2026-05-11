@@ -124,7 +124,7 @@ export default function Header() {
               <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
                 <BookOpen className="h-6 w-6 text-white" />
               </div>
-              <span className="font-bold text-2xl text-brand-navy dark:text-white tracking-tight">
+              <span className="font-bold text-2xl text-brand-navy dark:text-white tracking-tight whitespace-nowrap">
                 YSSCHOOL
               </span>
             </Link>
