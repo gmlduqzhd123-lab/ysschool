@@ -13,12 +13,12 @@ import PressRoomSection from './PressRoomSection';
 import PublicationsSection from './PublicationsSection';
 
 export default function ArchiveTabs() {
-  const [activeTab, setActiveTab] = useState('edu-archive');
+  const [activeTab, setActiveTab] = useState('dev-lab');
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['edu-archive', 'dev-lab', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
+      const validTabs = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
       if (validTabs.includes(hash)) {
         setActiveTab(hash);
         // 부드럽게 탭 컨테이너로 스크롤
@@ -33,7 +33,7 @@ export default function ArchiveTabs() {
     
     // Check initial hash
     const hash = window.location.hash.replace('#', '');
-    const validTabs = ['edu-archive', 'dev-lab', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
+    const validTabs = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
     if (validTabs.includes(hash)) {
       setActiveTab(hash);
     }
@@ -43,8 +43,8 @@ export default function ArchiveTabs() {
   }, []);
 
   const tabs = [
-    { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
     { id: 'dev-lab', label: '웹앱 실험실', icon: Code2 },
+    { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
     { id: 'hall-of-fame', label: '수상 내역', icon: Trophy },
     { id: 'acappella', label: '아카펠라', icon: Music },
     { id: 'media-room', label: '영상 갤러리', icon: Video },
