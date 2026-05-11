@@ -2,14 +2,8 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
-import EduArchiveSection from '@/components/EduArchiveSection';
-import HallOfFameSection from '@/components/HallOfFameSection';
-import MediaRoomSection from '@/components/MediaRoomSection';
-import PressRoomSection from '@/components/PressRoomSection';
-import DevLabSection from '@/components/DevLabSection';
-import PublicationsSection from '@/components/PublicationsSection';
 import CVSection from '@/components/CVSection';
-import AcappellaSection from '@/components/AcappellaSection';
+import ArchiveTabs from '@/components/ArchiveTabs';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -22,13 +16,7 @@ export default function Home() {
         <StatsSection />
         <AboutSection />
         <CVSection />
-        <EduArchiveSection />
-        <HallOfFameSection />
-        <AcappellaSection />
-        <MediaRoomSection />
-        <PressRoomSection />
-        <DevLabSection />
-        <PublicationsSection />
+        <ArchiveTabs />
         <ContactSection />
       </main>
       <Footer />
