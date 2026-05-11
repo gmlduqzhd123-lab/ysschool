@@ -65,13 +65,13 @@ export default function HeroSection() {
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 font-semibold">아카이브 바로가기 ⚡</p>
               <div className="flex flex-wrap gap-2.5">
                 {[
-                  { id: 'cv', label: '주요 약력', icon: User },
-                  { id: 'edu-archive', label: '교육 자료', icon: FolderOpen },
-                  { id: 'dev-lab', label: '개발 랩', icon: Code2 },
-                  { id: 'hall-of-fame', label: '명예의 전당', icon: Trophy },
-                  { id: 'acappella', label: '아카펠라', icon: Music },
-                  { id: 'media-room', label: '미디어룸', icon: Video },
-                  { id: 'publications', label: '저서', icon: BookText },
+                  { id: 'cv', label: '주요 약력 및 활동', icon: User },
+                  { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
+                  { id: 'dev-lab', label: '교육 웹앱 실험실', icon: Code2 },
+                  { id: 'hall-of-fame', label: '수상 내역', icon: Trophy },
+                  { id: 'acappella', label: '아카펠라 공연 영상', icon: Music },
+                  { id: 'media-room', label: '영상 갤러리', icon: Video },
+                  { id: 'publications', label: '저서 소개', icon: BookText },
                 ].map((item) => (
                   <a
                     key={item.id}
