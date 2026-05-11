@@ -62,12 +62,35 @@ export default function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: stat.delay }}
-              className="flex flex-col items-center justify-center space-y-2"
+              className="flex flex-col items-center justify-center"
             >
-              <div className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-sky to-white drop-shadow-sm">
-                <Counter to={stat.value} suffix={stat.suffix} />
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center mb-4 hover:scale-105 transition-transform duration-300">
+                <svg className="absolute inset-0 w-full h-full transform -rotate-90">
+                  <circle cx="50%" cy="50%" r="42%" fill="transparent" stroke="currentColor" strokeWidth="6" className="text-white/10" />
+                  <motion.circle 
+                    cx="50%" cy="50%" r="42%" fill="transparent" stroke="url(#gradient)" strokeWidth="6" 
+                    strokeDasharray="264"
+                    initial={{ strokeDashoffset: 264 }}
+                    whileInView={{ strokeDashoffset: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2, ease: "easeOut", delay: stat.delay }}
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#38BDF8" />
+                      <stop offset="100%" stopColor="#F97316" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute flex flex-col items-center justify-center">
+                  <div className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-200 drop-shadow-sm">
+                    <Counter to={stat.value} />
+                  </div>
+                  <div className="text-sm font-bold text-brand-sky mt-1">{stat.suffix}</div>
+                </div>
               </div>
-              <div className="text-sm md:text-base font-medium text-slate-300">
+              <div className="text-sm md:text-base font-semibold text-slate-300">
                 {stat.label}
               </div>
             </motion.div>

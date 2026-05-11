@@ -23,8 +23,12 @@ export default function CVSection() {
   ];
 
   return (
-    <section id="cv" className="py-24 bg-slate-50 dark:bg-slate-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cv" className="py-24 bg-slate-50/50 dark:bg-slate-900/80 relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-brand-sky/10 rounded-full blur-3xl -z-10 mix-blend-multiply dark:mix-blend-lighten"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl -z-10 mix-blend-multiply dark:mix-blend-lighten"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +76,7 @@ export default function CVSection() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12"
               >
                 {/* Career History */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                       <Briefcase size={24} />
@@ -101,7 +105,7 @@ export default function CVSection() {
                 </div>
 
                 {/* Awards & Commendations */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg text-yellow-600 dark:text-yellow-400">
                       <Award size={24} />
@@ -131,7 +135,7 @@ export default function CVSection() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12"
               >
                 {/* Research Achievements */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
                       <BookOpen size={24} />
@@ -164,7 +168,7 @@ export default function CVSection() {
                 </div>
 
                 {/* Public Classes */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-pink-100 dark:bg-pink-900/30 rounded-lg text-pink-600 dark:text-pink-400">
                       <GraduationCap size={24} />
@@ -194,7 +198,7 @@ export default function CVSection() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12"
               >
                 {/* Student Mentoring */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
                       <Users size={24} />
@@ -212,7 +216,7 @@ export default function CVSection() {
                 </div>
 
                 {/* Lectures and Consulting */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-white/50 dark:border-white/10 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400">
                       <Presentation size={24} />

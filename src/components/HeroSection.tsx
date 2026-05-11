@@ -22,16 +22,18 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-sky/10 text-brand-navy dark:text-brand-sky font-semibold text-sm mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span>에듀테크 크리에이터</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-sky/10 font-extrabold text-sm mb-6 border border-brand-sky/20 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+              <Sparkles className="w-4 h-4 text-brand-sky" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky dark:from-brand-sky dark:to-brand-orange">에듀테크 크리에이터</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-tight break-keep">
-              경계를 넘어서는 교육, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight break-keep">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-rose-500">
+                경계를 넘어서는 교육,
+              </span><br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky dark:from-brand-sky dark:to-blue-400">
                 엽쌤스쿨
-              </span>에 오신 것을 환영합니다.
+              </span><span className="text-slate-900 dark:text-white">에 오신 것을 환영합니다.</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep">

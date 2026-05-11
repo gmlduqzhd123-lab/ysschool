@@ -115,9 +115,9 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-header shadow-sm' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <header className={`fixed w-full lg:w-auto z-50 transition-all duration-500 left-0 lg:left-1/2 lg:-translate-x-1/2 ${isScrolled ? 'top-0 lg:top-4' : 'top-0 lg:top-6'}`}>
+      <div className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'glass-header shadow-xl lg:rounded-full lg:border lg:border-white/30 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl' : 'bg-transparent'}`}>
+        <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? 'h-16 lg:h-14 lg:px-2' : 'h-20'}`}>
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
