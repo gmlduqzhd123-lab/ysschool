@@ -26,7 +26,7 @@ export default function HeroSection() {
               <span>에듀테크 크리에이터</span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-tight break-keep">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-tight break-keep">
               경계를 넘어서는 교육, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky">
                 엽쌤스쿨
