@@ -79,7 +79,7 @@ export default function CVSection() {
                     </div>
                     <h4 className="text-2xl font-bold text-slate-900 dark:text-white">주요 약력</h4>
                   </div>
-                  <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 pl-6 space-y-8 mt-4">
+                  <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 pl-6 space-y-5 mt-4">
                     {careerHistory.map((item, idx) => (
                       <motion.div
                         key={idx}
@@ -90,10 +90,10 @@ export default function CVSection() {
                         className="relative"
                       >
                         {/* Timeline Node */}
-                        <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-800 border-2 border-brand-navy shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                        <div className="absolute -left-[31px] top-2 w-4 h-4 rounded-full bg-white dark:bg-slate-800 border-2 border-brand-navy shadow-sm group-hover:scale-125 transition-transform duration-300" />
                         
-                        <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md hover:border-brand-sky/50 transition-all duration-300">
-                          <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep font-medium">{item}</span>
+                        <div className="bg-slate-50 dark:bg-slate-900/50 py-3 px-4 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md hover:border-brand-sky/50 transition-all duration-300">
+                          <span className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed break-keep font-medium">{item}</span>
                         </div>
                       </motion.div>
                     ))}
@@ -108,11 +108,11 @@ export default function CVSection() {
                     </div>
                     <h4 className="text-2xl font-bold text-slate-900 dark:text-white">표창 내역</h4>
                   </div>
-                  <ul className="space-y-4">
+                  <ul className="space-y-8 mt-8">
                     {commendations.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="w-2 h-2 mt-2 rounded-full bg-yellow-500 shrink-0" />
-                        <span className="text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
+                      <li key={idx} className="flex items-start gap-4">
+                        <span className="w-2.5 h-2.5 mt-2 rounded-full bg-yellow-500 shrink-0 shadow-sm" />
+                        <span className="text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-300 leading-relaxed break-keep">{item}</span>
                       </li>
                     ))}
                   </ul>
