@@ -104,51 +104,68 @@ export const awardsData = [
     id: 1,
     title: '제23회 전남학생발명 공모전 지도교사상 (교육감표창)',
     date: '2024. 09. 13.',
-    image: '/images/awards/invention_2024.jpg',
+    image: '/images/awards/award_1.png',
   },
   {
     id: 2,
     title: '독서인문교육 활성화 기여 표창 (교육감표창)',
     date: '2023. 12. 31.',
-    image: '/images/awards/reading_2023.jpg',
+    image: '/images/awards/award_2.png',
   },
   {
     id: 3,
     title: '제23회 불조심 어린이마당 탁월 지도상',
     date: '2023. 10. 26.',
-    image: '/images/awards/fire_safety_2023.jpg',
+    image: '/images/awards/award_3.png',
   },
   {
     id: 4,
     title: '제22회 전남 학생 발명 공모전 우수 지도 표창 (교육감표창)',
     date: '2023. 12. 29.',
-    image: '/images/awards/invention_2023.jpg',
+    image: '/images/awards/award_4.png',
   },
   {
     id: 5,
     title: '제20회 예스24 어린이 독후감 대회 우수 지도교사상',
     date: '2023. 11. 25.',
-    image: '/images/awards/yes24_2023.jpg',
+    image: '/images/awards/award_5.png',
   },
-
   {
-    id: 9,
+    id: 6,
     title: '제25회 전국학생통계활용대회 은상 (통계청장상)',
     date: '2023. 09. 01.',
-    image: '/images/awards/statistics_2023.jpg',
+    image: '/images/awards/award_6.png',
+  },
+  {
+    id: 7,
+    title: '2023 독서인문교육 실천사례 연구대회 2등급 (교육감표창)',
+    date: '2023. 11. 23.',
+    image: '/images/awards/award_7.png',
+  },
+  {
+    id: 8,
+    title: '초등 1급 정교사 자격연수 모범 표창 (전라남도교육연수원장)',
+    date: '2023. 01. 31.',
+    image: '/images/awards/award_8.png',
+  },
+  {
+    id: 9,
+    title: '글로컬 미래교육 박람회 유공교원 (교육감표창)',
+    date: '2024. 06. 15.',
+    image: '/images/awards/award_9.png',
   },
   {
     id: 10,
-    title: '2023 독서인문교육 실천사례 연구대회 2등급 (교육감표창)',
-    date: '2023. 11. 23.',
-    image: '/images/awards/reading_research_2023.jpg',
+    title: '수업혁신사례 연구대회 전국 2등급',
+    date: '2024. 11. 10.',
+    image: '/images/awards/award_10.png',
   },
   {
     id: 11,
-    title: '초등 1급 정교사 자격연수 모범 표창 (전라남도교육연수원장)',
-    date: '2023. 01. 31.',
-    image: '/images/awards/1st_grade_teacher_2023.jpg',
-  },
+    title: '자연관찰탐구대회 우수 지도 표창',
+    date: '2024. 07. 20.',
+    image: '/images/awards/award_11.png',
+  }
 ];
 
 export const mediaData = [
