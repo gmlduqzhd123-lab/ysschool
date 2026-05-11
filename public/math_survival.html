@@ -35,15 +35,16 @@
     .panel {
       position: absolute;
       inset: 0;
-      display: grid;
-      place-items: center;
+      display: flex;
       background: rgba(4, 8, 18, 0.74);
       backdrop-filter: blur(7px);
       z-index: 10;
       padding: 24px;
+      overflow-y: auto;
     }
 
     .card {
+      margin: auto;
       width: min(940px, 95vw);
       background: rgba(255, 255, 255, 0.105);
       border: 1px solid rgba(255, 255, 255, 0.22);
@@ -323,16 +324,17 @@
       position: absolute;
       inset: 0;
       display: none;
-      place-items: center;
       background: rgba(4, 8, 18, 0.50);
       backdrop-filter: blur(4px);
       z-index: 8;
       padding: 24px;
+      overflow-y: auto;
     }
 
-    #levelUpPanel.show { display: grid; }
+    #levelUpPanel.show { display: flex; }
 
     .levelCard {
+      margin: auto;
       width: min(900px, 95vw);
       background: rgba(15, 23, 42, .95);
       border: 2px solid rgba(250, 204, 21, .72);
