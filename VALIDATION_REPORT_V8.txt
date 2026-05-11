@@ -1,0 +1,14 @@
+YSSCHOOL 100 GAME V8 VALIDATION REPORT
+
+Game HTML files counted: 100
+JavaScript files checked: 37
+Dashboard path: public/learning-games-all/index.html
+Mainboard fixed button script: public/learning-games-assets/ysschool_game_polish_v4.js
+Purpose avatar engine patch: public/learning-games-assets/edu_game_engine_v6.js
+Arcade-core end overlay patch: public/learning-games-3/arcade-core.js
+Arcade-mini end modal patch: public/learning-games-4/arcade-mini.js, public/learning-games-5/arcade-mini.js
+
+Inline HTML scripts checked: 71
+CSS V8 return overlay styles appended: OK
+Errors:
+None

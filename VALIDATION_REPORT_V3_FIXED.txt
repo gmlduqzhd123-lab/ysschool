@@ -1,0 +1,12 @@
+YSSCHOOL Learning Games 100 Dashboard V3 Fixed Validation
+Issue fixed: dashboard game links changed from root-absolute /learning-games/... to local+Vercel-safe ../learning-games/...
+Combined manifest count: 100
+Dashboard -> game link check: 100/100 passed
+Bridge dashboard link relative: True
+Dashboard contains root-absolute /learning-games links: False
+External JS syntax check: 37/37 passed
+Dashboard inline JS syntax check: passed
+Actual game HTML files excluding indexes/dashboard: 100
+Game files with difficulty bridge: 100/100
+dashboard root href count: 0
+bridge root href count: 0

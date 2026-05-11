@@ -1,0 +1,4 @@
+Combined manifest count: 100
+Game HTML files excluding dashboard/indexes: 100
+Dashboard exists: True
+External JS syntax passed: 37/37

@@ -1,0 +1,12 @@
+YSSCHOOL Learning Games 100 Dashboard V5 Validation Report
+
+- Dashboard GAMES entries: 100
+- Dashboard target files: all found
+- Game HTML files: 100
+- All game files include difficulty_bridge.js: yes
+- All game files include ysschool_game_polish_v4.js: yes
+- External JavaScript syntax check: passed
+- Dashboard inline JavaScript syntax check: passed
+- Safe return button: fixed top-left, z-index 2147483647
+- Return method: return query parameter -> stored dashboard URL -> relative fallback
+- Local file:// and Vercel public path considered
