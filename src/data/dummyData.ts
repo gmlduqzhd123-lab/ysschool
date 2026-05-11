@@ -306,9 +306,10 @@ export const devLabsData: Array<{
     title: '매쓰 서바이벌 (Math Survival)',
     description: '초등 수학 연산 능력을 재미있게 기를 수 있는 미니 게임형 학습 도구입니다. 학생들이 흥미를 잃지 않고 꾸준히 연산 연습을 할 수 있도록 게임화(Gamification) 요소를 적극 적용했습니다.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800',
-    techStack: ['React', 'Framer Motion', 'Gamification'],
-    link: '/playground',
-    category: '미니게임'
+    techStack: ['HTML5', 'Vanilla JS', 'Canvas API'],
+    link: '/math_survival.html',
+    category: '미니게임',
+    target: '_blank'
   }
 ];
 
