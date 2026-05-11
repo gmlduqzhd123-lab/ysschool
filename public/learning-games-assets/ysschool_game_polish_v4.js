@@ -44,10 +44,11 @@
   }
   function ignoreTarget(t){return t && (t.closest && t.closest('input,textarea,select,[contenteditable="true"]'));}
   function inGameArea(t){return t && t.closest && t.closest('canvas,.ctrl,.pad,.joystick,.gamebox,.playarea,#play,.screen,.stage,.board,.mergeGrid,.controls,.game-shell,.game');}
+  function inTouchBlockArea(t){return t && t.closest && t.closest('canvas,.ctrl,.pad,.joystick,.playarea,#play,.board,.mergeGrid,.controls');}
   const blockKeys=new Set(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ']);
   window.addEventListener('keydown', function(e){ if(blockKeys.has(e.key) && !ignoreTarget(e.target) && inGameArea(document.activeElement || e.target || document.body)){ e.preventDefault(); } }, {capture:true});
   window.addEventListener('keyup', function(e){ if(blockKeys.has(e.key) && !ignoreTarget(e.target) && inGameArea(document.activeElement || e.target || document.body)){ e.preventDefault(); } }, {capture:true});
-  document.addEventListener('touchmove', function(e){ if(inGameArea(e.target)) e.preventDefault(); }, {passive:false, capture:true});
+  document.addEventListener('touchmove', function(e){ if(inTouchBlockArea(e.target)) e.preventDefault(); }, {passive:false, capture:true});
   document.addEventListener('pointerdown', function(e){ if(e.target && e.target.closest && e.target.closest('.ctrl,.pad button,.joystick button,[data-act]')){ e.preventDefault(); } }, {capture:true});
 
   function tidyControls(){
