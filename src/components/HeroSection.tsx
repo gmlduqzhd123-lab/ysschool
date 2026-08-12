@@ -117,6 +117,7 @@ export default function HeroSection() {
                   src="/images/profile_hero.jpg"
                   alt="엽쌤 프로필"
                   fill
+                  sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                   priority
                 />
