@@ -6,7 +6,6 @@ import EduToolsCloud from '@/components/EduToolsCloud';
 import CVSection from '@/components/CVSection';
 import InteractiveTimeline from '@/components/InteractiveTimeline';
 import ArchiveTabs from '@/components/ArchiveTabs';
-import PhotoGallery from '@/components/PhotoGallery';
 import QuizGame from '@/components/QuizGame';
 import ScheduleCalendar from '@/components/ScheduleCalendar';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -24,7 +23,6 @@ export default function Home() {
         <EduToolsCloud />
         <ArchiveTabs />
         <InteractiveTimeline />
-        <PhotoGallery />
         <CVSection />
         <ScheduleCalendar />
         <QuizGame />
