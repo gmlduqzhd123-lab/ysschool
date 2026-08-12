@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, ExternalLink, FileText, Download, Search,
-  Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon
+  Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
 import Link from 'next/link';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
@@ -16,6 +16,11 @@ export default function TrainingPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [materials, setMaterials] = useState<TrainingMaterial[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Delete modal state
+  const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
+  const [deletePassword, setDeletePassword] = useState('');
+  const [deleteErrorMsg, setDeleteErrorMsg] = useState('');
 
   // Form state
   const [title, setTitle] = useState('');
@@ -32,15 +37,18 @@ export default function TrainingPage() {
   // Load initial + stored materials
   useEffect(() => {
     const stored = localStorage.getItem('ysschool_training_materials');
+    const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
+
+    const base = trainingData.filter(item => !deletedIds.includes(item.id));
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        requestAnimationFrame(() => setMaterials([...trainingData, ...parsed]));
+        requestAnimationFrame(() => setMaterials([...parsed, ...base]));
       } catch {
-        requestAnimationFrame(() => setMaterials(trainingData));
+        requestAnimationFrame(() => setMaterials(base));
       }
     } else {
-      requestAnimationFrame(() => setMaterials(trainingData));
+      requestAnimationFrame(() => setMaterials(base));
     }
   }, []);
 
@@ -49,6 +57,31 @@ export default function TrainingPage() {
     // Custom uploaded materials (id > 10000 or added by user)
     const customOnly = newMaterials.filter(item => item.id >= 10000);
     localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
+  };
+
+  const handleDeleteMaterial = (id: number) => {
+    if (deletePassword !== '1234') {
+      setDeleteErrorMsg('비밀번호가 올바르지 않습니다. (비밀번호: 1234)');
+      return;
+    }
+
+    const updated = materials.filter(item => item.id !== id);
+    setMaterials(updated);
+
+    if (id < 10000) {
+      const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
+      if (!deletedIds.includes(id)) {
+        deletedIds.push(id);
+        localStorage.setItem('ysschool_training_deleted_ids', JSON.stringify(deletedIds));
+      }
+    } else {
+      const customOnly = updated.filter(item => item.id >= 10000);
+      localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
+    }
+
+    setDeleteModalId(null);
+    setDeletePassword('');
+    setDeleteErrorMsg('');
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -293,28 +326,42 @@ export default function TrainingPage() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="p-5 pt-0 flex gap-2 flex-wrap">
-                    {item.link && (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        링크 열기
-                      </a>
-                    )}
-                    {item.fileUrl && (
-                      <a
-                        href={item.fileUrl}
-                        download={item.title}
-                        className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
-                      >
-                        <Download className="w-3.5 h-3.5" />
-                        {getFileIcon(item.fileType)} 파일 다운로드
-                      </a>
-                    )}
+                  <div className="p-5 pt-0 flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex gap-2 flex-wrap items-center">
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          링크 열기
+                        </a>
+                      )}
+                      {item.fileUrl && (
+                        <a
+                          href={item.fileUrl}
+                          download={item.title}
+                          className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          {getFileIcon(item.fileType)} 파일 다운로드
+                        </a>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => {
+                        setDeleteModalId(item.id);
+                        setDeletePassword('');
+                        setDeleteErrorMsg('');
+                      }}
+                      className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
+                      title="자료 삭제"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      삭제
+                    </button>
                   </div>
                 </motion.div>
               ))}
@@ -513,6 +560,85 @@ export default function TrainingPage() {
               </form>
             </motion.div>
           </div>
+        )}
+      </AnimatePresence>
+
+      {/* Delete Confirmation Modal */}
+      <AnimatePresence>
+        {deleteModalId !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
+            onClick={() => setDeleteModalId(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-md bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-2xl border border-slate-100 dark:border-slate-700"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-lg">
+                  <Trash2 className="w-5 h-5" />
+                  자료 삭제
+                </div>
+                <button
+                  onClick={() => setDeleteModalId(null)}
+                  className="p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                자료를 삭제하려면 관리자 비밀번호를 입력해주세요.
+              </p>
+
+              {deleteErrorMsg && (
+                <div className="mb-4 text-xs font-bold text-rose-500 bg-rose-50 dark:bg-rose-950/40 p-3 rounded-xl">
+                  {deleteErrorMsg}
+                </div>
+              )}
+
+              <form onSubmit={(e) => { e.preventDefault(); handleDeleteMaterial(deleteModalId); }}>
+                <div className="mb-4">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    비밀번호 입력
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <input
+                      type="password"
+                      placeholder="비밀번호 4자리 (예: 1234)"
+                      value={deletePassword}
+                      onChange={(e) => setDeletePassword(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                      autoFocus
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-2 justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setDeleteModalId(null)}
+                    className="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
+                  >
+                    취소
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm transition-colors cursor-pointer shadow-md shadow-rose-600/30"
+                  >
+                    삭제하기
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
