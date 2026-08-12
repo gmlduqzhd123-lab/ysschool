@@ -72,13 +72,6 @@ export default function PublicationsSection() {
           ))}
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .rotate-y-\\[-10deg\\] { transform: rotateY(-10deg); }
-        .rotate-y-0 { transform: rotateY(0deg); }
-      `}} />
     </section>
   );
 }

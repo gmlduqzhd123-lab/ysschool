@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,10 +45,6 @@ export const metadata: Metadata = {
     images: ["/images/profile_hero.jpg"],
   },
 };
-
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
 
 export default function RootLayout({
   children,

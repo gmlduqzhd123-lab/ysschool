@@ -94,7 +94,7 @@ export const eduResourcesData = [
     description: '발명영재교육센터 영재 강사로서 진행한 인문발명, 실습 및 대한민국 창의력 챔피언 대회 지도 노하우.',
     thumbnail: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=800',
     tags: ['#발명교육', '#영재교육', '#창의융합'],
-    link: '#',
+    link: 'https://www.jne.go.kr/inventedu/main/main.do',
   },
 ];
 

@@ -68,7 +68,7 @@ export default function StatsSection() {
                 <svg className="absolute inset-0 w-full h-full transform -rotate-90">
                   <circle cx="50%" cy="50%" r="42%" fill="transparent" stroke="currentColor" strokeWidth="6" className="text-white/10" />
                   <motion.circle 
-                    cx="50%" cy="50%" r="42%" fill="transparent" stroke="url(#gradient)" strokeWidth="6" 
+                    cx="50%" cy="50%" r="42%" fill="transparent" stroke={`url(#gradient-${idx})`} strokeWidth="6" 
                     strokeDasharray="264"
                     initial={{ strokeDashoffset: 264 }}
                     whileInView={{ strokeDashoffset: 0 }}
@@ -77,7 +77,7 @@ export default function StatsSection() {
                     strokeLinecap="round"
                   />
                   <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id={`gradient-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#38BDF8" />
                       <stop offset="100%" stopColor="#F97316" />
                     </linearGradient>

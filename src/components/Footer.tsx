@@ -35,9 +35,8 @@ export default function Footer() {
           <p>
             &copy; {currentYear} ysschool by 엽쌤. All rights reserved.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-white transition-colors">이용약관</a>
-            <a href="#" className="hover:text-white transition-colors">개인정보처리방침</a>
+          <div className="flex items-center gap-2 text-slate-500">
+            <span>Powered by Next.js & Vercel</span>
           </div>
         </div>
       </div>

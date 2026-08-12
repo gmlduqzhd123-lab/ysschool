@@ -63,7 +63,7 @@ export default function ContactSection() {
           transition={{ duration: 0.5, delay: 0.35 }}
         >
           <a
-            href="mailto:test@gmail.com"
+            href="mailto:gmlduqzhd@naver.com"
             className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-white font-bold text-lg px-10 py-5 rounded-2xl shadow-lg shadow-sky-500/25 hover:shadow-sky-400/40 transition-all duration-300 hover:-translate-y-0.5"
           >
             {/* Glow effect behind button */}
