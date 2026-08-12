@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, ChevronLeft, ChevronRight, MapPin, Clock, Users } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight, MapPin, Clock, Users, Plus, X, Lock, Trash2 } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 interface ScheduleEvent {
@@ -14,7 +14,7 @@ interface ScheduleEvent {
   type: 'training' | 'lecture' | 'performance' | 'consulting';
 }
 
-const scheduleEvents: ScheduleEvent[] = [
+const defaultEvents: ScheduleEvent[] = [
   { date: '2025-08-14', title: '전남교육청 에듀테크 활용 연수', location: '전남교육연수원', time: '09:00-16:00', target: '초등교사', type: 'training' },
   { date: '2025-08-21', title: '독서인문교육 워크숍', location: '여수교육지원청', time: '14:00-17:00', target: '초등교사', type: 'training' },
   { date: '2025-08-28', title: 'AI 디지털 선도학교 컨설팅', location: '순천 OO초등학교', time: '10:00-12:00', target: '학교 교직원', type: 'consulting' },
@@ -42,12 +42,36 @@ const typeLabels: Record<string, string> = {
 const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 const MONTHS_KR = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
+const ADMIN_PASSWORD = '1234';
+
 export default function ScheduleCalendar() {
   const { t } = useLanguage();
   const today = new Date();
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  // Events state (localStorage + default)
+  const [customEvents, setCustomEvents] = useState<ScheduleEvent[]>([]);
+  useEffect(() => {
+    const saved = localStorage.getItem('ysschool-schedule');
+    if (saved) setCustomEvents(JSON.parse(saved));
+  }, []);
+  const allEvents = useMemo(() => [...defaultEvents, ...customEvents], [customEvents]);
+
+  // Add form state
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [addPassword, setAddPassword] = useState('');
+  const [addPasswordError, setAddPasswordError] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [newEvent, setNewEvent] = useState<Partial<ScheduleEvent>>({
+    date: '', title: '', location: '', time: '', target: '', type: 'training',
+  });
+
+  // Delete state
+  const [deleteTarget, setDeleteTarget] = useState<{ date: string; idx: number } | null>(null);
+  const [deletePassword, setDeletePassword] = useState('');
+  const [deleteError, setDeleteError] = useState(false);
 
   const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
   const firstDayOfWeek = new Date(viewYear, viewMonth, 1).getDay();
@@ -68,14 +92,86 @@ export default function ScheduleCalendar() {
 
   const eventsForDate = useMemo(() => {
     const map: Record<string, ScheduleEvent[]> = {};
-    scheduleEvents.forEach(ev => {
+    allEvents.forEach(ev => {
       if (!map[ev.date]) map[ev.date] = [];
       map[ev.date].push(ev);
     });
     return map;
-  }, []);
+  }, [allEvents]);
 
   const selectedEvents = selectedDate ? (eventsForDate[selectedDate] || []) : [];
+
+  // Password verification for add
+  const handlePasswordSubmit = () => {
+    if (addPassword === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      setAddPasswordError(false);
+      // Pre-fill date if a date is selected
+      if (selectedDate) {
+        setNewEvent(prev => ({ ...prev, date: selectedDate }));
+      }
+    } else {
+      setAddPasswordError(true);
+    }
+  };
+
+  // Add event
+  const handleAddEvent = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newEvent.date || !newEvent.title || !newEvent.location || !newEvent.time || !newEvent.target) return;
+
+    const event: ScheduleEvent = {
+      date: newEvent.date!,
+      title: newEvent.title!,
+      location: newEvent.location!,
+      time: newEvent.time!,
+      target: newEvent.target!,
+      type: (newEvent.type as ScheduleEvent['type']) || 'training',
+    };
+
+    const updated = [...customEvents, event];
+    setCustomEvents(updated);
+    localStorage.setItem('ysschool-schedule', JSON.stringify(updated));
+
+    // Reset
+    setShowAddForm(false);
+    setIsAuthenticated(false);
+    setAddPassword('');
+    setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
+    setSelectedDate(event.date);
+  };
+
+  const closeAddForm = () => {
+    setShowAddForm(false);
+    setIsAuthenticated(false);
+    setAddPassword('');
+    setAddPasswordError(false);
+    setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
+  };
+
+  // Delete event
+  const handleDelete = () => {
+    if (deletePassword === ADMIN_PASSWORD && deleteTarget) {
+      const eventToDelete = eventsForDate[deleteTarget.date]?.[deleteTarget.idx];
+      if (eventToDelete) {
+        // Only delete from custom events
+        const updatedCustom = customEvents.filter(
+          ev => !(ev.date === eventToDelete.date && ev.title === eventToDelete.title && ev.time === eventToDelete.time)
+        );
+        setCustomEvents(updatedCustom);
+        localStorage.setItem('ysschool-schedule', JSON.stringify(updatedCustom));
+      }
+      setDeleteTarget(null);
+      setDeletePassword('');
+      setDeleteError(false);
+    } else {
+      setDeleteError(true);
+    }
+  };
+
+  const isCustomEvent = (ev: ScheduleEvent) => {
+    return customEvents.some(c => c.date === ev.date && c.title === ev.title && c.time === ev.time);
+  };
 
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
@@ -183,10 +279,19 @@ export default function ScheduleCalendar() {
             viewport={{ once: true }}
             className="bg-white dark:bg-slate-800 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-700 shadow-sm"
           >
-            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-brand-sky" />
-              {selectedDate ? `${parseInt(selectedDate.split('-')[1])}월 ${parseInt(selectedDate.split('-')[2])}일` : '일정 상세'}
-            </h4>
+            <div className="flex items-center justify-between mb-4">
+              <h4 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-brand-sky" />
+                {selectedDate ? `${parseInt(selectedDate.split('-')[1])}월 ${parseInt(selectedDate.split('-')[2])}일` : '일정 상세'}
+              </h4>
+              <button
+                onClick={() => setShowAddForm(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white text-xs font-bold transition-colors cursor-pointer shadow-sm"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                일정 추가
+              </button>
+            </div>
 
             {selectedEvents.length > 0 ? (
               <div className="space-y-4">
@@ -196,12 +301,21 @@ export default function ScheduleCalendar() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className={`p-4 rounded-2xl ${typeColors[ev.type].bg} border border-slate-100 dark:border-slate-700`}
+                    className={`group relative p-4 rounded-2xl ${typeColors[ev.type].bg} border border-slate-100 dark:border-slate-700`}
                   >
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center justify-between mb-2">
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${typeColors[ev.type].text} bg-white/50 dark:bg-slate-800/50`}>
                         {typeLabels[ev.type]}
                       </span>
+                      {isCustomEvent(ev) && (
+                        <button
+                          onClick={() => { setDeleteTarget({ date: ev.date, idx }); setDeletePassword(''); setDeleteError(false); }}
+                          className="p-1 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+                          title="삭제"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
                     </div>
                     <h5 className="font-bold text-slate-900 dark:text-white mb-3 break-keep">{ev.title}</h5>
                     <div className="space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
@@ -221,6 +335,219 @@ export default function ScheduleCalendar() {
           </motion.div>
         </div>
       </div>
+
+      {/* Add Event Modal */}
+      <AnimatePresence>
+        {showAddForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4"
+            onClick={closeAddForm}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-white dark:bg-slate-800 rounded-2xl w-full max-w-md shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+            >
+              {/* Header */}
+              <div className="bg-gradient-to-r from-brand-navy to-brand-sky px-6 py-4 flex items-center justify-between">
+                <h4 className="text-white font-bold flex items-center gap-2">
+                  <Plus className="w-5 h-5" />
+                  일정 추가
+                </h4>
+                <button onClick={closeAddForm} className="text-white/70 hover:text-white transition-colors cursor-pointer">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {!isAuthenticated ? (
+                /* Password Step */
+                <div className="p-6">
+                  <div className="text-center mb-5">
+                    <div className="w-14 h-14 rounded-full bg-brand-navy/10 dark:bg-brand-sky/10 flex items-center justify-center mx-auto mb-3">
+                      <Lock className="w-7 h-7 text-brand-navy dark:text-brand-sky" />
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">일정을 추가하려면 관리자 비밀번호를 입력하세요.</p>
+                  </div>
+                  <input
+                    type="password"
+                    value={addPassword}
+                    onChange={e => { setAddPassword(e.target.value); setAddPasswordError(false); }}
+                    onKeyDown={e => e.key === 'Enter' && handlePasswordSubmit()}
+                    placeholder="비밀번호"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
+                      addPasswordError ? 'border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
+                    } transition-colors`}
+                    autoFocus
+                  />
+                  {addPasswordError && (
+                    <p className="text-xs text-red-500 text-center mt-2">비밀번호가 일치하지 않습니다.</p>
+                  )}
+                  <button
+                    onClick={handlePasswordSubmit}
+                    className="w-full mt-4 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white font-bold text-sm transition-colors cursor-pointer"
+                  >
+                    확인
+                  </button>
+                </div>
+              ) : (
+                /* Event Form */
+                <form onSubmit={handleAddEvent} className="p-6 space-y-4">
+                  {/* Date */}
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">날짜 *</label>
+                    <input
+                      type="date"
+                      value={newEvent.date || ''}
+                      onChange={e => setNewEvent(prev => ({ ...prev, date: e.target.value }))}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm outline-none focus:border-brand-sky transition-colors"
+                      required
+                    />
+                  </div>
+                  {/* Title */}
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">일정 제목 *</label>
+                    <input
+                      type="text"
+                      value={newEvent.title || ''}
+                      onChange={e => setNewEvent(prev => ({ ...prev, title: e.target.value }))}
+                      placeholder="예: 전남교육청 에듀테크 연수"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 text-sm outline-none focus:border-brand-sky transition-colors"
+                      required
+                    />
+                  </div>
+                  {/* Type */}
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">유형 *</label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {Object.entries(typeLabels).map(([key, label]) => (
+                        <button
+                          key={key}
+                          type="button"
+                          onClick={() => setNewEvent(prev => ({ ...prev, type: key as ScheduleEvent['type'] }))}
+                          className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                            newEvent.type === key
+                              ? `${typeColors[key].bg} ${typeColors[key].text} ring-2 ring-current`
+                              : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                          }`}
+                        >
+                          <div className={`w-2 h-2 rounded-full ${typeColors[key].dot}`} />
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Time & Location */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">시간 *</label>
+                      <input
+                        type="text"
+                        value={newEvent.time || ''}
+                        onChange={e => setNewEvent(prev => ({ ...prev, time: e.target.value }))}
+                        placeholder="09:00-16:00"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 text-sm outline-none focus:border-brand-sky transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">대상 *</label>
+                      <input
+                        type="text"
+                        value={newEvent.target || ''}
+                        onChange={e => setNewEvent(prev => ({ ...prev, target: e.target.value }))}
+                        placeholder="초등교사"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 text-sm outline-none focus:border-brand-sky transition-colors"
+                        required
+                      />
+                    </div>
+                  </div>
+                  {/* Location */}
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">장소 *</label>
+                    <input
+                      type="text"
+                      value={newEvent.location || ''}
+                      onChange={e => setNewEvent(prev => ({ ...prev, location: e.target.value }))}
+                      placeholder="전남교육연수원"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 text-sm outline-none focus:border-brand-sky transition-colors"
+                      required
+                    />
+                  </div>
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-navy to-brand-sky text-white font-bold text-sm hover:shadow-lg transition-shadow cursor-pointer"
+                  >
+                    일정 등록하기
+                  </button>
+                </form>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Delete Confirmation Modal */}
+      <AnimatePresence>
+        {deleteTarget && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4"
+            onClick={() => { setDeleteTarget(null); setDeletePassword(''); setDeleteError(false); }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-white dark:bg-slate-800 rounded-2xl p-6 w-full max-w-sm shadow-2xl border border-slate-200 dark:border-slate-700"
+            >
+              <div className="text-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-3">
+                  <Trash2 className="w-6 h-6 text-red-500" />
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white">일정 삭제</h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">삭제하려면 비밀번호를 입력하세요.</p>
+              </div>
+              <input
+                type="password"
+                value={deletePassword}
+                onChange={e => { setDeletePassword(e.target.value); setDeleteError(false); }}
+                onKeyDown={e => e.key === 'Enter' && handleDelete()}
+                placeholder="비밀번호"
+                className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
+                  deleteError ? 'border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
+                } transition-colors`}
+                autoFocus
+              />
+              {deleteError && (
+                <p className="text-xs text-red-500 text-center mt-2">비밀번호가 일치하지 않습니다.</p>
+              )}
+              <div className="flex gap-2 mt-4">
+                <button
+                  onClick={() => { setDeleteTarget(null); setDeletePassword(''); setDeleteError(false); }}
+                  className="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
+                >
+                  취소
+                </button>
+                <button
+                  onClick={handleDelete}
+                  className="flex-1 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white font-semibold text-sm transition-colors cursor-pointer"
+                >
+                  삭제
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
