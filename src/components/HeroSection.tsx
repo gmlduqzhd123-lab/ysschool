@@ -5,19 +5,25 @@ import { ArrowRight, Sparkles, User, FolderOpen, Code2, Trophy, Music, Video, Bo
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 function useTimeTheme() {
-  const [hour, setHour] = useState(() => new Date().getHours());
+  const [mounted, setMounted] = useState(false);
+  const [hour, setHour] = useState(12); // default to afternoon (safe light theme)
+
   useEffect(() => {
+    setHour(new Date().getHours());
+    setMounted(true);
     const timer = setInterval(() => setHour(new Date().getHours()), 60000);
     return () => clearInterval(timer);
   }, []);
 
-  if (hour >= 6 && hour < 12) return { gradient: 'from-amber-50 via-orange-50 to-sky-50', blob1: 'bg-amber-200/30', blob2: 'bg-sky-200/20', emoji: '🌅', label: '좋은 아침' };
-  if (hour >= 12 && hour < 18) return { gradient: 'from-sky-50 via-blue-50 to-cyan-50', blob1: 'bg-brand-sky/10', blob2: 'bg-brand-navy/5', emoji: '☀️', label: '활기찬 오후' };
-  if (hour >= 18 && hour < 22) return { gradient: 'from-orange-50 via-rose-50 to-purple-50', blob1: 'bg-orange-200/20', blob2: 'bg-purple-200/20', emoji: '🌇', label: '편안한 저녁' };
-  return { gradient: 'from-slate-900 via-indigo-950 to-slate-900', blob1: 'bg-indigo-500/10', blob2: 'bg-blue-500/10', emoji: '🌙', label: '고요한 밤' };
+  // All themes use light backgrounds for light mode - dark mode handled by dark: classes
+  if (!mounted) return { gradient: '', blob1: 'bg-brand-sky/10', blob2: 'bg-brand-navy/5' };
+  if (hour >= 6 && hour < 12) return { gradient: 'from-amber-50 via-orange-50/50 to-sky-50', blob1: 'bg-amber-200/20', blob2: 'bg-sky-200/15' };
+  if (hour >= 12 && hour < 18) return { gradient: 'from-sky-50/50 via-blue-50/30 to-cyan-50/50', blob1: 'bg-brand-sky/10', blob2: 'bg-brand-navy/5' };
+  if (hour >= 18 && hour < 22) return { gradient: 'from-orange-50/50 via-rose-50/30 to-purple-50/50', blob1: 'bg-orange-200/15', blob2: 'bg-purple-200/15' };
+  return { gradient: 'from-indigo-50/50 via-slate-50 to-blue-50/50', blob1: 'bg-indigo-200/15', blob2: 'bg-blue-200/15' };
 }
 
 export default function HeroSection() {
