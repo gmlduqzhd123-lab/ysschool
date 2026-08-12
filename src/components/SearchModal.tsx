@@ -73,7 +73,7 @@ export default function SearchModal() {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
-      setQuery('');
+      requestAnimationFrame(() => setQuery(''));
     }
   }, [isOpen]);
 

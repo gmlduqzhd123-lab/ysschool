@@ -11,7 +11,7 @@ export default function SplashScreen() {
     // 세션 내 1회만 표시
     const shown = sessionStorage.getItem('ysschool-splash-shown');
     if (!shown) {
-      setShow(true);
+      requestAnimationFrame(() => setShow(true));
       sessionStorage.setItem('ysschool-splash-shown', 'true');
       const timer = setTimeout(() => setShow(false), 2000);
       return () => clearTimeout(timer);

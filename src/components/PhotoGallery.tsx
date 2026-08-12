@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
-import Image from 'next/image';
 import { useLanguage } from './LanguageContext';
 
 interface GalleryImage {

@@ -36,7 +36,7 @@ export default function ClickDiscoverWrapper({
   const clickCountRef = useRef(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = () => {
     // 기존 onClick 이벤트를 방해하지 않음
     clickCountRef.current += 1;
 

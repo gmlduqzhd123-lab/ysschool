@@ -21,9 +21,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem('lang') as Language;
-    if (saved === 'en') setLang('en');
+    requestAnimationFrame(() => {
+      setMounted(true);
+      const saved = localStorage.getItem('lang') as Language;
+      if (saved === 'en') setLang('en');
+    });
   }, []);
 
   const toggleLanguage = () => {

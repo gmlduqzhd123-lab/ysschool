@@ -272,7 +272,12 @@ export default function TestimonialsSection() {
 
   useEffect(() => {
     const saved = localStorage.getItem('ysschool-guestbook');
-    if (saved) setGuestEntries(JSON.parse(saved));
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        requestAnimationFrame(() => setGuestEntries(parsed));
+      } catch {}
+    }
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -52,17 +52,19 @@ export default function PublicationsSection() {
                 <div className="absolute -bottom-4 left-4 right-4 h-4 bg-black/20 blur-md rounded-[100%] group-hover:blur-xl transition-all duration-500" />
               </div>
 
-              <div className="text-center flex-grow flex flex-col">
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+              <div className="text-center flex-grow flex flex-col items-center">
+                <h4 className="text-xl font-extrabold text-slate-900 dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center text-center">
                   {book.title}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-grow break-keep">
-                  {book.description}
+                <p className="text-base text-slate-600 dark:text-slate-400 mb-6 font-semibold">
+                  {book.author} ({book.price})
                 </p>
                 
                 <a
                   href={book.link}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-brand-sky hover:text-brand-sky text-slate-700 dark:text-slate-300 rounded-full font-semibold transition-all duration-300 shadow-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-brand-sky hover:text-brand-sky text-slate-800 dark:text-slate-200 rounded-full font-bold transition-all duration-300 shadow-sm"
                 >
                   <BookOpen className="w-4 h-4" />
                   자세히 보기

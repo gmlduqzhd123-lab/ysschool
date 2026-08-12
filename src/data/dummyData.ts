@@ -314,17 +314,31 @@ export const devLabsData: Array<{
   }
 ];
 
-export const publicationsData = [
+export interface PublicationBook {
+  id: number;
+  title: string;
+  author: string;
+  price: string;
+  description: string;
+  cover: string;
+  link: string;
+}
+
+export const publicationsData: PublicationBook[] = [
   {
     id: 1,
     title: '고학년 독서인문교육, 독서미션으로 끝장내기',
-    description: '엽쌤의 17년 교육 노하우를 담은 베스트셀러',
+    author: '김희엽 저',
+    price: '18,000원',
+    description: '김희엽 저 (18,000원)',
     cover: '/images/book_cover_2.png',
     link: 'https://www.yes24.com/Product/Search?domain=ALL&query=독서미션으로+끝장내기',
   },
   {
     id: 2,
     title: '여수의(義) 사랑, 우리들의 이야기',
+    author: '김세영 외 71명 공저',
+    price: '14,000원',
     description: '김세영 외 71명 공저 (14,000원)',
     cover: 'https://image.yes24.com/goods/152467965/XL',
     link: 'https://www.yes24.com/product/goods/152467965',
@@ -332,6 +346,8 @@ export const publicationsData = [
   {
     id: 3,
     title: '우리들의 눈물 상자',
+    author: '이채민 외 19명 공저',
+    price: '16,000원',
     description: '이채민 외 19명 공저 (16,000원)',
     cover: 'https://image.yes24.com/goods/147796751/XL',
     link: 'https://www.yes24.com/product/goods/147796751',
@@ -339,43 +355,55 @@ export const publicationsData = [
   {
     id: 4,
     title: '아무도 모르는 5학년의 속마음',
-    description: '예스24 추천 저서 (11,900원)',
+    author: '강다은 외 21명 공저',
+    price: '11,900원',
+    description: '강다은 외 21명 공저 (11,900원)',
     cover: 'https://image.yes24.com/goods/134023092/XL',
     link: 'https://www.yes24.com/product/goods/134023092',
   },
   {
     id: 5,
-    title: '해를 닮은 아이',
-    description: '예스24 추천 저서 (11,000원)',
+    title: '해를 담은 아이',
+    author: '이해담 저',
+    price: '11,000원',
+    description: '이해담 저 (11,000원)',
     cover: 'https://image.yes24.com/goods/140283591/XL',
     link: 'https://www.yes24.com/product/goods/140283591',
   },
   {
     id: 6,
     title: 'AI와 함께 그린 꿈의 조각',
-    description: '예스24 추천 저서 (11,000원)',
+    author: '김나희, 김연우 공저',
+    price: '11,000원',
+    description: '김나희, 김연우 공저 (11,000원)',
     cover: 'https://image.yes24.com/goods/138744485/XL',
     link: 'https://www.yes24.com/product/goods/138744485',
   },
   {
     id: 7,
     title: '안심하고 읽는 94가지 이야기',
-    description: '예스24 추천 저서 (17,000원)',
+    author: '안심초등학교 5학년 일동',
+    price: '17,000원',
+    description: '안심초등학교 5학년 일동 (17,000원)',
     cover: 'https://image.yes24.com/goods/123253561/XL',
     link: 'https://www.yes24.com/product/goods/123253561',
   },
   {
     id: 8,
     title: '나, 그리고 우리들의 이야기',
-    description: '엽쌤외 | BOOKK(부크크) (12,000원)',
+    author: '배성현 외 6명 공저',
+    price: '12,000원',
+    description: '배성현 외 6명 공저 (12,000원)',
     cover: 'https://image.yes24.com/goods/165140071/XL',
     link: 'https://www.yes24.com/product/goods/165140071',
   },
   {
     id: 9,
     title: '자작자작, 우리들의 이야기',
+    author: '문에녹 외 19명 공저',
+    price: '13,000원',
     description: '문에녹 외 19명 공저 (13,000원)',
     cover: 'https://image.yes24.com/goods/160462951/XL',
     link: 'https://www.yes24.com/product/goods/160462951',
-  }
+  },
 ];

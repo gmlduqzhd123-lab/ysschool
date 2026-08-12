@@ -46,9 +46,9 @@ export default function StatsSection() {
       const newCount = current + 1;
       localStorage.setItem(key, String(newCount));
       sessionStorage.setItem(sessionKey, 'true');
-      setVisitCount(newCount);
+      requestAnimationFrame(() => setVisitCount(newCount));
     } else {
-      setVisitCount(current);
+      requestAnimationFrame(() => setVisitCount(current));
     }
   }, []);
 

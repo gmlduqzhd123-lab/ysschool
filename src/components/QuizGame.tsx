@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, ChevronRight, RotateCcw, Share2 } from 'lucide-react';
+import { Trophy, ChevronRight, RotateCcw } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 interface QuizQuestion {

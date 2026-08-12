@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, ExternalLink, FileText, Download, Search,
-  Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon, Trash2
+  Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon
 } from 'lucide-react';
 import Link from 'next/link';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
@@ -35,12 +35,12 @@ export default function TrainingPage() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        setMaterials([...trainingData, ...parsed]);
-      } catch (e) {
-        setMaterials(trainingData);
+        requestAnimationFrame(() => setMaterials([...trainingData, ...parsed]));
+      } catch {
+        requestAnimationFrame(() => setMaterials(trainingData));
       }
     } else {
-      setMaterials(trainingData);
+      requestAnimationFrame(() => setMaterials(trainingData));
     }
   }, []);
 
@@ -423,7 +423,7 @@ export default function TrainingPage() {
                   </label>
                   <select
                     value={category}
-                    onChange={(e) => setCategory(e.target.value as any)}
+                    onChange={(e) => setCategory(e.target.value as '에듀테크' | 'AI활용' | '독서인문' | '기타')}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sky"
                   >
                     <option value="에듀테크">에듀테크</option>

@@ -9,11 +9,10 @@ import { useState, useEffect } from 'react';
 
 function useTimeTheme() {
   const [mounted, setMounted] = useState(false);
-  const [hour, setHour] = useState(12); // default to afternoon (safe light theme)
+  const [hour, setHour] = useState(() => (typeof window !== 'undefined' ? new Date().getHours() : 12));
 
   useEffect(() => {
-    setHour(new Date().getHours());
-    setMounted(true);
+    requestAnimationFrame(() => setMounted(true));
     const timer = setInterval(() => setHour(new Date().getHours()), 60000);
     return () => clearInterval(timer);
   }, []);

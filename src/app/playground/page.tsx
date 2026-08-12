@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Star, Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Trophy, Rocket } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 // ========== 레벨 데이터 ==========

@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User, Power } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { MessageCircle, X, Send, Bot, Power } from 'lucide-react';
 
 interface Message {
   role: 'bot' | 'user';
@@ -67,7 +66,6 @@ function findAnswer(input: string): string {
 }
 
 export default function ChatBot() {
-  const { t } = useLanguage();
   const [isEnabled, setIsEnabled] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([

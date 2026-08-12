@@ -55,7 +55,12 @@ export default function ScheduleCalendar() {
   const [customEvents, setCustomEvents] = useState<ScheduleEvent[]>([]);
   useEffect(() => {
     const saved = localStorage.getItem('ysschool-schedule');
-    if (saved) setCustomEvents(JSON.parse(saved));
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        requestAnimationFrame(() => setCustomEvents(parsed));
+      } catch {}
+    }
   }, []);
   const allEvents = useMemo(() => [...defaultEvents, ...customEvents], [customEvents]);
 

@@ -35,7 +35,7 @@ export default function ArchiveTabs() {
     const hash = window.location.hash.replace('#', '');
     const validTabs = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
     if (validTabs.includes(hash)) {
-      setActiveTab(hash);
+      requestAnimationFrame(() => setActiveTab(hash));
     }
     
     window.addEventListener('hashchange', handleHashChange);
