@@ -40,6 +40,7 @@ export const navLinks: NavItem[] = [
       { name: '에듀테크 갤러리', href: '/showcase' },
       { name: '나눔 서재', href: '/library' },
       { name: '프롬프트 놀이터', href: '/playground' },
+      { name: '블로그', href: '/blog' },
     ],
   },
   { name: '연수 자료', href: '/training' },

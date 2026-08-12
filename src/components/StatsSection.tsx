@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from './LanguageContext';
 
 function Counter({ from = 0, to, duration = 2, suffix = '' }: { from?: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = useState(from);
@@ -31,12 +32,32 @@ function Counter({ from = 0, to, duration = 2, suffix = '' }: { from?: number, t
 }
 
 export default function StatsSection() {
+  const { t } = useLanguage();
+  const [visitCount, setVisitCount] = useState(0);
+
+  useEffect(() => {
+    // Simple visit counter using localStorage
+    const key = 'ysschool-visit-count';
+    const sessionKey = 'ysschool-session-visited';
+    const current = parseInt(localStorage.getItem(key) || '0', 10);
+    const sessionVisited = sessionStorage.getItem(sessionKey);
+    
+    if (!sessionVisited) {
+      const newCount = current + 1;
+      localStorage.setItem(key, String(newCount));
+      sessionStorage.setItem(sessionKey, 'true');
+      setVisitCount(newCount);
+    } else {
+      setVisitCount(current);
+    }
+  }, []);
+
   const stats = [
-    { label: '수업 자료', value: 100, suffix: '개+', delay: 0.1 },
-    { label: '공연 횟수', value: 30, suffix: '회+', delay: 0.2 },
-    { label: '개발한 웹/앱', value: 15, suffix: '개+', delay: 0.3 },
-    { label: '지도한 학생', value: 300, suffix: '명+', delay: 0.4 },
-    { label: '강의 및 컨설팅', value: 80, suffix: '회+', delay: 0.5 },
+    { label: t('수업 자료', 'Teaching Materials'), value: 100, suffix: t('개+', '+'), delay: 0.1 },
+    { label: t('공연 횟수', 'Performances'), value: 30, suffix: t('회+', '+'), delay: 0.2 },
+    { label: t('개발한 웹/앱', 'Web/Apps Built'), value: 15, suffix: t('개+', '+'), delay: 0.3 },
+    { label: t('지도한 학생', 'Students Mentored'), value: 300, suffix: t('명+', '+'), delay: 0.4 },
+    { label: t('강의 및 컨설팅', 'Lectures & Consulting'), value: 80, suffix: t('회+', '+'), delay: 0.5 },
   ];
 
   return (
@@ -96,6 +117,24 @@ export default function StatsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Visit Counter Badge */}
+        {visitCount > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="flex justify-center mt-12"
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-sm text-slate-300 font-medium">
+                {t('사이트 방문', 'Site Visits')}: <span className="text-white font-bold">{visitCount.toLocaleString()}</span>
+              </span>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

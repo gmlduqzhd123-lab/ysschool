@@ -5,6 +5,7 @@ import { navLinks, NavItem } from '../data/dummyData';
 import { BookOpen, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 
 // ========== 데스크톱 드롭다운 ==========
 function DesktopDropdown({ item }: { item: NavItem }) {
@@ -153,11 +154,13 @@ export default function Header() {
                 </a>
               )
             )}
+            <LanguageToggle />
             <ThemeToggle />
           </nav>
 
           {/* Mobile toggle */}
-          <div className="lg:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

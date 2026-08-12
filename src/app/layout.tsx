@@ -4,6 +4,9 @@ import "./globals.css";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
+import { LanguageProvider } from "@/components/LanguageContext";
+import SplashScreen from "@/components/SplashScreen";
+import SearchModal from "@/components/SearchModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +23,7 @@ export const metadata: Metadata = {
   title: "엽쌤스쿨 | 경계를 넘어서는 교육",
   description:
     "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
+  manifest: "/manifest.json",
   openGraph: {
     title: "엽쌤스쿨 | 경계를 넘어서는 교육",
     description:
@@ -44,6 +48,14 @@ export const metadata: Metadata = {
       "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
     images: ["/images/profile_hero.jpg"],
   },
+  icons: {
+    apple: "/icons/icon-192x192.png",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+  },
 };
 
 export default function RootLayout({
@@ -53,13 +65,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="scroll-smooth overflow-x-hidden max-w-[100vw] w-full">
+      <head>
+        <meta name="theme-color" content="#1E3A8A" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-[100vw] w-full`}
       >
-        <ScrollToTopOnMount />
-        <ScrollProgressBar />
-        {children}
-        <ScrollToTopButton />
+        <LanguageProvider>
+          <SplashScreen />
+          <ScrollToTopOnMount />
+          <ScrollProgressBar />
+          <SearchModal />
+          {children}
+          <ScrollToTopButton />
+        </LanguageProvider>
       </body>
     </html>
   );

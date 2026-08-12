@@ -4,6 +4,7 @@ import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
 import CVSection from '@/components/CVSection';
 import ArchiveTabs from '@/components/ArchiveTabs';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -17,6 +18,7 @@ export default function Home() {
         <AboutSection />
         <ArchiveTabs />
         <CVSection />
+        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
