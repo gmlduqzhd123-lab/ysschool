@@ -5,16 +5,31 @@ import { ArrowRight, Sparkles, User, FolderOpen, Code2, Trophy, Music, Video, Bo
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
+import { useState, useEffect, useMemo } from 'react';
+
+function useTimeTheme() {
+  const [hour, setHour] = useState(() => new Date().getHours());
+  useEffect(() => {
+    const timer = setInterval(() => setHour(new Date().getHours()), 60000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (hour >= 6 && hour < 12) return { gradient: 'from-amber-50 via-orange-50 to-sky-50', blob1: 'bg-amber-200/30', blob2: 'bg-sky-200/20', emoji: '🌅', label: '좋은 아침' };
+  if (hour >= 12 && hour < 18) return { gradient: 'from-sky-50 via-blue-50 to-cyan-50', blob1: 'bg-brand-sky/10', blob2: 'bg-brand-navy/5', emoji: '☀️', label: '활기찬 오후' };
+  if (hour >= 18 && hour < 22) return { gradient: 'from-orange-50 via-rose-50 to-purple-50', blob1: 'bg-orange-200/20', blob2: 'bg-purple-200/20', emoji: '🌇', label: '편안한 저녁' };
+  return { gradient: 'from-slate-900 via-indigo-950 to-slate-900', blob1: 'bg-indigo-500/10', blob2: 'bg-blue-500/10', emoji: '🌙', label: '고요한 밤' };
+}
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const theme = useTimeTheme();
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <section id="hero" className={`relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center bg-gradient-to-br ${theme.gradient} dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-colors duration-1000`}>
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-brand-sky/10 blur-3xl"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full bg-brand-navy/5 blur-3xl"></div>
+        <div className={`absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full ${theme.blob1} blur-3xl`}></div>
+        <div className={`absolute bottom-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full ${theme.blob2} blur-3xl`}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

@@ -7,6 +7,8 @@ import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
 import { LanguageProvider } from "@/components/LanguageContext";
 import SplashScreen from "@/components/SplashScreen";
 import SearchModal from "@/components/SearchModal";
+import ChatBot from "@/components/ChatBot";
+import MiniPlayer from "@/components/MiniPlayer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,6 +80,8 @@ export default function RootLayout({
           <SearchModal />
           {children}
           <ScrollToTopButton />
+          <ChatBot />
+          <MiniPlayer />
         </LanguageProvider>
       </body>
     </html>
