@@ -244,8 +244,19 @@ const testimonials: Testimonial[] = [
 
 interface GuestEntry {
   name: string;
+  affiliation: string;
   message: string;
   date: string;
+}
+
+// 이름 익명화 함수: "김희엽" → "김○○", "이소연" → "이○○"
+function anonymizeName(name: string): string {
+  const trimmed = name.trim();
+  if (trimmed.length <= 1) return trimmed;
+  const firstChar = trimmed.charAt(0);
+  const rest = trimmed.slice(1);
+  const masked = rest.replace(/./g, '○');
+  return `${firstChar}${masked}`;
 }
 
 export default function TestimonialsSection() {
@@ -253,6 +264,7 @@ export default function TestimonialsSection() {
   const [guestEntries, setGuestEntries] = useState<GuestEntry[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [guestName, setGuestName] = useState('');
+  const [guestAffiliation, setGuestAffiliation] = useState('');
   const [guestMessage, setGuestMessage] = useState('');
 
   useEffect(() => {
@@ -265,6 +277,7 @@ export default function TestimonialsSection() {
     if (!guestName.trim() || !guestMessage.trim()) return;
     const newEntry: GuestEntry = {
       name: guestName.trim(),
+      affiliation: guestAffiliation.trim(),
       message: guestMessage.trim(),
       date: new Date().toLocaleDateString('ko-KR'),
     };
@@ -272,6 +285,7 @@ export default function TestimonialsSection() {
     setGuestEntries(updated);
     localStorage.setItem('ysschool-guestbook', JSON.stringify(updated));
     setGuestName('');
+    setGuestAffiliation('');
     setGuestMessage('');
     setShowForm(false);
   };
@@ -399,8 +413,15 @@ export default function TestimonialsSection() {
                     value={guestName}
                     onChange={e => setGuestName(e.target.value)}
                     placeholder="이름"
-                    className="flex-shrink-0 sm:w-40 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                    className="flex-shrink-0 sm:w-36 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
                     required
+                  />
+                  <input
+                    type="text"
+                    value={guestAffiliation}
+                    onChange={e => setGuestAffiliation(e.target.value)}
+                    placeholder="소속 (선택)"
+                    className="flex-shrink-0 sm:w-44 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
                   />
                   <input
                     type="text"
@@ -411,6 +432,7 @@ export default function TestimonialsSection() {
                     required
                   />
                 </div>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mb-3">※ 이름은 개인정보 보호를 위해 자동으로 익명 처리됩니다 (예: 김희엽 → 김○○)</p>
                 <div className="flex justify-end">
                   <button
                     type="submit"
@@ -446,7 +468,10 @@ export default function TestimonialsSection() {
                   </div>
                   <div className="flex-grow min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-sm text-slate-900 dark:text-white">{entry.name}</span>
+                      <span className="font-bold text-sm text-slate-900 dark:text-white">{anonymizeName(entry.name)}</span>
+                      {entry.affiliation && (
+                        <span className="text-xs text-brand-navy/60 dark:text-brand-sky/60 bg-brand-navy/5 dark:bg-brand-sky/10 px-2 py-0.5 rounded-full">{entry.affiliation}</span>
+                      )}
                       <span className="text-xs text-slate-400">{entry.date}</span>
                     </div>
                     <p className="text-sm text-slate-600 dark:text-slate-300 break-keep">{entry.message}</p>
