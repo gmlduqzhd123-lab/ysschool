@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, Power } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 interface Message {
@@ -68,11 +68,21 @@ function findAnswer(input: string): string {
 
 export default function ChatBot() {
   const { t } = useLanguage();
+  const [isEnabled, setIsEnabled] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: 'bot', text: '안녕하세요! 엽쌤 AI 어시스턴트입니다 🤖\n궁금한 점을 물어보세요!' },
   ]);
   const [input, setInput] = useState('');
+
+  const handleDisable = () => {
+    setIsOpen(false);
+    setIsEnabled(false);
+  };
+
+  const handleEnable = () => {
+    setIsEnabled(true);
+  };
 
   const handleSend = (text?: string) => {
     const msg = text || input.trim();
@@ -98,9 +108,32 @@ export default function ChatBot() {
 
   return (
     <>
+      {/* Re-enable Button (shown when chatbot is disabled) */}
+      <AnimatePresence>
+        {!isEnabled && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            whileHover={{ scale: 1.1 }}
+            onClick={handleEnable}
+            className="fixed bottom-8 left-8 z-50 w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 shadow-md flex items-center justify-center cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-600 hover:text-brand-navy dark:hover:text-brand-sky transition-all group"
+            aria-label="채팅봇 다시 켜기"
+            title="채팅봇 켜기"
+          >
+            <Power className="w-4 h-4" />
+            {/* Tooltip */}
+            <span className="absolute left-full ml-2 px-2.5 py-1 rounded-lg bg-slate-800 dark:bg-slate-600 text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              챗봇 켜기
+            </span>
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* Floating Chat Button */}
       <AnimatePresence>
-        {!isOpen && (
+        {isEnabled && !isOpen && (
           <motion.button
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -118,7 +151,7 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       <AnimatePresence>
-        {isOpen && (
+        {isEnabled && isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -140,12 +173,24 @@ export default function ChatBot() {
                   </div>
                 </div>
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white/70 hover:text-white transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={handleDisable}
+                  className="p-1.5 rounded-lg text-white/50 hover:text-red-300 hover:bg-white/10 transition-all cursor-pointer"
+                  aria-label="채팅봇 끄기"
+                  title="챗봇 끄기"
+                >
+                  <Power className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+                  aria-label="채팅창 닫기"
+                  title="채팅창 닫기"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}
