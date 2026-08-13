@@ -28,7 +28,7 @@ export default function InteractiveTimeline() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" ref={containerRef}>
+    <section id="journey" className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" ref={containerRef}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

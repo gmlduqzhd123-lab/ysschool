@@ -179,7 +179,7 @@ export default function ScheduleCalendar() {
   };
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
+    <section id="schedule" className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

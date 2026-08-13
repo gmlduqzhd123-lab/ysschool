@@ -125,7 +125,7 @@ export default function QuizGame() {
   const q = quizQuestions[currentQ];
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section id="quiz" className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

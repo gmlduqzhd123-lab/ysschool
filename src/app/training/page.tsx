@@ -34,6 +34,15 @@ export default function TrainingPage() {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  // Read category from URL query parameter
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('category');
+    if (cat && (categories as readonly string[]).includes(cat)) {
+      setSelectedCategory(cat);
+    }
+  }, []);
+
   // Load initial + stored materials
   useEffect(() => {
     const stored = localStorage.getItem('ysschool_training_materials');

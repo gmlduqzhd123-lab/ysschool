@@ -10,8 +10,24 @@ export interface NavItem {
 }
 
 export const navLinks: NavItem[] = [
-  { name: '소개', href: '#about' },
-  { name: '포트폴리오', href: '/portfolio' },
+  {
+    name: '소개',
+    children: [
+      { name: '교육 철학', href: '/#about' },
+      { name: '연수 후기', href: '/#testimonials' },
+      { name: '문의하기', href: '/#contact' },
+    ],
+  },
+  {
+    name: '포트폴리오',
+    children: [
+      { name: '교육 여정', href: '/portfolio#journey' },
+      { name: '약력/활동', href: '/portfolio#cv' },
+      { name: '통합 아카이브', href: '/portfolio#archive-tabs' },
+      { name: '연수 일정', href: '/portfolio#schedule' },
+      { name: '엽쌤 퀴즈', href: '/portfolio#quiz' },
+    ],
+  },
   {
     name: '에듀테크',
     children: [
@@ -22,7 +38,15 @@ export const navLinks: NavItem[] = [
       { name: '블로그', href: '/blog' },
     ],
   },
-  { name: '연수 자료', href: '/training' },
+  {
+    name: '연수 자료',
+    children: [
+      { name: '전체 자료', href: '/training' },
+      { name: '에듀테크', href: '/training?category=에듀테크' },
+      { name: 'AI활용', href: '/training?category=AI활용' },
+      { name: '독서인문', href: '/training?category=독서인문' },
+    ],
+  },
 ];
 
 export const skillsData = [
