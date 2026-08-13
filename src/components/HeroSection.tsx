@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, User, FolderOpen, Code2, Trophy, Music, Video, BookText } from 'lucide-react';
+import { ArrowRight, Sparkles, Music, BookOpen } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
@@ -76,45 +76,15 @@ export default function HeroSection() {
                 {t('에듀테크 갤러리', 'EduTech Gallery')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="#dev-lab"
+              <Link
+                href="/portfolio"
                 className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-white font-semibold border-2 border-brand-navy/10 hover:border-brand-sky transition-all shadow-sm hover:shadow-md"
               >
-                {t('최신 웹앱 체험하기', 'Try Latest Web Apps')}
-              </a>
+                {t('포트폴리오 보기', 'View Portfolio')}
+              </Link>
             </div>
 
-            {/* Quick Links Grid */}
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800"
-            >
-              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 font-semibold">
-                {t('아카이브 바로가기 ⚡', 'Quick Archive Links ⚡')}
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {[
-                  { id: 'cv', label: t('주요 약력 및 활동', 'CV & Activities'), icon: User },
-                  { id: 'edu-archive', label: t('교육 자료실', 'Edu Archive'), icon: FolderOpen },
-                  { id: 'dev-lab', label: t('교육 웹앱 실험실', 'Dev Lab'), icon: Code2 },
-                  { id: 'hall-of-fame', label: t('수상 내역', 'Hall of Fame'), icon: Trophy },
-                  { id: 'acappella', label: t('아카펠라 공연 영상', 'A Cappella'), icon: Music },
-                  { id: 'media-room', label: t('영상 갤러리', 'Media Room'), icon: Video },
-                  { id: 'publications', label: t('저서 소개', 'Publications'), icon: BookText },
-                ].map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-brand-sky/10 hover:text-brand-sky hover:border-brand-sky/40 hover:-translate-y-0.5 transition-all shadow-sm hover:shadow-md"
-                  >
-                    <item.icon className="w-4 h-4" />
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
+
           </motion.div>
 
           <motion.div
@@ -176,7 +146,7 @@ export default function HeroSection() {
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-green-500 hover:border-green-300 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
                 title="인디스쿨"
               >
-                <FolderOpen className="w-5 h-5" />
+                <BookOpen className="w-5 h-5" />
               </a>
             </motion.div>
           </motion.div>

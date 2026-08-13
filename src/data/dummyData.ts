@@ -10,34 +10,13 @@ export interface NavItem {
 }
 
 export const navLinks: NavItem[] = [
-  {
-    name: '프로필',
-    children: [
-      { name: '소개', href: '#about' },
-      { name: '약력/활동', href: '#cv' },
-      { name: '수상내역', href: '#hall-of-fame' },
-    ],
-  },
-  {
-    name: '미디어',
-    children: [
-      { name: '교육 자료실', href: '#edu-archive' },
-      { name: '영상 갤러리', href: '#media-room' },
-      { name: '아카펠라', href: '#acappella' },
-    ],
-  },
-  {
-    name: '활동 기록',
-    children: [
-      { name: '언론 보도', href: '#press-room' },
-      { name: '저서', href: '#publications' },
-      { name: '개발 프로젝트', href: '#dev-lab' },
-    ],
-  },
+  { name: '소개', href: '#about' },
+  { name: '포트폴리오', href: '/portfolio' },
   {
     name: '에듀테크',
     children: [
       { name: '에듀테크 갤러리', href: '/showcase' },
+      { name: '도구 모음', href: '/tools' },
       { name: '나눔 서재', href: '/library' },
       { name: '프롬프트 놀이터', href: '/playground' },
       { name: '블로그', href: '/blog' },
