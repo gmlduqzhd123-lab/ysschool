@@ -15,14 +15,14 @@ interface ScheduleEvent {
 }
 
 const defaultEvents: ScheduleEvent[] = [
-  { date: '2025-08-14', title: '전남교육청 에듀테크 활용 연수', location: '전남교육연수원', time: '09:00-16:00', target: '초등교사', type: 'training' },
-  { date: '2025-08-21', title: '독서인문교육 워크숍', location: '여수교육지원청', time: '14:00-17:00', target: '초등교사', type: 'training' },
-  { date: '2025-08-28', title: 'AI 디지털 선도학교 컨설팅', location: '순천 OO초등학교', time: '10:00-12:00', target: '학교 교직원', type: 'consulting' },
-  { date: '2025-09-05', title: '아카라카 정기 공연', location: '여수 예울마루', time: '19:00-21:00', target: '일반 관람', type: 'performance' },
-  { date: '2025-09-12', title: '발명영재교육 심화과정', location: '전남발명교육센터', time: '09:00-15:00', target: '영재학생', type: 'training' },
-  { date: '2025-09-20', title: '에듀테크 크리에이터 특강', location: '광주교육대학교', time: '14:00-16:00', target: '예비교사', type: 'lecture' },
-  { date: '2025-10-10', title: '학생 저자 북토크', location: '여수시립도서관', time: '15:00-17:00', target: '학생·학부모', type: 'lecture' },
-  { date: '2025-10-25', title: '글로-CAL 교육과정 연수', location: '전남교육연수원', time: '09:00-16:00', target: '초등교사', type: 'training' },
+  { date: '2026-08-14', title: '전남교육청 에듀테크 활용 연수', location: '전남교육연수원', time: '09:00-16:00', target: '초등교사', type: 'training' },
+  { date: '2026-08-21', title: '독서인문교육 워크숍', location: '여수교육지원청', time: '14:00-17:00', target: '초등교사', type: 'training' },
+  { date: '2026-08-28', title: 'AI 디지털 선도학교 컨설팅', location: '순천 OO초등학교', time: '10:00-12:00', target: '학교 교직원', type: 'consulting' },
+  { date: '2026-09-05', title: '아카라카 정기 공연', location: '여수 예울마루', time: '19:00-21:00', target: '일반 관람', type: 'performance' },
+  { date: '2026-09-12', title: '발명영재교육 심화과정', location: '전남발명교육센터', time: '09:00-15:00', target: '영재학생', type: 'training' },
+  { date: '2026-09-20', title: '에듀테크 크리에이터 특강', location: '광주교육대학교', time: '14:00-16:00', target: '예비교사', type: 'lecture' },
+  { date: '2026-10-10', title: '학생 저자 북토크', location: '여수시립도서관', time: '15:00-17:00', target: '학생·학부모', type: 'lecture' },
+  { date: '2026-10-25', title: '글로-CAL 교육과정 연수', location: '전남교육연수원', time: '09:00-16:00', target: '초등교사', type: 'training' },
 ];
 
 const typeColors: Record<string, { bg: string; text: string; dot: string }> = {
