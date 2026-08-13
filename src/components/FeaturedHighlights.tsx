@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, Wrench, FolderOpen, GraduationCap, ArrowRight } from 'lucide-react';
+import { Code2, Layers, FolderOpen, GraduationCap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
 
@@ -18,12 +18,12 @@ const highlights = [
     iconColor: 'text-brand-navy dark:text-brand-sky',
   },
   {
-    icon: Wrench,
-    titleKo: '에듀테크 도구 모음',
-    titleEn: 'EduTech Toolkit',
-    descKo: '수업에서 활용하는 14가지 에듀테크 도구를 한눈에 확인하세요.',
-    descEn: 'Browse 14 EduTech tools used in actual classroom settings.',
-    href: '/tools',
+    icon: Layers,
+    titleKo: '통합 아카이브',
+    titleEn: 'Archive',
+    descKo: '수상 내역, 저서, 언론 보도, 아카펠라 공연 등 활동 기록을 확인하세요.',
+    descEn: 'Explore awards, publications, press coverage, a cappella, and more.',
+    href: '/portfolio#archive-tabs',
     gradient: 'from-brand-sky to-cyan-400',
     iconBg: 'bg-brand-sky/10',
     iconColor: 'text-brand-sky',
