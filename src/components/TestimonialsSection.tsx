@@ -278,7 +278,7 @@ export default function TestimonialsSection() {
       try {
         const parsed = JSON.parse(saved);
         requestAnimationFrame(() => setGuestEntries(parsed));
-      } catch {}
+      } catch { }
     }
   }, []);
 
@@ -586,9 +586,8 @@ export default function TestimonialsSection() {
                     onChange={e => { setDeletePassword(e.target.value); setDeleteError(false); }}
                     onKeyDown={e => e.key === 'Enter' && handleDelete()}
                     placeholder="비밀번호"
-                    className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
-                      deleteError ? 'border-red-400 focus:border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
-                    } transition-colors`}
+                    className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${deleteError ? 'border-red-400 focus:border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
+                      } transition-colors`}
                     autoFocus
                   />
                   {deleteError && (
