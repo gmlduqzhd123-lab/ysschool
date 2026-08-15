@@ -1,0 +1,75 @@
+export const metadata = {
+  title: '어두운 배경 위의 투명 헤더, 글래스모피즘으로 해결하기',
+  date: '2026-08-15',
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date}</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+웹사이트를 만들다 보면, "이건 당연히 괜찮겠지"라고 생각했던 부분에서 뜻밖의 문제가 발견되는 경우가 있습니다. 오늘은 **헤더(Header) 네비게이션의 가독성 문제**를 해결한 경험을 공유합니다.
+
+## 문제 발견
+
+엽쌤스쿨의 헤더는 스크롤 감지에 따라 두 가지 상태를 가지고 있었습니다:
+
+- **스크롤 전**: `bg-transparent` (완전 투명)
+- **스크롤 후**: 글래스모피즘 효과 + 반투명 배경
+
+홈페이지에서는 히어로 배경이 밝은 톤이라 문제가 없었는데, **에듀테크 쇼케이스 페이지**로 넘어가니 상황이 달라졌습니다. 쇼케이스의 히어로가 짙은 네이비(`#0f1d3d`)였기 때문에, `text-slate-600`으로 되어 있던 메뉴 글자가 어두운 배경에 묻혀 거의 보이지 않게 된 것이죠.
+
+## 왜 이런 일이 생겼을까?
+
+처음 헤더를 디자인할 때는 홈페이지만 생각하고 `bg-transparent`를 적용했습니다. 하지만 페이지가 점점 늘어나면서, 각 페이지마다 히어로 섹션의 배경색이 달라졌습니다:
+
+| 페이지 | 히어로 배경 | 메뉴 가독성 |
+|--------|-----------|-----------|
+| 홈 | 밝은 톤 (라이트 모드) | ✅ 문제 없음 |
+| 쇼케이스 | 짙은 네이비 | ❌ 안 보임 |
+| 나눔 서재 | 짙은 네이비 | ❌ 안 보임 |
+| 포트폴리오 | 짙은 네이비 | ❌ 안 보임 |
+
+> "단일 페이지에서는 완벽했던 디자인이, 멀티 페이지에서는 깨질 수 있다."
+
+이 교훈을 뼈저리게 느낀 순간이었습니다.
+
+## 해결: 항상 반투명 글래스 배경 유지
+
+해결책은 의외로 간단했습니다. 스크롤 전 상태에서도 **반투명 글래스 효과**를 적용하는 것이었죠.
+
+```css
+/* Before (스크롤 전) */
+bg-transparent
+
+/* After (스크롤 전) */
+bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm
+```
+
+`bg-white/80`은 80% 불투명도의 흰색 배경을 의미하고, `backdrop-blur-md`는 배경을 블러 처리해서 자연스러운 글래스 효과를 만들어줍니다. 이렇게 하면:
+
+- 밝은 히어로 위에서는 자연스럽게 섞이고
+- 어두운 히어로 위에서도 메뉴 글자가 선명하게 보입니다
+
+## 배운 점
+
+1. **다양한 페이지에서 반드시 크로스체크하자**: 공통 컴포넌트는 모든 사용처에서 테스트해야 합니다.
+2. **`bg-transparent`보다 `bg-white/80` + `backdrop-blur`가 안전하다**: 글래스모피즘은 어떤 배경 위에서도 가독성을 보장합니다.
+3. **사용자 관점에서 보자**: 개발자는 코드만 보지만, 사용자는 화면을 봅니다. 직접 네비게이션을 클릭하며 모든 페이지를 돌아다녀 보는 것이 중요합니다.
+
+작은 CSS 한 줄의 변경이지만, **사용자 경험에는 큰 차이**를 만들어낸 수정이었습니다. 🔧
