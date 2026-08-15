@@ -7,6 +7,7 @@ import {
   Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
 
 const categories = ['전체', '에듀테크', 'AI활용', '독서인문', '기타'] as const;
@@ -70,7 +71,7 @@ export default function TrainingPage() {
 
   const handleDeleteMaterial = (id: number) => {
     if (deletePassword !== '1234') {
-      setDeleteErrorMsg('비밀번호가 올바르지 않습니다. (비밀번호: 1234)');
+      setDeleteErrorMsg('비밀번호가 올바르지 않습니다.');
       return;
     }
 
@@ -171,22 +172,7 @@ export default function TrainingPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       {/* Header */}
-      <header className="sticky top-0 z-50 glass-header shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
-              <BookOpen className="h-6 w-6 text-white" />
-            </div>
-            <span className="font-bold text-2xl text-brand-navy dark:text-white tracking-tight">YSSCHOOL</span>
-          </Link>
-          <Link
-            href="/"
-            className="text-sm font-medium text-slate-500 hover:text-brand-navy dark:hover:text-brand-sky transition-colors"
-          >
-            ← 메인으로 돌아가기
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Banner */}
       <motion.section
@@ -387,10 +373,13 @@ export default function TrainingPage() {
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3">
                 {searchQuery ? '검색 결과가 없습니다' : '연수 자료 준비 중'}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 max-w-md leading-relaxed mb-6">
+              <p className="text-slate-500 dark:text-slate-400 max-w-md leading-relaxed mb-2">
                 {searchQuery
                   ? `"${searchQuery}"에 해당하는 자료를 찾지 못했습니다. 다른 검색어를 시도해보세요.`
-                  : '등록된 교육 연수 자료가 없습니다. 새로운 연수 자료를 등록해보세요!'}
+                  : '새로운 연수 자료가 곧 업데이트됩니다. 직접 자료를 등록할 수도 있어요!'}
+              </p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mb-6">
+                💡 등록된 자료는 현재 기기의 브라우저에 저장됩니다.
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}

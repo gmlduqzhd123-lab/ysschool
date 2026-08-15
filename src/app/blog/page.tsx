@@ -38,6 +38,13 @@ export default function BlogIndex() {
             </Link>
           ))}
         </div>
+
+        {/* Coming soon notice */}
+        <div className="mt-12 text-center py-8 border-t border-slate-200 dark:border-slate-800">
+          <p className="text-slate-400 dark:text-slate-500 text-sm">
+            ✏️ 새로운 글을 준비하고 있습니다. 곧 더 많은 이야기를 나눌 예정이에요!
+          </p>
+        </div>
       </main>
       <Footer />
     </div>

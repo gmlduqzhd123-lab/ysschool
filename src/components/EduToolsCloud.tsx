@@ -58,7 +58,7 @@ export default function EduToolsCloud() {
   };
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
+    <section className="pt-28 pb-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-72 h-72 bg-brand-sky/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
 

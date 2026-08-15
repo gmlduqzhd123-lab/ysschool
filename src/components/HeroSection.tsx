@@ -61,7 +61,7 @@ export default function HeroSection() {
               </span><span className="text-slate-900 dark:text-white">{t('에 오신 것을 환영합니다.', ' welcomes you.')}</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep whitespace-pre-line">
               {t(
                 '안녕하세요, 초등교사 김희엽입니다. \n늘 배우며 성장하겠습니다.',
                 'Hello, I\'m Kim Hee-yeop, an elementary school teacher.\nAlways learning, always growing.'

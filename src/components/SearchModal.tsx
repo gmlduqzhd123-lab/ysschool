@@ -52,6 +52,7 @@ const searchItems: SearchItem[] = [
 export default function SearchModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [selectedIdx, setSelectedIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -73,9 +74,17 @@ export default function SearchModal() {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
-      requestAnimationFrame(() => setQuery(''));
+      requestAnimationFrame(() => {
+        setQuery('');
+        setSelectedIdx(0);
+      });
     }
   }, [isOpen]);
+
+  // Reset selection when query changes
+  useEffect(() => {
+    setSelectedIdx(0);
+  }, [query]);
 
   const filteredItems = useMemo(() => {
     if (!query.trim()) return searchItems.slice(0, 8);
@@ -144,6 +153,18 @@ export default function SearchModal() {
                   type="text"
                   value={query}
                   onChange={e => setQuery(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.key === 'ArrowDown') {
+                      e.preventDefault();
+                      setSelectedIdx(prev => Math.min(prev + 1, filteredItems.length - 1));
+                    } else if (e.key === 'ArrowUp') {
+                      e.preventDefault();
+                      setSelectedIdx(prev => Math.max(prev - 1, 0));
+                    } else if (e.key === 'Enter' && filteredItems.length > 0) {
+                      e.preventDefault();
+                      handleSelect(filteredItems[selectedIdx]);
+                    }
+                  }}
                   placeholder="검색어를 입력하세요..."
                   className="flex-grow bg-transparent text-lg text-slate-900 dark:text-white placeholder-slate-400 outline-none"
                 />
@@ -168,7 +189,10 @@ export default function SearchModal() {
                     <button
                       key={idx}
                       onClick={() => handleSelect(item)}
-                      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left group cursor-pointer"
+                      onMouseEnter={() => setSelectedIdx(idx)}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-left group cursor-pointer ${
+                        idx === selectedIdx ? 'bg-slate-100 dark:bg-slate-800' : 'hover:bg-slate-100 dark:hover:bg-slate-800'
+                      }`}
                     >
                       <div className="flex-grow min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">

@@ -8,6 +8,7 @@ import {
   Sparkles, BookOpen, LayoutGrid
 } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import {
   miniAppsData, sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
@@ -25,22 +26,7 @@ export default function ShowcasePage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       {/* Header */}
-      <header className="sticky top-0 z-50 glass-header shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
-              <BookOpen className="h-6 w-6 text-white" />
-            </div>
-            <span className="font-bold text-2xl text-brand-navy dark:text-white tracking-tight">YSSCHOOL</span>
-          </Link>
-          <Link
-            href="/"
-            className="text-sm font-medium text-slate-500 hover:text-brand-navy dark:hover:text-brand-sky transition-colors"
-          >
-            ← 메인으로 돌아가기
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Banner */}
       <motion.section
@@ -82,7 +68,7 @@ export default function ShowcasePage() {
       </motion.section>
 
       {/* Tab Buttons */}
-      <div className="sticky top-20 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
+      <div className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 py-4">
           {([
             { key: 'apps' as Tab, label: '🎮 미니 웹앱 공간', icon: Gamepad2 },

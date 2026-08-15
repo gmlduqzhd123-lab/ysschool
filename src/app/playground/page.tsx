@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Rocket } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/Header';
 
 // ========== 레벨 데이터 ==========
 interface LevelData {
@@ -359,22 +360,7 @@ export default function PlaygroundPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-sky-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
-              <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-            </div>
-            <span className="font-bold text-xl sm:text-2xl text-brand-navy dark:text-white tracking-tight">YSSCHOOL</span>
-          </Link>
-          <Link
-            href="/"
-            className="text-xs sm:text-sm font-medium text-slate-500 hover:text-brand-navy dark:hover:text-brand-sky transition-colors"
-          >
-            ← 메인으로
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero */}
       <section className="relative py-12 sm:py-16 overflow-hidden">

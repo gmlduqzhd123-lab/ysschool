@@ -47,9 +47,16 @@ export default function AboutSection() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
-            {['#독서인문교육', '#글로-CAL', '#AI·디지털 선도', '#학생 저자 양성', '#발명영재교육', '#에듀테크 크리에이터'].map(tag => (
-              <span key={tag} className="px-3 py-1.5 bg-brand-orange/10 text-brand-orange dark:text-brand-orange text-sm font-semibold rounded-full">
-                {tag}
+            {[
+              { ko: '#독서인문교육', en: '#Reading & Humanities' },
+              { ko: '#글로-CAL', en: '#Glo-CAL' },
+              { ko: '#AI·디지털 선도', en: '#AI & Digital Pioneer' },
+              { ko: '#학생 저자 양성', en: '#Student Author Program' },
+              { ko: '#발명영재교육', en: '#Invention & Gifted' },
+              { ko: '#에듀테크 크리에이터', en: '#EduTech Creator' },
+            ].map(tag => (
+              <span key={tag.ko} className="px-3 py-1.5 bg-brand-orange/10 text-brand-orange dark:text-brand-orange text-sm font-semibold rounded-full">
+                {t(tag.ko, tag.en)}
               </span>
             ))}
           </div>

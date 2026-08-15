@@ -75,7 +75,7 @@ export default function StatsSection() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 text-center">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-12 text-center">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -83,7 +83,7 @@ export default function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: stat.delay }}
-              className="flex flex-col items-center justify-center"
+              className="flex flex-col items-center justify-center w-[calc(50%-1rem)] md:w-auto md:flex-1"
             >
               <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center mb-4 hover:scale-105 transition-transform duration-300">
                 <svg className="absolute inset-0 w-full h-full transform -rotate-90">
@@ -131,6 +131,7 @@ export default function StatsSection() {
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-sm text-slate-300 font-medium">
                 {t('사이트 방문', 'Site Visits')}: <span className="text-white font-bold">{visitCount.toLocaleString()}</span>
+                <span className="text-slate-500 text-xs ml-1">({t('이 브라우저', 'this browser')})</span>
               </span>
             </div>
           </motion.div>

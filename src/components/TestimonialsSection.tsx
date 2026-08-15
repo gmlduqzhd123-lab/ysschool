@@ -247,6 +247,7 @@ interface GuestEntry {
   affiliation: string;
   message: string;
   date: string;
+  passwordHash: string;
 }
 
 // 이름 익명화 함수: "김희엽" → "김○○", "이소연" → "이○○"
@@ -266,6 +267,7 @@ export default function TestimonialsSection() {
   const [guestName, setGuestName] = useState('');
   const [guestAffiliation, setGuestAffiliation] = useState('');
   const [guestMessage, setGuestMessage] = useState('');
+  const [guestPassword, setGuestPassword] = useState('');
   const [deleteIdx, setDeleteIdx] = useState<number | null>(null);
   const [deletePassword, setDeletePassword] = useState('');
   const [deleteError, setDeleteError] = useState(false);
@@ -280,14 +282,27 @@ export default function TestimonialsSection() {
     }
   }, []);
 
+  // Simple hash for password (client-side only, not cryptographic)
+  const simpleHash = (str: string): string => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash |= 0;
+    }
+    return hash.toString(36);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!guestName.trim() || !guestMessage.trim()) return;
+    if (!guestName.trim() || !guestMessage.trim() || !guestPassword.trim()) return;
+    if (guestPassword.trim().length < 2) return;
     const newEntry: GuestEntry = {
       name: guestName.trim(),
       affiliation: guestAffiliation.trim(),
       message: guestMessage.trim(),
       date: new Date().toLocaleDateString('ko-KR'),
+      passwordHash: simpleHash(guestPassword.trim()),
     };
     const updated = [newEntry, ...guestEntries];
     setGuestEntries(updated);
@@ -295,16 +310,18 @@ export default function TestimonialsSection() {
     setGuestName('');
     setGuestAffiliation('');
     setGuestMessage('');
+    setGuestPassword('');
     setShowForm(false);
   };
 
   const handleDelete = () => {
-    if (deletePassword === '1234') {
-      if (deleteIdx !== null) {
-        const updated = guestEntries.filter((_, i) => i !== deleteIdx);
-        setGuestEntries(updated);
-        localStorage.setItem('ysschool-guestbook', JSON.stringify(updated));
-      }
+    if (deleteIdx === null) return;
+    const entry = guestEntries[deleteIdx];
+    const inputHash = simpleHash(deletePassword.trim());
+    if (entry && inputHash === entry.passwordHash) {
+      const updated = guestEntries.filter((_, i) => i !== deleteIdx);
+      setGuestEntries(updated);
+      localStorage.setItem('ysschool-guestbook', JSON.stringify(updated));
       setDeleteIdx(null);
       setDeletePassword('');
       setDeleteError(false);
@@ -322,11 +339,12 @@ export default function TestimonialsSection() {
   const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % testimonials.length);
   const prevSlide = () => setCurrentIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  // Auto slide
+  // Auto slide — reset timer on manual interaction
+  const [autoKey, setAutoKey] = useState(0);
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [autoKey]);
 
   return (
     <section id="testimonials" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
@@ -384,29 +402,37 @@ export default function TestimonialsSection() {
 
           {/* Nav Buttons */}
           <button
-            onClick={prevSlide}
+            onClick={() => { prevSlide(); setAutoKey(k => k + 1); }}
             className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-14 p-2 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 text-slate-600 dark:text-slate-300" />
           </button>
           <button
-            onClick={nextSlide}
+            onClick={() => { nextSlide(); setAutoKey(k => k + 1); }}
             className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-14 p-2 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-5 h-5 text-slate-600 dark:text-slate-300" />
           </button>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIdx(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === currentIdx ? 'bg-brand-navy dark:bg-brand-sky w-8' : 'bg-slate-300 dark:bg-slate-600'
-                }`}
-              />
-            ))}
+          {/* Page indicator */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <button
+              onClick={() => { setCurrentIdx(Math.max(0, currentIdx - 1)); setAutoKey(k => k + 1); }}
+              disabled={currentIdx === 0}
+              className="text-xs text-slate-400 dark:text-slate-500 hover:text-brand-navy dark:hover:text-brand-sky disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors"
+            >
+              ◀
+            </button>
+            <span className="text-sm font-bold text-slate-600 dark:text-slate-300 tabular-nums">
+              {currentIdx + 1} <span className="text-slate-400 dark:text-slate-500 font-normal">/ {testimonials.length}</span>
+            </span>
+            <button
+              onClick={() => { setCurrentIdx(Math.min(testimonials.length - 1, currentIdx + 1)); setAutoKey(k => k + 1); }}
+              disabled={currentIdx === testimonials.length - 1}
+              className="text-xs text-slate-400 dark:text-slate-500 hover:text-brand-navy dark:hover:text-brand-sky disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors"
+            >
+              ▶
+            </button>
           </div>
         </div>
 
@@ -461,6 +487,18 @@ export default function TestimonialsSection() {
                     required
                   />
                 </div>
+                <div className="flex flex-col sm:flex-row gap-3 mb-3">
+                  <input
+                    type="password"
+                    value={guestPassword}
+                    onChange={e => setGuestPassword(e.target.value)}
+                    placeholder="삭제용 비밀번호 (2자 이상)"
+                    className="sm:w-48 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                    required
+                    minLength={2}
+                  />
+                  <p className="flex items-center text-xs text-slate-400 dark:text-slate-500">🔒 나중에 글을 삭제할 때 사용됩니다</p>
+                </div>
                 <p className="text-xs text-slate-400 dark:text-slate-500 mb-3">※ 이름은 개인정보 보호를 위해 자동으로 익명 처리됩니다 (예: 김희엽 → 김○○)</p>
                 <div className="flex justify-end">
                   <button
@@ -480,6 +518,7 @@ export default function TestimonialsSection() {
               <div className="text-center py-8 text-slate-400 dark:text-slate-500">
                 <MessageCircle className="w-8 h-8 mx-auto mb-2 opacity-40" />
                 <p className="text-sm">아직 방명록이 없습니다. 첫 번째 글을 남겨보세요!</p>
+                <p className="text-xs mt-2 opacity-60">💡 방명록은 현재 기기의 브라우저에 저장됩니다.</p>
               </div>
             ) : (
               guestEntries.slice(0, 5).map((entry, idx) => (
