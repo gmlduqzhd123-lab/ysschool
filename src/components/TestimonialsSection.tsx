@@ -277,8 +277,13 @@ export default function TestimonialsSection() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        requestAnimationFrame(() => setGuestEntries(parsed));
-      } catch { }
+        // Remove any test entries left from automated testing
+        const cleaned = parsed.filter((e: { message?: string }) => !e.message?.includes('Great site UX'));
+        if (cleaned.length !== parsed.length) {
+          localStorage.setItem('ysschool-guestbook', JSON.stringify(cleaned));
+        }
+        requestAnimationFrame(() => setGuestEntries(cleaned));
+      } catch {}
     }
   }, []);
 
@@ -436,7 +441,183 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* guestbook disabled */}
+        {/* Guestbook */}
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <PenLine className="w-5 h-5 text-brand-sky" />
+              방명록
+            </h4>
+            <button
+              onClick={() => setShowForm(!showForm)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-navy hover:bg-brand-navy/90 text-white rounded-xl font-semibold transition-all duration-300 shadow-sm cursor-pointer text-sm"
+            >
+              <Send className="w-4 h-4" />
+              글 남기기
+            </button>
+          </div>
+
+          {/* Write Form */}
+          <AnimatePresence>
+            {showForm && (
+              <motion.form
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                onSubmit={handleSubmit}
+                className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 mb-6 border border-slate-200 dark:border-slate-700 overflow-hidden"
+              >
+                <div className="flex flex-col sm:flex-row gap-3 mb-3">
+                  <input
+                    type="text"
+                    value={guestName}
+                    onChange={e => setGuestName(e.target.value)}
+                    placeholder="이름"
+                    className="flex-shrink-0 sm:w-36 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                    required
+                  />
+                  <input
+                    type="text"
+                    value={guestAffiliation}
+                    onChange={e => setGuestAffiliation(e.target.value)}
+                    placeholder="소속 (선택)"
+                    className="flex-shrink-0 sm:w-44 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                  />
+                  <input
+                    type="text"
+                    value={guestMessage}
+                    onChange={e => setGuestMessage(e.target.value)}
+                    placeholder="따뜻한 한마디를 남겨주세요 ✨"
+                    className="flex-grow px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                    required
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 mb-3">
+                  <input
+                    type="password"
+                    value={guestPassword}
+                    onChange={e => setGuestPassword(e.target.value)}
+                    placeholder="삭제용 비밀번호 (2자 이상)"
+                    className="sm:w-48 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-sky transition-colors text-sm"
+                    required
+                    minLength={2}
+                  />
+                  <p className="flex items-center text-xs text-slate-400 dark:text-slate-500">🔒 나중에 글을 삭제할 때 사용됩니다</p>
+                </div>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mb-3">※ 이름은 개인정보 보호를 위해 자동으로 익명 처리됩니다 (예: 김희엽 → 김○○)</p>
+                <div className="flex justify-end">
+                  <button
+                    type="submit"
+                    className="px-6 py-2.5 bg-brand-sky hover:bg-brand-sky/80 text-slate-900 rounded-xl font-bold transition-colors cursor-pointer text-sm"
+                  >
+                    등록
+                  </button>
+                </div>
+              </motion.form>
+            )}
+          </AnimatePresence>
+
+          {/* Guest Entries */}
+          <div className="space-y-3">
+            {guestEntries.length === 0 ? (
+              <div className="text-center py-8 text-slate-400 dark:text-slate-500">
+                <MessageCircle className="w-8 h-8 mx-auto mb-2 opacity-40" />
+                <p className="text-sm">아직 방명록이 없습니다. 첫 번째 글을 남겨보세요!</p>
+                <p className="text-xs mt-2 opacity-60">💡 방명록은 현재 기기의 브라우저에 저장됩니다.</p>
+              </div>
+            ) : (
+              guestEntries.slice(0, 5).map((entry, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="group flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700"
+                >
+                  <div className="w-8 h-8 rounded-full bg-brand-navy/10 dark:bg-brand-sky/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-sm font-bold text-brand-navy dark:text-brand-sky">
+                      {entry.name.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="flex-grow min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-bold text-sm text-slate-900 dark:text-white">{anonymizeName(entry.name)}</span>
+                      {entry.affiliation && (
+                        <span className="text-xs text-brand-navy/60 dark:text-brand-sky/60 bg-brand-navy/5 dark:bg-brand-sky/10 px-2 py-0.5 rounded-full">{entry.affiliation}</span>
+                      )}
+                      <span className="text-xs text-slate-400">{entry.date}</span>
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 break-keep">{entry.message}</p>
+                  </div>
+                  <button
+                    onClick={() => { setDeleteIdx(idx); setDeletePassword(''); setDeleteError(false); }}
+                    className="shrink-0 p-1.5 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+                    title="삭제"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </motion.div>
+              ))
+            )}
+          </div>
+
+          {/* Delete Confirmation Modal */}
+          <AnimatePresence>
+            {deleteIdx !== null && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4"
+                onClick={cancelDelete}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  onClick={e => e.stopPropagation()}
+                  className="bg-white dark:bg-slate-800 rounded-2xl p-6 w-full max-w-sm shadow-2xl border border-slate-200 dark:border-slate-700"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-3">
+                      <Trash2 className="w-6 h-6 text-red-500" />
+                    </div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">방명록 삭제</h4>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">삭제하려면 비밀번호를 입력하세요.</p>
+                  </div>
+                  <input
+                    type="password"
+                    value={deletePassword}
+                    onChange={e => { setDeletePassword(e.target.value); setDeleteError(false); }}
+                    onKeyDown={e => e.key === 'Enter' && handleDelete()}
+                    placeholder="비밀번호"
+                    className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
+                      deleteError ? 'border-red-400 focus:border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
+                    } transition-colors`}
+                    autoFocus
+                  />
+                  {deleteError && (
+                    <p className="text-xs text-red-500 text-center mt-2">비밀번호가 일치하지 않습니다.</p>
+                  )}
+                  <div className="flex gap-2 mt-4">
+                    <button
+                      onClick={cancelDelete}
+                      className="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
+                    >
+                      취소
+                    </button>
+                    <button
+                      onClick={handleDelete}
+                      className="flex-1 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white font-semibold text-sm transition-colors cursor-pointer"
+                    >
+                      삭제
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
