@@ -73,9 +73,12 @@ export default function Footer() {
         
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>
-            &copy; {currentYear} ysschool by 엽쌤. All rights reserved.
+            &copy; {currentYear} 엽쌤스쿨 · 엽쌤
           </p>
-          <div className="flex items-center gap-2 text-slate-500">
+          <div className="flex items-center gap-4 text-slate-500">
+            <a href="https://gmlduqzhd123-lab.github.io/YScode/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
+              엽쌤의 웹앱 모음 →
+            </a>
             <span>Powered by Next.js & Vercel</span>
           </div>
         </div>
