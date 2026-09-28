@@ -61,7 +61,10 @@ function loadLocalEntries(): GuestEntry[] {
 
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify(migrated.map(({ source: _source, ...entry }) => entry)),
+      JSON.stringify(migrated.map(({ source, ...entry }) => {
+        void source;
+        return entry;
+      })),
     );
     return migrated;
   } catch {
@@ -116,7 +119,10 @@ export default function LocalGuestbook() {
     setEntries(next);
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify(next.map(({ source: _source, ...entry }) => entry)),
+      JSON.stringify(next.map(({ source, ...entry }) => {
+        void source;
+        return entry;
+      })),
     );
   };
 
