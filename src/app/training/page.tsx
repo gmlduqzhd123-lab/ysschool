@@ -36,7 +36,7 @@ export default function TrainingPage() {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('category');
     if (cat && (categories as readonly string[]).includes(cat)) {
-      setSelectedCategory(cat);
+      requestAnimationFrame(() => setSelectedCategory(cat));
     }
   }, []);
 
