@@ -37,7 +37,10 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    void refresh();
+    const frame = requestAnimationFrame(() => {
+      void refresh();
+    });
+    return () => cancelAnimationFrame(frame);
   }, [refresh]);
 
   const login = useCallback(async (password: string) => {
