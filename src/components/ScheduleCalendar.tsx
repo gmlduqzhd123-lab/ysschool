@@ -146,7 +146,11 @@ export default function ScheduleCalendar() {
   const persistLocalEvents = (events: ScheduleEvent[]) => {
     const localOnly = events
       .filter((event) => event.source === 'local')
-      .map(({ source: _source, id: _id, ...event }) => event);
+      .map(({ source, id, ...event }) => {
+        void source;
+        void id;
+        return event;
+      });
     localStorage.setItem('ysschool-schedule', JSON.stringify(localOnly));
   };
 
