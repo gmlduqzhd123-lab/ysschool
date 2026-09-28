@@ -81,11 +81,6 @@ export default function SearchModal() {
     }
   }, [isOpen]);
 
-  // Reset selection when query changes
-  useEffect(() => {
-    setSelectedIdx(0);
-  }, [query]);
-
   const filteredItems = useMemo(() => {
     if (!query.trim()) return searchItems.slice(0, 8);
     const q = query.toLowerCase();
@@ -155,7 +150,10 @@ export default function SearchModal() {
                   ref={inputRef}
                   type="text"
                   value={query}
-                  onChange={e => setQuery(e.target.value)}
+                  onChange={e => {
+                    setQuery(e.target.value);
+                    setSelectedIdx(0);
+                  }}
                   onKeyDown={e => {
                     if (e.key === 'ArrowDown') {
                       e.preventDefault();
