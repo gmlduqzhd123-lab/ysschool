@@ -128,11 +128,11 @@ export default function ChatBot() {
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
             whileHover={{ scale: 1.1 }}
             onClick={handleEnable}
-            className="fixed bottom-8 left-8 z-50 w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 shadow-md flex items-center justify-center cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-600 hover:text-brand-navy dark:hover:text-brand-sky transition-all group"
+            className="fixed bottom-5 left-5 sm:bottom-8 sm:left-8 z-50 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 shadow-md flex items-center justify-center cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-600 hover:text-brand-navy dark:hover:text-brand-sky transition-all group"
             aria-label="채팅봇 다시 켜기"
             title="채팅봇 켜기"
           >
-            <Power className="w-4 h-4" />
+            <Power className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             {/* Tooltip */}
             <span className="absolute left-full ml-2 px-2.5 py-1 rounded-lg bg-slate-800 dark:bg-slate-600 text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               챗봇 켜기
@@ -150,11 +150,11 @@ export default function ChatBot() {
             exit={{ scale: 0 }}
             whileHover={{ scale: 1.1 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-8 left-8 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-brand-navy to-brand-sky text-white shadow-lg shadow-brand-navy/30 flex items-center justify-center cursor-pointer hover:shadow-brand-sky/40 transition-shadow"
+            className="fixed bottom-5 left-5 sm:bottom-8 sm:left-8 z-50 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-brand-navy to-brand-sky text-white shadow-lg shadow-brand-navy/30 flex items-center justify-center cursor-pointer hover:shadow-brand-sky/40 transition-shadow"
             aria-label="채팅봇 열기"
           >
-            <MessageCircle className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-brand-orange rounded-full animate-pulse" />
+            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="absolute -top-0.5 -right-0.5 w-3 h-3 sm:-top-1 sm:-right-1 sm:w-4 sm:h-4 bg-brand-orange rounded-full animate-pulse" />
           </motion.button>
         )}
       </AnimatePresence>
