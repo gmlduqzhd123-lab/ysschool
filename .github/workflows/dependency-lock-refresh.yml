@@ -1,0 +1,44 @@
+name: Dependency Lock Refresh
+
+on:
+  push:
+    branches:
+      - chatgpt/ysschool-quality-pass-2-20260928
+    paths:
+      - .github/workflows/dependency-lock-refresh.yml
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Upgrade Next.js runtime packages in lockfile
+        run: |
+          npm install --package-lock-only --save-exact next@16.3.6 @next/mdx@16.3.6
+          npm install --package-lock-only --save-dev --save-exact eslint-config-next@16.3.6
+          npm audit fix --package-lock-only || true
+
+      - name: Audit upgraded production dependencies
+        run: npm audit --omit=dev || true
+
+      - name: Upload refreshed package files
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-lock-refresh
+          path: |
+            package.json
+            package-lock.json
+          if-no-files-found: error
+          retention-days: 1
