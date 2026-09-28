@@ -269,7 +269,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Testimonials & Guestbook</h2>
+          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Testimonials & Notes</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             연수 후기 & 방문 메모
           </h3>
