@@ -99,6 +99,8 @@ jobs:
             'id="dashBtn"',
             'joystickDelta',
             'body.game-running #joystickZone',
+            'syncCanvasViewport',
+            'white-space: nowrap',
             'touchcancel',
           ];
 
