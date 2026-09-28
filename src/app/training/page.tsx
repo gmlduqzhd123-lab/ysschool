@@ -163,10 +163,10 @@ export default function TrainingPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const maxBytes = sharedMode ? 10 * 1024 * 1024 : 1_500_000;
+    const maxBytes = sharedMode ? 4 * 1024 * 1024 : 1_500_000;
     if (file.size > maxBytes) {
       setErrorMsg(sharedMode
-        ? '공유 저장소에는 10MB 이하 파일만 첨부할 수 있습니다.'
+        ? '공유 저장소에는 4MB 이하 파일만 첨부할 수 있습니다.'
         : '브라우저 저장 한계 때문에 1.5MB 이하 파일만 첨부할 수 있습니다. 큰 파일은 Google Drive 등 외부 링크를 이용해주세요.');
       e.target.value = '';
       setSelectedFile(null);
@@ -693,7 +693,7 @@ export default function TrainingPage() {
                   />
                   {fileName && (
                     <p className="mt-1 text-xs text-emerald-600 font-medium truncate">
-                      선택됨: {fileName} {sharedMode ? '(최대 10MB)' : '(최대 1.5MB)'}
+                      선택됨: {fileName} {sharedMode ? '(최대 4MB)' : '(최대 1.5MB)'}
                     </p>
                   )}
                 </div>
