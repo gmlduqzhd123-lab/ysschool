@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { contentStoreConfigured, isAdminRequest, isSameOrigin } from '@/lib/server/adminSession';
 import { uploadTrainingFile } from '@/lib/server/supabaseRest';
 
-const MAX_FILE_BYTES = 10 * 1024 * 1024;
+const MAX_FILE_BYTES = 4 * 1024 * 1024;
 const ALLOWED_EXTENSIONS = new Set([
   'pdf', 'ppt', 'pptx', 'doc', 'docx', 'hwp', 'hwpx', 'xls', 'xlsx',
   'png', 'jpg', 'jpeg', 'webp', 'txt', 'zip',
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: '허용되지 않는 파일 형식입니다.' }, { status: 400 });
   }
   if (file.size <= 0 || file.size > MAX_FILE_BYTES) {
-    return NextResponse.json({ error: '파일은 10MB 이하만 업로드할 수 있습니다.' }, { status: 400 });
+    return NextResponse.json({ error: '파일은 4MB 이하만 업로드할 수 있습니다.' }, { status: 400 });
   }
 
   try {
