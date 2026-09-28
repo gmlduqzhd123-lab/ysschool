@@ -78,6 +78,7 @@ export default function ShowcasePage() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
+              aria-pressed={activeTab === tab.key}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
                   ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30'
@@ -124,6 +125,7 @@ export default function ShowcasePage() {
                   <button
                     key={sub.key}
                     onClick={() => setGallerySub(sub.key)}
+                    aria-pressed={gallerySub === sub.key}
                     className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer ${
                       gallerySub === sub.key
                         ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/30'
@@ -337,12 +339,16 @@ export default function ShowcasePage() {
               exit={{ scale: 0.9, y: 30 }}
               className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${iframeModal.title} 미리보기`}
             >
               <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
                 <h3 className="font-bold text-lg text-slate-900 dark:text-white">{iframeModal.title}</h3>
                 <button
                   onClick={() => setIframeModal(null)}
                   className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                  aria-label="미리보기 닫기"
                 >
                   <X className="w-5 h-5 text-slate-500" />
                 </button>
@@ -350,6 +356,7 @@ export default function ShowcasePage() {
               <iframe
                 src={iframeModal.url}
                 title={iframeModal.title}
+                loading="lazy"
                 className="w-full border-0"
                 style={{ height: 'calc(90vh - 70px)' }}
               />
@@ -379,6 +386,7 @@ export default function ShowcasePage() {
             <button
               onClick={() => setLightboxImg(null)}
               className="absolute top-6 right-6 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer"
+              aria-label="확대 이미지 닫기"
             >
               <X className="w-6 h-6" />
             </button>
