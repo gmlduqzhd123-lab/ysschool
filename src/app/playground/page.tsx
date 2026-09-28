@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Rocket } from 'lucide-react';
+import { Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 
