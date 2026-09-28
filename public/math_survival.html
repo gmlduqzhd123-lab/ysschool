@@ -480,7 +480,32 @@
       .row > button, .row > select { width: 100%; margin-right: 0; }
       #startBtn { min-height: 52px; font-size: 18px; }
       .small { font-size: 12px; }
-      .hudBox { font-size: 11px; min-width: auto; padding: 7px; }
+
+      canvas {
+        width: calc(100vw - 8px);
+        max-width: none;
+        max-height: none;
+        border-width: 3px;
+        border-radius: 18px;
+      }
+
+      #hud {
+        top: 8px;
+        width: calc(100vw - 8px);
+        gap: 3px;
+      }
+
+      .hudBox {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 7px 2px;
+        border-radius: 12px;
+        font-size: clamp(8px, 2.45vw, 11px);
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+      }
   
     #mainMenuBtn {
       position: absolute;
@@ -714,6 +739,20 @@
   <script>
     const canvas = document.getElementById("game");
     const ctx = canvas.getContext("2d");
+
+    function syncCanvasViewport() {
+      const mobile = window.matchMedia("(max-width: 760px), (pointer: coarse)").matches;
+      const nextWidth = 1000;
+      const nextHeight = mobile ? 820 : 650;
+      const changed = canvas.width !== nextWidth || canvas.height !== nextHeight;
+
+      if (changed) {
+        canvas.width = nextWidth;
+        canvas.height = nextHeight;
+      }
+
+      return changed;
+    }
 
     const hud = document.getElementById("hud");
     const hpEl = document.getElementById("hp");
@@ -2945,6 +2984,13 @@
       stopJoystick();
     });
 
+    window.addEventListener("resize", () => {
+      if (syncCanvasViewport()) {
+        updateCamera();
+      }
+    });
+
+    syncCanvasViewport();
     makeDecorations();
     updateCamera();
     requestAnimationFrame(loop);
