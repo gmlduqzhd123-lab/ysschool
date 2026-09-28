@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, ExternalLink, FileText, Download, Search,
-  Sparkles, Filter, Calendar, Tag, Plus, Lock, X, Upload, Link2, Image as ImageIcon, Trash2
+  Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -20,8 +20,6 @@ export default function TrainingPage() {
 
   // Delete modal state
   const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
-  const [deletePassword, setDeletePassword] = useState('');
-  const [deleteErrorMsg, setDeleteErrorMsg] = useState('');
 
   // Form state
   const [title, setTitle] = useState('');
@@ -32,7 +30,6 @@ export default function TrainingPage() {
   const [fileUrl, setFileUrl] = useState('');
   const [fileType, setFileType] = useState('');
   const [thumbnail, setThumbnail] = useState('');
-  const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   // Read category from URL query parameter
@@ -70,11 +67,6 @@ export default function TrainingPage() {
   };
 
   const handleDeleteMaterial = (id: number) => {
-    if (deletePassword !== '1234') {
-      setDeleteErrorMsg('비밀번호가 올바르지 않습니다.');
-      return;
-    }
-
     const updated = materials.filter(item => item.id !== id);
     setMaterials(updated);
 
@@ -90,8 +82,6 @@ export default function TrainingPage() {
     }
 
     setDeleteModalId(null);
-    setDeletePassword('');
-    setDeleteErrorMsg('');
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,11 +102,6 @@ export default function TrainingPage() {
   const handleCreateMaterial = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
-
-    if (password !== '1234') {
-      setErrorMsg('비밀번호가 올바르지 않습니다. (비밀번호: 1234)');
-      return;
-    }
 
     if (!title.trim() || !description.trim()) {
       setErrorMsg('제목과 설명을 모두 입력해주세요.');
@@ -147,7 +132,6 @@ export default function TrainingPage() {
     setFileUrl('');
     setFileType('');
     setThumbnail('');
-    setPassword('');
     setErrorMsg('');
     setIsModalOpen(false);
   };
@@ -348,8 +332,6 @@ export default function TrainingPage() {
                     <button
                       onClick={() => {
                         setDeleteModalId(item.id);
-                        setDeletePassword('');
-                        setDeleteErrorMsg('');
                       }}
                       className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
                       title="자료 삭제"
@@ -411,7 +393,7 @@ export default function TrainingPage() {
                   </div>
                   <div>
                     <h2 className="font-extrabold text-lg">새 연수 자료 등록</h2>
-                    <p className="text-xs text-white/70">자료 등록을 위해 비밀번호를 입력해주세요</p>
+                    <p className="text-xs text-white/70">이 브라우저에만 저장되는 개인 자료입니다</p>
                   </div>
                 </div>
                 <button
@@ -425,25 +407,13 @@ export default function TrainingPage() {
               {/* Modal Body / Form */}
               <form onSubmit={handleCreateMaterial} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 {errorMsg && (
-                  <div className="p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-300 text-sm font-medium rounded-xl flex items-center gap-2">
-                    <Lock className="w-4 h-4 shrink-0" />
-                    <span>{errorMsg}</span>
+                  <div className="p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-300 text-sm font-medium rounded-xl">
+                    {errorMsg}
                   </div>
                 )}
 
-                {/* Password field */}
-                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl">
-                  <label className="block text-xs font-bold text-amber-800 dark:text-amber-300 mb-1.5 flex items-center gap-1.5">
-                    <Lock className="w-3.5 h-3.5" /> 관리자 비밀번호 <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="password"
-                    required
-                    placeholder="비밀번호 입력 (1234)"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-white border border-amber-300 dark:border-amber-700 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  />
+                <div className="p-4 bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 rounded-2xl text-xs leading-relaxed text-sky-800 dark:text-sky-200">
+                  이 기능은 서버에 업로드하지 않습니다. 등록한 자료와 첨부 파일은 현재 브라우저에만 저장되며, 다른 기기나 방문자에게 공유되지 않습니다.
                 </div>
 
                 {/* Title */}
@@ -592,33 +562,10 @@ export default function TrainingPage() {
               </div>
 
               <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                자료를 삭제하려면 관리자 비밀번호를 입력해주세요.
+                이 브라우저에서만 해당 자료를 숨기거나 삭제합니다. 서버의 원본 자료에는 영향을 주지 않습니다.
               </p>
 
-              {deleteErrorMsg && (
-                <div className="mb-4 text-xs font-bold text-rose-500 bg-rose-50 dark:bg-rose-950/40 p-3 rounded-xl">
-                  {deleteErrorMsg}
-                </div>
-              )}
-
               <form onSubmit={(e) => { e.preventDefault(); handleDeleteMaterial(deleteModalId); }}>
-                <div className="mb-4">
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                    비밀번호 입력
-                  </label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                    <input
-                      type="password"
-                      placeholder="비밀번호 4자리 (예: 1234)"
-                      value={deletePassword}
-                      onChange={(e) => setDeletePassword(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
-                      autoFocus
-                    />
-                  </div>
-                </div>
-
                 <div className="flex gap-2 justify-end">
                   <button
                     type="button"
