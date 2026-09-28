@@ -43,6 +43,7 @@ export default function MiniAppsGrid({ onPreview }: MiniAppsGridProps) {
             <p className="text-slate-600 dark:text-slate-300 mb-5 text-sm leading-relaxed">{app.description}</p>
             <div className="flex gap-3">
               <button
+                type="button"
                 onClick={() => onPreview({ url: app.appUrl, title: app.title })}
                 className="flex items-center gap-2 bg-brand-navy hover:bg-brand-sky text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
               >
