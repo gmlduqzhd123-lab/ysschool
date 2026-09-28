@@ -6,6 +6,8 @@
     <title>오늘 뭐 먹지?? 랜덤 뽑기 (링크 이동형)</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        *, *::before, *::after { box-sizing: border-box; }
         
         /* 기본 및 테마별 색상 설정 */
         :root {
@@ -91,8 +93,11 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            min-height: 100dvh;
             background-color: var(--bg-color);
             margin: 0;
+            padding: 16px;
+            overflow-x: hidden;
             transition: background-color 0.4s ease;
         }
         .container {
@@ -254,6 +259,21 @@
         body.night-theme .action-btn:disabled { background-color: #424242; color: #757575; }
 
         .credit { margin-top: 20px; font-size: 14px; color: var(--sub-text); font-weight: 600; }
+
+        @media (max-width: 420px) {
+            body { align-items: flex-start; padding: 10px; }
+            .container { width: 100%; padding: 28px 16px; border-radius: 18px; }
+            h1 { font-size: 24px; }
+            .cheer-message { font-size: 14px; margin-bottom: 20px; }
+            .menu-grid { gap: 8px; }
+            .menu-btn { padding: 16px 8px; font-size: 15px; }
+            .menu-btn span { font-size: 24px; }
+            .result-box { min-height: 190px; padding: 24px 14px; }
+            .emoji-display { font-size: 58px; }
+            .text-display { font-size: 21px; }
+            .action-btn { padding: 17px 14px; font-size: 19px; }
+            .back-btn { top: 12px; left: 10px; }
+        }
     </style>
 </head>
 <body>
