@@ -110,7 +110,10 @@ export default function TrainingPage() {
     setMaterials(newMaterials);
     const customOnly = newMaterials
       .filter((item) => item.source === 'local' || (item.source == null && item.id >= 10000))
-      .map(({ source: _source, ...item }) => item);
+      .map(({ source, ...item }) => {
+        void source;
+        return item;
+      });
     localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
   };
 
@@ -152,7 +155,10 @@ export default function TrainingPage() {
     } else {
       const customOnly = updated
         .filter((item) => item.source === 'local' || (item.source == null && item.id >= 10000))
-        .map(({ source: _source, ...item }) => item);
+        .map(({ source, ...item }) => {
+          void source;
+          return item;
+        });
       localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
     }
 
