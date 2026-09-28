@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 import SplashScreen from "@/components/SplashScreen";
 import SearchModal from "@/components/SearchModal";
 import ChatBot from "@/components/ChatBot";
+import { AdminProvider } from "@/components/AdminContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,6 +74,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-[100vw] w-full`}
       >
         <LanguageProvider>
+          <AdminProvider>
           <SplashScreen />
           <ScrollToTopOnMount />
           <ScrollProgressBar />
@@ -80,6 +82,7 @@ export default function RootLayout({
           {children}
           <ScrollToTopButton />
           <ChatBot />
+          </AdminProvider>
         </LanguageProvider>
       </body>
     </html>

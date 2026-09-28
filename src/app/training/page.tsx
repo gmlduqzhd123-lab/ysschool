@@ -7,15 +7,23 @@ import {
   Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
 import Header from '@/components/Header';
+import AdminGateButton from '@/components/AdminGateButton';
+import { useAdmin } from '@/components/AdminContext';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
+
+type DisplayMaterial = TrainingMaterial & { source?: 'shared' | 'local' | 'default' };
 
 const categories = ['전체', '에듀테크', 'AI활용', '독서인문', '기타'] as const;
 
 export default function TrainingPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
+  const { isAdmin } = useAdmin();
   const [searchQuery, setSearchQuery] = useState('');
-  const [materials, setMaterials] = useState<TrainingMaterial[]>([]);
+  const [materials, setMaterials] = useState<DisplayMaterial[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sharedMode, setSharedMode] = useState(false);
+  const [loadingMaterials, setLoadingMaterials] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   // Delete modal state
   const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
@@ -28,6 +36,7 @@ export default function TrainingPage() {
   const [fileName, setFileName] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [fileType, setFileType] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [thumbnail, setThumbnail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -40,43 +49,116 @@ export default function TrainingPage() {
     }
   }, []);
 
-  // Load initial + stored materials
-  useEffect(() => {
+  const readLocalMaterials = (): DisplayMaterial[] => {
     const stored = localStorage.getItem('ysschool_training_materials');
     const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
+    const base = trainingData
+      .filter((item) => !deletedIds.includes(item.id))
+      .map((item) => ({ ...item, source: 'default' as const }));
 
-    const base = trainingData.filter(item => !deletedIds.includes(item.id));
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored);
-        requestAnimationFrame(() => setMaterials([...parsed, ...base]));
-      } catch {
-        requestAnimationFrame(() => setMaterials(base));
-      }
-    } else {
-      requestAnimationFrame(() => setMaterials(base));
+    if (!stored) return base;
+
+    try {
+      const parsed = JSON.parse(stored) as TrainingMaterial[];
+      return [
+        ...parsed.map((item) => ({ ...item, source: 'local' as const })),
+        ...base,
+      ];
+    } catch {
+      return base;
     }
+  };
+
+  // Prefer the shared store when configured, while preserving older browser-only items.
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadMaterials = async () => {
+      const localItems = readLocalMaterials();
+
+      try {
+        const response = await fetch('/api/training', { cache: 'no-store' });
+        const data = await response.json();
+
+        if (data.configured) {
+          if (!cancelled) {
+            setSharedMode(true);
+            const sharedItems = Array.isArray(data.items) ? data.items : [];
+            requestAnimationFrame(() => setMaterials([...sharedItems, ...localItems]));
+            if (!response.ok && data.error) setErrorMsg(data.error);
+          }
+          return;
+        }
+      } catch {}
+
+      if (!cancelled) {
+        setSharedMode(false);
+        requestAnimationFrame(() => setMaterials(localItems));
+      }
+    };
+
+    void loadMaterials().finally(() => {
+      if (!cancelled) setLoadingMaterials(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const saveMaterials = (newMaterials: TrainingMaterial[]) => {
+  const saveLocalMaterials = (newMaterials: DisplayMaterial[]) => {
     setMaterials(newMaterials);
-    // Custom uploaded materials (id > 10000 or added by user)
-    const customOnly = newMaterials.filter(item => item.id >= 10000);
+    const customOnly = newMaterials
+      .filter((item) => item.source === 'local' || (item.source == null && item.id >= 10000))
+      .map(({ source, ...item }) => {
+        void source;
+        return item;
+      });
     localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
   };
 
-  const handleDeleteMaterial = (id: number) => {
-    const updated = materials.filter(item => item.id !== id);
+  const handleDeleteMaterial = async (id: number) => {
+    const target = materials.find((item) => item.id === id);
+    if (!target) return;
+
+    if (target.source === 'shared') {
+      if (!isAdmin) {
+        setDeleteModalId(null);
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/training/${id}`, { method: 'DELETE' });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          setErrorMsg(data.error || '자료를 삭제하지 못했습니다.');
+          return;
+        }
+        setMaterials((current) => current.filter((item) => item.id !== id));
+      } catch {
+        setErrorMsg('공유 저장소에 연결할 수 없습니다.');
+      } finally {
+        setDeleteModalId(null);
+      }
+      return;
+    }
+
+    const updated = materials.filter((item) => item.id !== id);
     setMaterials(updated);
 
-    if (id < 10000) {
+    if (target.source === 'default' || (target.source == null && id < 10000)) {
       const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
       if (!deletedIds.includes(id)) {
         deletedIds.push(id);
         localStorage.setItem('ysschool_training_deleted_ids', JSON.stringify(deletedIds));
       }
     } else {
-      const customOnly = updated.filter(item => item.id >= 10000);
+      const customOnly = updated
+        .filter((item) => item.source === 'local' || (item.source == null && item.id >= 10000))
+        .map(({ source, ...item }) => {
+          void source;
+          return item;
+        });
       localStorage.setItem('ysschool_training_materials', JSON.stringify(customOnly));
     }
 
@@ -87,10 +169,13 @@ export default function TrainingPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const maxBytes = 1_500_000;
+    const maxBytes = sharedMode ? 4 * 1024 * 1024 : 1_500_000;
     if (file.size > maxBytes) {
-      setErrorMsg('브라우저 저장 한계 때문에 1.5MB 이하 파일만 첨부할 수 있습니다. 큰 파일은 Google Drive 등 외부 링크를 이용해주세요.');
+      setErrorMsg(sharedMode
+        ? '공유 저장소에는 4MB 이하 파일만 첨부할 수 있습니다.'
+        : '브라우저 저장 한계 때문에 1.5MB 이하 파일만 첨부할 수 있습니다. 큰 파일은 Google Drive 등 외부 링크를 이용해주세요.');
       e.target.value = '';
+      setSelectedFile(null);
       setFileName('');
       setFileUrl('');
       setFileType('');
@@ -98,9 +183,15 @@ export default function TrainingPage() {
     }
 
     setErrorMsg('');
+    setSelectedFile(file);
     setFileName(file.name);
     const ext = file.name.split('.').pop()?.toLowerCase() || '';
     setFileType(ext);
+
+    if (sharedMode) {
+      setFileUrl('');
+      return;
+    }
 
     const reader = new FileReader();
     reader.onload = (uploadEvent) => {
@@ -109,7 +200,21 @@ export default function TrainingPage() {
     reader.readAsDataURL(file);
   };
 
-  const handleCreateMaterial = (e: React.FormEvent) => {
+  const resetForm = () => {
+    setTitle('');
+    setDescription('');
+    setCategory('에듀테크');
+    setLink('');
+    setFileName('');
+    setFileUrl('');
+    setFileType('');
+    setSelectedFile(null);
+    setThumbnail('');
+    setErrorMsg('');
+    setIsModalOpen(false);
+  };
+
+  const handleCreateMaterial = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -118,7 +223,67 @@ export default function TrainingPage() {
       return;
     }
 
-    const newMaterial: TrainingMaterial = {
+    setSubmitting(true);
+
+    if (sharedMode) {
+      if (!isAdmin) {
+        setErrorMsg('관리자 로그인이 필요합니다.');
+        setSubmitting(false);
+        return;
+      }
+
+      try {
+        let uploadedFileUrl = '';
+        let uploadedFileType = fileType;
+
+        if (selectedFile) {
+          const formData = new FormData();
+          formData.append('file', selectedFile);
+          const uploadResponse = await fetch('/api/admin/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          const uploadData = await uploadResponse.json().catch(() => ({}));
+          if (!uploadResponse.ok) {
+            setErrorMsg(uploadData.error || '파일 업로드에 실패했습니다.');
+            return;
+          }
+          uploadedFileUrl = uploadData.url || '';
+          uploadedFileType = uploadData.fileType || fileType;
+        }
+
+        const response = await fetch('/api/training', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: title.trim(),
+            description: description.trim(),
+            category,
+            date: new Date().toISOString().split('T')[0],
+            link: link.trim() || undefined,
+            fileUrl: uploadedFileUrl || undefined,
+            fileType: uploadedFileType || undefined,
+            thumbnail: thumbnail.trim() || undefined,
+          }),
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          setErrorMsg(data.error || '공유 자료를 저장하지 못했습니다.');
+          return;
+        }
+
+        if (data.item) setMaterials((current) => [data.item, ...current]);
+        resetForm();
+      } catch {
+        setErrorMsg('공유 저장소에 연결할 수 없습니다.');
+      } finally {
+        setSubmitting(false);
+      }
+      return;
+    }
+
+    const newMaterial: DisplayMaterial = {
       id: Date.now(),
       title: title.trim(),
       description: description.trim(),
@@ -128,22 +293,12 @@ export default function TrainingPage() {
       fileUrl: fileUrl || undefined,
       fileType: fileType || undefined,
       thumbnail: thumbnail.trim() || undefined,
+      source: 'local',
     };
 
-    const updated = [newMaterial, ...materials];
-    saveMaterials(updated);
-
-    // Reset form and close modal
-    setTitle('');
-    setDescription('');
-    setCategory('에듀테크');
-    setLink('');
-    setFileName('');
-    setFileUrl('');
-    setFileType('');
-    setThumbnail('');
-    setErrorMsg('');
-    setIsModalOpen(false);
+    saveLocalMaterials([newMaterial, ...materials]);
+    resetForm();
+    setSubmitting(false);
   };
 
   const filteredData = materials.filter((item) => {
@@ -204,16 +359,29 @@ export default function TrainingPage() {
           >
             교육 현장에서 직접 제작한 연수 자료를 공유합니다. 링크와 파일을 통해 자유롭게 활용해보세요.
           </motion.p>
-          <motion.button
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all cursor-pointer text-base"
+            className="inline-block"
           >
-            <Plus className="w-5 h-5" />
-            새 자료 등록하기
-          </motion.button>
+            {sharedMode ? (
+              <AdminGateButton
+                label="새 자료 등록하기"
+                onAuthorized={() => setIsModalOpen(true)}
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all cursor-pointer text-base disabled:opacity-60"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all cursor-pointer text-base"
+              >
+                <Plus className="w-5 h-5" />
+                새 자료 등록하기
+              </button>
+            )}
+          </motion.div>
         </div>
       </motion.section>
 
@@ -248,13 +416,23 @@ export default function TrainingPage() {
                   {cat}
                 </button>
               ))}
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-all cursor-pointer shadow-sm"
-              >
-                <Plus className="w-4 h-4" />
-                자료 등록
-              </button>
+              {sharedMode ? (
+                <AdminGateButton
+                  label="자료 등록"
+                  compact
+                  onAuthorized={() => setIsModalOpen(true)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-all cursor-pointer shadow-sm disabled:opacity-60"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-all cursor-pointer shadow-sm"
+                >
+                  <Plus className="w-4 h-4" />
+                  자료 등록
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -344,16 +522,16 @@ export default function TrainingPage() {
                         </a>
                       )}
                     </div>
-                    <button
-                      onClick={() => {
-                        setDeleteModalId(item.id);
-                      }}
-                      className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
-                      title="자료 삭제"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      삭제
-                    </button>
+                    {(item.source !== 'shared' || isAdmin) && (
+                      <button
+                        onClick={() => setDeleteModalId(item.id)}
+                        className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
+                        title={item.source === 'shared' ? '공유 자료 관리자 삭제' : '이 기기 자료 삭제'}
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        삭제
+                      </button>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -376,15 +554,28 @@ export default function TrainingPage() {
                   : '새로운 연수 자료가 곧 업데이트됩니다. 직접 자료를 등록할 수도 있어요!'}
               </p>
               <p className="text-xs text-slate-400 dark:text-slate-500 mb-6">
-                💡 등록된 자료는 현재 기기의 브라우저에 저장됩니다.
+                {loadingMaterials
+                  ? '자료 저장소를 확인하는 중입니다.'
+                  : sharedMode
+                    ? '공유 자료는 서버에 저장되어 모든 방문자에게 표시됩니다.'
+                    : '공유 저장소 설정 전까지 등록 자료는 현재 브라우저에만 저장됩니다.'}
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition-all cursor-pointer"
-              >
-                <Plus className="w-4 h-4" />
-                첫 자료 등록하기
-              </button>
+              {sharedMode ? (
+                <AdminGateButton
+                  label="첫 자료 등록하기"
+                  onAuthorized={() => setIsModalOpen(true)}
+                  className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition-all cursor-pointer disabled:opacity-60"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition-all cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  첫 자료 등록하기
+                </button>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -408,7 +599,9 @@ export default function TrainingPage() {
                   </div>
                   <div>
                     <h2 className="font-extrabold text-lg">새 연수 자료 등록</h2>
-                    <p className="text-xs text-white/70">이 브라우저에만 저장되는 개인 자료입니다</p>
+                    <p className="text-xs text-white/70">
+                      {sharedMode ? '관리자 권한으로 공유 저장소에 등록합니다' : '이 브라우저에만 저장되는 개인 자료입니다'}
+                    </p>
                   </div>
                 </div>
                 <button
@@ -428,7 +621,9 @@ export default function TrainingPage() {
                 )}
 
                 <div className="p-4 bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 rounded-2xl text-xs leading-relaxed text-sky-800 dark:text-sky-200">
-                  이 기능은 서버에 업로드하지 않습니다. 등록한 자료와 첨부 파일은 현재 브라우저에만 저장되며, 다른 기기나 방문자에게 공유되지 않습니다.
+                  {sharedMode
+                    ? '등록한 자료와 첨부 파일은 공유 저장소에 저장되어 다른 기기와 방문자에게도 표시됩니다. 공개 가능한 자료만 등록해주세요.'
+                    : '공유 저장소 설정 전에는 등록한 자료와 첨부 파일이 현재 브라우저에만 저장됩니다.'}
                 </div>
 
                 {/* Title */}
@@ -504,7 +699,7 @@ export default function TrainingPage() {
                   />
                   {fileName && (
                     <p className="mt-1 text-xs text-emerald-600 font-medium truncate">
-                      선택됨: {fileName}
+                      선택됨: {fileName} {sharedMode ? '(최대 4MB)' : '(최대 1.5MB)'}
                     </p>
                   )}
                 </div>
@@ -534,10 +729,11 @@ export default function TrainingPage() {
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                    disabled={submitting}
+                    className="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-colors cursor-pointer flex items-center justify-center gap-1.5 disabled:opacity-60"
                   >
                     <Plus className="w-4 h-4" />
-                    자료 등록하기
+                    {submitting ? '저장 중...' : '자료 등록하기'}
                   </button>
                 </div>
               </form>
@@ -577,7 +773,9 @@ export default function TrainingPage() {
               </div>
 
               <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                이 브라우저에서만 해당 자료를 숨기거나 삭제합니다. 서버의 원본 자료에는 영향을 주지 않습니다.
+                {materials.find((item) => item.id === deleteModalId)?.source === 'shared'
+                  ? '관리자 권한으로 공유 저장소에서 이 자료를 삭제합니다. 모든 방문자 화면에서 사라집니다.'
+                  : '이 브라우저에 저장된 자료를 삭제하거나 기본 자료를 이 기기에서 숨깁니다.'}
               </p>
 
               <form onSubmit={(e) => { e.preventDefault(); handleDeleteMaterial(deleteModalId); }}>

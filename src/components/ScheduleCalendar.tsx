@@ -4,14 +4,18 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, ChevronLeft, ChevronRight, MapPin, Clock, Users, Plus, X, Trash2 } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import AdminGateButton from './AdminGateButton';
+import { useAdmin } from './AdminContext';
 
 interface ScheduleEvent {
+  id?: number;
   date: string; // YYYY-MM-DD
   title: string;
   location: string;
   time: string;
   target: string;
   type: 'training' | 'lecture' | 'performance' | 'consulting';
+  source?: 'shared' | 'local';
 }
 
 const defaultEvents: ScheduleEvent[] = [
@@ -44,22 +48,62 @@ const MONTHS_KR = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월
 
 export default function ScheduleCalendar() {
   const { t } = useLanguage();
+  const { isAdmin } = useAdmin();
   const today = new Date();
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
-  // Events state (localStorage + default)
   const [customEvents, setCustomEvents] = useState<ScheduleEvent[]>([]);
-  useEffect(() => {
+  const [sharedMode, setSharedMode] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [feedback, setFeedback] = useState('');
+
+  const readLocalEvents = (): ScheduleEvent[] => {
     const saved = localStorage.getItem('ysschool-schedule');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        requestAnimationFrame(() => setCustomEvents(parsed));
-      } catch {}
+    if (!saved) return [];
+    try {
+      const parsed = JSON.parse(saved) as ScheduleEvent[];
+      return parsed.map((event) => ({ ...event, source: 'local' as const }));
+    } catch {
+      return [];
     }
+  };
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadEvents = async () => {
+      const localEvents = readLocalEvents();
+      try {
+        const response = await fetch('/api/schedule', { cache: 'no-store' });
+        const data = await response.json();
+
+        if (data.configured) {
+          if (!cancelled) {
+            setSharedMode(true);
+            setCustomEvents([
+              ...(Array.isArray(data.items) ? data.items : []),
+              ...localEvents,
+            ]);
+            if (!response.ok && data.error) setFeedback(data.error);
+          }
+          return;
+        }
+      } catch {}
+
+      if (!cancelled) {
+        setSharedMode(false);
+        setCustomEvents(localEvents);
+      }
+    };
+
+    void loadEvents();
+    return () => {
+      cancelled = true;
+    };
   }, []);
+
   const allEvents = useMemo(() => [...defaultEvents, ...customEvents], [customEvents]);
 
   // Add form state
@@ -99,25 +143,68 @@ export default function ScheduleCalendar() {
 
   const selectedEvents = selectedDate ? (eventsForDate[selectedDate] || []) : [];
 
-  // Add event
-  const handleAddEvent = (e: React.FormEvent) => {
+  const persistLocalEvents = (events: ScheduleEvent[]) => {
+    const localOnly = events
+      .filter((event) => event.source === 'local')
+      .map(({ source, id, ...event }) => {
+        void source;
+        void id;
+        return event;
+      });
+    localStorage.setItem('ysschool-schedule', JSON.stringify(localOnly));
+  };
+
+  const handleAddEvent = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newEvent.date || !newEvent.title || !newEvent.location || !newEvent.time || !newEvent.target) return;
+    if (!newEvent.date || !newEvent.title || !newEvent.location || !newEvent.time || !newEvent.target || saving) return;
 
     const event: ScheduleEvent = {
-      date: newEvent.date!,
-      title: newEvent.title!,
-      location: newEvent.location!,
-      time: newEvent.time!,
-      target: newEvent.target!,
+      date: newEvent.date,
+      title: newEvent.title.trim(),
+      location: newEvent.location.trim(),
+      time: newEvent.time.trim(),
+      target: newEvent.target.trim(),
       type: (newEvent.type as ScheduleEvent['type']) || 'training',
     };
 
-    const updated = [...customEvents, event];
-    setCustomEvents(updated);
-    localStorage.setItem('ysschool-schedule', JSON.stringify(updated));
+    setSaving(true);
+    setFeedback('');
 
-    // Reset
+    if (sharedMode) {
+      if (!isAdmin) {
+        setFeedback('관리자 로그인이 필요합니다.');
+        setSaving(false);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/schedule', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(event),
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          setFeedback(data.error || '일정을 저장하지 못했습니다.');
+          return;
+        }
+
+        if (data.item) setCustomEvents((current) => [...current, data.item]);
+      } catch {
+        setFeedback('공유 일정 서버에 연결할 수 없습니다.');
+        return;
+      } finally {
+        setSaving(false);
+      }
+    } else {
+      const localEvent = { ...event, source: 'local' as const };
+      const updated = [...customEvents, localEvent];
+      setCustomEvents(updated);
+      persistLocalEvents(updated);
+      setSaving(false);
+    }
+
     setShowAddForm(false);
     setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
     setSelectedDate(event.date);
@@ -126,26 +213,52 @@ export default function ScheduleCalendar() {
   const closeAddForm = () => {
     setShowAddForm(false);
     setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
+    setFeedback('');
   };
 
-  // Delete event
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (!deleteTarget) return;
     const eventToDelete = eventsForDate[deleteTarget.date]?.[deleteTarget.idx];
-    if (eventToDelete) {
-      // Only browser-local custom events can be deleted.
-      const updatedCustom = customEvents.filter(
-        ev => !(ev.date === eventToDelete.date && ev.title === eventToDelete.title && ev.time === eventToDelete.time)
-      );
-      setCustomEvents(updatedCustom);
-      localStorage.setItem('ysschool-schedule', JSON.stringify(updatedCustom));
+    if (!eventToDelete) {
+      setDeleteTarget(null);
+      return;
     }
+
+    if (eventToDelete.source === 'shared') {
+      if (!isAdmin || !eventToDelete.id) {
+        setDeleteTarget(null);
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/schedule/${eventToDelete.id}`, { method: 'DELETE' });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          setFeedback(data.error || '일정을 삭제하지 못했습니다.');
+          return;
+        }
+        setCustomEvents((current) => current.filter((event) => event.id !== eventToDelete.id));
+      } catch {
+        setFeedback('공유 일정 서버에 연결할 수 없습니다.');
+      } finally {
+        setDeleteTarget(null);
+      }
+      return;
+    }
+
+    const updatedCustom = customEvents.filter(
+      (event) => !(event.date === eventToDelete.date && event.title === eventToDelete.title && event.time === eventToDelete.time),
+    );
+    setCustomEvents(updatedCustom);
+    persistLocalEvents(updatedCustom);
     setDeleteTarget(null);
   };
 
-  const isCustomEvent = (ev: ScheduleEvent) => {
-    return customEvents.some(c => c.date === ev.date && c.title === ev.title && c.time === ev.time);
-  };
+  const isCustomEvent = (ev: ScheduleEvent) => ev.source === 'shared' || ev.source === 'local';
+
+  const selectedDeleteEvent = deleteTarget
+    ? eventsForDate[deleteTarget.date]?.[deleteTarget.idx]
+    : undefined;
 
   return (
     <section id="schedule" className="py-20 bg-slate-50 dark:bg-slate-800/50 relative overflow-hidden">
@@ -173,6 +286,11 @@ export default function ScheduleCalendar() {
               </div>
             ))}
           </div>
+          <p className="mt-3 text-xs text-slate-400 dark:text-slate-500">
+            {sharedMode
+              ? '공유 일정 모드 · 관리자 변경 내용은 모든 방문자에게 반영됩니다.'
+              : '로컬 일정 모드 · 공유 저장소 설정 전에는 이 기기에만 변경 내용이 저장됩니다.'}
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -258,16 +376,29 @@ export default function ScheduleCalendar() {
                 <Calendar className="w-5 h-5 text-brand-sky" />
                 {selectedDate ? `${parseInt(selectedDate.split('-')[1])}월 ${parseInt(selectedDate.split('-')[2])}일` : '일정 상세'}
               </h4>
-              <button
-                onClick={() => {
-                  if (selectedDate) setNewEvent(prev => ({ ...prev, date: selectedDate }));
-                  setShowAddForm(true);
-                }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white text-xs font-bold transition-colors cursor-pointer shadow-sm"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                일정 추가
-              </button>
+              {sharedMode ? (
+                <AdminGateButton
+                  label="일정 추가"
+                  compact
+                  onAuthorized={() => {
+                    if (selectedDate) setNewEvent((prev) => ({ ...prev, date: selectedDate }));
+                    setShowAddForm(true);
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white text-xs font-bold transition-colors cursor-pointer shadow-sm disabled:opacity-60"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (selectedDate) setNewEvent((prev) => ({ ...prev, date: selectedDate }));
+                    setShowAddForm(true);
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white text-xs font-bold transition-colors cursor-pointer shadow-sm"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  일정 추가
+                </button>
+              )}
             </div>
 
             {selectedEvents.length > 0 ? (
@@ -284,11 +415,12 @@ export default function ScheduleCalendar() {
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${typeColors[ev.type].text} bg-white/50 dark:bg-slate-800/50`}>
                         {typeLabels[ev.type]}
                       </span>
-                      {isCustomEvent(ev) && (
+                      {isCustomEvent(ev) && (ev.source !== 'shared' || isAdmin) && (
                         <button
                           onClick={() => setDeleteTarget({ date: ev.date, idx })}
-                          className="p-1 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
-                          title="삭제"
+                          className="p-1 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:focus:opacity-100"
+                          title={ev.source === 'shared' ? '공유 일정 관리자 삭제' : '이 기기 일정 삭제'}
+                          aria-label="일정 삭제"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -343,8 +475,15 @@ export default function ScheduleCalendar() {
 
               <form onSubmit={handleAddEvent} className="p-6 space-y-4">
                 <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 text-xs leading-relaxed text-sky-800 dark:text-sky-200">
-                  추가한 일정은 현재 브라우저에만 저장됩니다. 다른 방문자에게 공개되는 공식 일정은 아닙니다.
+                  {sharedMode
+                    ? '관리자 권한으로 추가한 일정은 공유 저장소에 저장되어 모든 방문자에게 표시됩니다.'
+                    : '공유 저장소 설정 전에는 추가한 일정이 현재 브라우저에만 저장됩니다.'}
                 </div>
+                {feedback && (
+                  <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 text-xs text-amber-700 dark:text-amber-200">
+                    {feedback}
+                  </div>
+                )}
                   {/* Date */}
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">날짜 *</label>
@@ -429,9 +568,10 @@ export default function ScheduleCalendar() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-navy to-brand-sky text-white font-bold text-sm hover:shadow-lg transition-shadow cursor-pointer"
+                    disabled={saving}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-navy to-brand-sky text-white font-bold text-sm hover:shadow-lg transition-shadow cursor-pointer disabled:opacity-60"
                   >
-                    일정 등록하기
+                    {saving ? '저장 중...' : '일정 등록하기'}
                   </button>
                 </form>
             </motion.div>
@@ -461,7 +601,11 @@ export default function ScheduleCalendar() {
                   <Trash2 className="w-6 h-6 text-red-500" />
                 </div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white">일정 삭제</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">현재 브라우저에 추가한 일정만 삭제됩니다.</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  {selectedDeleteEvent?.source === 'shared'
+                    ? '관리자 권한으로 공유 저장소에서 삭제하며 모든 방문자 화면에서 사라집니다.'
+                    : '현재 브라우저에 추가한 일정만 삭제됩니다.'}
+                </p>
               </div>
               <div className="flex gap-2 mt-4">
                 <button
