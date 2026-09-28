@@ -105,9 +105,6 @@ export default function ShowcasePage() {
               {/* Mini Apps Grid */}
               <MiniAppsGrid onPreview={(app) => setIframeModal(app)} />
             </motion.div>
-                ))}
-              </div>
-            </motion.div>
           ) : (
             <motion.div
               key="gallery"
