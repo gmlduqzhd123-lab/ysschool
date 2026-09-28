@@ -14,12 +14,17 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const dark = saved ? saved === 'dark' : prefersDark;
-    setIsDark(dark);
     document.documentElement.classList.toggle('dark', dark);
+
+    const frame = requestAnimationFrame(() => {
+      setIsDark(dark);
+      setMounted(true);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const toggleTheme = () => {
