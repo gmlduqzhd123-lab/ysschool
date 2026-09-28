@@ -3,10 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  BookOpen, ExternalLink, FileText, Download, Search,
+  ExternalLink, Download, Search,
   Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
 
@@ -88,6 +87,17 @@ export default function TrainingPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    const maxBytes = 1_500_000;
+    if (file.size > maxBytes) {
+      setErrorMsg('브라우저 저장 한계 때문에 1.5MB 이하 파일만 첨부할 수 있습니다. 큰 파일은 Google Drive 등 외부 링크를 이용해주세요.');
+      e.target.value = '';
+      setFileName('');
+      setFileUrl('');
+      setFileType('');
+      return;
+    }
+
+    setErrorMsg('');
     setFileName(file.name);
     const ext = file.name.split('.').pop()?.toLowerCase() || '';
     setFileType(ext);
