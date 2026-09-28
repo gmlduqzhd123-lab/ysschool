@@ -15,7 +15,7 @@ export const miniAppsData: MiniApp[] = [
     description: '점심 메뉴 고민 끝! 랜덤으로 메뉴를 추천해주는 재미있는 룰렛 웹앱입니다.',
     thumbnail: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=600',
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    appUrl: '/apps/random-menu.html',
+    appUrl: '/apps/random-menu.html?v=20260929-audit1',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const miniAppsData: MiniApp[] = [
     description: '1000가지의 기상천외한 조퇴 사유를 랜덤으로 뽑아보세요! 순전히 재미용입니다 😄',
     thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=600',
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    appUrl: '/apps/random-excuse.html',
+    appUrl: '/apps/random-excuse.html?v=20260929-audit1',
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const miniAppsData: MiniApp[] = [
     description: '학생들과 함께 즐기는 교육용 테트리스! 논리적 사고력과 공간 지각 능력을 키워보세요.',
     thumbnail: 'https://images.unsplash.com/photo-1640955014216-75201056c829?auto=format&fit=crop&q=80&w=600',
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    appUrl: '/apps/tetris.html',
+    appUrl: '/apps/tetris.html?v=20260929-audit1',
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const miniAppsData: MiniApp[] = [
     description: '10초 안에 스페이스바를 얼마나 빠르게 연타할 수 있을까? 6학년 평균을 돌파해보세요!',
     thumbnail: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=600',
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    appUrl: '/apps/grip-test.html',
+    appUrl: '/apps/grip-test.html?v=20260929-audit1',
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const miniAppsData: MiniApp[] = [
     description: '수학 문제를 풀며 몬스터를 물리치는 서바이벌 게임! 맵·무기·아이템을 선택하고 성장하세요.',
     thumbnail: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=600',
     techStack: ['HTML', 'CSS', 'Canvas', 'JavaScript'],
-    appUrl: '/apps/math-survival.html?v=20260929-mobile-layout2',
+    appUrl: '/apps/math-survival.html?v=20260929-audit1',
   },
 ];
 

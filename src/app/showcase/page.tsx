@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Gamepad2, Rocket, Play, X,
@@ -24,6 +24,26 @@ export default function ShowcasePage() {
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [expandedNotebook, setExpandedNotebook] = useState<number | null>(null);
 
+  useEffect(() => {
+    const modalOpen = Boolean(iframeModal || lightboxImg);
+    if (!modalOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setIframeModal(null);
+      setLightboxImg(null);
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [iframeModal, lightboxImg]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       {/* Header */}
@@ -34,7 +54,7 @@ export default function ShowcasePage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="relative py-20 sm:py-28 overflow-hidden"
+        className="relative pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0f1d3d 0%, #1a2f5e 50%, #0c1a38 100%)' }}
       >
         <div className="absolute top-10 left-1/4 w-72 h-72 bg-sky-500/15 rounded-full blur-3xl" />
@@ -69,8 +89,8 @@ export default function ShowcasePage() {
       </motion.section>
 
       {/* Tab Buttons */}
-      <div className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 py-4">
+      <div className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 gap-2 py-3 sm:py-4">
           {([
             { key: 'apps' as Tab, label: '🎮 미니 웹앱 공간', icon: Gamepad2 },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
@@ -79,7 +99,7 @@ export default function ShowcasePage() {
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
               aria-pressed={activeTab === tab.key}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
+              className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
                   ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -170,13 +190,15 @@ export default function ShowcasePage() {
                     {canvaData.length > 0 ? (
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {canvaData.map((item, i) => (
-                          <motion.div
+                          <motion.button
+                            type="button"
                             key={item.id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: i * 0.1 }}
-                            className="group cursor-pointer bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
+                            className="group w-full text-left cursor-pointer bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky"
                             onClick={() => setLightboxImg(item.image)}
+                            aria-label={`${item.title} 이미지 크게 보기`}
                           >
                             <div className="relative aspect-[3/4] overflow-hidden">
                               <Image
@@ -196,7 +218,7 @@ export default function ShowcasePage() {
                               <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
                               <p className="text-xs text-slate-500 mt-1">{item.description}</p>
                             </div>
-                          </motion.div>
+                          </motion.button>
                         ))}
                       </div>
                     ) : (
@@ -225,6 +247,8 @@ export default function ShowcasePage() {
                           >
                             <button
                               onClick={() => setExpandedNotebook(expandedNotebook === item.id ? null : item.id)}
+                              aria-expanded={expandedNotebook === item.id}
+                              aria-controls={`notebook-panel-${item.id}`}
                               className="w-full flex items-center gap-4 p-5 text-left cursor-pointer"
                             >
                               <span className="text-3xl">{item.icon}</span>
@@ -247,7 +271,7 @@ export default function ShowcasePage() {
                                   transition={{ duration: 0.3 }}
                                   className="overflow-hidden"
                                 >
-                                  <div className="px-5 pb-5 pt-0">
+                                  <div id={`notebook-panel-${item.id}`} className="px-5 pb-5 pt-0">
                                     <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                                       {item.summary}
                                     </p>
@@ -343,11 +367,11 @@ export default function ShowcasePage() {
               aria-modal="true"
               aria-label={`${iframeModal.title} 미리보기`}
             >
-              <div className="flex items-center justify-between p-3 sm:p-4 border-b border-slate-200 dark:border-slate-700">
-                <h3 className="font-bold text-lg text-slate-900 dark:text-white">{iframeModal.title}</h3>
+              <div className="flex items-center justify-between gap-3 p-3 sm:p-4 border-b border-slate-200 dark:border-slate-700">
+                <h3 className="min-w-0 truncate font-bold text-base sm:text-lg text-slate-900 dark:text-white">{iframeModal.title}</h3>
                 <button
                   onClick={() => setIframeModal(null)}
-                  className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                  className="shrink-0 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   aria-label="미리보기 닫기"
                 >
                   <X className="w-5 h-5 text-slate-500" />
@@ -373,6 +397,9 @@ export default function ShowcasePage() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer"
             onClick={() => setLightboxImg(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="이미지 확대 보기"
           >
             <motion.img
               initial={{ scale: 0.8, opacity: 0 }}
@@ -398,7 +425,24 @@ export default function ShowcasePage() {
 
 // ===== Suno Audio Card Component =====
 function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current;
+    if (!audio || !song.audioUrl) return;
+
+    if (audio.paused) {
+      try {
+        await audio.play();
+      } catch {
+        setIsPlaying(false);
+      }
+    } else {
+      audio.pause();
+    }
+  };
 
   return (
     <motion.div
@@ -407,6 +451,23 @@ function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) 
       transition={{ delay }}
       className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
     >
+      {song.audioUrl && (
+        <audio
+          ref={audioRef}
+          src={song.audioUrl}
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => {
+            setIsPlaying(false);
+            setProgress(0);
+          }}
+          onTimeUpdate={(event) => {
+            const audio = event.currentTarget;
+            setProgress(audio.duration ? (audio.currentTime / audio.duration) * 100 : 0);
+          }}
+        />
+      )}
       <div className="relative aspect-square overflow-hidden">
         <Image
           src={song.coverArt}
@@ -416,10 +477,12 @@ function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) 
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        {/* Play/Pause Overlay */}
         <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="absolute bottom-4 right-4 w-14 h-14 rounded-full bg-brand-orange/90 hover:bg-brand-orange flex items-center justify-center text-white shadow-xl shadow-brand-orange/30 transform hover:scale-110 transition-all duration-300 cursor-pointer"
+          type="button"
+          onClick={() => void togglePlayback()}
+          disabled={!song.audioUrl}
+          aria-label={song.audioUrl ? (isPlaying ? `${song.title} 일시정지` : `${song.title} 재생`) : `${song.title} 음원 준비 중`}
+          className="absolute bottom-4 right-4 w-14 h-14 rounded-full bg-brand-orange/90 hover:bg-brand-orange flex items-center justify-center text-white shadow-xl shadow-brand-orange/30 transform hover:scale-110 transition-all duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
         >
           {isPlaying ? (
             <Pause className="w-6 h-6 fill-current" />
@@ -432,17 +495,15 @@ function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) 
         <h4 className="font-bold text-slate-900 dark:text-white mb-1">{song.title}</h4>
         <p className="text-xs text-brand-sky font-medium mb-2">{song.artist}</p>
         <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{song.description}</p>
-        {/* Simple progress bar placeholder */}
         <div className="mt-4 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-gradient-to-r from-brand-sky to-brand-orange rounded-full transition-all duration-1000 ${
-              isPlaying ? 'w-2/3' : 'w-0'
-            }`}
+            className="h-full bg-gradient-to-r from-brand-sky to-brand-orange rounded-full transition-[width] duration-150"
+            style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="text-[10px] text-slate-400 mt-2 text-center italic">
-          {song.audioUrl ? '' : '🎵 음원은 준비 중입니다'}
-        </p>
+        {!song.audioUrl && (
+          <p className="text-[10px] text-slate-400 mt-2 text-center italic">🎵 음원은 준비 중입니다</p>
+        )}
       </div>
     </motion.div>
   );

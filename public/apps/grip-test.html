@@ -320,10 +320,18 @@
     .hide { display: none !important; }
 
     @media (max-width: 600px) {
+      body {
+        align-items: flex-start;
+        overflow-y: auto;
+        min-height: 100dvh;
+      }
+      .container { padding: 1rem 0.75rem 1.5rem; }
       h1 { font-size: 1.5rem; }
       .card { padding: 1.8rem 1.2rem; }
+      .stats { gap: 1rem; }
       .stat-value { font-size: 2rem; }
       .action-btn.playing { font-size: 1.2rem; padding: 1.2rem 2rem; }
+      .tap-zone { touch-action: manipulation; }
     }
   </style>
 </head>
@@ -422,7 +430,7 @@
     const MAX_GAUGE = 150; // max taps for full gauge
     const emojis = ['💪', '🔥', '⚡', '💥', '🌟', '✨', '👊', '🎯'];
 
-    const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+    const isMobile = window.matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
 
     function startGame() {
       tapCount = 0;
