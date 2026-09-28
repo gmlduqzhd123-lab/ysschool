@@ -3,14 +3,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Gamepad2, Rocket, Play, X, ExternalLink,
+  Gamepad2, Rocket, Play, X,
   Music, Image as ImageIcon, FileText, ChevronDown, Pause,
-  Sparkles, BookOpen, LayoutGrid
+  Sparkles, LayoutGrid
 } from 'lucide-react';
-import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
+import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
 import {
-  miniAppsData, sunoData, canvaData, notebookData, padletData,
+  sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
 type Tab = 'apps' | 'gallery';
@@ -102,53 +103,8 @@ export default function ShowcasePage() {
               transition={{ duration: 0.4 }}
             >
               {/* Mini Apps Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {miniAppsData.map((app, i) => (
-                  <motion.div
-                    key={app.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.4 }}
-                    className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
-                  >
-                    <div className="relative aspect-video overflow-hidden">
-                      <img
-                        src={app.thumbnail}
-                        alt={app.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
-                        {app.techStack.map((tech) => (
-                          <span key={tech} className="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-extrabold text-slate-900 dark:text-white mb-2">{app.title}</h3>
-                      <p className="text-slate-600 dark:text-slate-300 mb-5 text-sm leading-relaxed">{app.description}</p>
-                      <div className="flex gap-3">
-                        <button
-                          onClick={() => setIframeModal({ url: app.appUrl, title: app.title })}
-                          className="flex items-center gap-2 bg-brand-navy hover:bg-brand-sky text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
-                        >
-                          <Play className="w-4 h-4 fill-current" />
-                          체험하기
-                        </button>
-                        <a
-                          href={app.appUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-sm px-5 py-3 rounded-xl transition-colors"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          새 창
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
+              <MiniAppsGrid onPreview={(app) => setIframeModal(app)} />
+            </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -224,10 +180,12 @@ export default function ShowcasePage() {
                             onClick={() => setLightboxImg(item.image)}
                           >
                             <div className="relative aspect-[3/4] overflow-hidden">
-                              <img
+                              <Image
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                 <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
@@ -340,7 +298,13 @@ export default function ShowcasePage() {
                             className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
                           >
                             <div className="relative aspect-video overflow-hidden">
-                              <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                              <Image
+                                src={item.thumbnail}
+                                alt={item.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
                             </div>
                             <div className="p-5">
                               <h4 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h4>
@@ -440,10 +404,12 @@ function SunoCard({ song, delay }: { song: typeof sunoData[0]; delay: number }) 
       className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700"
     >
       <div className="relative aspect-square overflow-hidden">
-        <img
+        <Image
           src={song.coverArt}
           alt={song.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         {/* Play/Pause Overlay */}
