@@ -176,6 +176,9 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none cursor-pointer"
+              aria-label={mobileMenuOpen ? '모바일 메뉴 닫기' : '모바일 메뉴 열기'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {mobileMenuOpen ? (
@@ -191,7 +194,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
+        <div id="mobile-navigation" className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
           <div className="px-3 pt-2 pb-4 space-y-1">
             {navLinks.map((item) =>
               item.children ? (
