@@ -19,7 +19,7 @@ function toClient(row: GuestbookRow) {
     name: row.name,
     affiliation: row.affiliation || '',
     message: row.message,
-    date: new Date(row.created_at).toLocaleDateString('ko-KR'),
+    date: new Date(row.created_at).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul' }),
     source: 'shared' as const,
   };
 }
