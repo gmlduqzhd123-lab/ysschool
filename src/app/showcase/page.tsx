@@ -330,20 +330,20 @@ export default function ShowcasePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-0 sm:p-4"
             onClick={() => setIframeModal(null)}
           >
             <motion.div
               initial={{ scale: 0.9, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 30 }}
-              className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
+              className="bg-white dark:bg-slate-900 rounded-none sm:rounded-2xl shadow-2xl w-full max-w-4xl h-[100dvh] sm:h-auto max-h-[100dvh] sm:max-h-[90vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
               role="dialog"
               aria-modal="true"
               aria-label={`${iframeModal.title} 미리보기`}
             >
-              <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
+              <div className="flex items-center justify-between p-3 sm:p-4 border-b border-slate-200 dark:border-slate-700">
                 <h3 className="font-bold text-lg text-slate-900 dark:text-white">{iframeModal.title}</h3>
                 <button
                   onClick={() => setIframeModal(null)}
@@ -357,8 +357,7 @@ export default function ShowcasePage() {
                 src={iframeModal.url}
                 title={iframeModal.title}
                 loading="lazy"
-                className="w-full border-0"
-                style={{ height: 'calc(90vh - 70px)' }}
+                className="w-full border-0 h-[calc(100dvh-61px)] sm:h-[calc(90vh-70px)]"
               />
             </motion.div>
           </motion.div>
