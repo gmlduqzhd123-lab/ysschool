@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>매쓰 서바이벌</title>
   <style>
     * { box-sizing: border-box; }
@@ -18,6 +18,7 @@
     #wrap {
       width: 100vw;
       height: 100vh;
+      min-height: 100dvh;
       display: grid;
       place-items: center;
       position: relative;
@@ -35,15 +36,16 @@
     .panel {
       position: absolute;
       inset: 0;
-      display: grid;
-      place-items: center;
+      display: flex;
       background: rgba(4, 8, 18, 0.74);
       backdrop-filter: blur(7px);
       z-index: 10;
       padding: 24px;
+      overflow-y: auto;
     }
 
     .card {
+      margin: auto;
       width: min(940px, 95vw);
       background: rgba(255, 255, 255, 0.105);
       border: 1px solid rgba(255, 255, 255, 0.22);
@@ -114,6 +116,47 @@
       align-items: center;
       flex-wrap: wrap;
       margin-top: 18px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      transform: none;
+    }
+
+    .tab-btn:hover { filter: brightness(1.1); }
+    .tab-btn:active { transform: none; box-shadow: none; }
+
+    .tab-btn.active {
+      background: #38bdf8;
+      color: #0f172a;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 0 #0284c7;
+      font-weight: 1000;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     #hud {
@@ -323,16 +366,17 @@
       position: absolute;
       inset: 0;
       display: none;
-      place-items: center;
       background: rgba(4, 8, 18, 0.50);
       backdrop-filter: blur(4px);
       z-index: 8;
       padding: 24px;
+      overflow-y: auto;
     }
 
-    #levelUpPanel.show { display: grid; }
+    #levelUpPanel.show { display: flex; }
 
     .levelCard {
+      margin: auto;
       width: min(900px, 95vw);
       background: rgba(15, 23, 42, .95);
       border: 2px solid rgba(250, 204, 21, .72);
@@ -409,7 +453,33 @@
     }
 
     @media (max-width: 760px) {
-      .grid { grid-template-columns: 1fr; }
+      .panel {
+        align-items: start;
+        justify-items: center;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px;
+      }
+
+      .panel .card,
+      .levelCard {
+        width: 100%;
+        margin: 6px 0 24px;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      h1 { font-size: clamp(28px, 9vw, 42px); }
+      .subtitle { font-size: 15px; line-height: 1.5; margin-bottom: 12px; }
+      .grid { grid-template-columns: 1fr; gap: 9px; margin: 10px 0; }
+      .info { min-height: 0; padding: 12px 14px; font-size: 14px; }
+      .tabs { gap: 6px; }
+      .tab-btn { flex: 1; padding: 9px 8px; font-size: 13px; }
+      .row { gap: 9px; margin-top: 12px; }
+      .row > button, .row > select { width: 100%; margin-right: 0; }
+      #startBtn { min-height: 52px; font-size: 18px; }
+      .small { font-size: 12px; }
       .hudBox { font-size: 11px; min-width: auto; padding: 7px; }
   
     #mainMenuBtn {
@@ -454,6 +524,61 @@
       #achievementPop { top: 154px; font-size: 13px; }
       .upgradeGrid { grid-template-columns: 1fr; }
       select { width: 100%; }
+    }
+
+    /* Mobile Joystick */
+    #joystickZone {
+      position: absolute;
+      bottom: max(22px, env(safe-area-inset-bottom));
+      left: max(18px, env(safe-area-inset-left));
+      width: 128px;
+      height: 128px;
+      z-index: 100;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: none;
+      touch-action: none;
+    }
+    #joystickStick {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 56px;
+      height: 56px;
+      margin-left: -28px;
+      margin-top: -28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      pointer-events: none;
+      transition: transform 0.04s;
+    }
+    #dashBtn {
+      position: absolute;
+      bottom: max(30px, env(safe-area-inset-bottom));
+      right: max(22px, env(safe-area-inset-right));
+      width: 78px;
+      height: 78px;
+      z-index: 100;
+      border-radius: 50%;
+      background: rgba(250, 204, 21, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      display: none;
+      touch-action: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 17px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 0 #a16207;
+      user-select: none;
+    }
+    #dashBtn:active { transform: translateY(5px); box-shadow: 0 1px 0 #a16207; }
+
+    @media (max-width: 768px), (pointer: coarse) {
+      body.game-running #joystickZone { display: block; }
+      body.game-running #dashBtn { display: flex; }
     }
   </style>
 </head>
@@ -500,27 +625,40 @@
           이제 작은 화면 안에서만 움직이지 않습니다. 큰 월드를 돌아다니며 몬스터를 피하고, 맵·무기·아이템을 선택해 수학 문제를 풀며 성장하는 버전입니다.
         </div>
 
-        <div class="grid">
-          <div class="info">
-            <b>🎮 조작</b><br>
-            이동: <kbd>WASD</kbd> 또는 <kbd>방향키</kbd><br>
-            대시: <kbd>Space</kbd> / 일시정지: <kbd>P</kbd><br>
-            메인 메뉴: <kbd>ESC</kbd> 또는 화면 버튼<br>
-            게임 종료: <kbd>Q</kbd> 또는 종료 버튼
+        <div class="tabs">
+          <button class="tab-btn active" id="tabBtn1" onclick="document.getElementById('tabContent1').classList.add('active'); document.getElementById('tabContent2').classList.remove('active'); document.getElementById('tabBtn1').classList.add('active'); document.getElementById('tabBtn2').classList.remove('active');">🎮 조작 & 맵</button>
+          <button class="tab-btn" id="tabBtn2" onclick="document.getElementById('tabContent2').classList.add('active'); document.getElementById('tabContent1').classList.remove('active'); document.getElementById('tabBtn2').classList.add('active'); document.getElementById('tabBtn1').classList.remove('active');">🎁 아이템 & 무기</button>
+        </div>
+
+        <div id="tabContent1" class="tab-content active">
+          <div class="grid">
+            <div class="info">
+              <b>🎮 조작</b><br>
+              이동: <kbd>WASD</kbd> 또는 <kbd>방향키</kbd><br>
+              모바일: 왼쪽 <b>조이스틱</b> / 오른쪽 <b>대시</b><br>
+              대시: <kbd>Space</kbd> / 일시정지: <kbd>P</kbd><br>
+              메인 메뉴: <kbd>ESC</kbd> 또는 화면 버튼<br>
+              게임 종료: <kbd>Q</kbd> 또는 종료 버튼
+            </div>
+            <div class="info">
+              <b>🗺️ 맵 선택</b><br>
+              연산의 숲, 분수 사막, 별빛 도서관<br>
+              맵마다 배경과 장식, 분위기가 다릅니다.
+            </div>
           </div>
-          <div class="info">
-            <b>🗺️ 맵 선택</b><br>
-            연산의 숲, 분수 사막, 별빛 도서관<br>
-            맵마다 배경과 장식, 분위기가 다릅니다.
-          </div>
-          <div class="info">
-            <b>🔫 무기 확장</b><br>
-            마법구, 다중 발사, 관통 마법, 회전 위성, 수학 레이저, 부메랑 칠판, 분필 비<br>
-            레벨업 때 강화 가능<br>보스전, 포털, 펫 공격까지 추가
-          </div>
-          <div class="info">
-            <b>🎁 아이템 확장</b><br>
-            회복하트, 보호막, 시간얼음, 자석, 폭탄, 별사탕, 연산노트, 번개신발, 경험치책, 무지개연필, 지우개, 시계, 보물상자, 행운클로버, 보석, 순간이동깃털, 경험치 젤리
+        </div>
+
+        <div id="tabContent2" class="tab-content">
+          <div class="grid">
+            <div class="info">
+              <b>🔫 무기 확장</b><br>
+              마법구, 다중 발사, 관통 마법, 회전 위성, 수학 레이저, 부메랑 칠판, 분필 비<br>
+              레벨업 때 강화 가능<br>보스전, 포털, 펫 공격까지 추가
+            </div>
+            <div class="info">
+              <b>🎁 아이템 확장</b><br>
+              회복하트, 보호막, 시간얼음, 자석, 폭탄, 별사탕, 연산노트, 번개신발, 경험치책, 무지개연필, 지우개, 시계, 보물상자, 행운클로버, 보석, 순간이동깃털, 경험치 젤리
+            </div>
           </div>
         </div>
 
@@ -565,6 +703,12 @@
         <p class="small">브금은 이 화면에서도 계속 재생됩니다. 소리가 필요 없으면 소리 버튼을 눌러 끌 수 있습니다.</p>
       </div>
     </section>
+
+    <!-- Mobile UI -->
+    <div id="joystickZone">
+      <div id="joystickStick"></div>
+    </div>
+    <div id="dashBtn">대시</div>
   </div>
 
   <script>
@@ -598,6 +742,61 @@
     const achievementPop = document.getElementById("achievementPop");
     const levelUpPanel = document.getElementById("levelUpPanel");
     const upgradeChoices = document.getElementById("upgradeChoices");
+
+    const joystickZone = document.getElementById("joystickZone");
+    const joystickStick = document.getElementById("joystickStick");
+    const dashBtn = document.getElementById("dashBtn");
+    
+    let isJoystickActive = false;
+    let joystickCenter = { x: 0, y: 0 };
+    let joystickDelta = { x: 0, y: 0 };
+
+    joystickZone.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      const touch = e.changedTouches[0];
+      isJoystickActive = true;
+      const rect = joystickZone.getBoundingClientRect();
+      joystickCenter = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      updateJoystick(touch.clientX, touch.clientY);
+    }, { passive: false });
+
+    joystickZone.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+      if (!isJoystickActive) return;
+      const touch = e.changedTouches[0];
+      updateJoystick(touch.clientX, touch.clientY);
+    }, { passive: false });
+
+    function stopJoystick(e) {
+      if (e) e.preventDefault();
+      isJoystickActive = false;
+      joystickDelta = { x: 0, y: 0 };
+      joystickStick.style.transform = `translate(0px, 0px)`;
+    }
+
+    joystickZone.addEventListener("touchend", stopJoystick, { passive: false });
+    joystickZone.addEventListener("touchcancel", stopJoystick, { passive: false });
+
+    function updateJoystick(clientX, clientY) {
+      const maxDist = 40;
+      let dx = clientX - joystickCenter.x;
+      let dy = clientY - joystickCenter.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist > maxDist) { dx = (dx / dist) * maxDist; dy = (dy / dist) * maxDist; }
+      joystickStick.style.transform = `translate(${dx}px, ${dy}px)`;
+      joystickDelta = { x: dx / maxDist, y: dy / maxDist };
+    }
+
+    dashBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      keys[" "] = true;
+    }, { passive: false });
+    function stopDash(e) {
+      if (e) e.preventDefault();
+      keys[" "] = false;
+    }
+    dashBtn.addEventListener("touchend", stopDash, { passive: false });
+    dashBtn.addEventListener("touchcancel", stopDash, { passive: false });
 
     const keys = {};
     let muted = false;
@@ -1640,6 +1839,9 @@
 
     function resetGame() {
       initAudio();
+      document.body.classList.add("game-running");
+      stopJoystick();
+      keys[" "] = false;
 
       const mapKey = mapSelect.value;
       state.currentMapKey = mapKey;
@@ -1743,6 +1945,9 @@
 
     function endGame(won, quit = false) {
       state.running = false;
+      document.body.classList.remove("game-running");
+      stopJoystick();
+      keys[" "] = false;
       hud.classList.add("hidden");
       mainMenuBtn.classList.add("hidden");
       quitGameBtn.classList.add("hidden");
@@ -1801,6 +2006,11 @@
       if (keys["ArrowRight"] || keys["d"]) mx += 1;
       if (keys["ArrowUp"] || keys["w"]) my -= 1;
       if (keys["ArrowDown"] || keys["s"]) my += 1;
+      
+      if (joystickDelta.x !== 0 || joystickDelta.y !== 0) {
+        mx += joystickDelta.x;
+        my += joystickDelta.y;
+      }
 
       const mag = Math.hypot(mx, my) || 1;
       player.x += (mx / mag) * player.speed * slow * speedBoost;
@@ -2657,6 +2867,9 @@
 
     function returnToMainMenu() {
       state.running = false;
+      document.body.classList.remove("game-running");
+      stopJoystick();
+      keys[" "] = false;
       state.paused = false;
       state.levelUpPending = false;
       state.levelUpQueue = 0;
@@ -2675,6 +2888,7 @@
       quitGameBtn.classList.add("hidden");
       gameOverPanel.classList.add("hidden");
       startPanel.classList.remove("hidden");
+      startPanel.scrollTop = 0;
       levelUpPanel.classList.remove("show");
       questionBox.style.display = "none";
       activeItems.innerHTML = "";
@@ -2724,6 +2938,11 @@
     window.addEventListener("keyup", (e) => {
       keys[e.key] = false;
       keys[e.key.toLowerCase()] = false;
+    });
+
+    window.addEventListener("blur", () => {
+      Object.keys(keys).forEach((key) => { keys[key] = false; });
+      stopJoystick();
     });
 
     makeDecorations();

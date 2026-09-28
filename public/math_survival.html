@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>매쓰 서바이벌</title>
   <style>
     * { box-sizing: border-box; }
@@ -18,6 +18,7 @@
     #wrap {
       width: 100vw;
       height: 100vh;
+      min-height: 100dvh;
       display: grid;
       place-items: center;
       position: relative;
@@ -452,7 +453,33 @@
     }
 
     @media (max-width: 760px) {
-      .grid { grid-template-columns: 1fr; }
+      .panel {
+        align-items: start;
+        justify-items: center;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px;
+      }
+
+      .panel .card,
+      .levelCard {
+        width: 100%;
+        margin: 6px 0 24px;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      h1 { font-size: clamp(28px, 9vw, 42px); }
+      .subtitle { font-size: 15px; line-height: 1.5; margin-bottom: 12px; }
+      .grid { grid-template-columns: 1fr; gap: 9px; margin: 10px 0; }
+      .info { min-height: 0; padding: 12px 14px; font-size: 14px; }
+      .tabs { gap: 6px; }
+      .tab-btn { flex: 1; padding: 9px 8px; font-size: 13px; }
+      .row { gap: 9px; margin-top: 12px; }
+      .row > button, .row > select { width: 100%; margin-right: 0; }
+      #startBtn { min-height: 52px; font-size: 18px; }
+      .small { font-size: 12px; }
       .hudBox { font-size: 11px; min-width: auto; padding: 7px; }
   
     #mainMenuBtn {
@@ -500,11 +527,59 @@
     }
 
     /* Mobile Joystick */
-    #joystickZone { position: absolute; bottom: 30px; left: 30px; width: 140px; height: 140px; z-index: 100; border-radius: 50%; background: rgba(255, 255, 255, 0.15); border: 2px solid rgba(255, 255, 255, 0.3); display: none; touch-action: none; }
-    #joystickStick { position: absolute; top: 50%; left: 50%; width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.3); pointer-events: none; transition: transform 0.05s; }
-    #dashBtn { position: absolute; bottom: 40px; right: 30px; width: 80px; height: 80px; z-index: 100; border-radius: 50%; background: rgba(250, 204, 21, 0.8); border: 2px solid rgba(255, 255, 255, 0.5); display: none; touch-action: none; color: #000; font-weight: bold; font-size: 18px; align-items: center; justify-content: center; box-shadow: 0 6px 0 #a16207; user-select: none; }
+    #joystickZone {
+      position: absolute;
+      bottom: max(22px, env(safe-area-inset-bottom));
+      left: max(18px, env(safe-area-inset-left));
+      width: 128px;
+      height: 128px;
+      z-index: 100;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: none;
+      touch-action: none;
+    }
+    #joystickStick {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 56px;
+      height: 56px;
+      margin-left: -28px;
+      margin-top: -28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      pointer-events: none;
+      transition: transform 0.04s;
+    }
+    #dashBtn {
+      position: absolute;
+      bottom: max(30px, env(safe-area-inset-bottom));
+      right: max(22px, env(safe-area-inset-right));
+      width: 78px;
+      height: 78px;
+      z-index: 100;
+      border-radius: 50%;
+      background: rgba(250, 204, 21, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      display: none;
+      touch-action: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 17px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 0 #a16207;
+      user-select: none;
+    }
     #dashBtn:active { transform: translateY(5px); box-shadow: 0 1px 0 #a16207; }
-    @media (max-width: 768px) { #joystickZone { display: block; } #dashBtn { display: flex; } }
+
+    @media (max-width: 768px), (pointer: coarse) {
+      body.game-running #joystickZone { display: block; }
+      body.game-running #dashBtn { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -560,6 +635,7 @@
             <div class="info">
               <b>🎮 조작</b><br>
               이동: <kbd>WASD</kbd> 또는 <kbd>방향키</kbd><br>
+              모바일: 왼쪽 <b>조이스틱</b> / 오른쪽 <b>대시</b><br>
               대시: <kbd>Space</kbd> / 일시정지: <kbd>P</kbd><br>
               메인 메뉴: <kbd>ESC</kbd> 또는 화면 버튼<br>
               게임 종료: <kbd>Q</kbd> 또는 종료 버튼
@@ -691,12 +767,15 @@
       updateJoystick(touch.clientX, touch.clientY);
     }, { passive: false });
 
-    joystickZone.addEventListener("touchend", (e) => {
-      e.preventDefault();
+    function stopJoystick(e) {
+      if (e) e.preventDefault();
       isJoystickActive = false;
       joystickDelta = { x: 0, y: 0 };
       joystickStick.style.transform = `translate(0px, 0px)`;
-    }, { passive: false });
+    }
+
+    joystickZone.addEventListener("touchend", stopJoystick, { passive: false });
+    joystickZone.addEventListener("touchcancel", stopJoystick, { passive: false });
 
     function updateJoystick(clientX, clientY) {
       const maxDist = 40;
@@ -712,10 +791,12 @@
       e.preventDefault();
       keys[" "] = true;
     }, { passive: false });
-    dashBtn.addEventListener("touchend", (e) => {
-      e.preventDefault();
+    function stopDash(e) {
+      if (e) e.preventDefault();
       keys[" "] = false;
-    }, { passive: false });
+    }
+    dashBtn.addEventListener("touchend", stopDash, { passive: false });
+    dashBtn.addEventListener("touchcancel", stopDash, { passive: false });
 
     const keys = {};
     let muted = false;
@@ -1758,6 +1839,9 @@
 
     function resetGame() {
       initAudio();
+      document.body.classList.add("game-running");
+      stopJoystick();
+      keys[" "] = false;
 
       const mapKey = mapSelect.value;
       state.currentMapKey = mapKey;
@@ -1861,6 +1945,9 @@
 
     function endGame(won, quit = false) {
       state.running = false;
+      document.body.classList.remove("game-running");
+      stopJoystick();
+      keys[" "] = false;
       hud.classList.add("hidden");
       mainMenuBtn.classList.add("hidden");
       quitGameBtn.classList.add("hidden");
@@ -2780,6 +2867,9 @@
 
     function returnToMainMenu() {
       state.running = false;
+      document.body.classList.remove("game-running");
+      stopJoystick();
+      keys[" "] = false;
       state.paused = false;
       state.levelUpPending = false;
       state.levelUpQueue = 0;
@@ -2798,6 +2888,7 @@
       quitGameBtn.classList.add("hidden");
       gameOverPanel.classList.add("hidden");
       startPanel.classList.remove("hidden");
+      startPanel.scrollTop = 0;
       levelUpPanel.classList.remove("show");
       questionBox.style.display = "none";
       activeItems.innerHTML = "";
@@ -2847,6 +2938,11 @@
     window.addEventListener("keyup", (e) => {
       keys[e.key] = false;
       keys[e.key.toLowerCase()] = false;
+    });
+
+    window.addEventListener("blur", () => {
+      Object.keys(keys).forEach((key) => { keys[key] = false; });
+      stopJoystick();
     });
 
     makeDecorations();

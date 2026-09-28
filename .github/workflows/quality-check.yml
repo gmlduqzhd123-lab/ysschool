@@ -71,3 +71,47 @@ jobs:
 
           console.log(`Validated ${total} learning game HTML files across ${packs.length} packs.`);
           NODE
+
+      - name: Validate Math Survival mobile build
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const files = [
+            'public/math_survival.html',
+            'public/apps/math-survival.html',
+          ];
+
+          const contents = files.map((file) => {
+            if (!fs.existsSync(file)) throw new Error(`Missing ${file}`);
+            return fs.readFileSync(file, 'utf8');
+          });
+
+          if (contents[0] !== contents[1]) {
+            throw new Error('Math Survival root and showcase copies are out of sync.');
+          }
+
+          const html = contents[0];
+          const required = [
+            'id="startBtn"',
+            'id="joystickZone"',
+            'id="dashBtn"',
+            'joystickDelta',
+            'body.game-running #joystickZone',
+            'touchcancel',
+          ];
+
+          for (const token of required) {
+            if (!html.includes(token)) throw new Error(`Math Survival missing mobile token: ${token}`);
+          }
+
+          const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((match) => match[1]);
+          if (!scripts.length) throw new Error('Math Survival inline script not found.');
+
+          for (const source of scripts) {
+            new Function(source);
+          }
+
+          console.log('Validated Math Survival syntax, controls, and synchronized showcase build.');
+          NODE
