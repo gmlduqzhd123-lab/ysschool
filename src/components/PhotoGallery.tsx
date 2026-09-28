@@ -139,18 +139,21 @@ export default function PhotoGallery() {
             <button
               onClick={closeLightbox}
               className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors cursor-pointer z-10"
+              aria-label="갤러리 확대 화면 닫기"
             >
               <X className="w-8 h-8" />
             </button>
             <button
               onClick={e => { e.stopPropagation(); prevImage(); }}
               className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors cursor-pointer"
+              aria-label="이전 사진"
             >
               <ChevronLeft className="w-10 h-10" />
             </button>
             <button
               onClick={e => { e.stopPropagation(); nextImage(); }}
               className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors cursor-pointer"
+              aria-label="다음 사진"
             >
               <ChevronRight className="w-10 h-10" />
             </button>

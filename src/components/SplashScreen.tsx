@@ -8,14 +8,19 @@ export default function SplashScreen() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // 세션 내 1회만 표시
+    // 세션 내 1회만 표시하되, 콘텐츠 접근을 오래 막지 않도록 짧게 유지합니다.
     const shown = sessionStorage.getItem('ysschool-splash-shown');
-    if (!shown) {
-      requestAnimationFrame(() => setShow(true));
-      sessionStorage.setItem('ysschool-splash-shown', 'true');
-      const timer = setTimeout(() => setShow(false), 2000);
-      return () => clearTimeout(timer);
-    }
+    if (shown) return;
+
+    sessionStorage.setItem('ysschool-splash-shown', 'true');
+
+    // 모션 최소화 사용자는 스플래시를 건너뜁니다.
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    requestAnimationFrame(() => setShow(true));
+    const timer = setTimeout(() => setShow(false), 700);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

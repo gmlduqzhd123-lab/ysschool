@@ -81,11 +81,6 @@ export default function SearchModal() {
     }
   }, [isOpen]);
 
-  // Reset selection when query changes
-  useEffect(() => {
-    setSelectedIdx(0);
-  }, [query]);
-
   const filteredItems = useMemo(() => {
     if (!query.trim()) return searchItems.slice(0, 8);
     const q = query.toLowerCase();
@@ -144,6 +139,9 @@ export default function SearchModal() {
               transition={{ duration: 0.2 }}
               className="w-full max-w-xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
               onClick={e => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label="사이트 통합 검색"
             >
               {/* Search Input */}
               <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-200 dark:border-slate-700">
@@ -152,7 +150,10 @@ export default function SearchModal() {
                   ref={inputRef}
                   type="text"
                   value={query}
-                  onChange={e => setQuery(e.target.value)}
+                  onChange={e => {
+                    setQuery(e.target.value);
+                    setSelectedIdx(0);
+                  }}
                   onKeyDown={e => {
                     if (e.key === 'ArrowDown') {
                       e.preventDefault();
