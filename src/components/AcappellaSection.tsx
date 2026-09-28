@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { acappellaData } from '../data/cvData';
 import { Music, Play } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AcappellaSection() {
   return (
@@ -50,10 +51,12 @@ export default function AcappellaSection() {
                 className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-slate-50 dark:bg-slate-800"
               >
                 <a href={video.url} target="_blank" rel="noopener noreferrer" className="block relative aspect-video overflow-hidden w-full">
-                  <img
+                  <Image
                     src={thumbnailUrl}
                     alt={video.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full bg-brand-orange/80 backdrop-blur-sm flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-brand-orange/30">
