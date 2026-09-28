@@ -7,7 +7,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Library, Sparkles } from 'lucide-react';
+import { Library, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import AccordionItem from '@/components/AccordionItem';

@@ -283,9 +283,14 @@ export default function TrainingPage() {
                     {/* Thumbnail */}
                     {item.thumbnail && (
                       <div className="relative aspect-video overflow-hidden">
+                        {/* User-provided thumbnails can come from arbitrary hosts, so native img is intentional here. */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={item.thumbnail}
                           alt={item.title}
+                          loading="lazy"
+                          decoding="async"
+                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
