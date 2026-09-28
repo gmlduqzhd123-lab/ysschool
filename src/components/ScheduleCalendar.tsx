@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, ChevronLeft, ChevronRight, MapPin, Clock, Users, Plus, X, Lock, Trash2 } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight, MapPin, Clock, Users, Plus, X, Trash2 } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 interface ScheduleEvent {
@@ -42,8 +42,6 @@ const typeLabels: Record<string, string> = {
 const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 const MONTHS_KR = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
-const ADMIN_PASSWORD = '1234';
-
 export default function ScheduleCalendar() {
   const { t } = useLanguage();
   const today = new Date();
@@ -66,17 +64,12 @@ export default function ScheduleCalendar() {
 
   // Add form state
   const [showAddForm, setShowAddForm] = useState(false);
-  const [addPassword, setAddPassword] = useState('');
-  const [addPasswordError, setAddPasswordError] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [newEvent, setNewEvent] = useState<Partial<ScheduleEvent>>({
     date: '', title: '', location: '', time: '', target: '', type: 'training',
   });
 
   // Delete state
   const [deleteTarget, setDeleteTarget] = useState<{ date: string; idx: number } | null>(null);
-  const [deletePassword, setDeletePassword] = useState('');
-  const [deleteError, setDeleteError] = useState(false);
 
   const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
   const firstDayOfWeek = new Date(viewYear, viewMonth, 1).getDay();
@@ -106,20 +99,6 @@ export default function ScheduleCalendar() {
 
   const selectedEvents = selectedDate ? (eventsForDate[selectedDate] || []) : [];
 
-  // Password verification for add
-  const handlePasswordSubmit = () => {
-    if (addPassword === ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      setAddPasswordError(false);
-      // Pre-fill date if a date is selected
-      if (selectedDate) {
-        setNewEvent(prev => ({ ...prev, date: selectedDate }));
-      }
-    } else {
-      setAddPasswordError(true);
-    }
-  };
-
   // Add event
   const handleAddEvent = (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,38 +119,28 @@ export default function ScheduleCalendar() {
 
     // Reset
     setShowAddForm(false);
-    setIsAuthenticated(false);
-    setAddPassword('');
     setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
     setSelectedDate(event.date);
   };
 
   const closeAddForm = () => {
     setShowAddForm(false);
-    setIsAuthenticated(false);
-    setAddPassword('');
-    setAddPasswordError(false);
     setNewEvent({ date: '', title: '', location: '', time: '', target: '', type: 'training' });
   };
 
   // Delete event
   const handleDelete = () => {
-    if (deletePassword === ADMIN_PASSWORD && deleteTarget) {
-      const eventToDelete = eventsForDate[deleteTarget.date]?.[deleteTarget.idx];
-      if (eventToDelete) {
-        // Only delete from custom events
-        const updatedCustom = customEvents.filter(
-          ev => !(ev.date === eventToDelete.date && ev.title === eventToDelete.title && ev.time === eventToDelete.time)
-        );
-        setCustomEvents(updatedCustom);
-        localStorage.setItem('ysschool-schedule', JSON.stringify(updatedCustom));
-      }
-      setDeleteTarget(null);
-      setDeletePassword('');
-      setDeleteError(false);
-    } else {
-      setDeleteError(true);
+    if (!deleteTarget) return;
+    const eventToDelete = eventsForDate[deleteTarget.date]?.[deleteTarget.idx];
+    if (eventToDelete) {
+      // Only browser-local custom events can be deleted.
+      const updatedCustom = customEvents.filter(
+        ev => !(ev.date === eventToDelete.date && ev.title === eventToDelete.title && ev.time === eventToDelete.time)
+      );
+      setCustomEvents(updatedCustom);
+      localStorage.setItem('ysschool-schedule', JSON.stringify(updatedCustom));
     }
+    setDeleteTarget(null);
   };
 
   const isCustomEvent = (ev: ScheduleEvent) => {
@@ -290,7 +259,10 @@ export default function ScheduleCalendar() {
                 {selectedDate ? `${parseInt(selectedDate.split('-')[1])}월 ${parseInt(selectedDate.split('-')[2])}일` : '일정 상세'}
               </h4>
               <button
-                onClick={() => setShowAddForm(true)}
+                onClick={() => {
+                  if (selectedDate) setNewEvent(prev => ({ ...prev, date: selectedDate }));
+                  setShowAddForm(true);
+                }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white text-xs font-bold transition-colors cursor-pointer shadow-sm"
               >
                 <Plus className="w-3.5 h-3.5" />
@@ -314,7 +286,7 @@ export default function ScheduleCalendar() {
                       </span>
                       {isCustomEvent(ev) && (
                         <button
-                          onClick={() => { setDeleteTarget({ date: ev.date, idx }); setDeletePassword(''); setDeleteError(false); }}
+                          onClick={() => setDeleteTarget({ date: ev.date, idx })}
                           className="p-1 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
                           title="삭제"
                         >
@@ -369,39 +341,10 @@ export default function ScheduleCalendar() {
                 </button>
               </div>
 
-              {!isAuthenticated ? (
-                /* Password Step */
-                <div className="p-6">
-                  <div className="text-center mb-5">
-                    <div className="w-14 h-14 rounded-full bg-brand-navy/10 dark:bg-brand-sky/10 flex items-center justify-center mx-auto mb-3">
-                      <Lock className="w-7 h-7 text-brand-navy dark:text-brand-sky" />
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">일정을 추가하려면 관리자 비밀번호를 입력하세요.</p>
-                  </div>
-                  <input
-                    type="password"
-                    value={addPassword}
-                    onChange={e => { setAddPassword(e.target.value); setAddPasswordError(false); }}
-                    onKeyDown={e => e.key === 'Enter' && handlePasswordSubmit()}
-                    placeholder="비밀번호"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
-                      addPasswordError ? 'border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
-                    } transition-colors`}
-                    autoFocus
-                  />
-                  {addPasswordError && (
-                    <p className="text-xs text-red-500 text-center mt-2">비밀번호가 일치하지 않습니다.</p>
-                  )}
-                  <button
-                    onClick={handlePasswordSubmit}
-                    className="w-full mt-4 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-white font-bold text-sm transition-colors cursor-pointer"
-                  >
-                    확인
-                  </button>
+              <form onSubmit={handleAddEvent} className="p-6 space-y-4">
+                <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 text-xs leading-relaxed text-sky-800 dark:text-sky-200">
+                  추가한 일정은 현재 브라우저에만 저장됩니다. 다른 방문자에게 공개되는 공식 일정은 아닙니다.
                 </div>
-              ) : (
-                /* Event Form */
-                <form onSubmit={handleAddEvent} className="p-6 space-y-4">
                   {/* Date */}
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">날짜 *</label>
@@ -491,7 +434,6 @@ export default function ScheduleCalendar() {
                     일정 등록하기
                   </button>
                 </form>
-              )}
             </motion.div>
           </motion.div>
         )}
@@ -505,7 +447,7 @@ export default function ScheduleCalendar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4"
-            onClick={() => { setDeleteTarget(null); setDeletePassword(''); setDeleteError(false); }}
+            onClick={() => setDeleteTarget(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -519,25 +461,11 @@ export default function ScheduleCalendar() {
                   <Trash2 className="w-6 h-6 text-red-500" />
                 </div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white">일정 삭제</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">삭제하려면 비밀번호를 입력하세요.</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">현재 브라우저에 추가한 일정만 삭제됩니다.</p>
               </div>
-              <input
-                type="password"
-                value={deletePassword}
-                onChange={e => { setDeletePassword(e.target.value); setDeleteError(false); }}
-                onKeyDown={e => e.key === 'Enter' && handleDelete()}
-                placeholder="비밀번호"
-                className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-slate-900 dark:text-white placeholder-slate-400 outline-none text-sm text-center tracking-widest ${
-                  deleteError ? 'border-red-400' : 'border-slate-200 dark:border-slate-700 focus:border-brand-sky'
-                } transition-colors`}
-                autoFocus
-              />
-              {deleteError && (
-                <p className="text-xs text-red-500 text-center mt-2">비밀번호가 일치하지 않습니다.</p>
-              )}
               <div className="flex gap-2 mt-4">
                 <button
-                  onClick={() => { setDeleteTarget(null); setDeletePassword(''); setDeleteError(false); }}
+                  onClick={() => setDeleteTarget(null)}
                   className="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
                 >
                   취소
