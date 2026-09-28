@@ -72,6 +72,75 @@ jobs:
           console.log(`Validated ${total} learning game HTML files across ${packs.length} packs.`);
           NODE
 
+      - name: Validate showcase mini apps
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const dataFile = fs.readFileSync('src/data/showcaseData.ts', 'utf8');
+          const appUrls = [...dataFile.matchAll(/appUrl:\s*['"]([^'"]+)['"]/g)].map((match) => match[1]);
+
+          if (appUrls.length < 5) {
+            throw new Error(`Expected at least 5 showcase mini apps, found ${appUrls.length}.`);
+          }
+
+          const seen = new Set();
+          for (const rawUrl of appUrls) {
+            const cleanUrl = rawUrl.split('?')[0].split('#')[0];
+            if (seen.has(cleanUrl)) throw new Error(`Duplicate showcase app URL: ${cleanUrl}`);
+            seen.add(cleanUrl);
+
+            if (!cleanUrl.startsWith('/apps/') || !cleanUrl.endsWith('.html')) {
+              throw new Error(`Unexpected local showcase app URL: ${rawUrl}`);
+            }
+
+            const file = path.join('public', cleanUrl);
+            if (!fs.existsSync(file)) throw new Error(`Missing showcase app file: ${file}`);
+
+            const html = fs.readFileSync(file, 'utf8');
+            if (!/<meta[^>]+name=["']viewport["']/i.test(html)) {
+              throw new Error(`${file} is missing a viewport meta tag.`);
+            }
+            if (!/<title>[^<]+<\/title>/i.test(html)) {
+              throw new Error(`${file} is missing a document title.`);
+            }
+
+            const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
+            const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+            if (duplicates.length) {
+              throw new Error(`${file} has duplicate ids: ${[...new Set(duplicates)].join(', ')}`);
+            }
+
+            const idSet = new Set(ids);
+            const referencedIds = [...html.matchAll(/getElementById\(["']([^"']+)["']\)/g)].map((match) => match[1]);
+            const missingIds = [...new Set(referencedIds.filter((id) => !idSet.has(id)))];
+            if (missingIds.length) {
+              throw new Error(`${file} references missing ids: ${missingIds.join(', ')}`);
+            }
+
+            const handlers = [...html.matchAll(/\bon\w+=["']([A-Za-z_$][\w$]*)\s*\(/g)].map((match) => match[1]);
+            const functions = new Set([...html.matchAll(/function\s+([A-Za-z_$][\w$]*)\s*\(/g)].map((match) => match[1]));
+            const missingHandlers = [...new Set(handlers.filter((name) => !functions.has(name)))];
+            if (missingHandlers.length) {
+              throw new Error(`${file} uses undefined inline handlers: ${missingHandlers.join(', ')}`);
+            }
+
+            const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)]
+              .map((match) => match[1])
+              .filter((source) => source.trim());
+
+            for (const source of scripts) {
+              new Function(source);
+            }
+
+            console.log(`Validated showcase app: ${file}`);
+          }
+
+          console.log(`Validated ${appUrls.length} showcase mini apps.`);
+          NODE
+
       - name: Validate Math Survival mobile build
         shell: bash
         run: |
