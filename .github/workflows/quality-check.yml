@@ -1,0 +1,70 @@
+name: Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate learning game count and local links
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const packs = [
+            'learning-games',
+            ...Array.from({ length: 9 }, (_, i) => `learning-games-${i + 2}`),
+          ];
+
+          let total = 0;
+          const missing = [];
+
+          for (const pack of packs) {
+            const dir = path.join('public', pack);
+            const htmlFiles = fs.readdirSync(dir)
+              .filter((name) => name.endsWith('.html') && name !== 'index.html');
+            total += htmlFiles.length;
+
+            const indexPath = path.join(dir, 'index.html');
+            if (!fs.existsSync(indexPath)) missing.push(indexPath);
+          }
+
+          if (total !== 100) {
+            throw new Error(`Expected 100 learning game HTML files, found ${total}`);
+          }
+
+          if (missing.length) {
+            throw new Error(`Missing game index files: ${missing.join(', ')}`);
+          }
+
+          console.log(`Validated ${total} learning game HTML files across ${packs.length} packs.`);
+          NODE
