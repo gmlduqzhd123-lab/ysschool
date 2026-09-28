@@ -16,12 +16,14 @@ export async function supabaseRest<T>(
   const config = getConfig();
   if (!config) throw new Error('Shared content store is not configured.');
 
+  const isModernSecretKey = config.key.startsWith('sb_secret_');
+
   const response = await fetch(`${config.url}/rest/v1/${path}`, {
     ...init,
     cache: 'no-store',
     headers: {
       apikey: config.key,
-      Authorization: `Bearer ${config.key}`,
+      ...(!isModernSecretKey ? { Authorization: `Bearer ${config.key}` } : {}),
       'Content-Type': 'application/json',
       ...(prefer ? { Prefer: prefer } : {}),
       ...(init.headers || {}),
@@ -51,13 +53,15 @@ export async function uploadTrainingFile(file: File) {
 
   const objectPath = `${new Date().toISOString().slice(0, 10)}/${randomUUID()}-${safeName}`;
 
+  const isModernSecretKey = config.key.startsWith('sb_secret_');
+
   const response = await fetch(
     `${config.url}/storage/v1/object/training-files/${encodeURI(objectPath)}`,
     {
       method: 'POST',
       headers: {
         apikey: config.key,
-        Authorization: `Bearer ${config.key}`,
+        ...(!isModernSecretKey ? { Authorization: `Bearer ${config.key}` } : {}),
         'Content-Type': file.type || 'application/octet-stream',
         'x-upsert': 'false',
       },
