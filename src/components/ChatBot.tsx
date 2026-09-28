@@ -81,7 +81,7 @@ export default function ChatBot() {
   const [isEnabled, setIsEnabled] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', text: '안녕하세요! 엽쌤 AI 어시스턴트입니다 🤖\n궁금한 점을 물어보세요!' },
+    { role: 'bot', text: '안녕하세요! 엽쌤 안내봇입니다 🤖\n궁금한 점을 물어보세요!' },
   ]);
   const [input, setInput] = useState('');
 
@@ -176,10 +176,10 @@ export default function ChatBot() {
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-sm">엽쌤 AI</p>
+                  <p className="text-white font-bold text-sm">엽쌤 안내봇</p>
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/70 text-xs">온라인</span>
+                    <span className="text-white/70 text-xs">FAQ 안내</span>
                   </div>
                 </div>
               </div>
