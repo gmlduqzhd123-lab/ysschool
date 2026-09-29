@@ -92,5 +92,13 @@ export interface PadletItem {
   thumbnail: string;
 }
 
-export const padletData: PadletItem[] = [];
-
+// The guide links to the original board without republishing the PDF or attachments.
+export const padletData: PadletItem[] = [
+  {
+    id: 1,
+    title: '2026. 학생 성장을 위한 수업-평가-기록',
+    description: '2026. 8. 5. 연수자료. 개념기반 탐구학습·PBL, AI 활용 국어·독서 수업, 에듀테크, 교육과정, 학생 작가 프로젝트를 9개 자료 묶음으로 안내합니다. 안내 페이지에서 원본 패들렛으로 이동할 수 있습니다.',
+    link: '/training/student-growth-2026',
+    thumbnail: '/icons/icon-512x512.png',
+  },
+];
