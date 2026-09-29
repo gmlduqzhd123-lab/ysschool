@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/library',
     '/playground',
     '/training',
+    '/training/student-growth-2026',
     '/tools',
     '/blog',
     '/blog/hello-world',
