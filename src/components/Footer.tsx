@@ -1,4 +1,5 @@
 import { Mail, BookOpen } from 'lucide-react';
+import InstallAppButton from './InstallAppButton';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -77,8 +78,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4 text-slate-500">
             <a href="https://gmlduqzhd123-lab.github.io/YScode/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
-              엽쌤의 웹앱 모음 →
+              엽쌤의 다른 앱 보기 →
             </a>
+            <InstallAppButton className="text-slate-300 hover:text-white transition-colors" />
             <span>Powered by Next.js & Vercel</span>
           </div>
         </div>
