@@ -74,7 +74,7 @@ export default function Footer() {
         
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>
-            &copy; {currentYear} 엽쌤스쿨 · 엽쌤
+            &copy; {currentYear} 엽쌤. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-slate-500">
             <a href="https://gmlduqzhd123-lab.github.io/YScode/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
