@@ -1,5 +1,6 @@
 import { Mail, BookOpen } from 'lucide-react';
 import InstallAppButton from './InstallAppButton';
+import QrButton from './QrButton';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -81,6 +82,7 @@ export default function Footer() {
               엽쌤의 다른 앱 보기 →
             </a>
             <InstallAppButton className="text-slate-300 hover:text-white transition-colors" />
+            <QrButton className="text-slate-300 hover:text-white transition-colors" />
             <span>Powered by Next.js & Vercel</span>
           </div>
         </div>
