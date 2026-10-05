@@ -66,9 +66,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="scroll-smooth overflow-x-hidden max-w-[100vw] w-full">
+    <html lang="ko" className="scroll-smooth overflow-x-hidden max-w-[100vw] w-full" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#1E3A8A" />
+        {/* 📲 앱 설치 도우미: 바로 설치 또는 기기별 설치 방법 안내 (InstallAppButton이 사용) */}
+        <script src="/ys-install.js" defer />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-[100vw] w-full`}

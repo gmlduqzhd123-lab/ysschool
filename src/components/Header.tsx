@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { navLinks, NavItem } from '../data/dummyData';
-import { BookOpen, ChevronDown, Search, Command } from 'lucide-react';
+import { BookOpen, ChevronDown, Search, Command, Download } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
+import InstallAppButton from './InstallAppButton';
 
 // ========== 데스크톱 드롭다운 ==========
 function DesktopDropdown({ item }: { item: NavItem }) {
@@ -118,14 +119,14 @@ export default function Header() {
   return (
     <header className={`fixed z-50 transition-all duration-500 left-0 ${isScrolled ? 'w-full lg:w-max lg:left-1/2 lg:-translate-x-1/2 top-0 lg:top-4' : 'w-full top-0'}`}>
       <div className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'glass-header shadow-xl lg:rounded-full lg:border lg:border-white/30 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl' : 'max-w-7xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm'}`}>
-        <div className={`flex justify-between items-center gap-8 lg:gap-12 transition-all duration-300 ${isScrolled ? 'h-16 lg:h-14 lg:px-2' : 'h-20'}`}>
+        <div className={`flex justify-between items-center gap-3 sm:gap-8 lg:gap-12 transition-all duration-300 ${isScrolled ? 'h-16 lg:h-14 lg:px-2' : 'h-20'}`}>
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-brand-navy p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
+              <div className="bg-brand-navy p-1.5 min-[400px]:p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
                 <BookOpen className="h-6 w-6 text-white" />
               </div>
-              <span className="font-bold text-2xl text-brand-navy dark:text-white tracking-tight whitespace-nowrap">
+              <span className="font-bold text-lg min-[400px]:text-xl sm:text-2xl text-brand-navy dark:text-white tracking-tight whitespace-nowrap">
                 YSSCHOOL
               </span>
             </Link>
@@ -165,12 +166,17 @@ export default function Header() {
                 <Command className="w-2.5 h-2.5" />K
               </kbd>
             </button>
+            <InstallAppButton className="px-3 py-1.5 rounded-full bg-brand-navy text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer" />
             <LanguageToggle />
             <ThemeToggle />
           </nav>
 
           {/* Mobile toggle */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2">
+            <InstallAppButton
+              label={<><Download className="w-4 h-4" aria-hidden="true" /><span className="hidden min-[400px]:inline">설치</span></>}
+              className="flex items-center gap-1 px-2.5 py-2 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
+            />
             <LanguageToggle />
             <ThemeToggle />
             <button
