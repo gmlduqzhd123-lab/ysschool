@@ -31,7 +31,7 @@ export const navLinks: NavItem[] = [
   {
     name: '에듀테크',
     children: [
-      { name: '에듀테크 갤러리', href: '/showcase' },
+      { name: '에듀테크 쇼케이스', href: '/showcase' },
       { name: '도구 모음', href: '/tools' },
       { name: '나눔 서재', href: '/library' },
       { name: '프롬프트 놀이터', href: '/playground' },
@@ -62,7 +62,7 @@ export const skillsData = [
   },
   {
     title: 'Author & Creator',
-    description: '고학년 독서인문교육, 독서미션으로 끝장내기 외 8권(총 10권)의 책을 집필한 작가이며, 전남초등아카펠라연구회 아카라카 바리톤, 테너, 보컬퍼커션으로도 활동하는 교육 크리에이터입니다.',
+    description: '고학년 독서인문교육, 독서미션으로 끝장내기 외 학생 출판 프로젝트 8권(총 9권)의 책을 집필·지도한 작가이며, 전남초등아카펠라연구회 아카라카 바리톤, 테너, 보컬퍼커션으로도 활동하는 교육 크리에이터입니다.',
     icon: 'PenTool',
   },
 ];
@@ -104,22 +104,34 @@ export const eduResourcesData = [
 
 export const awardsData = [
   {
+    id: 10,
+    title: '수업혁신사례 연구대회 전국 2등급',
+    date: '2024. 11. 10.',
+    image: '/images/awards/award_10.webp',
+  },
+  {
     id: 1,
     title: '제23회 전남학생발명 공모전 지도교사상 (교육감표창)',
     date: '2024. 09. 13.',
     image: '/images/awards/award_1.webp',
   },
   {
+    id: 11,
+    title: '자연관찰탐구대회 우수 지도 표창',
+    date: '2024. 07. 20.',
+    image: '/images/awards/award_11.webp',
+  },
+  {
+    id: 9,
+    title: '글로컬 미래교육 박람회 유공교원 (교육감표창)',
+    date: '2024. 06. 15.',
+    image: '/images/awards/award_9.webp',
+  },
+  {
     id: 2,
     title: '독서인문교육 활성화 기여 표창 (교육감표창)',
     date: '2023. 12. 31.',
     image: '/images/awards/award_2.webp',
-  },
-  {
-    id: 3,
-    title: '제23회 불조심 어린이마당 탁월 지도상',
-    date: '2023. 10. 26.',
-    image: '/images/awards/award_3.webp',
   },
   {
     id: 4,
@@ -134,16 +146,22 @@ export const awardsData = [
     image: '/images/awards/award_5.webp',
   },
   {
-    id: 6,
-    title: '제25회 전국학생통계활용대회 은상 (통계청장상)',
-    date: '2023. 09. 01.',
-    image: '/images/awards/award_6.webp',
-  },
-  {
     id: 7,
     title: '2023 독서인문교육 실천사례 연구대회 2등급 (교육감표창)',
     date: '2023. 11. 23.',
     image: '/images/awards/award_7.webp',
+  },
+  {
+    id: 3,
+    title: '제23회 불조심 어린이마당 탁월 지도상',
+    date: '2023. 10. 26.',
+    image: '/images/awards/award_3.webp',
+  },
+  {
+    id: 6,
+    title: '제25회 전국학생통계활용대회 은상 (통계청장상)',
+    date: '2023. 09. 01.',
+    image: '/images/awards/award_6.webp',
   },
   {
     id: 8,
@@ -151,24 +169,6 @@ export const awardsData = [
     date: '2023. 01. 31.',
     image: '/images/awards/award_8.webp',
   },
-  {
-    id: 9,
-    title: '글로컬 미래교육 박람회 유공교원 (교육감표창)',
-    date: '2024. 06. 15.',
-    image: '/images/awards/award_9.webp',
-  },
-  {
-    id: 10,
-    title: '수업혁신사례 연구대회 전국 2등급',
-    date: '2024. 11. 10.',
-    image: '/images/awards/award_10.webp',
-  },
-  {
-    id: 11,
-    title: '자연관찰탐구대회 우수 지도 표창',
-    date: '2024. 07. 20.',
-    image: '/images/awards/award_11.webp',
-  }
 ];
 
 export const mediaData = [
@@ -266,7 +266,7 @@ export const pressData = [
   },
   {
     id: 6,
-    title: '불조심어린이마당 및 통계활용대회 1위',
+    title: '불조심어린이마당 전남 1위 및 통계활용대회 은상 수상',
     description: '제 23회 불조심어린이마당 전남 1위 및 제 25회 전국학생통계활용대회 은상 등 학생 지도에 힘쓴 성과가 기사화되었습니다.',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200',
     techStack: ['불조심마당', '통계대회', '지도상'],

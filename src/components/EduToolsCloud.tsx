@@ -11,14 +11,14 @@ const eduTools = [
   { name: '크리드', desc: 'AI 글쓰기 피드백 도구', url: 'https://cread.ai', category: 'writing', size: 'md' },
   { name: '투닝', desc: 'AI 웹툰 & 일러스트 생성', url: 'https://tooning.io', category: 'creative', size: 'md' },
   { name: '캔바', desc: '디자인 & 프레젠테이션', url: 'https://www.canva.com', category: 'creative', size: 'lg' },
-  { name: 'ChatGPT', desc: 'AI 대화형 학습 도우미', url: 'https://chat.openai.com', category: 'ai', size: 'lg' },
+  { name: 'ChatGPT', desc: 'AI 대화형 학습 도우미', url: 'https://chatgpt.com', category: 'ai', size: 'lg' },
   { name: '패들렛', desc: '실시간 협업 보드', url: 'https://padlet.com', category: 'collab', size: 'md' },
   { name: '클래스카드', desc: '어휘 학습 & 퀴즈', url: 'https://www.classcard.net', category: 'quiz', size: 'sm' },
   { name: '띵커벨', desc: '수업 참여형 퀴즈 도구', url: 'https://www.tkbell.co.kr', category: 'quiz', size: 'md' },
-  { name: '겟지피티', desc: '교육용 AI 어시스턴트', url: 'https://wrtn.ai', category: 'ai', size: 'sm' },
+  { name: '뤼튼 (Wrtn)', desc: '한국형 AI 학습·창작 플랫폼', url: 'https://wrtn.ai', category: 'ai', size: 'sm' },
   { name: '카훗', desc: '게임 기반 학습 퀴즈', url: 'https://kahoot.com', category: 'quiz', size: 'md' },
   { name: '미리캔버스', desc: '한국형 디자인 플랫폼', url: 'https://www.miricanvas.com', category: 'creative', size: 'sm' },
-  { name: '블루캣', desc: '교육용 게임 플랫폼', url: 'https://www.playblucat.com', category: 'game', size: 'sm' },
+  { name: '블루캣 (Blooket)', desc: '게임 기반 학습 플랫폼', url: 'https://www.blooket.com', category: 'game', size: 'sm' },
   { name: 'Notion', desc: '올인원 생산성 도구', url: 'https://www.notion.so', category: 'collab', size: 'md' },
 ];
 

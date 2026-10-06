@@ -73,7 +73,7 @@ export default function HeroSection() {
                 href="/showcase"
                 className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-brand-navy text-white font-semibold hover:bg-brand-navy/90 transition-all shadow-lg hover:shadow-brand-navy/30"
               >
-                {t('에듀테크 갤러리', 'EduTech Gallery')}
+                {t('에듀테크 쇼케이스', 'EduTech Showcase')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const shortcuts = [
   { href: '/training', label: '연수 자료실' },
-  { href: '/showcase', label: '에듀테크 갤러리' },
+  { href: '/showcase', label: '에듀테크 쇼케이스' },
   { href: '/portfolio', label: '포트폴리오' },
   { href: '/blog', label: '블로그' },
 ];
