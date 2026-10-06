@@ -59,7 +59,7 @@ addEventListener('keydown',e=>{if(e.key==='ArrowUp')laneUp();if(e.key==='ArrowDo
       box.innerHTML=`<div class="eduItem"><b>🎯 학습 목표</b><span>${GAME_META[0]}</span></div><div class="eduItem"><b>🎮 오늘의 도전</b><span>${GAME_META[1]}</span></div><div class="eduItem"><b>💡 배움 팁</b><span>${GAME_META[2]}</span></div>`;
       hud.insertAdjacentElement('afterend',box);
       const tools=document.createElement('div'); tools.className='miniTool';
-      tools.innerHTML=`<button class="miniBtn" id="miniSoundTest">🎵 소리 테스트</button><button class="miniBtn" id="miniFull">📱 전체화면</button><button class="miniBtn" id="miniResetBest">🏅 최고점 초기화</button><button class="miniBtn" id="miniTeacher">👩‍🏫 수업 활용</button><a class="miniBtn" href="../learning-games-all/index.html" style="text-decoration:none">🏠 100게임 메인보드</a><a class="miniBtn" href="https://ysschool.vercel.app/" style="text-decoration:none">🏫 엽쌤스쿨 홈</a>`;
+      tools.innerHTML=`<button class="miniBtn" id="miniSoundTest">🎵 소리 테스트</button><button class="miniBtn" id="miniFull">📱 전체화면</button><button class="miniBtn" id="miniResetBest">🏅 최고점 초기화</button><button class="miniBtn" id="miniTeacher">👩‍🏫 수업 활용</button><a class="miniBtn" href="../learning-games-all/index.html" style="text-decoration:none">🏠 100게임 메인보드</a><a class="miniBtn" href="/" style="text-decoration:none">🏫 엽쌤스쿨 홈</a>`;
       box.insertAdjacentElement('afterend',tools);
       const note=document.createElement('div'); note.className='teacherNote'; note.id='teacherNote';
       note.textContent='수업 활용: 3분 플레이 → 짝과 전략 설명 → 틀린 문제 또는 헷갈린 개념 1개를 공책에 적기 순서로 운영하면 게임성과 학습 정리가 함께 살아납니다.';
