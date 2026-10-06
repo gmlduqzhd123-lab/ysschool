@@ -24,7 +24,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     requestAnimationFrame(() => {
       setMounted(true);
       const saved = localStorage.getItem('lang') as Language;
-      if (saved === 'en') setLang('en');
+      if (saved === 'en') {
+        setLang('en');
+        document.documentElement.lang = 'en';
+      }
     });
   }, []);
 
@@ -32,6 +35,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const newLang = lang === 'ko' ? 'en' : 'ko';
     setLang(newLang);
     localStorage.setItem('lang', newLang);
+    document.documentElement.lang = newLang;
   };
 
   const t = (ko: string, en: string) => {
