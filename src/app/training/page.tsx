@@ -49,6 +49,20 @@ export default function TrainingPage() {
   // Delete modal state
   const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
 
+  // ESC 키로 열린 모달 닫기
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (deleteModalId !== null) setDeleteModalId(null);
+        else if (isModalOpen) setIsModalOpen(false);
+      }
+    };
+    if (isModalOpen || deleteModalId !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isModalOpen, deleteModalId]);
+
   // Form state
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -620,7 +634,12 @@ export default function TrainingPage() {
       {/* Material Upload Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="create-material-title"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -634,13 +653,15 @@ export default function TrainingPage() {
                     <Upload className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="font-extrabold text-lg">새 연수 자료 등록</h2>
+                    <h2 id="create-material-title" className="font-extrabold text-lg">새 연수 자료 등록</h2>
                     <p className="text-xs text-white/70">
                       {sharedMode ? '관리자 권한으로 공유 저장소에 등록합니다' : '이 브라우저에만 저장되는 개인 자료입니다'}
                     </p>
                   </div>
                 </div>
                 <button
+                  type="button"
+                  aria-label="닫기"
                   onClick={() => setIsModalOpen(false)}
                   className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                 >
@@ -664,10 +685,11 @@ export default function TrainingPage() {
 
                 {/* Title */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <label htmlFor="material-title" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     자료 제목 <span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="material-title"
                     type="text"
                     required
                     placeholder="예: 2025 AI 활용 수업 도구 연수 자료"
@@ -679,10 +701,11 @@ export default function TrainingPage() {
 
                 {/* Category */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <label htmlFor="material-category" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     카테고리
                   </label>
                   <select
+                    id="material-category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value as '에듀테크' | 'AI활용' | '독서인문' | '기타')}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sky"
@@ -696,10 +719,11 @@ export default function TrainingPage() {
 
                 {/* Description */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <label htmlFor="material-description" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     자료 설명 <span className="text-red-500">*</span>
                   </label>
                   <textarea
+                    id="material-description"
                     required
                     rows={3}
                     placeholder="자료에 대한 주요 내용 및 안내 사항을 적어주세요."
@@ -711,10 +735,11 @@ export default function TrainingPage() {
 
                 {/* External Link */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
+                  <label htmlFor="material-link" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
                     <Link2 className="w-3.5 h-3.5 text-brand-sky" /> 외부 링크 (선택)
                   </label>
                   <input
+                    id="material-link"
                     type="url"
                     placeholder="https://drive.google.com/..."
                     value={link}
@@ -725,10 +750,11 @@ export default function TrainingPage() {
 
                 {/* Direct File Attachment */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
+                  <label htmlFor="material-file" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
                     <Upload className="w-3.5 h-3.5 text-emerald-500" /> 파일 업로드 (선택)
                   </label>
                   <input
+                    id="material-file"
                     type="file"
                     onChange={handleFileUpload}
                     className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer"
@@ -742,10 +768,11 @@ export default function TrainingPage() {
 
                 {/* Thumbnail Image URL */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
+                  <label htmlFor="material-thumbnail" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
                     <ImageIcon className="w-3.5 h-3.5 text-purple-500" /> 썸네일 이미지 URL (선택)
                   </label>
                   <input
+                    id="material-thumbnail"
                     type="url"
                     placeholder="https://images.unsplash.com/..."
                     value={thumbnail}
@@ -782,6 +809,9 @@ export default function TrainingPage() {
       <AnimatePresence>
         {deleteModalId !== null && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="delete-material-title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -796,11 +826,13 @@ export default function TrainingPage() {
               className="w-full max-w-md bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-2xl border border-slate-100 dark:border-slate-700"
             >
               <div className="flex justify-between items-center mb-4">
-                <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-lg">
+                <h2 id="delete-material-title" className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-lg">
                   <Trash2 className="w-5 h-5" />
                   자료 삭제
-                </div>
+                </h2>
                 <button
+                  type="button"
+                  aria-label="닫기"
                   onClick={() => setDeleteModalId(null)}
                   className="p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                 >

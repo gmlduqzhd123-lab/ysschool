@@ -70,20 +70,21 @@ export default function EduToolsCloud() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">EduTech Toolkit</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">EduTech Toolkit</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             {t('에듀테크 도구 모음', 'EduTech Toolkit')}
-          </h3>
+          </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             {t('엽쌤이 수업에서 활용하는 에듀테크 도구들입니다. 클릭하면 해당 사이트로 이동합니다.', 'EduTech tools used in YeopSsaem\'s classes. Click to visit each tool.')}
           </p>
         </motion.div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div role="toolbar" aria-label="도구 카테고리 필터" className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map(cat => (
             <button
               key={cat}
+              aria-pressed={activeCategory === cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
@@ -105,6 +106,7 @@ export default function EduToolsCloud() {
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${tool.name} (${tool.desc}, 새 창)`}
                 layout
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1, transition: { delay: idx * 0.05 } }}
@@ -120,10 +122,11 @@ export default function EduToolsCloud() {
                 <AnimatePresence>
                   {hoveredTool === tool.name && (
                     <motion.div
+                      aria-hidden="true"
                       initial={{ opacity: 0, y: 10, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                      className="absolute -top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl z-20"
+                      className="absolute -top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl z-20 pointer-events-none"
                     >
                       {tool.desc}
                       <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45" />

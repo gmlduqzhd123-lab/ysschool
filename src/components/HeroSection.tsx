@@ -125,28 +125,31 @@ export default function HeroSection() {
                 href="https://www.youtube.com/@yeopssam"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="엽쌤 유튜브 채널 (새 창으로 열기)"
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-red-500 hover:border-red-300 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
                 title="YouTube"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
               </a>
               <a
                 href="https://youtube.com/@acappellaakaraka"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="아카펠라 아카라카 유튜브 채널 (새 창으로 열기)"
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-purple-500 hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
                 title="아카라카"
               >
-                <Music className="w-5 h-5" />
+                <Music className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="https://indischool.com/@user359088"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="인디스쿨 엽쌤 프로필 (새 창으로 열기)"
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-green-500 hover:border-green-300 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
                 title="인디스쿨"
               >
-                <BookOpen className="w-5 h-5" />
+                <BookOpen className="w-5 h-5" aria-hidden="true" />
               </a>
             </motion.div>
           </motion.div>

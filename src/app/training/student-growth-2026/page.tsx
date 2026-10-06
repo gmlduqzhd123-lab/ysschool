@@ -9,7 +9,7 @@ const sourceUrl = 'https://padlet.com/gmlduqzhd12/2026-g1lklclbxwve0dgg';
 const description = '개념기반 탐구학습과 PBL, AI 활용 국어·독서 수업, 수업과 평가를 돕는 에듀테크, 교육과정 참고자료, 학생 작가 프로젝트를 모은 연수자료 안내입니다.';
 
 export const metadata: Metadata = {
-  title: `${title} | 엽쌤스쿨`,
+  title,
   description,
   alternates: { canonical: '/training/student-growth-2026' },
 };

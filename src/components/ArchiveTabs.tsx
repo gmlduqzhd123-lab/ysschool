@@ -55,19 +55,23 @@ export default function ArchiveTabs() {
   return (
     <div id="archive-tabs" className="w-full bg-slate-50 dark:bg-slate-900/50 pt-24 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">YSSCHOOL ARCHIVE</h2>
-        <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">
+        <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">YSSCHOOL ARCHIVE</p>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">
           통합 아카이브
-        </h3>
+        </h2>
         <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep mb-10">
           아래 탭을 눌러 방대한 자료와 프로젝트들을 한자리에서 간편하게 열람하세요.
         </p>
         
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5">
+        <div role="tablist" aria-label="통합 아카이브 카테고리" className="flex flex-wrap justify-center gap-2.5">
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              id={`tab-${tab.id}`}
+              aria-selected={activeTab === tab.id}
+              aria-controls={`tabpanel-${tab.id}`}
               onClick={() => {
                 setActiveTab(tab.id);
                 // 브라우저 뒤로가기 기록에는 남기되 스크롤 점핑은 막기 위해 직접 pushState
@@ -92,6 +96,10 @@ export default function ArchiveTabs() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
+            id={`tabpanel-${activeTab}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${activeTab}`}
+            tabIndex={0}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

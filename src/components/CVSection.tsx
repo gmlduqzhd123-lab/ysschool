@@ -44,10 +44,10 @@ export default function CVSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">CV & Activities</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">CV & Activities</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             {t('주요 약력 및 활동', 'CV & Activities')}
-          </h3>
+          </h2>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             {t(
               '아이들에게 더 넓은 세상을 보여주기 위해, 끊임없이 연구하고 실천해 온 치열한 교육의 발자취입니다.',
@@ -57,10 +57,14 @@ export default function CVSection() {
         </motion.div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        <div role="tablist" aria-label={t('주요 약력 및 활동 카테고리', 'CV and activities categories')} className="flex flex-wrap justify-center gap-3 mb-16">
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              id={`cv-tab-${tab.id}`}
+              aria-selected={activeTab === tab.id}
+              aria-controls={`cv-tabpanel-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
               className={`px-6 py-3 rounded-full font-bold transition-all duration-300 cursor-pointer ${
                 activeTab === tab.id
@@ -80,6 +84,10 @@ export default function CVSection() {
             {activeTab === 'career' && (
               <motion.div
                 key="career"
+                id="cv-tabpanel-career"
+                role="tabpanel"
+                aria-labelledby="cv-tab-career"
+                tabIndex={0}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -92,7 +100,7 @@ export default function CVSection() {
                     <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                       <Briefcase size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('주요 약력', 'Career')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('주요 약력', 'Career')}</h3>
                   </div>
                   <div className="relative ml-3 pl-6 space-y-4 mt-4 max-h-[600px] overflow-y-auto pr-4">
                     {/* Gradient timeline line */}
@@ -133,7 +141,7 @@ export default function CVSection() {
                     <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg text-yellow-600 dark:text-yellow-400">
                       <Award size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('표창 내역', 'Awards')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('표창 내역', 'Awards')}</h3>
                   </div>
                   <ul className="space-y-5 mt-8 max-h-[600px] overflow-y-auto pr-4">
                     {commendations.map((item, idx) => (
@@ -160,6 +168,10 @@ export default function CVSection() {
             {activeTab === 'research' && (
               <motion.div
                 key="research"
+                id="cv-tabpanel-research"
+                role="tabpanel"
+                aria-labelledby="cv-tab-research"
+                tabIndex={0}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -172,7 +184,7 @@ export default function CVSection() {
                     <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
                       <BookOpen size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('개인 연구 실적', 'Research')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('개인 연구 실적', 'Research')}</h3>
                   </div>
                   <div className="space-y-4">
                     {researchAchievements.map((item, idx) => (
@@ -194,11 +206,11 @@ export default function CVSection() {
                     <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
                       <BookOpen size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('연구 학교 실적', 'School Research')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('연구 학교 실적', 'School Research')}</h3>
                   </div>
                   <div className="space-y-4">
                     {schoolResearch.map((item, idx) => (
-                      <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="block bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-purple-500 transition-colors">
+                      <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" aria-label={`${item.title} (새 창으로 열기)`} className="block bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-purple-500 transition-colors">
                         <h5 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h5>
                         <p className="text-sm text-slate-600 dark:text-slate-400 break-keep">{item.description}</p>
                       </a>
@@ -212,7 +224,7 @@ export default function CVSection() {
                     <div className="p-2 bg-pink-100 dark:bg-pink-900/30 rounded-lg text-pink-600 dark:text-pink-400">
                       <GraduationCap size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('공개 수업 및 교육 활동', 'Public Classes')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('공개 수업 및 교육 활동', 'Public Classes')}</h3>
                   </div>
                   <ul className="space-y-4">
                     {publicClasses.map((item, idx) => (
@@ -237,6 +249,10 @@ export default function CVSection() {
             {activeTab === 'mentoring' && (
               <motion.div
                 key="mentoring"
+                id="cv-tabpanel-mentoring"
+                role="tabpanel"
+                aria-labelledby="cv-tab-mentoring"
+                tabIndex={0}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -249,7 +265,7 @@ export default function CVSection() {
                     <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
                       <Users size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('학생 지도 실적', 'Student Mentoring')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('학생 지도 실적', 'Student Mentoring')}</h3>
                   </div>
                   <ul className="space-y-4">
                     {studentMentoring.map((item, idx) => (
@@ -274,7 +290,7 @@ export default function CVSection() {
                     <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400">
                       <Presentation size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white">{t('연수, 강의, 컨설팅', 'Lectures & Consulting')}</h4>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('연수, 강의, 컨설팅', 'Lectures & Consulting')}</h3>
                   </div>
                   <ul className="space-y-4">
                     {lecturesAndConsulting.map((item, idx) => (

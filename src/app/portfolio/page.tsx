@@ -7,7 +7,7 @@ import QuizGame from '@/components/QuizGame';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: '포트폴리오 & 약력 | 엽쌤스쿨',
+  title: '포트폴리오 & 약력',
   description: '교육 여정, 주요 약력, 수상 내역, 아카펠라 공연, 연수 일정 등 엽쌤의 활동 기록을 한눈에 확인하세요.',
 };
 

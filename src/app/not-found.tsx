@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: '페이지를 찾을 수 없습니다 | 엽쌤스쿨',
+  title: '페이지를 찾을 수 없습니다',
   robots: { index: false },
 };
 

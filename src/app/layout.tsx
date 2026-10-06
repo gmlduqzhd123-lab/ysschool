@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
@@ -22,10 +23,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ysschool.vercel.app"),
-  title: "엽쌤스쿨 | 경계를 넘어서는 교육",
+  title: {
+    default: "엽쌤스쿨 | 경계를 넘어서는 교육",
+    template: "%s | 엽쌤스쿨",
+  },
   description:
     "교육, 개발, 그리고 집필까지. 끝없이 도전하는 에듀테크 크리에이터 엽쌤의 모든 것.",
   manifest: "/manifest.json",
+  alternates: {
+    canonical: "/",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "엽쌤스쿨",
+  },
   openGraph: {
     title: "엽쌤스쿨 | 경계를 넘어서는 교육",
     description:
@@ -53,11 +65,10 @@ export const metadata: Metadata = {
   icons: {
     apple: "/icons/icon-192x192.png",
   },
-  other: {
-    "mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1E3A8A",
 };
 
 export default function RootLayout({
@@ -67,23 +78,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="scroll-smooth overflow-x-hidden max-w-[100vw] w-full" suppressHydrationWarning>
-      <head>
-        <meta name="theme-color" content="#1E3A8A" />
-        {/* 📲 앱 설치 도우미: 바로 설치 또는 기기별 설치 방법 안내 (InstallAppButton이 사용) */}
-        <script src="/ys-install.js" defer />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-[100vw] w-full`}
       >
+        {/* 📲 앱 설치 도우미: 바로 설치 또는 기기별 설치 방법 안내 (InstallAppButton이 사용) */}
+        <Script src="/ys-install.js" strategy="afterInteractive" />
         <LanguageProvider>
           <AdminProvider>
-          <SplashScreen />
-          <ScrollToTopOnMount />
-          <ScrollProgressBar />
-          <SearchModal />
-          {children}
-          <ScrollToTopButton />
-          <ChatBot />
+            <SplashScreen />
+            <ScrollToTopOnMount />
+            <ScrollProgressBar />
+            <SearchModal />
+            {children}
+            <ScrollToTopButton />
+            <ChatBot />
           </AdminProvider>
         </LanguageProvider>
       </body>

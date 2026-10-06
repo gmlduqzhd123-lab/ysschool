@@ -79,11 +79,11 @@ export default function ContactSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 flex items-center justify-center gap-3 text-slate-500 text-sm"
+          className="mt-16 flex items-center justify-center gap-3 text-slate-300 text-sm"
         >
-          <span className="w-12 h-px bg-slate-600" />
+          <span className="w-12 h-px bg-slate-500/50" />
           <span>gmlduqzhd@naver.com · KakaoTalk: yeop24</span>
-          <span className="w-12 h-px bg-slate-600" />
+          <span className="w-12 h-px bg-slate-500/50" />
         </motion.div>
       </div>
     </section>
