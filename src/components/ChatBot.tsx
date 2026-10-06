@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, Power } from 'lucide-react';
 
 interface Message {
   role: 'bot' | 'user';
   text: string;
+  link?: { label: string; href: string };
 }
 
 const faqData = [
@@ -67,14 +69,29 @@ const quickQuestions = [
   '아카펠라 공연 보고 싶어요',
 ];
 
-function findAnswer(input: string): string {
+interface BotAnswer {
+  text: string;
+  link?: { label: string; href: string };
+}
+
+// Answers end with an optional "\n\n<label> → /path" hint; turn it into a real link.
+function parseAnswer(answer: string): BotAnswer {
+  const match = answer.match(/\n\n([^\n]+?)\s*→\s*(\/[^\s]*)\s*$/);
+  if (!match) return { text: answer };
+  return {
+    text: answer.slice(0, match.index).trimEnd(),
+    link: { label: match[1].trim(), href: match[2] },
+  };
+}
+
+function findAnswer(input: string): BotAnswer {
   const lower = input.toLowerCase();
   for (const faq of faqData) {
-    if (faq.keywords.some(kw => lower.includes(kw))) {
-      return faq.answer;
+    if (faq.keywords.some(kw => lower.includes(kw.toLowerCase()))) {
+      return parseAnswer(faq.answer);
     }
   }
-  return '좋은 질문이네요! 😊 더 자세한 내용은 이메일(gmlduqzhd@naver.com)로 문의해주시면 엽쌤이 직접 답변드리겠습니다!';
+  return { text: '좋은 질문이네요! 😊 더 자세한 내용은 이메일(gmlduqzhd@naver.com)로 문의해주시면 엽쌤이 직접 답변드리겠습니다!' };
 }
 
 export default function ChatBot() {
@@ -105,7 +122,7 @@ export default function ChatBot() {
     // Simulate typing delay
     setTimeout(() => {
       const answer = findAnswer(msg);
-      setMessages(prev => [...prev, { role: 'bot', text: answer }]);
+      setMessages(prev => [...prev, { role: 'bot', ...answer }]);
     }, 600);
   };
 
@@ -166,45 +183,46 @@ export default function ChatBot() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-8 left-8 z-50 w-80 sm:w-96 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden"
-            style={{ maxHeight: '500px' }}
+            className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-50 sm:w-96 max-h-[min(500px,80dvh)] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden"
+            role="dialog"
+            aria-label="엽쌤 안내봇"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-brand-navy to-brand-sky p-4 flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                  <Bot className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">엽쌤 안내봇</p>
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/70 text-xs">FAQ 안내</span>
+                    <span className="text-white/80 text-xs">FAQ 안내</span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-1">
                 <button
                   onClick={handleDisable}
-                  className="p-1.5 rounded-lg text-white/50 hover:text-red-300 hover:bg-white/10 transition-all cursor-pointer"
+                  className="p-1.5 rounded-lg text-white/80 hover:text-red-200 hover:bg-white/10 transition-all cursor-pointer"
                   aria-label="채팅봇 끄기"
                   title="챗봇 끄기"
                 >
-                  <Power className="w-4 h-4" />
+                  <Power className="w-4 h-4" aria-hidden="true" />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+                  className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
                   aria-label="채팅창 닫기"
                   title="채팅창 닫기"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5" aria-hidden="true" />
                 </button>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ maxHeight: '300px' }}>
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3" aria-live="polite">
               {messages.map((msg, idx) => (
                 <motion.div
                   key={idx}
@@ -220,6 +238,15 @@ export default function ChatBot() {
                     }`}
                   >
                     {msg.text}
+                    {msg.link && (
+                      <Link
+                        href={msg.link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="mt-2 flex w-fit items-center gap-1 rounded-full bg-white dark:bg-slate-800 px-3 py-1.5 text-xs font-bold text-brand-navy dark:text-brand-sky shadow-sm hover:bg-brand-sky/10 transition-colors"
+                      >
+                        {msg.link.label}
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -249,13 +276,15 @@ export default function ChatBot() {
                   onChange={e => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="메시지를 입력하세요..."
-                  className="flex-1 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-sm placeholder-slate-400 outline-none focus:ring-2 focus:ring-brand-sky/50 transition-all"
+                  aria-label="안내봇에게 보낼 메시지"
+                  className="flex-1 min-w-0 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-sm placeholder-slate-400 outline-none focus:ring-2 focus:ring-brand-sky/50 transition-all"
                 />
                 <button
                   onClick={() => handleSend()}
+                  aria-label="메시지 보내기"
                   className="w-10 h-10 rounded-xl bg-brand-navy hover:bg-brand-navy/80 text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { NextRequest, NextResponse } from 'next/server';
 import { contentStoreConfigured, isSameOrigin } from '@/lib/server/adminSession';
-import { optionalText, requiredText } from '@/lib/server/contentValidation';
+import { optionalText, readJsonObject, requiredText } from '@/lib/server/contentValidation';
 import { supabaseRest } from '@/lib/server/supabaseRest';
 
 interface GuestbookRow {
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: '방명록 보호 설정이 아직 완료되지 않았습니다.' }, { status: 503 });
   }
 
-  const body = await request.json().catch(() => ({}));
+  const body = await readJsonObject(request);
   if (body.website) {
     return NextResponse.json({ ok: true }, { status: 201 });
   }

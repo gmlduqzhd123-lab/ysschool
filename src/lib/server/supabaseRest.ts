@@ -39,7 +39,7 @@ export async function supabaseRest<T>(
   return response.json() as Promise<T>;
 }
 
-export async function uploadTrainingFile(file: File) {
+export async function uploadTrainingFile(file: File, contentType: string) {
   const config = getConfig();
   if (!config || !contentStoreConfigured()) {
     throw new Error('Shared content store is not configured.');
@@ -62,7 +62,7 @@ export async function uploadTrainingFile(file: File) {
       headers: {
         apikey: config.key,
         ...(!isModernSecretKey ? { Authorization: `Bearer ${config.key}` } : {}),
-        'Content-Type': file.type || 'application/octet-stream',
+        'Content-Type': contentType,
         'x-upsert': 'false',
       },
       body: Buffer.from(await file.arrayBuffer()),

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink, Download, Search,
@@ -14,6 +15,25 @@ import { trainingData, type TrainingMaterial } from '@/data/trainingData';
 type DisplayMaterial = TrainingMaterial & { source?: 'shared' | 'local' | 'default' };
 
 const categories = ['전체', '에듀테크', 'AI활용', '독서인문', '기타'] as const;
+
+function readJsonArray<T>(key: string): T[] {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+// Follows ?category= on every client navigation (e.g. header dropdown links while already on /training).
+function CategoryFromUrl({ onChange }: { onChange: (category: string) => void }) {
+  const searchParams = useSearchParams();
+  const cat = searchParams.get('category');
+  useEffect(() => {
+    onChange(cat && (categories as readonly string[]).includes(cat) ? cat : '전체');
+  }, [cat, onChange]);
+  return null;
+}
 
 export default function TrainingPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
@@ -40,18 +60,9 @@ export default function TrainingPage() {
   const [thumbnail, setThumbnail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  // Read category from URL query parameter
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const cat = params.get('category');
-    if (cat && (categories as readonly string[]).includes(cat)) {
-      requestAnimationFrame(() => setSelectedCategory(cat));
-    }
-  }, []);
-
   const readLocalMaterials = (): DisplayMaterial[] => {
     const stored = localStorage.getItem('ysschool_training_materials');
-    const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
+    const deletedIds = readJsonArray<number>('ysschool_training_deleted_ids');
     const base = trainingData
       .filter((item) => !deletedIds.includes(item.id))
       .map((item) => ({ ...item, source: 'default' as const }));
@@ -147,7 +158,7 @@ export default function TrainingPage() {
     setMaterials(updated);
 
     if (target.source === 'default' || (target.source == null && id < 10000)) {
-      const deletedIds: number[] = JSON.parse(localStorage.getItem('ysschool_training_deleted_ids') || '[]');
+      const deletedIds = readJsonArray<number>('ysschool_training_deleted_ids');
       if (!deletedIds.includes(id)) {
         deletedIds.push(id);
         localStorage.setItem('ysschool_training_deleted_ids', JSON.stringify(deletedIds));
@@ -320,6 +331,9 @@ export default function TrainingPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <Suspense fallback={null}>
+        <CategoryFromUrl onChange={setSelectedCategory} />
+      </Suspense>
       {/* Header */}
       <Header />
 
@@ -395,6 +409,7 @@ export default function TrainingPage() {
               <input
                 type="text"
                 placeholder="자료 검색..."
+                aria-label="연수 자료 검색"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white text-sm border border-transparent focus:border-brand-sky focus:outline-none transition-colors"
@@ -406,6 +421,7 @@ export default function TrainingPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
+                  aria-pressed={selectedCategory === cat}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/30'
@@ -441,7 +457,26 @@ export default function TrainingPage() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <AnimatePresence mode="wait">
-          {filteredData.length > 0 ? (
+          {loadingMaterials && materials.length === 0 ? (
+            <motion.div
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              aria-busy="true"
+              aria-label="연수 자료를 불러오는 중"
+            >
+              {[0, 1, 2].map((n) => (
+                <div key={n} className="h-56 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-5 animate-pulse">
+                  <div className="h-5 w-24 rounded-full bg-slate-200 dark:bg-slate-700 mb-4" />
+                  <div className="h-6 w-3/4 rounded bg-slate-200 dark:bg-slate-700 mb-3" />
+                  <div className="h-4 w-full rounded bg-slate-100 dark:bg-slate-700/60 mb-2" />
+                  <div className="h-4 w-5/6 rounded bg-slate-100 dark:bg-slate-700/60" />
+                </div>
+              ))}
+            </motion.div>
+          ) : filteredData.length > 0 ? (
             <motion.div
               key="list"
               initial={{ opacity: 0, y: 20 }}

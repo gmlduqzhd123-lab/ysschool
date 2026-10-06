@@ -29,3 +29,14 @@ export function validIsoDate(value: unknown) {
   const date = new Date(`${value}T00:00:00Z`);
   return Number.isNaN(date.getTime()) ? null : value;
 }
+
+/**
+ * Parses a JSON request body and guarantees a plain object.
+ * Returns an empty object for invalid JSON, `null`, arrays or primitives,
+ * so downstream validators reject the request with 400 instead of throwing.
+ */
+export async function readJsonObject(request: Request): Promise<Record<string, unknown>> {
+  const body: unknown = await request.json().catch(() => null);
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return {};
+  return body as Record<string, unknown>;
+}

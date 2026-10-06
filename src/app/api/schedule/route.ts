@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contentStoreConfigured, isAdminRequest, isSameOrigin } from '@/lib/server/adminSession';
-import { requiredText, validIsoDate } from '@/lib/server/contentValidation';
+import { readJsonObject, requiredText, validIsoDate } from '@/lib/server/contentValidation';
 import { supabaseRest } from '@/lib/server/supabaseRest';
 
 const TYPES = new Set(['training', 'lecture', 'performance', 'consulting']);
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: '공유 저장소가 아직 연결되지 않았습니다.' }, { status: 503 });
   }
 
-  const body = await request.json().catch(() => ({}));
+  const body = await readJsonObject(request);
   const date = validIsoDate(body.date);
   const title = requiredText(body.title, 120);
   const location = requiredText(body.location, 120);

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contentStoreConfigured, isAdminRequest, isSameOrigin } from '@/lib/server/adminSession';
-import { optionalHttpUrl, optionalText, requiredText, validIsoDate } from '@/lib/server/contentValidation';
+import { optionalHttpUrl, optionalText, readJsonObject, requiredText, validIsoDate } from '@/lib/server/contentValidation';
 import { supabaseRest } from '@/lib/server/supabaseRest';
 
 const CATEGORIES = new Set(['에듀테크', 'AI활용', '독서인문', '기타']);
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: '공유 저장소가 아직 연결되지 않았습니다.' }, { status: 503 });
   }
 
-  const body = await request.json().catch(() => ({}));
+  const body = await readJsonObject(request);
   const title = requiredText(body.title, 120);
   const description = requiredText(body.description, 1000);
   const category = requiredText(body.category, 20);
