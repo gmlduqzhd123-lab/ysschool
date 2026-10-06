@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, BookOpen, CalendarDays, Layers3 } from 'lucide-react';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const title = '2026. 학생 성장을 위한 수업-평가-기록';
 const sourceUrl = 'https://padlet.com/gmlduqzhd12/2026-g1lklclbxwve0dgg';
@@ -164,6 +165,7 @@ export default function StudentGrowthTrainingPage() {
           <p className="mt-3"><a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4">출처: 원본 연수 패들렛 (새 창)</a></p>
         </aside>
       </main>
+      <Footer />
     </div>
   );
 }

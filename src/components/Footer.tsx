@@ -1,6 +1,18 @@
+import Link from 'next/link';
 import { Mail, BookOpen } from 'lucide-react';
 import InstallAppButton from './InstallAppButton';
 import QrButton from './QrButton';
+
+const footerLinks = [
+  { href: '/', label: '홈' },
+  { href: '/portfolio', label: '포트폴리오' },
+  { href: '/training', label: '연수 자료실' },
+  { href: '/showcase', label: '에듀테크 갤러리' },
+  { href: '/library', label: '나눔 서재' },
+  { href: '/tools', label: '도구 모음' },
+  { href: '/playground', label: '프롬프트 놀이터' },
+  { href: '/blog', label: '블로그' },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,8 +39,9 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-red-600 text-slate-400 hover:text-white transition-all duration-300 group"
               title="YouTube - 엽쌤스쿨"
+              aria-label="엽쌤스쿨 유튜브 (새 창)"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
             </a>
             <a
               href="https://youtube.com/@acappellaakaraka"
@@ -36,8 +49,9 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-purple-600 text-slate-400 hover:text-white transition-all duration-300"
               title="YouTube - 아카라카"
+              aria-label="아카펠라 아카라카 유튜브 (새 창)"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
               </svg>
             </a>
@@ -47,15 +61,17 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-green-600 text-slate-400 hover:text-white transition-all duration-300 font-bold text-xs"
               title="인디스쿨"
+              aria-label="인디스쿨 (새 창)"
             >
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" aria-hidden="true" />
             </a>
             <a
               href="mailto:gmlduqzhd@naver.com"
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-brand-sky text-slate-400 hover:text-white transition-all duration-300"
               title="이메일"
+              aria-label="이메일 보내기"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-5 h-5" aria-hidden="true" />
             </a>
           </div>
 
@@ -73,11 +89,19 @@ export default function Footer() {
 
         </div>
         
-        <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <nav aria-label="사이트 메뉴" className="mt-8 flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
+          {footerLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="text-slate-400 hover:text-white transition-colors">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-6 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>
             &copy; {currentYear} 엽쌤. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-slate-500">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-500">
             <a href="https://gmlduqzhd123-lab.github.io/YScode/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
               엽쌤의 다른 앱 보기 →
             </a>

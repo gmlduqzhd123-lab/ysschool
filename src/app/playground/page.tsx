@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, ArrowRight, RotateCcw, Send, Lightbulb, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 // ========== 레벨 데이터 ==========
 interface LevelData {
@@ -89,9 +90,11 @@ function ProgressBar({ currentLevel, totalLevels, completed }: { currentLevel: n
 // ========== 빈칸 채우기 레벨 ==========
 function PromptLevel({
   level,
+  isLast,
   onComplete,
 }: {
   level: LevelData;
+  isLast: boolean;
   onComplete: () => void;
 }) {
   const [answers, setAnswers] = useState<string[]>(Array(level.blanks).fill(''));
@@ -309,7 +312,7 @@ function PromptLevel({
                 onClick={onComplete}
                 className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-extrabold text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
               >
-                다음 레벨로! <ArrowRight className="w-5 h-5" />
+                {isLast ? '결과 보기' : '다음 레벨로!'} <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </button>
             </motion.div>
           ) : (
@@ -363,7 +366,7 @@ export default function PlaygroundPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative py-12 sm:py-16 overflow-hidden">
+      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 overflow-hidden">
         <div className="absolute top-0 left-1/3 w-60 h-60 bg-amber-300/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-sky-300/20 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
@@ -455,12 +458,14 @@ export default function PlaygroundPage() {
             >
               <PromptLevel
                 level={levels[currentLevel]}
+                isLast={currentLevel >= levels.length - 1}
                 onComplete={handleLevelComplete}
               />
             </div>
           )}
         </AnimatePresence>
       </div>
+      <Footer />
     </div>
   );
 }

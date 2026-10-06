@@ -22,18 +22,34 @@ function DesktopDropdown({ item }: { item: NavItem }) {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
+  // Esc 키로 닫기
+  useEffect(() => {
+    if (!open) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [open]);
+
+  const menuId = `nav-menu-${item.name.replace(/\s+/g, '-')}`;
+
   return (
     <div ref={ref} className="relative">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap cursor-pointer"
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-controls={menuId}
+        className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap cursor-pointer rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky"
       >
         {item.name}
-        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
       </button>
 
       {open && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50">
+        <div id={menuId} className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50">
           {item.children!.map((child) =>
             child.href.startsWith('/') ? (
               <Link
@@ -180,8 +196,9 @@ export default function Header() {
             <LanguageToggle />
             <ThemeToggle />
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none cursor-pointer"
+              className="p-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky cursor-pointer"
               aria-label={mobileMenuOpen ? '모바일 메뉴 닫기' : '모바일 메뉴 열기'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -200,7 +217,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-navigation" className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-20 left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
+        <nav id="mobile-navigation" aria-label="모바일 메뉴" className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-full left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
           <div className="px-3 pt-2 pb-4 space-y-1">
             {navLinks.map((item) =>
               item.children ? (
@@ -226,7 +243,7 @@ export default function Header() {
               )
             )}
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

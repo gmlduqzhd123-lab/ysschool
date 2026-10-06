@@ -8,6 +8,7 @@ import {
   Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2
 } from 'lucide-react';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import AdminGateButton from '@/components/AdminGateButton';
 import { useAdmin } from '@/components/AdminContext';
 import { trainingData, type TrainingMaterial } from '@/data/trainingData';
@@ -342,7 +343,7 @@ export default function TrainingPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="relative py-20 sm:py-28 overflow-hidden"
+        className="relative pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0f1d3d 0%, #1a2f5e 50%, #0c1a38 100%)' }}
       >
         <div className="absolute top-10 left-1/4 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl" />
@@ -400,7 +401,7 @@ export default function TrainingPage() {
       </motion.section>
 
       {/* Search & Filter */}
-      <div className="sticky top-20 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
+      <div className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Search */}
@@ -834,6 +835,7 @@ export default function TrainingPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Footer />
     </div>
   );
 }

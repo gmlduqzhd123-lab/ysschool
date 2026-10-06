@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { Library, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import AccordionItem from '@/components/AccordionItem';
 import { libraryData } from '@/data/libraryData';
 
@@ -30,7 +31,7 @@ export default function EdutechLibraryPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="relative py-20 sm:py-28 overflow-hidden"
+        className="relative pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0f1d3d 0%, #1a2f5e 50%, #0c1a38 100%)' }}
       >
         <div className="absolute top-10 left-1/3 w-80 h-80 bg-violet-500/15 rounded-full blur-3xl" />
@@ -122,6 +123,7 @@ export default function EdutechLibraryPage() {
           </Link>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

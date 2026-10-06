@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
 import {
   sunoData, canvaData, notebookData, padletData,
@@ -419,6 +420,7 @@ export default function ShowcasePage() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Footer />
     </div>
   );
 }
