@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import HomeQuickDesk from '@/components/HomeQuickDesk';
 import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
 import FeaturedHighlights from '@/components/FeaturedHighlights';
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <HomeQuickDesk />
         <StatsSection />
         <AboutSection />
         <FeaturedHighlights />

@@ -11,19 +11,33 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
+import LearningGamesHub from '@/components/showcase/LearningGamesHub';
 import {
   sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
-type Tab = 'apps' | 'gallery';
+type Tab = 'games' | 'apps' | 'gallery';
 type GallerySub = 'suno' | 'canva' | 'notebook' | 'padlet';
 
 export default function ShowcasePage() {
-  const [activeTab, setActiveTab] = useState<Tab>('apps');
+  const [activeTab, setActiveTab] = useState<Tab>('games');
   const [gallerySub, setGallerySub] = useState<GallerySub>('suno');
   const [iframeModal, setIframeModal] = useState<{ url: string; title: string } | null>(null);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [expandedNotebook, setExpandedNotebook] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash.includes('learning-games') || hash.includes('games')) {
+        setActiveTab('games');
+      } else if (hash.includes('apps')) {
+        setActiveTab('apps');
+      } else if (hash.includes('gallery')) {
+        setActiveTab('gallery');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const modalOpen = Boolean(iframeModal || lightboxImg);
@@ -84,16 +98,17 @@ export default function ShowcasePage() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-lg text-slate-300 max-w-2xl mx-auto"
           >
-            교실에서 탄생한 미니 웹앱과 AI를 활용한 교육 콘텐츠를 직접 체험해보세요.
+            교실에서 탄생한 100종 배움게임과 에듀테크 콘텐츠를 직접 체험해보세요.
           </motion.p>
         </div>
       </motion.section>
 
       {/* Tab Buttons */}
       <div className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 gap-2 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-3 gap-2 py-3 sm:py-4">
           {([
-            { key: 'apps' as Tab, label: '🎮 미니 웹앱 공간', icon: Gamepad2 },
+            { key: 'games' as Tab, label: '🎮 100종 배움게임', icon: Gamepad2 },
+            { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
           ]).map((tab) => (
             <button
@@ -102,12 +117,12 @@ export default function ShowcasePage() {
               aria-pressed={activeTab === tab.key}
               className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
-                  ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30'
+                  ? 'bg-brand-navy dark:bg-brand-sky text-white dark:text-slate-900 shadow-lg shadow-brand-navy/30'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              <tab.icon className="w-5 h-5" />
-              {tab.label}
+              <tab.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{tab.label}</span>
             </button>
           ))}
         </div>
@@ -116,7 +131,19 @@ export default function ShowcasePage() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <AnimatePresence mode="wait">
-          {activeTab === 'apps' ? (
+          {activeTab === 'games' && (
+            <motion.div
+              key="games"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <LearningGamesHub />
+            </motion.div>
+          )}
+
+          {activeTab === 'apps' && (
             <motion.div
               key="apps"
               initial={{ opacity: 0, y: 20 }}
@@ -127,7 +154,9 @@ export default function ShowcasePage() {
               {/* Mini Apps Grid */}
               <MiniAppsGrid onPreview={(app) => setIframeModal(app)} />
             </motion.div>
-          ) : (
+          )}
+
+          {activeTab === 'gallery' && (
             <motion.div
               key="gallery"
               initial={{ opacity: 0, y: 20 }}
