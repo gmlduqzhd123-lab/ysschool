@@ -21,22 +21,28 @@ export default function PublicationsSection() {
             저서 소개
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
-            교실 속 아이들의 생생한 목소리를 담고, 교사로서의 교육적 성찰을 대중과 나누기 위해 집필한 10권의 저서입니다.
+            교실 속 아이들의 생생한 목소리를 담고, 교사로서의 교육적 성찰을 대중과 나누기 위해 집필·지도한 총 14권의 저서 아카이브입니다.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
           {publicationsData.map((book, index) => (
             <motion.div
               key={book.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group flex flex-col items-center"
+              transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
+              className="group flex flex-col items-center bg-white/70 dark:bg-slate-800/60 p-6 rounded-3xl border border-slate-200/70 dark:border-slate-700/60 shadow-sm hover:shadow-xl transition-all duration-300"
             >
+              {book.category && (
+                <span className="mb-4 inline-block text-[11px] font-bold px-2.5 py-1 rounded-full bg-brand-orange/10 text-brand-orange border border-brand-orange/20">
+                  {book.category}
+                </span>
+              )}
+
               {/* 3D Book Cover Effect */}
-              <div className="relative w-48 h-64 mb-8 perspective-1000 group-hover:-translate-y-2 transition-transform duration-500">
+              <div className="relative w-44 h-60 mb-6 perspective-1000 group-hover:-translate-y-2 transition-transform duration-500">
                 <div className="absolute inset-0 bg-brand-navy rounded-r-lg shadow-2xl rotate-y-[-10deg] transform-style-3d group-hover:rotate-y-0 transition-transform duration-500">
                   <Image
                     src={book.cover}
@@ -52,22 +58,27 @@ export default function PublicationsSection() {
                 <div className="absolute -bottom-4 left-4 right-4 h-4 bg-black/20 blur-md rounded-[100%] group-hover:blur-xl transition-all duration-500" />
               </div>
 
-              <div className="text-center flex-grow flex flex-col items-center">
-                <h4 className="text-xl font-extrabold text-slate-900 dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center text-center">
-                  {book.title}
-                </h4>
-                <p className="text-base text-slate-600 dark:text-slate-400 mb-6 font-semibold">
-                  {book.author} ({book.price})
-                </p>
+              <div className="text-center flex-grow flex flex-col items-center justify-between w-full">
+                <div>
+                  <h4 className="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5 min-h-[3rem] flex items-center justify-center text-center line-clamp-2 leading-snug">
+                    {book.title}
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 font-medium">
+                    {book.author}
+                  </p>
+                  <p className="text-sm font-bold text-brand-sky mb-5">
+                    {book.price}
+                  </p>
+                </div>
                 
                 <a
                   href={book.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-brand-sky hover:text-brand-sky text-slate-800 dark:text-slate-200 rounded-full font-bold transition-all duration-300 shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-brand-sky hover:text-white dark:hover:bg-brand-sky dark:hover:text-white rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 shadow-sm"
                 >
                   <BookOpen className="w-4 h-4" />
-                  자세히 보기
+                  YES24에서 구매하기
                 </a>
               </div>
             </motion.div>

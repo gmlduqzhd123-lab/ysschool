@@ -13,7 +13,7 @@ const milestones = [
   { year: '2021', icon: BookOpen, title: '첫 저서 출간', desc: '교육 현장의 경험을 담은 첫 번째 책을 출간하다', color: 'from-rose-500 to-red-500' },
   { year: '2022', icon: Trophy, title: '전국 수업대회 수상', desc: '전국수업실천사례대회 차상(교육부장관상) 수상', color: 'from-yellow-500 to-amber-500' },
   { year: '2023', icon: Music, title: '아카라카 활동', desc: '전남 초등교사 아카펠라 그룹에서 활발히 활동', color: 'from-indigo-500 to-blue-500' },
-  { year: '2024', icon: Newspaper, title: '10권 출간 달성', desc: '독서인문교육 관련 도서 10권 출간 달성', color: 'from-cyan-500 to-blue-500' },
+  { year: '2024~2026', icon: Newspaper, title: '총 14권 출간 달성', desc: '독서인문교육 및 학생 출판 프로젝트 총 14권 출간', color: 'from-cyan-500 to-blue-500' },
   { year: '2025', icon: Mic, title: '에듀테크 크리에이터', desc: 'AI 디지털 선도, 강연, 컨설팅까지 영역 확장', color: 'from-brand-navy to-brand-sky' },
 ];
 

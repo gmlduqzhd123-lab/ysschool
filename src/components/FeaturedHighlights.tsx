@@ -129,10 +129,10 @@ export default function FeaturedHighlights() {
                 Publications & Library
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1 mb-3">
-                출간 저서 10권 & 나눔 서재
+                출간 저서 14권 & 나눔 서재
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-keep mb-6">
-                독서인문 수업 나눔 저서와 학생 작가 프로젝트를 통해 출판한 도서 10권의 아카이브입니다.
+                독서인문 수업 나눔 저서와 학생 작가 프로젝트를 통해 출판한 도서 14권의 아카이브입니다.
                 수업에 바로 활용할 수 있는 독서 교육 자료를 자유롭게 내려받으세요.
               </p>
 
