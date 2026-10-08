@@ -2,16 +2,73 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { navLinks, NavItem } from '../data/dummyData';
-import { BookOpen, ChevronDown, Search, Command, Download } from 'lucide-react';
+import {
+  BookOpen,
+  ChevronDown,
+  Search,
+  Command,
+  Download,
+  Gamepad2,
+  Wrench,
+  Bot,
+  FileText,
+  PenTool,
+  User,
+  Calendar,
+  Book,
+  Music,
+  Mail,
+  Sparkles,
+} from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import InstallAppButton from './InstallAppButton';
 
+// ========== 메뉴 아이콘 렌더링 ==========
+function RenderNavIcon({ iconName }: { iconName?: string }) {
+  switch (iconName) {
+    case 'Gamepad2':
+      return <Gamepad2 className="w-4 h-4 text-emerald-500" />;
+    case 'Wrench':
+      return <Wrench className="w-4 h-4 text-amber-500" />;
+    case 'Bot':
+      return <Bot className="w-4 h-4 text-sky-500" />;
+    case 'FileText':
+      return <FileText className="w-4 h-4 text-blue-500" />;
+    case 'BookOpen':
+      return <BookOpen className="w-4 h-4 text-indigo-500" />;
+    case 'PenTool':
+      return <PenTool className="w-4 h-4 text-purple-500" />;
+    case 'User':
+      return <User className="w-4 h-4 text-cyan-500" />;
+    case 'Calendar':
+      return <Calendar className="w-4 h-4 text-rose-500" />;
+    case 'Book':
+      return <Book className="w-4 h-4 text-teal-500" />;
+    case 'Music':
+      return <Music className="w-4 h-4 text-pink-500" />;
+    default:
+      return <Sparkles className="w-4 h-4 text-brand-sky" />;
+  }
+}
+
 // ========== 데스크톱 드롭다운 ==========
 function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false);
+    }, 150);
+  };
 
   // 외부 클릭 시 닫기
   useEffect(() => {
@@ -32,45 +89,106 @@ function DesktopDropdown({ item }: { item: NavItem }) {
     return () => document.removeEventListener('keydown', handleKey);
   }, [open]);
 
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
   const menuId = `nav-menu-${item.name.replace(/\s+/g, '-')}`;
 
   return (
-    <div ref={ref} className="relative">
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="true"
         aria-controls={menuId}
-        className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap cursor-pointer rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky"
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-sky font-semibold text-sm transition-all duration-200 whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky ${
+          open ? 'text-brand-navy dark:text-brand-sky bg-slate-100/80 dark:bg-slate-800/80' : ''
+        }`}
       >
-        {item.name}
-        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
+        <span>{item.name}</span>
+        <ChevronDown
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+            open ? 'rotate-180 text-brand-navy dark:text-brand-sky' : 'text-slate-400'
+          }`}
+          aria-hidden="true"
+        />
       </button>
 
-      {open && (
-        <div id={menuId} className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50">
-          {item.children!.map((child) =>
-            child.href.startsWith('/') ? (
-              <Link
-                key={child.name}
-                href={child.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-navy dark:hover:text-brand-sky transition-colors whitespace-nowrap"
-              >
-                {child.name}
-              </Link>
-            ) : (
-              <a
-                key={child.name}
-                href={child.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-navy dark:hover:text-brand-sky transition-colors whitespace-nowrap"
-              >
-                {child.name}
-              </a>
-            )
-          )}
+      {open && item.children && (
+        <div
+          id={menuId}
+          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+        >
+          <div className="w-80 p-2 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700/80 space-y-1">
+            {item.children.map((child) =>
+              child.href.startsWith('/') ? (
+                <Link
+                  key={child.name}
+                  href={child.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-100/90 dark:hover:bg-slate-700/70 transition-all duration-200 group text-left"
+                >
+                  <div className="mt-0.5 p-2 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-brand-navy group-hover:text-white dark:group-hover:bg-brand-sky dark:group-hover:text-slate-900 transition-colors shrink-0">
+                    <RenderNavIcon iconName={child.iconName} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors">
+                        {child.name}
+                      </span>
+                      {child.badge && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 leading-none">
+                          {child.badge}
+                        </span>
+                      )}
+                    </div>
+                    {child.description && (
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1 leading-snug">
+                        {child.description}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ) : (
+                <a
+                  key={child.name}
+                  href={child.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-100/90 dark:hover:bg-slate-700/70 transition-all duration-200 group text-left"
+                >
+                  <div className="mt-0.5 p-2 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-brand-navy group-hover:text-white dark:group-hover:bg-brand-sky dark:group-hover:text-slate-900 transition-colors shrink-0">
+                    <RenderNavIcon iconName={child.iconName} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors">
+                        {child.name}
+                      </span>
+                      {child.badge && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 leading-none">
+                          {child.badge}
+                        </span>
+                      )}
+                    </div>
+                    {child.description && (
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1 leading-snug">
+                        {child.description}
+                      </p>
+                    )}
+                  </div>
+                </a>
+              )
+            )}
+          </div>
         </div>
       )}
     </div>
@@ -82,34 +200,76 @@ function MobileAccordion({ item, onClose }: { item: NavItem; onClose: () => void
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <div className="border-b border-slate-100 dark:border-slate-800/60 last:border-none">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+        className="w-full flex items-center justify-between px-4 py-3.5 text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-xl cursor-pointer transition-colors"
       >
-        {item.name}
-        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <span>{item.name}</span>
+        <ChevronDown
+          className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
+            open ? 'rotate-180 text-brand-navy dark:text-brand-sky' : ''
+          }`}
+        />
       </button>
-      {open && (
-        <div className="pl-4 pb-1">
-          {item.children!.map((child) =>
+      {open && item.children && (
+        <div className="px-2 pb-2 space-y-1">
+          {item.children.map((child) =>
             child.href.startsWith('/') ? (
               <Link
                 key={child.name}
                 href={child.href}
                 onClick={onClose}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-brand-navy dark:hover:text-brand-sky rounded-lg"
+                className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors"
               >
-                {child.name}
+                <div className="mt-0.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <RenderNavIcon iconName={child.iconName} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                      {child.name}
+                    </span>
+                    {child.badge && (
+                      <span className="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 leading-none">
+                        {child.badge}
+                      </span>
+                    )}
+                  </div>
+                  {child.description && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {child.description}
+                    </p>
+                  )}
+                </div>
               </Link>
             ) : (
               <a
                 key={child.name}
                 href={child.href}
                 onClick={onClose}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-brand-navy dark:hover:text-brand-sky rounded-lg"
+                className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors"
               >
-                {child.name}
+                <div className="mt-0.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <RenderNavIcon iconName={child.iconName} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                      {child.name}
+                    </span>
+                    {child.badge && (
+                      <span className="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 leading-none">
+                        {child.badge}
+                      </span>
+                    )}
+                  </div>
+                  {child.description && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {child.description}
+                    </p>
+                  )}
+                </div>
               </a>
             )
           )}
@@ -133,9 +293,23 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed z-50 transition-all duration-500 left-0 ${isScrolled ? 'w-full lg:w-max lg:left-1/2 lg:-translate-x-1/2 top-0 lg:top-4' : 'w-full top-0'}`}>
-      <div className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'glass-header shadow-xl lg:rounded-full lg:border lg:border-white/30 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl' : 'max-w-7xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm'}`}>
-        <div className={`flex justify-between items-center gap-3 sm:gap-8 lg:gap-12 transition-all duration-300 ${isScrolled ? 'h-16 lg:h-14 lg:px-2' : 'h-20'}`}>
+    <header
+      className={`fixed z-50 transition-all duration-500 left-0 ${
+        isScrolled ? 'w-full lg:w-max lg:left-1/2 lg:-translate-x-1/2 top-0 lg:top-4' : 'w-full top-0'
+      }`}
+    >
+      <div
+        className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
+          isScrolled
+            ? 'glass-header shadow-xl lg:rounded-full lg:border lg:border-white/30 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl'
+            : 'max-w-7xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm'
+        }`}
+      >
+        <div
+          className={`flex justify-between items-center gap-3 sm:gap-6 lg:gap-8 transition-all duration-300 ${
+            isScrolled ? 'h-16 lg:h-14 lg:px-3' : 'h-20'
+          }`}
+        >
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
@@ -149,15 +323,30 @@ export default function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((item) =>
-              item.children ? (
-                <DesktopDropdown key={item.name} item={item} />
-              ) : item.href?.startsWith('/') ? (
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+            {navLinks.map((item) => {
+              if (item.children) {
+                return <DesktopDropdown key={item.name} item={item} />;
+              }
+
+              if (item.highlight) {
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href!}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold shadow-sm hover:shadow transition-all whitespace-nowrap active:scale-95 cursor-pointer"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              }
+
+              return item.href?.startsWith('/') ? (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap"
+                  className="text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-sky font-semibold text-sm transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
                 </Link>
@@ -165,15 +354,19 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-sky font-medium transition-colors duration-200 whitespace-nowrap"
+                  className="text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-sky font-semibold text-sm transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
                 </a>
-              )
-            )}
+              );
+            })}
+
             <button
-              onClick={() => { const e = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true }); window.dispatchEvent(e); }}
-              className="hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 text-sm transition-all duration-200 cursor-pointer border border-slate-200 dark:border-slate-700"
+              onClick={() => {
+                const e = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true });
+                window.dispatchEvent(e);
+              }}
+              className="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 text-sm transition-all duration-200 cursor-pointer border border-slate-200 dark:border-slate-700"
               aria-label="검색"
             >
               <Search className="w-4 h-4" />
@@ -190,7 +383,12 @@ export default function Header() {
           {/* Mobile toggle */}
           <div className="lg:hidden flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2">
             <InstallAppButton
-              label={<><Download className="w-4 h-4" aria-hidden="true" /><span className="hidden min-[400px]:inline">설치</span></>}
+              label={
+                <>
+                  <Download className="w-4 h-4" aria-hidden="true" />
+                  <span className="hidden min-[400px]:inline">설치</span>
+                </>
+              }
               className="flex items-center gap-1 px-2.5 py-2 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
             />
             <LanguageToggle />
@@ -217,17 +415,44 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <nav id="mobile-navigation" aria-label="모바일 메뉴" className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-full left-0 w-full shadow-lg max-h-[70vh] overflow-y-auto">
+        <nav
+          id="mobile-navigation"
+          aria-label="모바일 메뉴"
+          className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-full left-0 w-full shadow-lg max-h-[75vh] overflow-y-auto"
+        >
           <div className="px-3 pt-2 pb-4 space-y-1">
-            {navLinks.map((item) =>
-              item.children ? (
-                <MobileAccordion key={item.name} item={item} onClose={() => setMobileMenuOpen(false)} />
-              ) : item.href?.startsWith('/') ? (
+            {navLinks.map((item) => {
+              if (item.children) {
+                return (
+                  <MobileAccordion
+                    key={item.name}
+                    item={item}
+                    onClose={() => setMobileMenuOpen(false)}
+                  />
+                );
+              }
+
+              if (item.highlight) {
+                return (
+                  <div key={item.name} className="pt-2 px-1">
+                    <Link
+                      href={item.href!}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm shadow-md"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </Link>
+                  </div>
+                );
+              }
+
+              return item.href?.startsWith('/') ? (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   {item.name}
                 </Link>
@@ -236,12 +461,12 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   {item.name}
                 </a>
-              )
-            )}
+              );
+            })}
           </div>
         </nav>
       )}

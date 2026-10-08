@@ -1,51 +1,100 @@
 export interface NavChild {
   name: string;
   href: string;
+  description?: string;
+  badge?: string;
+  iconName?: string;
 }
 
 export interface NavItem {
   name: string;
   href?: string;          // 직접 링크 (드롭다운이 없는 경우)
   children?: NavChild[];  // 드롭다운 메뉴
+  highlight?: boolean;    // 강조 버튼 스타일 (e.g. 연수 의뢰)
 }
 
 export const navLinks: NavItem[] = [
   {
-    name: '소개',
+    name: '수업·학습 자료',
     children: [
-      { name: '교육 철학', href: '/#about' },
-      { name: '연수 후기', href: '/#testimonials' },
-      { name: '문의하기', href: '/#contact' },
+      {
+        name: '100종 배움게임',
+        href: '/showcase',
+        description: '국·수·사·과 교실 수업용 무설치 웹게임',
+        iconName: 'Gamepad2',
+        badge: '100종',
+      },
+      {
+        name: '에듀테크 도구함',
+        href: '/tools',
+        description: '자작자작, 투닝 등 교실 추천 에듀테크 모음',
+        iconName: 'Wrench',
+      },
+      {
+        name: 'AI 프롬프트 놀이터',
+        href: '/playground',
+        description: '학생·교사용 생성형 AI 실습 게임',
+        iconName: 'Bot',
+        badge: 'AI',
+      },
     ],
   },
   {
-    name: '포트폴리오',
+    name: '연수·연구 자료',
     children: [
-      { name: '교육 여정', href: '/portfolio#journey' },
-      { name: '약력/활동', href: '/portfolio#cv' },
-      { name: '통합 아카이브', href: '/portfolio#archive-tabs' },
-      { name: '연수 일정', href: '/portfolio#schedule' },
-      { name: '엽쌤 퀴즈', href: '/portfolio#quiz' },
+      {
+        name: '연수 강의안·자료실',
+        href: '/training',
+        description: 'AI·디지털선도·독서인문 연수 PPT 및 자료',
+        iconName: 'FileText',
+      },
+      {
+        name: '에듀테크 나눔 서재',
+        href: '/library',
+        description: '바쁜 선생님을 위한 핵심 노하우 & 실천 가이드',
+        iconName: 'BookOpen',
+      },
+      {
+        name: '교육 이야기·블로그',
+        href: '/blog',
+        description: '디지털 수업 성찰과 에듀테크 교육 칼럼',
+        iconName: 'PenTool',
+      },
     ],
   },
   {
-    name: '에듀테크',
+    name: '엽쌤 소개',
     children: [
-      { name: '에듀테크 쇼케이스', href: '/showcase' },
-      { name: '도구 모음', href: '/tools' },
-      { name: '나눔 서재', href: '/library' },
-      { name: '프롬프트 놀이터', href: '/playground' },
-      { name: '블로그', href: '/blog' },
+      {
+        name: '프로필 & 발자취',
+        href: '/portfolio',
+        description: '약력, 교육 철학, 수상 및 연구대회 실적',
+        iconName: 'User',
+      },
+      {
+        name: '연수 캘린더',
+        href: '/portfolio#schedule',
+        description: '엽쌤의 2026 연수 및 강의 일정 현황',
+        iconName: 'Calendar',
+      },
+      {
+        name: '출간 도서',
+        href: '/portfolio#publications',
+        description: '독서미션으로 끝장내기 등 집필 도서 목록',
+        iconName: 'Book',
+      },
+      {
+        name: '아카펠라 활동',
+        href: '/portfolio#acappella',
+        description: '교사 아카펠라 그룹 아카라카 공연 영상',
+        iconName: 'Music',
+      },
     ],
   },
   {
-    name: '연수 자료',
-    children: [
-      { name: '전체 자료', href: '/training' },
-      { name: '에듀테크', href: '/training?category=에듀테크' },
-      { name: 'AI활용', href: '/training?category=AI활용' },
-      { name: '독서인문', href: '/training?category=독서인문' },
-    ],
+    name: '연수 의뢰',
+    href: '/#contact',
+    highlight: true,
   },
 ];
 
