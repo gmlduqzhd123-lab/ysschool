@@ -15,6 +15,29 @@ export interface NavItem {
 
 export const navLinks: NavItem[] = [
   {
+    name: '엽쌤 소개',
+    children: [
+      {
+        name: '프로필 & 발자취',
+        href: '/portfolio',
+        description: '약력, 교육 철학, 수상 및 연구대회 실적',
+        iconName: 'User',
+      },
+      {
+        name: '출간 도서',
+        href: '/portfolio#publications',
+        description: '독서미션으로 끝장내기 등 집필 도서 목록',
+        iconName: 'Book',
+      },
+      {
+        name: '아카펠라 활동',
+        href: '/portfolio#acappella',
+        description: '교사 아카펠라 그룹 아카라카 공연 영상',
+        iconName: 'Music',
+      },
+    ],
+  },
+  {
     name: '수업·학습 자료',
     children: [
       {
@@ -60,29 +83,6 @@ export const navLinks: NavItem[] = [
         href: '/blog',
         description: '디지털 수업 성찰과 에듀테크 교육 칼럼',
         iconName: 'PenTool',
-      },
-    ],
-  },
-  {
-    name: '엽쌤 소개',
-    children: [
-      {
-        name: '프로필 & 발자취',
-        href: '/portfolio',
-        description: '약력, 교육 철학, 수상 및 연구대회 실적',
-        iconName: 'User',
-      },
-      {
-        name: '출간 도서',
-        href: '/portfolio#publications',
-        description: '독서미션으로 끝장내기 등 집필 도서 목록',
-        iconName: 'Book',
-      },
-      {
-        name: '아카펠라 활동',
-        href: '/portfolio#acappella',
-        description: '교사 아카펠라 그룹 아카라카 공연 영상',
-        iconName: 'Music',
       },
     ],
   },
