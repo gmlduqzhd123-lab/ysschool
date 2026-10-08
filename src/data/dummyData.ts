@@ -55,6 +55,13 @@ export const navLinks: NavItem[] = [
         badge: '100종+',
       },
       {
+        name: '아침 맞이 교실 데스크',
+        href: '/morning',
+        description: '전자칠판 전용 무광고 아침 시계·자습 타이머·알림판·BGM',
+        iconName: 'Sparkles',
+        badge: 'NEW',
+      },
+      {
         name: 'AI 프롬프트 놀이터',
         href: '/playground',
         description: '학생·교사용 생성형 AI 실습 게임',

@@ -14,7 +14,20 @@ export interface LearningGame {
   grade: 'lower' | 'middle' | 'upper';
   gradeLabel: string;
   url: string;
+  curriculumUnit: string;
+  curriculumTopic: CurriculumTopic;
 }
+
+export type CurriculumTopic =
+  | '사칙연산'
+  | '구구단'
+  | '분수·소수'
+  | '도형·측정'
+  | '맞춤법·어휘'
+  | '역사·사회'
+  | '과학·우주'
+  | '기초영어'
+  | '창체·안전';
 
 export const learningGamesData: LearningGame[] = [
   {
@@ -31,7 +44,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "사칙연산 정답 보석을 먹고 몬스터를 피하는 생존형 수학 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/01_math_survivors_plus.html"
+    "url": "/learning-games/01_math_survivors_plus.html",
+    "curriculumUnit": "[수학 3-1] 자연수의 덧셈과 뺄셈",
+    "curriculumTopic": "사칙연산"
   },
   {
     "id": "game002",
@@ -47,7 +62,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "블록을 지우며 곱셈 보너스 퀴즈와 아이템을 활용하는 테트리스",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/02_educational_tetris_quest.html"
+    "url": "/learning-games/02_educational_tetris_quest.html",
+    "curriculumUnit": "[수학 3-2] 곱셈과 나눗셈",
+    "curriculumTopic": "사칙연산"
   },
   {
     "id": "game003",
@@ -63,7 +80,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "제시어의 뜻을 고르며 달리는 3라인 러너형 어휘 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games/03_vocabulary_runner_power.html"
+    "url": "/learning-games/03_vocabulary_runner_power.html",
+    "curriculumUnit": "[국어 2-1] 낱말의 뜻과 문장 완성",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game004",
@@ -79,7 +98,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "동치분수 과일을 베고 피버를 터뜨리는 분수 감각 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/04_fraction_ninja_fever.html"
+    "url": "/learning-games/04_fraction_ninja_fever.html",
+    "curriculumUnit": "[수학 3-2] 분수의 기초와 동치분수",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game005",
@@ -95,7 +116,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "정답 포탄과 포탑으로 몬스터 웨이브를 막는 구구단 디펜스",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/05_times_table_defense_arena.html"
+    "url": "/learning-games/05_times_table_defense_arena.html",
+    "curriculumUnit": "[수학 2-2] 곱셈구구 (구구단)",
+    "curriculumTopic": "구구단"
   },
   {
     "id": "game006",
@@ -111,7 +134,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "로블록스 오비 느낌으로 정답 도형 문을 통과하는 도형 미로",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games/06_geometry_obby_maze_items.html"
+    "url": "/learning-games/06_geometry_obby_maze_items.html",
+    "curriculumUnit": "[수학 3-1] 평면도형 (직각·도형 탐구)",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game007",
@@ -127,7 +152,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "여수 지역 역사와 가치 퀴즈를 풀며 보석을 모으는 탐험 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/07_yeosu_history_expedition_items.html"
+    "url": "/learning-games/07_yeosu_history_expedition_items.html",
+    "curriculumUnit": "[사회 3-1] 우리 고장의 역사와 문화유산",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game008",
@@ -143,7 +170,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "올바른 표기 버블만 터뜨리는 맞춤법 순발력 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games/08_spelling_bubble_pop_items.html"
+    "url": "/learning-games/08_spelling_bubble_pop_items.html",
+    "curriculumUnit": "[국어 3-1] 소리와 표기가 다른 낱말",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game009",
@@ -159,7 +188,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "물의 순환 개념을 2048 방식으로 합치는 과학 퍼즐",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games/09_science_merge_lab_items.html"
+    "url": "/learning-games/09_science_merge_lab_items.html",
+    "curriculumUnit": "[과학 4-2] 물의 상태 변화와 순환",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game010",
@@ -175,7 +206,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "예산에 맞춰 물건을 고르고 할인·쿠폰을 계산하는 경제 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games/10_money_market_challenge_items.html"
+    "url": "/learning-games/10_money_market_challenge_items.html",
+    "curriculumUnit": "[수학 4-1] 큰 수와 돈 계산, 수 감각",
+    "curriculumTopic": "사칙연산"
   },
   {
     "id": "game011",
@@ -191,7 +224,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "정답 단어 차선을 골라 질주하는 3라인 레이싱",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-2/01_spelling_kart_racer.html"
+    "url": "/learning-games-2/01_spelling_kart_racer.html",
+    "curriculumUnit": "[국어 3-2] 올바른 맞춤법과 띄어쓰기",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game012",
@@ -207,7 +242,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "동치분수 피자를 골라 가게를 키우는 탭 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/02_fraction_pizza_tycoon.html"
+    "url": "/learning-games-2/02_fraction_pizza_tycoon.html",
+    "curriculumUnit": "[수학 4-1] 분수의 덧셈과 뺄셈 (피자)",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game013",
@@ -223,7 +260,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "뜻에 맞는 영어 몬스터를 포획하는 캐주얼 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/03_english_monster_catcher.html"
+    "url": "/learning-games-2/03_english_monster_catcher.html",
+    "curriculumUnit": "[영어 3-1] 알파벳과 기초 생활 영단어",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game014",
@@ -239,7 +278,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "과학 개념 운석을 맞히는 슈팅 퀴즈",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/04_science_meteor_blaster.html"
+    "url": "/learning-games-2/04_science_meteor_blaster.html",
+    "curriculumUnit": "[과학 5-1] 다양한 생물과 지구 환경",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game015",
@@ -255,7 +296,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "역사 사건과 인물을 따라 달리는 타임런 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/05_history_time_portal.html"
+    "url": "/learning-games-2/05_history_time_portal.html",
+    "curriculumUnit": "[사회 5-2] 조선 시대와 우리 역사 탐구",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game016",
@@ -271,7 +314,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "순서와 조건을 생각하며 로봇을 움직이는 미로 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/06_code_robot_maze.html"
+    "url": "/learning-games-2/06_code_robot_maze.html",
+    "curriculumUnit": "[실과 5-2] 순차와 반복 구조 (블록 코딩)",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game017",
@@ -287,7 +332,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "도형 속성을 판단해 탑을 쌓는 아케이드 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-2/07_geometry_stack_tower.html"
+    "url": "/learning-games-2/07_geometry_stack_tower.html",
+    "curriculumUnit": "[수학 4-2] 사각형의 성질과 분류",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game018",
@@ -303,7 +350,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "시각 읽기와 경과 시간을 연습하는 배달 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-2/08_time_delivery_dash.html"
+    "url": "/learning-games-2/08_time_delivery_dash.html",
+    "curriculumUnit": "[수학 2-1] 시계 보기와 몇 시 몇 분",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game019",
@@ -319,7 +368,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "리듬에 맞춰 환경 실천을 고르는 음악형 퀴즈",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-2/09_environment_rhythm_hero.html"
+    "url": "/learning-games-2/09_environment_rhythm_hero.html",
+    "curriculumUnit": "[과학 5-2] 생태계와 환경 보전 실천",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game020",
@@ -335,7 +386,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "격자 좌표를 찾아 보물을 여는 탐험 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-2/10_coordinate_treasure_map.html"
+    "url": "/learning-games-2/10_coordinate_treasure_map.html",
+    "curriculumUnit": "[수학 4-1] 규칙 찾기와 격자 좌표",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game021",
@@ -351,7 +404,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "단서를 모아 글의 중심 내용을 찾는 독해 러너",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-3/01_reading_detective_run.html"
+    "url": "/learning-games-3/01_reading_detective_run.html",
+    "curriculumUnit": "[국어 4-1] 글의 중심 생각과 핵심 내용",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game022",
@@ -367,7 +422,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "목표 소수와 같은 값을 찾아 우주 광물을 캐는 슈팅 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-3/02_decimal_space_miner.html"
+    "url": "/learning-games-3/02_decimal_space_miner.html",
+    "curriculumUnit": "[수학 4-2] 소수의 덧셈과 뺄셈",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game023",
@@ -383,7 +440,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "속담과 뜻을 짝지어 기억력과 어휘력을 키우는 매칭 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-3/03_proverb_memory_match.html"
+    "url": "/learning-games-3/03_proverb_memory_match.html",
+    "curriculumUnit": "[국어 4-2] 상황에 알맞은 속담과 관용구",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game024",
@@ -399,7 +458,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "막대그래프와 표를 읽고 알맞은 상품을 고르는 자료해석 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-3/04_data_mart_challenge.html"
+    "url": "/learning-games-3/04_data_mart_challenge.html",
+    "curriculumUnit": "[수학 3-2] 표와 막대그래프 해석",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game025",
@@ -415,7 +476,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "도체와 부도체를 구분하고 전구를 밝히는 과학 퍼즐",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-3/05_circuit_rescue_lab.html"
+    "url": "/learning-games-3/05_circuit_rescue_lab.html",
+    "curriculumUnit": "[과학 6-2] 전기의 작용과 회로 연결",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game026",
@@ -431,7 +494,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "생산자와 소비자의 순서를 맞춰 생태계를 지키는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-3/06_food_chain_arena.html"
+    "url": "/learning-games-3/06_food_chain_arena.html",
+    "curriculumUnit": "[과학 5-2] 생산자와 소비자, 먹이사슬",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game027",
@@ -447,7 +512,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "음표 길이와 박자를 리듬으로 익히는 음악 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-3/07_music_note_rhythm.html"
+    "url": "/learning-games-3/07_music_note_rhythm.html",
+    "curriculumUnit": "[음악 3-1] 음표 길이와 박자 리듬",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game028",
@@ -463,7 +530,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "방위와 좌표를 읽어 목적지에 배달하는 지도 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-3/08_geo_drone_delivery.html"
+    "url": "/learning-games-3/08_geo_drone_delivery.html",
+    "curriculumUnit": "[사회 4-1] 지도 읽기와 방위표, 기호",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game029",
@@ -479,7 +548,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "생활 안전 상황에서 올바른 선택문을 통과하는 오비 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-3/09_safety_obby_quest.html"
+    "url": "/learning-games-3/09_safety_obby_quest.html",
+    "curriculumUnit": "[안전 3-1] 생활 속 안전사고 예방 수칙",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game030",
@@ -495,7 +566,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "순차·반복·조건 명령으로 로봇을 움직이는 코딩 퍼즐",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-3/10_coding_bug_hunter.html"
+    "url": "/learning-games-3/10_coding_bug_hunter.html",
+    "curriculumUnit": "[실과 6-1] 순차·반복·조건 디버깅",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game031",
@@ -511,7 +584,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "문장에 어울리는 관용어를 빠르게 터치하는 국어 액션 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/01_idiom_ninja_slice.html"
+    "url": "/learning-games-4/01_idiom_ninja_slice.html",
+    "curriculumUnit": "[국어 5-1] 관용 표현을 활용한 글쓰기",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game032",
@@ -527,7 +602,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "직사각형 밭의 넓이를 계산해 작물을 수확하는 수학 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/02_area_farm_tycoon.html"
+    "url": "/learning-games-4/02_area_farm_tycoon.html",
+    "curriculumUnit": "[수학 5-1] 직사각형과 다각형의 넓이",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game033",
@@ -543,7 +620,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "행성의 특징을 보고 알맞은 행성 라인으로 이동하는 과학 러너",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-4/03_solar_system_runner.html"
+    "url": "/learning-games-4/03_solar_system_runner.html",
+    "curriculumUnit": "[과학 5-1] 태양계 행성의 크기와 특징",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game034",
@@ -559,7 +638,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "나라와 문화 특징을 짝지어 세계 시민 감각을 키우는 카드 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-4/04_culture_festival_match.html"
+    "url": "/learning-games-4/04_culture_festival_match.html",
+    "curriculumUnit": "[사회 6-2] 지구촌 문화와 세계 여러 나라",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game035",
@@ -575,7 +656,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "흩어진 영어 단어 블록을 올바른 문장 순서로 조립하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/05_english_sentence_builder.html"
+    "url": "/learning-games-4/05_english_sentence_builder.html",
+    "curriculumUnit": "[영어 4-2] 영어 문장 어순과 블록 조립",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game036",
@@ -591,7 +674,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "길이·무게·들이 단위를 변환해 공장을 작동시키는 퀴즈",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/06_unit_conversion_factory.html"
+    "url": "/learning-games-4/06_unit_conversion_factory.html",
+    "curriculumUnit": "[수학 3-1] 길이·시간·들이·무게 단위 변환",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game037",
@@ -607,7 +692,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "날씨 기호와 생활 모습을 연결해 알맞은 예보를 만드는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/07_weather_forecast_center.html"
+    "url": "/learning-games-4/07_weather_forecast_center.html",
+    "curriculumUnit": "[과학 3-2] 날씨와 기상 기호, 계절",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game038",
@@ -623,7 +710,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "책 분류와 도서관 예절 문제를 풀어 방을 탈출하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/08_library_escape_room.html"
+    "url": "/learning-games-4/08_library_escape_room.html",
+    "curriculumUnit": "[국어 3-1] 도서관 십진분류와 독서 예절",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game039",
@@ -639,7 +728,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "크기가 같은 분수 발판을 밟아 강을 건너는 로블록스풍 오비",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-4/09_fractions_bridge_obby.html"
+    "url": "/learning-games-4/09_fractions_bridge_obby.html",
+    "curriculumUnit": "[수학 5-1] 약분과 통분, 동치분수",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game040",
@@ -655,7 +746,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "리듬에 맞춰 에너지 절약 행동을 고르는 환경 리듬 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-4/10_energy_saving_rhythm.html"
+    "url": "/learning-games-4/10_energy_saving_rhythm.html",
+    "curriculumUnit": "[실과 5-1] 에너지 절약과 탄소중립 실천",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game041",
@@ -671,7 +764,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "시구에 어울리는 심상을 골라 감상 능력을 키우는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/01_poetry_image_studio.html"
+    "url": "/learning-games-5/01_poetry_image_studio.html",
+    "curriculumUnit": "[국어 4-1] 시의 느낌과 감각적 심상",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game042",
@@ -687,7 +782,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "주스 재료의 비율을 맞춰 맛있는 레시피를 완성하는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-5/02_ratio_recipe_kitchen.html"
+    "url": "/learning-games-5/02_ratio_recipe_kitchen.html",
+    "curriculumUnit": "[수학 6-1] 비와 비율, 백분율",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game043",
@@ -703,7 +800,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "기관과 하는 일을 연결해 인체를 구하는 과학 매칭 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/03_body_system_rescue.html"
+    "url": "/learning-games-5/03_body_system_rescue.html",
+    "curriculumUnit": "[과학 6-2] 소화·순환·호흡·배설 기관",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game044",
@@ -719,7 +818,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "학급 선거 상황에서 공정한 선택과 규칙을 배우는 사회 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-5/04_democracy_election_game.html"
+    "url": "/learning-games-5/04_democracy_election_game.html",
+    "curriculumUnit": "[사회 6-1] 민주주의 발전과 공정한 선거",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game045",
@@ -735,7 +836,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "한자의 뜻과 음을 찾아 보물을 여는 기초 한자 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/05_hanja_treasure_hunt.html"
+    "url": "/learning-games-5/05_hanja_treasure_hunt.html",
+    "curriculumUnit": "[국어 5-2] 한자어의 뜻과 음 탐구",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game046",
@@ -751,7 +854,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "짧은 안내문을 읽고 필요한 정보를 골라 버스를 타는 독해 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/06_speed_reading_bus.html"
+    "url": "/learning-games-5/06_speed_reading_bus.html",
+    "curriculumUnit": "[국어 4-2] 글의 핵심 정보 파악과 속독",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game047",
@@ -767,7 +872,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "소리의 높낮이와 세기를 실험처럼 고르는 과학 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-5/07_sound_wave_lab.html"
+    "url": "/learning-games-5/07_sound_wave_lab.html",
+    "curriculumUnit": "[과학 3-2] 소리의 높낮이와 세기 성질",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game048",
@@ -783,7 +890,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "지도 기호와 실제 장소를 연결해 길을 찾는 사회 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/08_map_symbol_quiz.html"
+    "url": "/learning-games-5/08_map_symbol_quiz.html",
+    "curriculumUnit": "[사회 4-1] 지도의 기호와 범례 읽기",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game049",
@@ -799,7 +908,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "구구단 정답을 빠르게 터치해 보스를 물리치는 액션 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/09_multiplication_boss_raid.html"
+    "url": "/learning-games-5/09_multiplication_boss_raid.html",
+    "curriculumUnit": "[수학 3-1] 곱셈구구와 두 자리 수 곱셈",
+    "curriculumTopic": "구구단"
   },
   {
     "id": "game050",
@@ -815,7 +926,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "갈등 상황에서 공감과 대화의 순서를 맞춰 평화 다리를 세우는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-5/10_peace_bridge_builder.html"
+    "url": "/learning-games-5/10_peace_bridge_builder.html",
+    "curriculumUnit": "[도덕 4-1] 평화적 갈등 해결과 공감 대화",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game051",
@@ -831,7 +944,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "받침과 맞춤법 문자를 골라 유적을 통과하는 러너 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-6/01_ancient_letter_runner.html"
+    "url": "/learning-games-6/01_ancient_letter_runner.html",
+    "curriculumUnit": "[국어 2-2] 겹받침과 소리대로 적지 않는 낱말",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game052",
@@ -847,7 +962,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "같은 크기의 소수와 분수를 모아 바닷속 보물을 찾는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-6/02_decimal_submarine.html"
+    "url": "/learning-games-6/02_decimal_submarine.html",
+    "curriculumUnit": "[수학 4-2] 분수와 소수의 상호 변환",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game053",
@@ -863,7 +980,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "식물 성장 순서를 맞춰 농장을 키우는 타이쿤 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-6/03_plant_growth_tycoon.html"
+    "url": "/learning-games-6/03_plant_growth_tycoon.html",
+    "curriculumUnit": "[과학 4-1] 식물의 한살이와 발아 조건",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game054",
@@ -879,7 +998,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "직업과 역할을 맞혀 마을을 지키는 디펜스 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-6/04_community_helper_defense.html"
+    "url": "/learning-games-6/04_community_helper_defense.html",
+    "curriculumUnit": "[사회 3-2] 다양한 직업과 우리 고장 사람들",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game055",
@@ -895,7 +1016,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "영어 낱말을 뜻별로 분류해 쿠키를 굽는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-6/05_english_cookie_factory.html"
+    "url": "/learning-games-6/05_english_cookie_factory.html",
+    "curriculumUnit": "[영어 3-2] 음식·사물 주제별 영어 낱말",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game056",
@@ -911,7 +1034,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "도형 성질 문제를 풀며 오비 탑을 오르는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-6/06_triangle_climb_obby.html"
+    "url": "/learning-games-6/06_triangle_climb_obby.html",
+    "curriculumUnit": "[수학 4-1] 삼각형의 분류 (이등변·정삼각형)",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game057",
@@ -927,7 +1052,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "소리와 진동 개념을 리듬에 맞춰 익히는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-6/07_sound_wave_dj.html"
+    "url": "/learning-games-6/07_sound_wave_dj.html",
+    "curriculumUnit": "[과학 3-2] 소리의 진동과 파동 원리",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game058",
@@ -943,7 +1070,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "중심 내용과 세부 내용을 맞혀 유령 보스를 물리치는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-6/08_reading_ghost_hotel.html"
+    "url": "/learning-games-6/08_reading_ghost_hotel.html",
+    "curriculumUnit": "[국어 5-1] 중심 문장과 뒷받침 문장 찾기",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game059",
@@ -959,7 +1088,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "지도 기호와 뜻을 모아 정확히 배달하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-6/09_map_symbol_delivery.html"
+    "url": "/learning-games-6/09_map_symbol_delivery.html",
+    "curriculumUnit": "[사회 4-1] 우리 고장의 지도 기호와 위치",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game060",
@@ -975,7 +1106,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "개인정보와 온라인 예절을 익히는 안전 러너",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-6/10_digital_safety_patrol.html"
+    "url": "/learning-games-6/10_digital_safety_patrol.html",
+    "curriculumUnit": "[실과 6-2] 개인정보 보호와 사이버 안전",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game061",
@@ -991,7 +1124,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "곱셈 정답으로 드래곤의 공격을 막는 보스 레이드",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/01_multiplication_dragon_raid.html"
+    "url": "/learning-games-7/01_multiplication_dragon_raid.html",
+    "curriculumUnit": "[수학 2-2] 곱셈구구 (구구단 보스 레이드)",
+    "curriculumTopic": "구구단"
   },
   {
     "id": "game062",
@@ -1007,7 +1142,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "속담 뜻 물고기를 낚는 국어 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/02_proverb_fishing.html"
+    "url": "/learning-games-7/02_proverb_fishing.html",
+    "curriculumUnit": "[국어 3-2] 동물 속담과 교훈적 의미",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game063",
@@ -1023,7 +1160,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "날씨 현상과 설명을 분류하는 과학 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/03_weather_lab_rescue.html"
+    "url": "/learning-games-7/03_weather_lab_rescue.html",
+    "curriculumUnit": "[과학 4-2] 날씨 현상과 기상 관측",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game064",
@@ -1039,7 +1178,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "세계 문화와 예절을 짝지어 기억하는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-7/04_global_manners_party.html"
+    "url": "/learning-games-7/04_global_manners_party.html",
+    "curriculumUnit": "[사회 6-2] 세계 여러 나라의 생활 양식과 예절",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game065",
@@ -1055,7 +1196,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "영어 어순에 맞게 문장 칸을 연결하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/05_english_sentence_train.html"
+    "url": "/learning-games-7/05_english_sentence_train.html",
+    "curriculumUnit": "[영어 5-1] 영어 문장 구조와 어순 연결",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game066",
@@ -1071,7 +1214,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "분수와 그림 표현을 짝맞추는 기억 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/06_fraction_candy_match.html"
+    "url": "/learning-games-7/06_fraction_candy_match.html",
+    "curriculumUnit": "[수학 3-2] 진분수·가분수·대분수 개념",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game067",
@@ -1087,7 +1232,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "기관과 역할을 찾아 달리는 생명 과학 러너",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/07_body_organ_rush.html"
+    "url": "/learning-games-7/07_body_organ_rush.html",
+    "curriculumUnit": "[과학 6-2] 우리 몸의 감각 기관과 신경계",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game068",
@@ -1103,7 +1250,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "갈등 해결 선택지를 고르며 다리를 완성하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/08_peace_bridge_quest.html"
+    "url": "/learning-games-7/08_peace_bridge_quest.html",
+    "curriculumUnit": "[도덕 5-1] 갈등 해결과 평화적 대화",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game069",
@@ -1119,7 +1268,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "올바른 표현을 박자에 맞춰 터뜨리는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-7/09_spelling_bubble_rescue.html"
+    "url": "/learning-games-7/09_spelling_bubble_rescue.html",
+    "curriculumUnit": "[국어 4-1] 헷갈리는 맞춤법 바른 표기",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game070",
@@ -1135,7 +1286,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "거스름돈 계산으로 마켓 보스를 이기는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-7/10_money_change_market.html"
+    "url": "/learning-games-7/10_money_change_market.html",
+    "curriculumUnit": "[수학 2-1] 받아올림·받아내림 덧셈과 뺄셈",
+    "curriculumTopic": "사칙연산"
   },
   {
     "id": "game071",
@@ -1151,7 +1304,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "행성 순서와 특징을 익히는 카트 러너",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-8/01_solar_system_kart.html"
+    "url": "/learning-games-8/01_solar_system_kart.html",
+    "curriculumUnit": "[과학 5-1] 태양계 행성 순서와 특징",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game072",
@@ -1167,7 +1322,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "글의 핵심을 골라 요약력을 키우는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/02_summary_ninja.html"
+    "url": "/learning-games-8/02_summary_ninja.html",
+    "curriculumUnit": "[국어 5-2] 설명문과 주장문의 내용 요약하기",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game073",
@@ -1183,7 +1340,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "재료 비율을 맞춰 스무디를 만드는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-8/03_ratio_smoothie_shop.html"
+    "url": "/learning-games-8/03_ratio_smoothie_shop.html",
+    "curriculumUnit": "[수학 6-1] 비율의 실생활 활용과 백분율",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game074",
@@ -1199,7 +1358,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "권리와 책임 사례를 분류하는 민주시민 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-8/04_rights_vote_arena.html"
+    "url": "/learning-games-8/04_rights_vote_arena.html",
+    "curriculumUnit": "[사회 5-1] 국민의 기본권과 의무 실천",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game075",
@@ -1215,7 +1376,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "뜻에 맞는 단어 연료를 모아 로켓을 발사하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/05_english_word_rocket.html"
+    "url": "/learning-games-8/05_english_word_rocket.html",
+    "curriculumUnit": "[영어 4-1] 초등 필수 동사·형용사 어휘",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game076",
@@ -1231,7 +1394,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "자석의 성질 문제를 풀며 광산을 빠져나가는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/06_magnet_mine_escape.html"
+    "url": "/learning-games-8/06_magnet_mine_escape.html",
+    "curriculumUnit": "[과학 3-1] 자석의 극과 인력·척력 성질",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game077",
@@ -1247,7 +1412,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "시각과 경과 시간을 박자에 맞춰 맞히는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/07_time_machine_clock.html"
+    "url": "/learning-games-8/07_time_machine_clock.html",
+    "curriculumUnit": "[수학 3-1] 초 단위 시각과 하루 시간 계산",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game078",
@@ -1263,7 +1430,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "한자와 뜻을 짝지어 보물을 여는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/08_hanja_treasure_room.html"
+    "url": "/learning-games-8/08_hanja_treasure_room.html",
+    "curriculumUnit": "[국어 6-1] 생활 한자어와 문맥 추론",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game079",
@@ -1279,7 +1448,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "지역 역사 퀴즈로 항구를 지키는 디펜스",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-8/09_local_history_guardian.html"
+    "url": "/learning-games-8/09_local_history_guardian.html",
+    "curriculumUnit": "[사회 5-2] 이순신 장군과 임진왜란 구국 역사",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game080",
@@ -1295,7 +1466,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "학교 생활 안전 선택지를 통과하는 오비 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-8/10_school_safety_obby.html"
+    "url": "/learning-games-8/10_school_safety_obby.html",
+    "curriculumUnit": "[안전 4-1] 학교 복도·계단·체육관 안전 수칙",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game081",
@@ -1311,7 +1484,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "표와 그래프를 읽고 사건을 해결하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-9/01_graph_detective_agency.html"
+    "url": "/learning-games-9/01_graph_detective_agency.html",
+    "curriculumUnit": "[수학 4-1] 꺾은선그래프 해석과 추세 파악",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game082",
@@ -1327,7 +1502,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "시어와 장면을 연결해 감상력을 키우는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-9/02_poem_imagination_studio.html"
+    "url": "/learning-games-9/02_poem_imagination_studio.html",
+    "curriculumUnit": "[국어 5-1] 시 속 비유적 표현과 정서 감상",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game083",
@@ -1343,7 +1520,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "생산자 소비자 분해자를 분류하는 생태계 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-9/03_ecosystem_balance.html"
+    "url": "/learning-games-9/03_ecosystem_balance.html",
+    "curriculumUnit": "[과학 5-2] 생산자·소비자·분해자 생태계 평형",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game084",
@@ -1359,7 +1538,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "희소성과 선택 개념을 아이템으로 익히는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-9/04_economy_island_tycoon.html"
+    "url": "/learning-games-9/04_economy_island_tycoon.html",
+    "curriculumUnit": "[사회 4-2] 경제 활동과 자원의 희소성, 합리적 선택",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game085",
@@ -1375,7 +1556,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "동물 영어 낱말을 찾아 달리는 사파리 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-9/05_english_animal_safari.html"
+    "url": "/learning-games-9/05_english_animal_safari.html",
+    "curriculumUnit": "[영어 3-1] 동물 이름과 특징 영어 낱말",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game086",
@@ -1391,7 +1574,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "각도 크기를 리듬 타이밍으로 맞히는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-9/06_angle_archer.html"
+    "url": "/learning-games-9/06_angle_archer.html",
+    "curriculumUnit": "[수학 4-1] 각도의 크기와 예각·직각·둔각",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game087",
@@ -1407,7 +1592,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "고체 액체 기체와 예시를 짝맞추는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-9/07_matter_state_lab.html"
+    "url": "/learning-games-9/07_matter_state_lab.html",
+    "curriculumUnit": "[과학 3-1] 물질의 상태 (고체·액체·기체)",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game088",
@@ -1423,7 +1610,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "사실과 의견을 구분해 가짜뉴스를 막는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-9/08_media_literacy_shield.html"
+    "url": "/learning-games-9/08_media_literacy_shield.html",
+    "curriculumUnit": "[국어 6-1] 사실과 의견 구별 (미디어 리터러시)",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game089",
@@ -1439,7 +1628,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "문화유산과 지역 특징을 찾아 달리는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-9/09_culture_map_runner.html"
+    "url": "/learning-games-9/09_culture_map_runner.html",
+    "curriculumUnit": "[사회 5-1] 유네스코 세계문화유산과 국토 지리",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game090",
@@ -1455,7 +1646,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "안전한 비밀번호와 보안 습관을 익히는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-9/10_internet_password_vault.html"
+    "url": "/learning-games-9/10_internet_password_vault.html",
+    "curriculumUnit": "[실과 6-2] 안전한 패스워드와 사이버 보안 수칙",
+    "curriculumTopic": "창체·안전"
   },
   {
     "id": "game091",
@@ -1471,7 +1664,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "낱말의 뜻을 모아 몬스터 농장을 키우는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-10/01_vocab_monster_farm.html"
+    "url": "/learning-games-10/01_vocab_monster_farm.html",
+    "curriculumUnit": "[국어 3-1] 유의어와 반의어 어휘력 확장",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game092",
@@ -1487,7 +1682,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "도형 넓이 공식을 순서대로 조립하는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-10/02_area_castle_builder.html"
+    "url": "/learning-games-10/02_area_castle_builder.html",
+    "curriculumUnit": "[수학 5-1] 평행사변형·삼각형·마름모 넓이 공식",
+    "curriculumTopic": "도형·측정"
   },
   {
     "id": "game093",
@@ -1503,7 +1700,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "증발 응결 강수 흐름을 따라 달리는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-10/03_water_cycle_roller.html"
+    "url": "/learning-games-10/03_water_cycle_roller.html",
+    "curriculumUnit": "[과학 4-2] 증발·응결·강수 물의 순환 과정",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game094",
@@ -1519,7 +1718,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "우리 땅과 바다 지식을 익히는 디펜스 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-10/04_dokdo_guardian_quiz.html"
+    "url": "/learning-games-10/04_dokdo_guardian_quiz.html",
+    "curriculumUnit": "[사회 5-2] 우리 땅 독도의 지리적·역사적 의의",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game095",
@@ -1535,7 +1736,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "직업 영어 단어를 분류하는 아케이드 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-10/05_english_job_arcade.html"
+    "url": "/learning-games-10/05_english_job_arcade.html",
+    "curriculumUnit": "[영어 4-2] 직업과 일터 관련 영어 표현",
+    "curriculumTopic": "기초영어"
   },
   {
     "id": "game096",
@@ -1551,7 +1754,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "소수와 합성수를 구분하며 미로를 통과하는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-10/06_prime_number_quest.html"
+    "url": "/learning-games-10/06_prime_number_quest.html",
+    "curriculumUnit": "[수학 5-1] 약수와 배수, 소수와 합성수",
+    "curriculumTopic": "분수·소수"
   },
   {
     "id": "game097",
@@ -1567,7 +1772,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "빛의 직진과 그림자 개념을 리듬으로 익히는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-10/07_light_shadow_chase.html"
+    "url": "/learning-games-10/07_light_shadow_chase.html",
+    "curriculumUnit": "[과학 3-2] 빛의 직진과 그림자의 모양 변화",
+    "curriculumTopic": "과학·우주"
   },
   {
     "id": "game098",
@@ -1583,7 +1790,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "주장과 근거를 골라 토론 보스를 이기는 게임",
     "grade": "upper",
     "gradeLabel": "5~6학년",
-    "url": "/learning-games-10/08_debate_arena_junior.html"
+    "url": "/learning-games-10/08_debate_arena_junior.html",
+    "curriculumUnit": "[국어 6-2] 타당한 근거를 들어 주장하기 (토론)",
+    "curriculumTopic": "맞춤법·어휘"
   },
   {
     "id": "game099",
@@ -1599,7 +1808,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "도시 문제와 해결 방법을 짝맞추는 게임",
     "grade": "middle",
     "gradeLabel": "3~4학년",
-    "url": "/learning-games-10/09_future_city_planner.html"
+    "url": "/learning-games-10/09_future_city_planner.html",
+    "curriculumUnit": "[사회 4-2] 도시의 발달과 환경·교통 문제 해결",
+    "curriculumTopic": "역사·사회"
   },
   {
     "id": "game100",
@@ -1615,7 +1826,9 @@ export const learningGamesData: LearningGame[] = [
     "description": "감정 표현과 도움 요청 방법을 분류하는 게임",
     "grade": "lower",
     "gradeLabel": "1~2학년",
-    "url": "/learning-games-10/10_emotion_safety_rescue.html"
+    "url": "/learning-games-10/10_emotion_safety_rescue.html",
+    "curriculumUnit": "[도덕 3-1] 감정 인식과 평화로운 소통 방법",
+    "curriculumTopic": "창체·안전"
   }
 ];
 

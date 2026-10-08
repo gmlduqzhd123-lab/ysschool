@@ -90,6 +90,41 @@ export default function HomeQuickDesk() {
           </form>
         </div>
 
+        {/* Morning Desk Highlight Banner (Strategy 1) */}
+        <div className="mt-5 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-950 via-slate-900 to-teal-950 border border-emerald-500/40 shadow-xl text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0 text-2xl shadow-inner">
+              🌅
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-extrabold uppercase tracking-wide border border-emerald-500/30">
+                  교실 전자칠판 전용 데스크
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-[10px] font-bold">
+                  무광고 · 설치 불필요
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-sky-400/20 text-sky-300 text-[10px] font-bold">
+                  힐링 BGM & 자습 타이머
+                </span>
+              </div>
+              <h3 className="text-base sm:text-lg font-black text-white mt-1">
+                아침 맞이 3초 교실 데스크 바로 켜기
+              </h3>
+              <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                출근 후 3초 만에 띄우는 스마트보드 시작 화면 — 실시간 대형 시계, 아침 칠판 알림판, 집중 타이머, 펜타토닉 힐링 BGM, 번호 추첨기
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/morning"
+            className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+          >
+            <span>교실 데스크 풀스크린 실행</span>
+            <ArrowRight className="w-4 h-4 text-slate-950" />
+          </Link>
+        </div>
+
         {/* 4 Quick Action Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
           {/* 1. 100종 배움게임 */}
@@ -101,18 +136,23 @@ export default function HomeQuickDesk() {
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <Gamepad2 className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase">
-                100종 무설치 게임
-              </span>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+                  100종 무설치 게임
+                </span>
+                <span className="px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[10px] font-extrabold">
+                  단원 매핑
+                </span>
+              </div>
               <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">
                 100종 배움게임
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                국·수·사·과 개념을 익히는 단원별 미니게임 모음
+                2022 개정 교육과정 교과서 단원별 핀포인트 검색 & 3분 미니게임 모음
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-4 group-hover:translate-x-1 transition-transform">
-              <span>게임 둘러보기</span>
+              <span>단원별 게임 찾기</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>

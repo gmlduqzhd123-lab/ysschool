@@ -18,6 +18,7 @@ import {
   Minus,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import Link from 'next/link';
 
 interface ClassroomToolsModalProps {
   isOpen: boolean;
@@ -305,6 +306,15 @@ export default function ClassroomToolsModal({
 
             {/* Top Controls */}
             <div className="flex items-center gap-2">
+              <Link
+                href="/morning"
+                onClick={onClose}
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-300/50 transition-colors"
+                title="전자칠판 전용 아침 맞이 교실 데스크 전체화면 열기"
+              >
+                <span>🌅</span>
+                <span>아침 교실 데스크</span>
+              </Link>
               <button
                 type="button"
                 onClick={() => setIsSoundEnabled(!isSoundEnabled)}

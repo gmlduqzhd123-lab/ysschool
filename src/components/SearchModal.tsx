@@ -26,6 +26,7 @@ const searchItems: SearchItem[] = [
   { title: '아카펠라 활동', category: '아카이브', href: '/portfolio#acappella', description: '교사 아카펠라 그룹 아카라카 공연 영상' },
   { title: '영상 갤러리', category: '아카이브', href: '/portfolio#media-room', description: '교육 활동 영상 모음' },
   // 서브 페이지
+  { title: '아침 맞이 3초 교실 데스크', category: '교실도구', href: '/morning', description: '전자칠판 전용 풀스크린 아침활동 시계·타이머·알림판·무광고 BGM' },
   { title: '엽쌤 개발 웹앱 모음', category: '페이지', href: '/showcase#yscode', description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱' },
   { title: '교실 추천 에듀테크 도구함', category: '에듀테크', href: '/library#tools', description: '자작자작, 투닝, 캔바 등 교실 추천 에듀테크 모음' },
   { title: 'AI 프롬프트 놀이터', category: '페이지', href: '/playground', description: '학생·교사용 생성형 AI 실습 게임' },

@@ -13,11 +13,25 @@ import {
   Shuffle,
   ChevronDown,
 } from 'lucide-react';
-import { learningGamesData, LearningGame } from '@/data/learningGamesData';
+import { learningGamesData, LearningGame, CurriculumTopic } from '@/data/learningGamesData';
 import StudentPinModal from '@/components/StudentPinModal';
+
+const CURRICULUM_TOPICS: { key: 'all' | CurriculumTopic; label: string; icon: string }[] = [
+  { key: 'all', label: '전체 단원주제', icon: '🎯' },
+  { key: '사칙연산', label: '사칙연산·수연산', icon: '➕' },
+  { key: '구구단', label: '구구단·곱셈', icon: '✖️' },
+  { key: '분수·소수', label: '분수·소수·비율', icon: '🍕' },
+  { key: '도형·측정', label: '도형·측정·시각', icon: '📐' },
+  { key: '맞춤법·어휘', label: '맞춤법·어휘·독해', icon: '📖' },
+  { key: '과학·우주', label: '과학·우주·생태', icon: '🔬' },
+  { key: '역사·사회', label: '사회·역사·시민', icon: '🏛️' },
+  { key: '기초영어', label: '기초영어', icon: '🔤' },
+  { key: '창체·안전', label: '창체·안전·코딩', icon: '🛡️' },
+];
 
 export default function LearningGamesHub() {
   const [selectedGrade, setSelectedGrade] = useState<'all' | 'lower' | 'middle' | 'upper'>('all');
+  const [selectedTopic, setSelectedTopic] = useState<'all' | CurriculumTopic>('all');
   const [selectedSubject, setSelectedSubject] = useState<string>('all');
   const [selectedPack, setSelectedPack] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,6 +46,8 @@ export default function LearningGamesHub() {
     return learningGamesData.filter((game) => {
       // 학년 필터
       if (selectedGrade !== 'all' && game.grade !== selectedGrade) return false;
+      // 교과서 단원 주제 필터 (Strategy 2)
+      if (selectedTopic !== 'all' && game.curriculumTopic !== selectedTopic) return false;
       // 과목 필터
       if (selectedSubject !== 'all' && game.subject !== selectedSubject) return false;
       // 묶음 필터
@@ -42,16 +58,19 @@ export default function LearningGamesHub() {
         const matchTitle = game.title.toLowerCase().includes(q);
         const matchDesc = game.description.toLowerCase().includes(q);
         const matchSubject = game.rawSubject.toLowerCase().includes(q);
+        const matchUnit = game.curriculumUnit?.toLowerCase().includes(q);
+        const matchTopic = game.curriculumTopic?.toLowerCase().includes(q);
         const matchPin = game.pin.includes(q) || game.packPin.includes(q) || String(game.no) === q;
-        if (!matchTitle && !matchDesc && !matchSubject && !matchPin) return false;
+        if (!matchTitle && !matchDesc && !matchSubject && !matchPin && !matchUnit && !matchTopic) return false;
       }
       return true;
     });
-  }, [selectedGrade, selectedSubject, selectedPack, searchQuery]);
+  }, [selectedGrade, selectedTopic, selectedSubject, selectedPack, searchQuery]);
 
   // 필터 초기화
   const resetFilters = () => {
     setSelectedGrade('all');
+    setSelectedTopic('all');
     setSelectedSubject('all');
     setSelectedPack('all');
     setSearchQuery('');
@@ -139,7 +158,53 @@ export default function LearningGamesHub() {
           ))}
         </div>
 
-        {/* Row 2: Subject Chips */}
+        {/* Row 2: Curriculum Unit Topics (Strategy 2) */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-1.5 mr-2 shrink-0">
+            <span className="text-xs font-extrabold text-slate-700 dark:text-slate-300">
+              단원 매핑 필터:
+            </span>
+            <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-black">
+              2022 개정
+            </span>
+          </div>
+          {CURRICULUM_TOPICS.map((topic) => {
+            const count =
+              topic.key === 'all'
+                ? learningGamesData.length
+                : learningGamesData.filter((g) => g.curriculumTopic === topic.key).length;
+            const isSelected = selectedTopic === topic.key;
+            return (
+              <button
+                key={topic.key}
+                type="button"
+                onClick={() => {
+                  setSelectedTopic(topic.key);
+                  setDisplayLimit(16);
+                }}
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                  isSelected
+                    ? 'bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-500/40'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                <span>{topic.icon}</span>
+                <span>{topic.label}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                    isSelected
+                      ? 'bg-emerald-700 text-emerald-100'
+                      : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Row 3: Subject Chips */}
         <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-500 dark:text-slate-400 mr-2 shrink-0">
             교과 과목:
@@ -154,7 +219,7 @@ export default function LearningGamesHub() {
               }}
               className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedSubject === subj
-                  ? 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-brand-navy dark:bg-brand-sky text-white dark:text-slate-900 shadow-sm'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -163,7 +228,7 @@ export default function LearningGamesHub() {
           ))}
         </div>
 
-        {/* Row 3: Search Bar & Pack Select */}
+        {/* Row 4: Search Bar & Pack Select */}
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
           <div className="relative flex-1 w-full">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -171,7 +236,7 @@ export default function LearningGamesHub() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="게임명, 개념(분수, 구구단, 맞춤법 등), 또는 PIN 번호 검색..."
+              placeholder="오늘 수업 단원명(예: 분수 덧셈, 구구단, 맞춤법, 물의 순환), 게임명, PIN 검색..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sky text-slate-900 dark:text-white"
             />
             {searchQuery && (
@@ -198,7 +263,7 @@ export default function LearningGamesHub() {
             ))}
           </select>
 
-          {(selectedGrade !== 'all' || selectedSubject !== 'all' || selectedPack !== 'all' || searchQuery) && (
+          {(selectedGrade !== 'all' || selectedTopic !== 'all' || selectedSubject !== 'all' || selectedPack !== 'all' || searchQuery) && (
             <button
               type="button"
               onClick={resetFilters}
@@ -255,14 +320,29 @@ export default function LearningGamesHub() {
                   </div>
 
                   {/* Title & Tags */}
-                  <div className="flex items-center gap-1.5 flex-wrap mb-1.5">
+                  <div className="flex items-center gap-1.5 flex-wrap mb-2">
                     <span className="px-2 py-0.5 rounded-md bg-brand-sky/15 text-brand-navy dark:text-brand-sky font-bold text-[11px]">
                       {game.subject}
                     </span>
                     <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[11px] font-medium">
                       {game.gradeLabel}
                     </span>
+                    {game.curriculumTopic && (
+                      <span className="px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-800 dark:text-amber-300 text-[10.5px] font-extrabold">
+                        {game.curriculumTopic}
+                      </span>
+                    )}
                   </div>
+
+                  {/* 2022 개정 교과서 단원 매핑 뱃지 */}
+                  {game.curriculumUnit && (
+                    <div className="mb-2 px-2.5 py-1 rounded-lg bg-emerald-500/10 dark:bg-emerald-950/40 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold flex items-center gap-1.5 shadow-2xs">
+                      <span className="shrink-0 text-xs">📖</span>
+                      <span className="truncate" title={game.curriculumUnit}>
+                        {game.curriculumUnit}
+                      </span>
+                    </div>
+                  )}
 
                   <h3 className="text-base font-extrabold text-slate-900 dark:text-white line-clamp-1 mb-1">
                     {game.title}
