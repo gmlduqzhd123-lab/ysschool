@@ -43,6 +43,8 @@ export default function ArchiveTabs() {
     const initialHash = window.location.hash.replace('#', '');
     if (VALID_TABS.includes(initialHash)) {
       switchToTab(initialHash, true);
+    } else if (initialHash === 'archive-tabs') {
+      setTimeout(scrollToArchive, 100);
     }
 
     // 2. Hashchange & Popstate (browser navigation / hash changes)
@@ -50,6 +52,8 @@ export default function ArchiveTabs() {
       const hash = window.location.hash.replace('#', '');
       if (VALID_TABS.includes(hash)) {
         switchToTab(hash, true);
+      } else if (hash === 'archive-tabs') {
+        scrollToArchive();
       }
     };
     window.addEventListener('hashchange', handleHashOrPop);
@@ -61,6 +65,8 @@ export default function ArchiveTabs() {
       const tabId = customEvent.detail?.tab;
       if (tabId && VALID_TABS.includes(tabId)) {
         switchToTab(tabId, true);
+      } else if (tabId === 'archive-tabs') {
+        scrollToArchive();
       }
     };
     window.addEventListener('ysschool-navigate-tab', handleCustomNav);
@@ -72,10 +78,14 @@ export default function ArchiveTabs() {
       const href = target.getAttribute('href');
       if (!href) return;
 
-      const match = href.match(/(?:\/portfolio)?#(dev-lab|edu-archive|hall-of-fame|acappella|media-room|press-room|publications)$/);
+      const match = href.match(/(?:\/portfolio)?#(dev-lab|edu-archive|hall-of-fame|acappella|media-room|press-room|publications|archive-tabs)$/);
       if (match) {
         const tabId = match[1];
-        switchToTab(tabId, true);
+        if (tabId === 'archive-tabs') {
+          scrollToArchive();
+        } else {
+          switchToTab(tabId, true);
+        }
         if (window.location.hash !== `#${tabId}`) {
           window.history.pushState(null, '', `#${tabId}`);
         }
@@ -102,13 +112,13 @@ export default function ArchiveTabs() {
   ];
 
   return (
-    <div id="archive-tabs" className="w-full bg-slate-50 dark:bg-slate-900/50 pt-24 pb-8 scroll-mt-20">
+    <div id="archive-tabs" className="w-full bg-slate-50 dark:bg-slate-900/50 pt-28 sm:pt-36 pb-8 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">YSSCHOOL ARCHIVE</p>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 sm:mb-6">
           통합 아카이브
-        </h2>
-        <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep mb-10">
+        </h1>
+        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 break-keep mb-8 sm:mb-10">
           아래 탭을 눌러 방대한 자료와 프로젝트들을 한자리에서 간편하게 열람하세요.
         </p>
         

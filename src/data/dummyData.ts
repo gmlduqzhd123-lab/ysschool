@@ -19,7 +19,7 @@ export const navLinks: NavItem[] = [
     children: [
       {
         name: '프로필 & 발자취',
-        href: '/portfolio',
+        href: '/portfolio#archive-tabs',
         description: '약력, 교육 철학, 수상 및 연구대회 실적',
         iconName: 'User',
       },

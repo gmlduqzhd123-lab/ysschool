@@ -65,7 +65,12 @@ function handleAnchorClick(
   if (onAfter) onAfter();
 
   const hashIdx = href.indexOf('#');
-  if (hashIdx === -1) return;
+  if (hashIdx === -1) {
+    if (typeof window !== 'undefined' && window.location.pathname === href) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    return;
+  }
 
   const targetPath = href.substring(0, hashIdx) || '/';
   const targetHash = href.substring(hashIdx + 1);
@@ -89,6 +94,7 @@ function handleAnchorClick(
       'media-room',
       'press-room',
       'publications',
+      'archive-tabs',
     ];
 
     if (archiveTabs.includes(targetHash)) {
