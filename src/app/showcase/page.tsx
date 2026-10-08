@@ -5,18 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Gamepad2, Rocket, Play, X,
   Music, Image as ImageIcon, FileText, ChevronDown, Pause,
-  Sparkles, LayoutGrid
+  Sparkles, LayoutGrid, Code2, ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
 import LearningGamesHub from '@/components/showcase/LearningGamesHub';
+import YsCodeAppsGrid from '@/components/showcase/YsCodeAppsGrid';
 import {
   sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
-type Tab = 'games' | 'apps' | 'gallery';
+type Tab = 'games' | 'yscode' | 'apps' | 'gallery';
 type GallerySub = 'suno' | 'canva' | 'notebook' | 'padlet';
 
 export default function ShowcasePage() {
@@ -31,6 +32,8 @@ export default function ShowcasePage() {
       const hash = window.location.hash;
       if (hash.includes('learning-games') || hash.includes('games')) {
         setActiveTab('games');
+      } else if (hash.includes('yscode') || hash.includes('developer-apps') || hash.includes('yeopssam')) {
+        setActiveTab('yscode');
       } else if (hash.includes('apps')) {
         setActiveTab('apps');
       } else if (hash.includes('gallery')) {
@@ -113,9 +116,10 @@ export default function ShowcasePage() {
 
       {/* Tab Buttons */}
       <div className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-3 gap-2 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-2 py-3 sm:py-4">
           {([
             { key: 'games' as Tab, label: '🎮 100종 배움게임', icon: Gamepad2 },
+            { key: 'yscode' as Tab, label: '💻 엽쌤 웹앱 모음 (19종)', icon: Code2 },
             { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
           ]).map((tab) => (
@@ -123,14 +127,14 @@ export default function ShowcasePage() {
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
               aria-pressed={activeTab === tab.key}
-              className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
+              className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
                   ? 'bg-brand-navy dark:bg-brand-sky text-white dark:text-slate-900 shadow-lg shadow-brand-navy/30'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              <tab.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>{tab.label}</span>
+              <tab.icon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span className="truncate">{tab.label}</span>
             </button>
           ))}
         </div>
@@ -148,6 +152,18 @@ export default function ShowcasePage() {
               transition={{ duration: 0.4 }}
             >
               <LearningGamesHub />
+            </motion.div>
+          )}
+
+          {activeTab === 'yscode' && (
+            <motion.div
+              key="yscode"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <YsCodeAppsGrid onPreview={(app) => setIframeModal(app)} />
             </motion.div>
           )}
 
@@ -407,13 +423,25 @@ export default function ShowcasePage() {
             >
               <div className="flex items-center justify-between gap-3 p-3 sm:p-4 border-b border-slate-200 dark:border-slate-700">
                 <h3 className="min-w-0 truncate font-bold text-base sm:text-lg text-slate-900 dark:text-white">{iframeModal.title}</h3>
-                <button
-                  onClick={() => setIframeModal(null)}
-                  className="shrink-0 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                  aria-label="미리보기 닫기"
-                >
-                  <X className="w-5 h-5 text-slate-500" />
-                </button>
+                <div className="flex items-center gap-1 shrink-0">
+                  <a
+                    href={iframeModal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+                    aria-label="새 창으로 열기"
+                    title="새 창으로 열기"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                  <button
+                    onClick={() => setIframeModal(null)}
+                    className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                    aria-label="미리보기 닫기"
+                  >
+                    <X className="w-5 h-5 text-slate-500" />
+                  </button>
+                </div>
               </div>
               <iframe
                 src={iframeModal.url}

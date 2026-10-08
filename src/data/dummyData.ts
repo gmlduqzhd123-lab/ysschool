@@ -25,6 +25,13 @@ export const navLinks: NavItem[] = [
         badge: '100종',
       },
       {
+        name: '엽쌤 개발 웹앱 모음',
+        href: '/showcase#yscode',
+        description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱',
+        iconName: 'Code2',
+        badge: '19종',
+      },
+      {
         name: '에듀테크 도구함',
         href: '/tools',
         description: '자작자작, 투닝 등 교실 추천 에듀테크 모음',

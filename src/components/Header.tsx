@@ -19,6 +19,7 @@ import {
   Music,
   Mail,
   Sparkles,
+  Code2,
 } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
@@ -30,6 +31,8 @@ function RenderNavIcon({ iconName }: { iconName?: string }) {
   switch (iconName) {
     case 'Gamepad2':
       return <Gamepad2 className="w-4 h-4 text-emerald-500" />;
+    case 'Code2':
+      return <Code2 className="w-4 h-4 text-violet-500" />;
     case 'Wrench':
       return <Wrench className="w-4 h-4 text-amber-500" />;
     case 'Bot':
