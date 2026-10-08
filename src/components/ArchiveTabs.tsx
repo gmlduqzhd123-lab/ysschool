@@ -2,20 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderOpen, Code2, Trophy, Music, Video, FileText, BookText } from 'lucide-react';
+import { FolderOpen, Trophy, Music, Video, FileText, BookText } from 'lucide-react';
 
 import EduArchiveSection from './EduArchiveSection';
-import DevLabSection from './DevLabSection';
 import HallOfFameSection from './HallOfFameSection';
 import AcappellaSection from './AcappellaSection';
 import MediaRoomSection from './MediaRoomSection';
 import PressRoomSection from './PressRoomSection';
 import PublicationsSection from './PublicationsSection';
 
-const VALID_TABS = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
+const VALID_TABS = ['press-room', 'publications', 'hall-of-fame', 'edu-archive', 'acappella', 'media-room'];
 
 export default function ArchiveTabs() {
-  const [activeTab, setActiveTab] = useState('dev-lab');
+  const [activeTab, setActiveTab] = useState('press-room');
 
   useEffect(() => {
     const scrollToArchive = () => {
@@ -41,7 +40,9 @@ export default function ArchiveTabs() {
 
     // 1. Initial hash on mount (direct visit / navigation from other page)
     const initialHash = window.location.hash.replace('#', '');
-    if (VALID_TABS.includes(initialHash)) {
+    if (initialHash === 'dev-lab') {
+      switchToTab('press-room', true);
+    } else if (VALID_TABS.includes(initialHash)) {
       switchToTab(initialHash, true);
     } else if (initialHash === 'archive-tabs') {
       setTimeout(scrollToArchive, 100);
@@ -50,7 +51,9 @@ export default function ArchiveTabs() {
     // 2. Hashchange & Popstate (browser navigation / hash changes)
     const handleHashOrPop = () => {
       const hash = window.location.hash.replace('#', '');
-      if (VALID_TABS.includes(hash)) {
+      if (hash === 'dev-lab') {
+        switchToTab('press-room', true);
+      } else if (VALID_TABS.includes(hash)) {
         switchToTab(hash, true);
       } else if (hash === 'archive-tabs') {
         scrollToArchive();
@@ -63,7 +66,9 @@ export default function ArchiveTabs() {
     const handleCustomNav = (e: Event) => {
       const customEvent = e as CustomEvent<{ tab?: string }>;
       const tabId = customEvent.detail?.tab;
-      if (tabId && VALID_TABS.includes(tabId)) {
+      if (tabId === 'dev-lab') {
+        switchToTab('press-room', true);
+      } else if (tabId && VALID_TABS.includes(tabId)) {
         switchToTab(tabId, true);
       } else if (tabId === 'archive-tabs') {
         scrollToArchive();
@@ -78,11 +83,13 @@ export default function ArchiveTabs() {
       const href = target.getAttribute('href');
       if (!href) return;
 
-      const match = href.match(/(?:\/portfolio)?#(dev-lab|edu-archive|hall-of-fame|acappella|media-room|press-room|publications|archive-tabs)$/);
+      const match = href.match(/(?:\/portfolio)?#(press-room|publications|hall-of-fame|edu-archive|acappella|media-room|archive-tabs|dev-lab)$/);
       if (match) {
         const tabId = match[1];
         if (tabId === 'archive-tabs') {
           scrollToArchive();
+        } else if (tabId === 'dev-lab') {
+          switchToTab('press-room', true);
         } else {
           switchToTab(tabId, true);
         }
@@ -102,13 +109,12 @@ export default function ArchiveTabs() {
   }, []);
 
   const tabs = [
-    { id: 'dev-lab', label: '웹앱 실험실', icon: Code2 },
-    { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
-    { id: 'hall-of-fame', label: '수상 내역', icon: Trophy },
-    { id: 'acappella', label: '아카펠라 활동', icon: Music },
-    { id: 'media-room', label: '영상 갤러리', icon: Video },
     { id: 'press-room', label: '언론 보도', icon: FileText },
     { id: 'publications', label: '출간 도서', icon: BookText },
+    { id: 'hall-of-fame', label: '수상 내역', icon: Trophy },
+    { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
+    { id: 'acappella', label: '아카펠라 활동', icon: Music },
+    { id: 'media-room', label: '영상 갤러리', icon: Video },
   ];
 
   return (
@@ -136,7 +142,7 @@ export default function ArchiveTabs() {
                 // 브라우저 뒤로가기 기록에는 남기되 스크롤 점핑은 막기 위해 직접 pushState
                 window.history.pushState(null, '', `#${tab.id}`);
               }}
-              className={`flex items-center gap-2 px-5 py-3 rounded-xl font-bold transition-all duration-300 ${
+              className={`flex items-center gap-2 px-5 py-3 rounded-xl font-bold transition-all duration-300 cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-brand-navy text-white shadow-lg scale-105'
                   : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700 hover:border-brand-sky/30 hover:text-brand-sky'
@@ -164,13 +170,12 @@ export default function ArchiveTabs() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            {activeTab === 'edu-archive' && <EduArchiveSection />}
-            {activeTab === 'dev-lab' && <DevLabSection />}
-            {activeTab === 'hall-of-fame' && <HallOfFameSection />}
-            {activeTab === 'acappella' && <AcappellaSection />}
-            {activeTab === 'media-room' && <MediaRoomSection />}
             {activeTab === 'press-room' && <PressRoomSection />}
             {activeTab === 'publications' && <PublicationsSection />}
+            {activeTab === 'hall-of-fame' && <HallOfFameSection />}
+            {activeTab === 'edu-archive' && <EduArchiveSection />}
+            {activeTab === 'acappella' && <AcappellaSection />}
+            {activeTab === 'media-room' && <MediaRoomSection />}
           </motion.div>
         </AnimatePresence>
       </div>

@@ -19,13 +19,12 @@ const searchItems: SearchItem[] = [
   { title: '통합 아카이브', category: '섹션', href: '/portfolio#archive-tabs' },
   { title: '연락하기 (Contact)', category: '섹션', href: '/#contact' },
   // 아카이브 탭
-  { title: '교육 웹앱 실험실', category: '아카이브', href: '/portfolio#dev-lab', description: '직접 개발한 교육 웹 앱들' },
-  { title: '교육 자료실', category: '아카이브', href: '/portfolio#edu-archive', description: '수업 자료 및 교육 콘텐츠' },
-  { title: '수상 내역 (Hall of Fame)', category: '아카이브', href: '/portfolio#hall-of-fame', description: '교육 관련 수상 실적' },
-  { title: '아카펠라 활동', category: '아카이브', href: '/portfolio#acappella', description: '교사 아카펠라 그룹 아카라카 공연 영상' },
-  { title: '영상 갤러리', category: '아카이브', href: '/portfolio#media-room', description: '교육 활동 영상 모음' },
   { title: '언론 보도', category: '아카이브', href: '/portfolio#press-room', description: '언론 기사 및 보도 자료' },
   { title: '출간 도서', category: '아카이브', href: '/portfolio#publications', description: '독서미션으로 끝장내기 등 집필 도서 목록' },
+  { title: '수상 내역 (Hall of Fame)', category: '아카이브', href: '/portfolio#hall-of-fame', description: '교육 관련 수상 실적' },
+  { title: '교육 자료실', category: '아카이브', href: '/portfolio#edu-archive', description: '수업 자료 및 교육 콘텐츠' },
+  { title: '아카펠라 활동', category: '아카이브', href: '/portfolio#acappella', description: '교사 아카펠라 그룹 아카라카 공연 영상' },
+  { title: '영상 갤러리', category: '아카이브', href: '/portfolio#media-room', description: '교육 활동 영상 모음' },
   // 서브 페이지
   { title: '엽쌤 개발 웹앱 모음', category: '페이지', href: '/showcase#yscode', description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱' },
   { title: '교실 추천 에듀테크 도구함', category: '에듀테크', href: '/library#tools', description: '자작자작, 투닝, 캔바 등 교실 추천 에듀테크 모음' },
@@ -34,9 +33,9 @@ const searchItems: SearchItem[] = [
   { title: '에듀테크 나눔 서재', category: '페이지', href: '/library', description: 'AI 실전 노하우 & 교실 추천 에듀테크 도구함' },
   { title: '교육 이야기·블로그', category: '페이지', href: '/blog', description: '디지털 수업 성찰과 에듀테크 교육 칼럼' },
   // 주요 프로젝트
-  { title: '엽쌤스쿨 배움게임월드', category: '프로젝트', href: '/portfolio#dev-lab', description: '100개 HTML 학습 게임' },
-  { title: 'HALLYO SWIM', category: '프로젝트', href: '/portfolio#dev-lab', description: '수영부 관리 어플리케이션' },
-  { title: '매쓰 서바이벌', category: '프로젝트', href: '/portfolio#dev-lab', description: '수학 연산 미니게임' },
+  { title: '엽쌤스쿨 배움게임월드', category: '프로젝트', href: '/showcase#apps', description: '100개 HTML 학습 게임' },
+  { title: 'HALLYO SWIM', category: '프로젝트', href: '/showcase#yscode', description: '수영부 관리 어플리케이션' },
+  { title: '매쓰 서바이벌', category: '프로젝트', href: '/showcase#yscode', description: '수학 연산 미니게임' },
   // 저서
   { title: '고학년 독서인문교육, 독서미션으로 끝장내기', category: '저서', href: '/portfolio#publications', description: '김희엽 저' },
   { title: '우리의 서로가 계절이 되어가는 동안', category: '저서', href: '/portfolio#publications', description: '김희엽 저 (2026)' },
