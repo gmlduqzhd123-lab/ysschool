@@ -67,7 +67,7 @@ export default function FeaturedHighlights() {
                       EduTech Showcase
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-                      100종 무설치 배움게임월드
+                      100종 배움게임
                     </h3>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ export default function FeaturedHighlights() {
                 href="/showcase#learning-games"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-xs sm:text-sm font-extrabold shadow-sm transition-all group-hover:gap-3"
               >
-                <span>게임 쇼케이스 열기</span>
+                <span>100종 배움게임 열기</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -129,7 +129,7 @@ export default function FeaturedHighlights() {
                 Publications & Library
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1 mb-3">
-                출간 저서 14권 & 나눔 서재
+                에듀테크 나눔 서재
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-keep mb-6">
                 독서인문 수업 나눔 저서와 학생 작가 프로젝트를 통해 출판한 도서 14권의 아카이브입니다.
@@ -150,7 +150,7 @@ export default function FeaturedHighlights() {
                 href="/library"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-amber-600 dark:text-amber-400 group-hover:gap-2.5 transition-all"
               >
-                <span>나눔 서재 둘러보기</span>
+                <span>에듀테크 나눔 서재 둘러보기</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -172,7 +172,7 @@ export default function FeaturedHighlights() {
                 Teacher Training
               </span>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white mt-1 mb-2">
-                교원 연수 & 강의 자료실
+                연수 강의안·자료실
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-keep mb-4">
                 2022 개정 교육과정 개념기반 탐구학습, AI 활용 국어·독서 수업, 에듀테크 수업 평가 연수 발표자료 묶음입니다.
@@ -185,7 +185,7 @@ export default function FeaturedHighlights() {
                 href="/training"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:gap-2 transition-all"
               >
-                <span>자료실 열기</span>
+                <span>연수 강의안·자료실 열기</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -204,10 +204,10 @@ export default function FeaturedHighlights() {
                 <Award className="w-6 h-6" />
               </div>
               <span className="text-xs font-black tracking-wider text-rose-600 dark:text-rose-400 uppercase">
-                Portfolio & Career
+                Profile & Footprints
               </span>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white mt-1 mb-2">
-                수업연구대회 2등급 & 약력
+                프로필 & 발자취
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-keep mb-4">
                 교육부장관상 수상, AI 디지털 선도교사, 전남 초등교사 아카펠라 그룹 아카라카 활동 등 10년의 교육 여정 기록입니다.
@@ -220,7 +220,7 @@ export default function FeaturedHighlights() {
                 href="/portfolio"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 dark:text-rose-400 group-hover:gap-2 transition-all"
               >
-                <span>포트폴리오 보기</span>
+                <span>프로필 & 발자취 보기</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -242,7 +242,7 @@ export default function FeaturedHighlights() {
                 AI & Tools Lab
               </span>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white mt-1 mb-2">
-                AI 프롬프트 놀이터 & 도구
+                AI 프롬프트 놀이터
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-keep mb-4">
                 선생님을 위한 교과별 검증 프롬프트 모음과 전자칠판 타이머, 룰렛 번호 뽑기 등 스마트 교실 도구함입니다.
@@ -255,7 +255,7 @@ export default function FeaturedHighlights() {
                 href="/playground"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-600 dark:text-purple-400 group-hover:gap-2 transition-all"
               >
-                <span>놀이터 입장</span>
+                <span>AI 프롬프트 놀이터 입장</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

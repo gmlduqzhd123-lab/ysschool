@@ -105,7 +105,7 @@ export default function HomeQuickDesk() {
                 100종 무설치 게임
               </span>
               <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">
-                배움게임월드
+                100종 배움게임
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                 국·수·사·과 개념을 익히는 단원별 미니게임 모음
@@ -167,14 +167,14 @@ export default function HomeQuickDesk() {
                 연수 강의안·서식
               </span>
               <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">
-                연수 자료실
+                연수 강의안·자료실
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                 학생성장 수업·평가·기록, AI 디지털선도 PPT 다운로드
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 mt-4 group-hover:translate-x-1 transition-transform">
-              <span>자료실 바로가기</span>
+              <span>연수 강의안·자료실 바로가기</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>

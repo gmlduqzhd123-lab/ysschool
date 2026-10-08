@@ -23,7 +23,7 @@ export default function AcappellaSection() {
           </div>
           <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">A Cappella</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            아카펠라 공연 영상
+            아카펠라 활동
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             목소리만으로 빚어내는 아름다운 하모니. 2024 대한민국글로컬박람회 축하 공연 등 85회 이상의 무대에서 교학상장의 마음을 노래했습니다.

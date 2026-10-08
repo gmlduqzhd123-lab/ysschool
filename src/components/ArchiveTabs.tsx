@@ -46,10 +46,10 @@ export default function ArchiveTabs() {
     { id: 'dev-lab', label: '웹앱 실험실', icon: Code2 },
     { id: 'edu-archive', label: '교육 자료실', icon: FolderOpen },
     { id: 'hall-of-fame', label: '수상 내역', icon: Trophy },
-    { id: 'acappella', label: '아카펠라', icon: Music },
+    { id: 'acappella', label: '아카펠라 활동', icon: Music },
     { id: 'media-room', label: '영상 갤러리', icon: Video },
     { id: 'press-room', label: '언론 보도', icon: FileText },
-    { id: 'publications', label: '저서 소개', icon: BookText },
+    { id: 'publications', label: '출간 도서', icon: BookText },
   ];
 
   return (

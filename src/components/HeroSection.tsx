@@ -76,14 +76,14 @@ export default function HeroSection() {
                 href="/showcase"
                 className="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-extrabold text-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95"
               >
-                {t('에듀테크 쇼케이스', 'EduTech Showcase')}
+                {t('100종 배움게임', '100 Learning Games')}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/portfolio"
                 className="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-slate-700 dark:text-slate-200 font-extrabold text-sm border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
               >
-                {t('포트폴리오 & 약력', 'Portfolio & CV')}
+                {t('프로필 & 발자취', 'Profile & Footprints')}
               </Link>
             </div>
 

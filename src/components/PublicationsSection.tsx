@@ -18,7 +18,7 @@ export default function PublicationsSection() {
         >
           <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Publications</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            저서 소개
+            출간 도서
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             교실 속 아이들의 생생한 목소리를 담고, 교사로서의 교육적 성찰을 대중과 나누기 위해 집필·지도한 총 14권의 저서 아카이브입니다.

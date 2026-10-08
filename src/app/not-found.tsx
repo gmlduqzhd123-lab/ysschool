@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const shortcuts = [
-  { href: '/training', label: '연수 자료실' },
-  { href: '/showcase', label: '에듀테크 쇼케이스' },
-  { href: '/portfolio', label: '포트폴리오' },
-  { href: '/blog', label: '블로그' },
+  { href: '/training', label: '연수 강의안·자료실' },
+  { href: '/showcase', label: '100종 배움게임' },
+  { href: '/portfolio', label: '프로필 & 발자취' },
+  { href: '/blog', label: '교육 이야기·블로그' },
 ];
 
 export default function NotFound() {

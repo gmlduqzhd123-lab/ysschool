@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
 
 export const metadata: Metadata = {
-  title: '블로그',
+  title: '교육 이야기·블로그',
   description: '교육과 기술이 만나는 지점에서, 더 나은 교실을 위한 고민들을 기록합니다.',
   openGraph: {
-    title: '블로그',
+    title: '교육 이야기·블로그',
     description: '교육과 기술이 만나는 지점에서, 더 나은 교실을 위한 고민들을 기록합니다.',
     url: 'https://ysschool.vercel.app/blog',
     type: 'website',
@@ -23,8 +23,11 @@ export default function BlogIndex() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">
+          Education & Blog
+        </p>
         <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-          Teacher&apos;s Journal
+          교육 이야기·블로그
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 mb-12">
           교육과 기술이 만나는 지점에서, 더 나은 교실을 위한 고민들을 기록합니다.

@@ -5,13 +5,13 @@ import QrButton from './QrButton';
 
 const footerLinks = [
   { href: '/', label: '홈' },
-  { href: '/portfolio', label: '포트폴리오' },
-  { href: '/training', label: '연수 자료실' },
-  { href: '/showcase', label: '에듀테크 쇼케이스' },
-  { href: '/library', label: '나눔 서재' },
-  { href: '/tools', label: '도구 모음' },
-  { href: '/playground', label: '프롬프트 놀이터' },
-  { href: '/blog', label: '블로그' },
+  { href: '/portfolio', label: '프로필 & 발자취' },
+  { href: '/training', label: '연수 강의안·자료실' },
+  { href: '/showcase', label: '100종 배움게임' },
+  { href: '/library', label: '에듀테크 나눔 서재' },
+  { href: '/tools', label: '에듀테크 도구함' },
+  { href: '/playground', label: 'AI 프롬프트 놀이터' },
+  { href: '/blog', label: '교육 이야기·블로그' },
 ];
 
 export default function Footer() {

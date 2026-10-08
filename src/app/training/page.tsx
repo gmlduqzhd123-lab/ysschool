@@ -378,7 +378,7 @@ export default function TrainingPage() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
           >
-            연수 자료실
+            연수 강의안·자료실
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}

@@ -272,7 +272,7 @@ export default function ScheduleCalendar() {
         >
           <h2 className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">Schedule</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            {t('연수 & 강연 일정', 'Training & Lecture Schedule')}
+            {t('연수 캘린더', 'Training Calendar')}
           </h3>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             {t('예정된 연수, 강연, 공연 일정을 확인하세요.', 'Check upcoming training, lectures, and performances.')}

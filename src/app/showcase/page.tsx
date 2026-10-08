@@ -101,7 +101,7 @@ export default function ShowcasePage() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
           >
-            에듀테크 쇼케이스
+            100종 배움게임
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -119,7 +119,7 @@ export default function ShowcasePage() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-2 py-3 sm:py-4">
           {([
             { key: 'games' as Tab, label: '🎮 100종 배움게임', icon: Gamepad2 },
-            { key: 'yscode' as Tab, label: '💻 엽쌤 웹앱 모음 (19종)', icon: Code2 },
+            { key: 'yscode' as Tab, label: '💻 엽쌤 개발 웹앱 모음 (19종)', icon: Code2 },
             { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
           ]).map((tab) => (

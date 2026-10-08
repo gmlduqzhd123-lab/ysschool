@@ -72,7 +72,7 @@ export default function EduToolsCloud() {
         >
           <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">EduTech Toolkit</p>
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            {t('에듀테크 도구 모음', 'EduTech Toolkit')}
+            {t('에듀테크 도구함', 'EduTech Toolkit')}
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 break-keep">
             {t('엽쌤이 수업에서 활용하는 에듀테크 도구들입니다. 클릭하면 해당 사이트로 이동합니다.', 'EduTech tools used in YeopSsaem\'s classes. Click to visit each tool.')}

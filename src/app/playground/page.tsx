@@ -384,7 +384,7 @@ export default function PlaygroundPage() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 dark:text-white mb-3"
           >
-            🤖 프롬프트 놀이터
+            🤖 AI 프롬프트 놀이터
           </motion.h1>
           <motion.p
             initial={{ y: 15, opacity: 0 }}
