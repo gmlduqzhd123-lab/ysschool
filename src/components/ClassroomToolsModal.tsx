@@ -14,7 +14,6 @@ import {
   Maximize2,
   Minimize2,
   Sparkles,
-  Users,
   Plus,
   Minus,
 } from 'lucide-react';
@@ -97,16 +96,27 @@ export default function ClassroomToolsModal({
   const [pickerMode, setPickerMode] = useState<'number' | 'group' | 'custom'>('number');
   const [maxStudentNumber, setMaxStudentNumber] = useState(25);
   const [groupCount, setGroupCount] = useState(6);
-  const [customNamesInput, setCustomNamesInput] = useState('');
+  const [customNamesInput, setCustomNamesInput] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        return localStorage.getItem('ysschool-picker-names') || '';
+      } catch {
+        return '';
+      }
+    }
+    return '';
+  });
   const [isSpinning, setIsSpinning] = useState(false);
   const [pickedResult, setPickedResult] = useState<string | null>(null);
   const [pickedHistory, setPickedHistory] = useState<string[]>([]);
   const [excludeAlreadyPicked, setExcludeAlreadyPicked] = useState(true);
 
   // 탭 변경 시
-  useEffect(() => {
+  const [prevDefaultTab, setPrevDefaultTab] = useState(defaultTab);
+  if (defaultTab !== prevDefaultTab) {
+    setPrevDefaultTab(defaultTab);
     setActiveTab(defaultTab);
-  }, [defaultTab]);
+  }
 
   // 키보드 Esc 닫기
   useEffect(() => {
@@ -117,16 +127,6 @@ export default function ClassroomToolsModal({
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [isOpen, isFullscreen, onClose]);
-
-  // 커스텀 명렬표 localStorage 불러오기
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('ysschool-picker-names');
-      if (saved) setCustomNamesInput(saved);
-    } catch {
-      // 무시
-    }
-  }, []);
 
   // 타이머 실행 루프
   useEffect(() => {

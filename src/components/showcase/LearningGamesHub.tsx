@@ -1,19 +1,15 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  Gamepad2,
   Search,
-  Filter,
   Play,
   ExternalLink,
   Sparkles,
   QrCode,
   RotateCcw,
-  Maximize2,
   X,
-  BookOpen,
   Shuffle,
   ChevronDown,
 } from 'lucide-react';
@@ -221,7 +217,7 @@ export default function LearningGamesHub() {
           검색 결과 <span className="text-emerald-500 font-extrabold">{filteredGames.length}</span>개 게임
         </span>
         <span className="text-xs text-slate-400">
-          * 모든 게임은 학생 3자리 PIN 코드 또는 QR로 즉시 입장 가능
+          * 모든 게임은 학생 3자리 PIN 코드 및 QR 스캔으로 즉시 입장 가능
         </span>
       </div>
 
@@ -248,7 +244,7 @@ export default function LearningGamesHub() {
                         type="button"
                         onClick={() => setPinTargetGame(game)}
                         className="px-2 py-0.5 rounded-md bg-emerald-500/10 hover:bg-emerald-500 hover:text-white text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs transition-colors cursor-pointer"
-                        title="학생용 PIN 안내 열기"
+                        title="학생용 PIN 및 QR 안내 열기"
                       >
                         PIN {game.pin}
                       </button>
@@ -301,7 +297,8 @@ export default function LearningGamesHub() {
                     type="button"
                     onClick={() => setPinTargetGame(game)}
                     className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
-                    title="교실 학생 PIN 및 QR 안내 띄우기"
+                    title="학생용 QR 코드 및 PIN 크게 보기"
+                    aria-label="QR 코드 및 PIN 크게 보기"
                   >
                     <QrCode className="w-3.5 h-3.5" />
                   </button>

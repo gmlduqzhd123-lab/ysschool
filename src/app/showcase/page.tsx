@@ -27,7 +27,7 @@ export default function ShowcasePage() {
   const [expandedNotebook, setExpandedNotebook] = useState<number | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const handleHash = () => {
       const hash = window.location.hash;
       if (hash.includes('learning-games') || hash.includes('games')) {
         setActiveTab('games');
@@ -36,7 +36,15 @@ export default function ShowcasePage() {
       } else if (hash.includes('gallery')) {
         setActiveTab('gallery');
       }
-    }
+    };
+
+    window.addEventListener('hashchange', handleHash);
+    const timer = setTimeout(handleHash, 0);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('hashchange', handleHash);
+    };
   }, []);
 
   useEffect(() => {

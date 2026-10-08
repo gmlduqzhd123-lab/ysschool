@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Sparkles,
   Play,
-  Dices,
 } from 'lucide-react';
 import Link from 'next/link';
 import ClassroomToolsModal from './ClassroomToolsModal';
