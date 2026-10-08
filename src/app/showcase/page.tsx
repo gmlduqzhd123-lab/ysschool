@@ -17,36 +17,79 @@ import {
   sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
-type Tab = 'games' | 'yscode' | 'apps' | 'gallery';
+type Tab = 'yscode' | 'apps' | 'gallery';
+type AppsSubTab = 'games' | 'mini';
 type GallerySub = 'suno' | 'canva' | 'notebook' | 'padlet';
 
 export default function ShowcasePage() {
-  const [activeTab, setActiveTab] = useState<Tab>('games');
+  const [activeTab, setActiveTab] = useState<Tab>('yscode');
+  const [appsSubTab, setAppsSubTab] = useState<AppsSubTab>('games');
   const [gallerySub, setGallerySub] = useState<GallerySub>('suno');
   const [iframeModal, setIframeModal] = useState<{ url: string; title: string } | null>(null);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [expandedNotebook, setExpandedNotebook] = useState<number | null>(null);
 
+  const scrollToTabs = () => {
+    const el = document.getElementById('showcase-tabs');
+    if (el) {
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth',
+      });
+    }
+  };
+
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash;
+      const hash = window.location.hash.toLowerCase();
       if (hash.includes('learning-games') || hash.includes('games')) {
-        setActiveTab('games');
-      } else if (hash.includes('yscode') || hash.includes('developer-apps') || hash.includes('yeopssam')) {
-        setActiveTab('yscode');
+        setActiveTab('apps');
+        setAppsSubTab('games');
+      } else if (hash.includes('mini') || hash.includes('tools')) {
+        setActiveTab('apps');
+        setAppsSubTab('mini');
       } else if (hash.includes('apps')) {
         setActiveTab('apps');
       } else if (hash.includes('gallery')) {
         setActiveTab('gallery');
+      } else if (hash.includes('yscode') || hash.includes('developer') || hash.includes('yeopssam')) {
+        setActiveTab('yscode');
       }
     };
 
     window.addEventListener('hashchange', handleHash);
+    window.addEventListener('popstate', handleHash);
+
+    const handleCustomNav = (e: Event) => {
+      const customEvent = e as CustomEvent<{ tab?: string }>;
+      const tabId = customEvent.detail?.tab?.toLowerCase() || '';
+      if (tabId.includes('games') || tabId.includes('learning-games')) {
+        setActiveTab('apps');
+        setAppsSubTab('games');
+      } else if (tabId.includes('mini')) {
+        setActiveTab('apps');
+        setAppsSubTab('mini');
+      } else if (tabId === 'apps') {
+        setActiveTab('apps');
+      } else if (tabId === 'gallery') {
+        setActiveTab('gallery');
+      } else if (tabId === 'yscode') {
+        setActiveTab('yscode');
+      }
+      setTimeout(scrollToTabs, 50);
+    };
+    window.addEventListener('showcase-tab-change', handleCustomNav);
+
     const timer = setTimeout(handleHash, 0);
 
     return () => {
       clearTimeout(timer);
       window.removeEventListener('hashchange', handleHash);
+      window.removeEventListener('popstate', handleHash);
+      window.removeEventListener('showcase-tab-change', handleCustomNav);
     };
   }, []);
 
@@ -101,7 +144,7 @@ export default function ShowcasePage() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
           >
-            100종 배움게임
+            에듀테크 쇼케이스
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -109,23 +152,27 @@ export default function ShowcasePage() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-lg text-slate-300 max-w-2xl mx-auto"
           >
-            교실에서 탄생한 100종 배움게임과 에듀테크 콘텐츠를 직접 체험해보세요.
+            교직·수업·여가를 아우르는 19종 개발 웹앱과 100종 교실 배움게임, 에듀테크 콘텐츠를 직접 체험해보세요.
           </motion.p>
         </div>
       </motion.section>
 
       {/* Tab Buttons */}
-      <div className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-2 py-3 sm:py-4">
+      <div id="showcase-tabs" className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-2.5 py-3 sm:py-4">
           {([
-            { key: 'games' as Tab, label: '🎮 100종 배움게임', icon: Gamepad2 },
-            { key: 'yscode' as Tab, label: '💻 엽쌤 개발 웹앱 모음 (19종)', icon: Code2 },
-            { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱', icon: Sparkles },
+            { key: 'yscode' as Tab, label: '💻 엽쌤 개발 웹앱 (19종)', icon: Code2 },
+            { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱 & 100종 게임', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
           ]).map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => {
+                setActiveTab(tab.key);
+                if (window.location.hash !== `#${tab.key}`) {
+                  window.history.pushState(null, '', `#${tab.key}`);
+                }
+              }}
               aria-pressed={activeTab === tab.key}
               className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
@@ -143,18 +190,6 @@ export default function ShowcasePage() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <AnimatePresence mode="wait">
-          {activeTab === 'games' && (
-            <motion.div
-              key="games"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              <LearningGamesHub />
-            </motion.div>
-          )}
-
           {activeTab === 'yscode' && (
             <motion.div
               key="yscode"
@@ -175,8 +210,62 @@ export default function ShowcasePage() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Mini Apps Grid */}
-              <MiniAppsGrid onPreview={(app) => setIframeModal(app)} />
+              {/* Apps Sub-Tabs */}
+              <div className="flex gap-3 mb-10 flex-wrap justify-center sm:justify-start">
+                <button
+                  type="button"
+                  onClick={() => setAppsSubTab('games')}
+                  aria-pressed={appsSubTab === 'games'}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
+                    appsSubTab === 'games'
+                      ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/30 dark:bg-brand-sky dark:text-slate-900 scale-105'
+                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Gamepad2 className="w-4 h-4 text-emerald-500" />
+                  <span>100종 배움게임 (교과별 학습)</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-extrabold">100종</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAppsSubTab('mini')}
+                  aria-pressed={appsSubTab === 'mini'}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
+                    appsSubTab === 'mini'
+                      ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/30 dark:bg-brand-sky dark:text-slate-900 scale-105'
+                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  <span>교실 도구 웹앱 (5종)</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-amber-500/20 text-amber-700 dark:text-amber-300 font-extrabold">5종</span>
+                </button>
+              </div>
+
+              <AnimatePresence mode="wait">
+                {appsSubTab === 'games' && (
+                  <motion.div
+                    key="games"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <LearningGamesHub />
+                  </motion.div>
+                )}
+                {appsSubTab === 'mini' && (
+                  <motion.div
+                    key="mini"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <MiniAppsGrid onPreview={(app) => setIframeModal(app)} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           )}
 

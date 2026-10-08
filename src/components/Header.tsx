@@ -101,6 +101,24 @@ function handleAnchorClick(
       return;
     }
 
+    const showcaseTabs = [
+      'yscode',
+      'apps',
+      'games',
+      'learning-games',
+      'gallery',
+    ];
+
+    if (showcaseTabs.includes(targetHash)) {
+      window.dispatchEvent(
+        new CustomEvent('showcase-tab-change', { detail: { tab: targetHash } })
+      );
+      if (window.location.hash !== `#${targetHash}`) {
+        window.history.pushState(null, '', `#${targetHash}`);
+      }
+      return;
+    }
+
     const element = document.getElementById(targetHash);
     if (element) {
       if (window.location.hash !== `#${targetHash}`) {

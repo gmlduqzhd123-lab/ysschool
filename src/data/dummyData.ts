@@ -18,18 +18,18 @@ export const navLinks: NavItem[] = [
     name: '수업·학습 자료',
     children: [
       {
-        name: '100종 배움게임',
-        href: '/showcase',
-        description: '국·수·사·과 교실 수업용 무설치 웹게임',
-        iconName: 'Gamepad2',
-        badge: '100종',
-      },
-      {
         name: '엽쌤 개발 웹앱 모음',
         href: '/showcase#yscode',
         description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱',
         iconName: 'Code2',
         badge: '19종',
+      },
+      {
+        name: '교실 미니 웹앱 & 배움게임',
+        href: '/showcase#apps',
+        description: '100종 배움게임 및 교실 실무 도구 미니웹앱',
+        iconName: 'Sparkles',
+        badge: '100종+',
       },
       {
         name: '에듀테크 도구함',
