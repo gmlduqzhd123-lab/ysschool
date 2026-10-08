@@ -56,6 +56,67 @@ function RenderNavIcon({ iconName }: { iconName?: string }) {
   }
 }
 
+// ========== 앵커 및 아카이브 탭 링크 부드러운 스크롤 처리 ==========
+function handleAnchorClick(
+  e: React.MouseEvent<HTMLAnchorElement>,
+  href: string,
+  onAfter?: () => void
+) {
+  if (onAfter) onAfter();
+
+  const hashIdx = href.indexOf('#');
+  if (hashIdx === -1) return;
+
+  const targetPath = href.substring(0, hashIdx) || '/';
+  const targetHash = href.substring(hashIdx + 1);
+
+  if (typeof window === 'undefined') return;
+
+  const currentPath = window.location.pathname;
+  const isSamePage =
+    currentPath === targetPath ||
+    (currentPath === '' && targetPath === '/') ||
+    (currentPath === '/' && targetPath === '');
+
+  if (isSamePage) {
+    e.preventDefault();
+
+    const archiveTabs = [
+      'dev-lab',
+      'edu-archive',
+      'hall-of-fame',
+      'acappella',
+      'media-room',
+      'press-room',
+      'publications',
+    ];
+
+    if (archiveTabs.includes(targetHash)) {
+      window.dispatchEvent(
+        new CustomEvent('ysschool-navigate-tab', { detail: { tab: targetHash } })
+      );
+      if (window.location.hash !== `#${targetHash}`) {
+        window.history.pushState(null, '', `#${targetHash}`);
+      }
+      return;
+    }
+
+    const element = document.getElementById(targetHash);
+    if (element) {
+      if (window.location.hash !== `#${targetHash}`) {
+        window.history.pushState(null, '', `#${targetHash}`);
+      }
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth',
+      });
+    }
+  }
+}
+
 // ========== 데스크톱 드롭다운 ==========
 function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
@@ -137,7 +198,10 @@ function DesktopDropdown({ item }: { item: NavItem }) {
                 <Link
                   key={child.name}
                   href={child.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    setOpen(false);
+                    handleAnchorClick(e, child.href);
+                  }}
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-100/90 dark:hover:bg-slate-700/70 transition-all duration-200 group text-left"
                 >
                   <div className="mt-0.5 p-2 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-brand-navy group-hover:text-white dark:group-hover:bg-brand-sky dark:group-hover:text-slate-900 transition-colors shrink-0">
@@ -165,7 +229,10 @@ function DesktopDropdown({ item }: { item: NavItem }) {
                 <a
                   key={child.name}
                   href={child.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    setOpen(false);
+                    handleAnchorClick(e, child.href);
+                  }}
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-100/90 dark:hover:bg-slate-700/70 transition-all duration-200 group text-left"
                 >
                   <div className="mt-0.5 p-2 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-brand-navy group-hover:text-white dark:group-hover:bg-brand-sky dark:group-hover:text-slate-900 transition-colors shrink-0">
@@ -222,7 +289,10 @@ function MobileAccordion({ item, onClose }: { item: NavItem; onClose: () => void
               <Link
                 key={child.name}
                 href={child.href}
-                onClick={onClose}
+                onClick={(e) => {
+                  onClose();
+                  handleAnchorClick(e, child.href);
+                }}
                 className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors"
               >
                 <div className="mt-0.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">
@@ -250,7 +320,10 @@ function MobileAccordion({ item, onClose }: { item: NavItem; onClose: () => void
               <a
                 key={child.name}
                 href={child.href}
-                onClick={onClose}
+                onClick={(e) => {
+                  onClose();
+                  handleAnchorClick(e, child.href);
+                }}
                 className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors"
               >
                 <div className="mt-0.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">
@@ -337,6 +410,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href!}
+                    onClick={(e) => handleAnchorClick(e, item.href!)}
                     className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold shadow-sm hover:shadow transition-all whitespace-nowrap active:scale-95 cursor-pointer"
                   >
                     <Mail className="w-3.5 h-3.5" />
@@ -349,6 +423,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href!)}
                   className="text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-sky font-semibold text-sm transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
@@ -357,6 +432,7 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href!)}
                   className="text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-sky font-semibold text-sm transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
@@ -440,7 +516,10 @@ export default function Header() {
                   <div key={item.name} className="pt-2 px-1">
                     <Link
                       href={item.href!}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        setMobileMenuOpen(false);
+                        handleAnchorClick(e, item.href!);
+                      }}
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm shadow-md"
                     >
                       <Mail className="w-4 h-4" />
@@ -454,7 +533,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleAnchorClick(e, item.href!);
+                  }}
                   className="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   {item.name}
@@ -463,7 +545,10 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleAnchorClick(e, item.href!);
+                  }}
                   className="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:text-brand-navy hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   {item.name}

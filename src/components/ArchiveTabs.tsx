@@ -12,34 +12,83 @@ import MediaRoomSection from './MediaRoomSection';
 import PressRoomSection from './PressRoomSection';
 import PublicationsSection from './PublicationsSection';
 
+const VALID_TABS = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
+
 export default function ArchiveTabs() {
   const [activeTab, setActiveTab] = useState('dev-lab');
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      const validTabs = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
-      if (validTabs.includes(hash)) {
-        setActiveTab(hash);
-        // 부드럽게 탭 컨테이너로 스크롤
-        setTimeout(() => {
-          const element = document.getElementById('archive-tabs');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+    const scrollToArchive = () => {
+      const element = document.getElementById('archive-tabs');
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth',
+        });
       }
     };
-    
-    // Check initial hash
-    const hash = window.location.hash.replace('#', '');
-    const validTabs = ['dev-lab', 'edu-archive', 'hall-of-fame', 'acappella', 'media-room', 'press-room', 'publications'];
-    if (validTabs.includes(hash)) {
-      requestAnimationFrame(() => setActiveTab(hash));
+
+    const switchToTab = (tabId: string, shouldScroll = true) => {
+      if (!VALID_TABS.includes(tabId)) return;
+      setActiveTab(tabId);
+      if (shouldScroll) {
+        setTimeout(scrollToArchive, 100);
+      }
+    };
+
+    // 1. Initial hash on mount (direct visit / navigation from other page)
+    const initialHash = window.location.hash.replace('#', '');
+    if (VALID_TABS.includes(initialHash)) {
+      switchToTab(initialHash, true);
     }
-    
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    // 2. Hashchange & Popstate (browser navigation / hash changes)
+    const handleHashOrPop = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (VALID_TABS.includes(hash)) {
+        switchToTab(hash, true);
+      }
+    };
+    window.addEventListener('hashchange', handleHashOrPop);
+    window.addEventListener('popstate', handleHashOrPop);
+
+    // 3. Custom navigation event (from Header or other components)
+    const handleCustomNav = (e: Event) => {
+      const customEvent = e as CustomEvent<{ tab?: string }>;
+      const tabId = customEvent.detail?.tab;
+      if (tabId && VALID_TABS.includes(tabId)) {
+        switchToTab(tabId, true);
+      }
+    };
+    window.addEventListener('ysschool-navigate-tab', handleCustomNav);
+
+    // 4. Global click interceptor for links targeting archive tabs
+    const handleDocumentClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a');
+      if (!target) return;
+      const href = target.getAttribute('href');
+      if (!href) return;
+
+      const match = href.match(/(?:\/portfolio)?#(dev-lab|edu-archive|hall-of-fame|acappella|media-room|press-room|publications)$/);
+      if (match) {
+        const tabId = match[1];
+        switchToTab(tabId, true);
+        if (window.location.hash !== `#${tabId}`) {
+          window.history.pushState(null, '', `#${tabId}`);
+        }
+      }
+    };
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashOrPop);
+      window.removeEventListener('popstate', handleHashOrPop);
+      window.removeEventListener('ysschool-navigate-tab', handleCustomNav);
+      document.removeEventListener('click', handleDocumentClick);
+    };
   }, []);
 
   const tabs = [
@@ -53,7 +102,7 @@ export default function ArchiveTabs() {
   ];
 
   return (
-    <div id="archive-tabs" className="w-full bg-slate-50 dark:bg-slate-900/50 pt-24 pb-8">
+    <div id="archive-tabs" className="w-full bg-slate-50 dark:bg-slate-900/50 pt-24 pb-8 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">YSSCHOOL ARCHIVE</p>
         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">
