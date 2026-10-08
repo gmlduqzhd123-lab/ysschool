@@ -9,7 +9,6 @@ const footerLinks = [
   { href: '/training', label: '연수 강의안·자료실' },
   { href: '/showcase', label: '100종 배움게임' },
   { href: '/library', label: '에듀테크 나눔 서재' },
-  { href: '/tools', label: '에듀테크 도구함' },
   { href: '/playground', label: 'AI 프롬프트 놀이터' },
   { href: '/blog', label: '교육 이야기·블로그' },
 ];

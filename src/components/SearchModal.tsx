@@ -28,11 +28,10 @@ const searchItems: SearchItem[] = [
   { title: '출간 도서', category: '아카이브', href: '/portfolio#publications', description: '독서미션으로 끝장내기 등 집필 도서 목록' },
   // 서브 페이지
   { title: '엽쌤 개발 웹앱 모음', category: '페이지', href: '/showcase#yscode', description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱' },
-  { title: '교실 미니 웹앱 & 100종 배움게임', category: '페이지', href: '/showcase#apps', description: '100종 배움게임 및 교실 실무 도구 미니웹앱' },
-  { title: '에듀테크 도구함', category: '페이지', href: '/tools', description: '자작자작, 투닝 등 교실 추천 에듀테크 모음' },
+  { title: '교실 추천 에듀테크 도구함', category: '에듀테크', href: '/library#tools', description: '자작자작, 투닝, 캔바 등 교실 추천 에듀테크 모음' },
   { title: 'AI 프롬프트 놀이터', category: '페이지', href: '/playground', description: '학생·교사용 생성형 AI 실습 게임' },
   { title: '연수 강의안·자료실', category: '페이지', href: '/training', description: 'AI·디지털선도·독서인문 연수 PPT 및 자료' },
-  { title: '에듀테크 나눔 서재', category: '페이지', href: '/library', description: '바쁜 선생님을 위한 핵심 노하우 & 실천 가이드' },
+  { title: '에듀테크 나눔 서재', category: '페이지', href: '/library', description: 'AI 실전 노하우 & 교실 추천 에듀테크 도구함' },
   { title: '교육 이야기·블로그', category: '페이지', href: '/blog', description: '디지털 수업 성찰과 에듀테크 교육 칼럼' },
   // 주요 프로젝트
   { title: '엽쌤스쿨 배움게임월드', category: '프로젝트', href: '/portfolio#dev-lab', description: '100개 HTML 학습 게임' },

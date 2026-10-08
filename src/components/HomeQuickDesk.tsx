@@ -181,7 +181,7 @@ export default function HomeQuickDesk() {
 
           {/* 4. 추천 에듀테크 도구함 */}
           <Link
-            href="/tools"
+            href="/library#tools"
             className="group flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-br from-purple-50/50 to-pink-50/30 dark:from-slate-800/80 dark:to-slate-800/40 border border-purple-100 dark:border-purple-900/30 hover:border-purple-500/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div>
@@ -199,7 +199,7 @@ export default function HomeQuickDesk() {
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-purple-600 dark:text-purple-400 mt-4 group-hover:translate-x-1 transition-transform">
-              <span>도구 모음 보기</span>
+              <span>서재 도구함 보기</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>

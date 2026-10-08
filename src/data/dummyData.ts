@@ -32,12 +32,6 @@ export const navLinks: NavItem[] = [
         badge: '100종+',
       },
       {
-        name: '에듀테크 도구함',
-        href: '/tools',
-        description: '자작자작, 투닝 등 교실 추천 에듀테크 모음',
-        iconName: 'Wrench',
-      },
-      {
         name: 'AI 프롬프트 놀이터',
         href: '/playground',
         description: '학생·교사용 생성형 AI 실습 게임',
@@ -58,7 +52,7 @@ export const navLinks: NavItem[] = [
       {
         name: '에듀테크 나눔 서재',
         href: '/library',
-        description: '바쁜 선생님을 위한 핵심 노하우 & 실천 가이드',
+        description: 'AI 실전 노하우 & 교실 추천 에듀테크 도구 모음',
         iconName: 'BookOpen',
       },
       {

@@ -18,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '/playground', lastModified: '2026-10-06', priority: 0.7, changeFrequency: 'monthly' },
     { route: '/training', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'weekly' },
     { route: '/training/student-growth-2026', lastModified: '2026-10-06', priority: 0.7, changeFrequency: 'monthly' },
-    { route: '/tools', lastModified: '2026-10-06', priority: 0.7, changeFrequency: 'monthly' },
     { route: '/blog', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'weekly' },
   ];
 
