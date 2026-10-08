@@ -45,43 +45,62 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-sky/10 font-extrabold text-sm mb-6 border border-brand-sky/20 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
-              <Sparkles className="w-4 h-4 text-brand-sky" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky dark:from-brand-sky dark:to-brand-orange">
-                {t('에듀테크 크리에이터', 'EduTech Creator')}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/5 dark:bg-white/10 font-bold text-xs sm:text-sm mb-6 border border-slate-200/80 dark:border-white/10 backdrop-blur-md shadow-sm">
+              <Sparkles className="w-4 h-4 text-blue-600 dark:text-brand-sky" />
+              <span className="font-bold text-slate-800 dark:text-slate-200">
+                {t('에듀테크 크리에이터 · 초등교사 엽쌤', 'EduTech Creator & Educator Yeop')}
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight break-keep">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-rose-500">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-6 leading-[1.12] break-keep text-slate-900 dark:text-white">
+              <span>
                 {t('경계를 넘어서는 교육,', 'Education Beyond Boundaries,')}
               </span><br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-sky dark:from-brand-sky dark:to-blue-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-300">
                 {t('엽쌤스쿨', 'YSSCHOOL')}
-              </span><span className="text-slate-900 dark:text-white">{t('에 오신 것을 환영합니다.', ' welcomes you.')}</span>
+              </span>
+              <span className="font-extrabold text-slate-900 dark:text-white">
+                {t('입니다.', '.')}
+              </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed break-keep whitespace-pre-line">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed break-keep max-w-xl">
               {t(
-                '안녕하세요, 초등교사 김희엽입니다. \n늘 배우며 성장하겠습니다.',
-                'Hello, I\'m Kim Hee-yeop, an elementary school teacher.\nAlways learning, always growing.'
+                '교실의 한계를 뛰어넘어 에듀테크 개발, 독서인문, AI 디지털 교육, 저술 활동까지 — 학생과 교사 모두의 성장을 세상과 연결합니다.',
+                'Beyond classroom boundaries: EduTech development, reading & humanities, AI digital innovation, and publishing.'
               )}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3.5 mb-10">
               <Link
                 href="/showcase"
-                className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-brand-navy text-white font-semibold hover:bg-brand-navy/90 transition-all shadow-lg hover:shadow-brand-navy/30"
+                className="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-extrabold text-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95"
               >
                 {t('에듀테크 쇼케이스', 'EduTech Showcase')}
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-white font-semibold border-2 border-brand-navy/10 hover:border-brand-sky transition-all shadow-sm hover:shadow-md"
+                className="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-slate-700 dark:text-slate-200 font-extrabold text-sm border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
               >
-                {t('포트폴리오 보기', 'View Portfolio')}
+                {t('포트폴리오 & 약력', 'Portfolio & CV')}
               </Link>
+            </div>
+
+            {/* Key Metrics Ticker */}
+            <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 grid grid-cols-3 gap-4 max-w-md">
+              <div>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">100<span className="text-emerald-500 text-lg font-bold">+</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">배움게임 & 웹앱</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">10<span className="text-blue-500 text-lg font-bold">권</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">출간 및 집필</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">10<span className="text-indigo-500 text-lg font-bold">년차</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">현직 초등교사</p>
+              </div>
             </div>
 
 
