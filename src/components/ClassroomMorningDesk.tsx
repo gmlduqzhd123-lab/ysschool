@@ -26,6 +26,7 @@ import {
   stopAmbientSound,
   setAmbientVolume,
 } from '@/lib/webAudioAmbient';
+import MorningSchoolMealCard from './MorningSchoolMealCard';
 
 type DeskTheme = 'chalkboard' | 'slate' | 'whiteboard';
 
@@ -681,6 +682,9 @@ export default function ClassroomMorningDesk() {
               </button>
             </div>
           </div>
+
+          {/* D. 오늘의 급식 식단 (나이스 실시간 연동) */}
+          <MorningSchoolMealCard themeStyles={themeStyles} />
         </section>
       </main>
 
