@@ -79,12 +79,6 @@ export const navLinks: NavItem[] = [
         iconName: 'User',
       },
       {
-        name: '연수 캘린더',
-        href: '/portfolio#schedule',
-        description: '엽쌤의 2026 연수 및 강의 일정 현황',
-        iconName: 'Calendar',
-      },
-      {
         name: '출간 도서',
         href: '/portfolio#publications',
         description: '독서미션으로 끝장내기 등 집필 도서 목록',

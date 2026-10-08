@@ -2,13 +2,12 @@ import Header from '@/components/Header';
 import InteractiveTimeline from '@/components/InteractiveTimeline';
 import CVSection from '@/components/CVSection';
 import ArchiveTabs from '@/components/ArchiveTabs';
-import ScheduleCalendar from '@/components/ScheduleCalendar';
 import QuizGame from '@/components/QuizGame';
 import Footer from '@/components/Footer';
 
 export const metadata = {
   title: '프로필 & 발자취',
-  description: '교육 여정, 주요 약력, 수상 내역, 아카펠라 공연, 연수 일정 등 엽쌤의 활동 기록을 한눈에 확인하세요.',
+  description: '교육 여정, 주요 약력, 수상 내역, 출간 도서, 아카펠라 공연 등 엽쌤의 활동 기록을 한눈에 확인하세요.',
 };
 
 export default function PortfolioPage() {
@@ -34,7 +33,6 @@ export default function PortfolioPage() {
         <InteractiveTimeline />
         <CVSection />
         <ArchiveTabs />
-        <ScheduleCalendar />
         <QuizGame />
       </main>
       <Footer />

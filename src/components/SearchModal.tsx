@@ -16,7 +16,6 @@ const searchItems: SearchItem[] = [
   // 메인 섹션
   { title: '소개 (About)', category: '섹션', href: '/#about' },
   { title: '프로필 & 발자취 (CV)', category: '섹션', href: '/portfolio' },
-  { title: '연수 캘린더', category: '섹션', href: '/portfolio#schedule', description: '엽쌤의 2026 연수 및 강의 일정 현황' },
   { title: '통합 아카이브', category: '섹션', href: '/portfolio#archive-tabs' },
   { title: '연락하기 (Contact)', category: '섹션', href: '/#contact' },
   // 아카이브 탭
