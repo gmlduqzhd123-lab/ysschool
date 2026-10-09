@@ -109,6 +109,7 @@ function handleAnchorClick(
 
     const showcaseTabs = [
       'yscode',
+      'playground',
       'apps',
       'games',
       'learning-games',

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Gamepad2, Rocket, Play, X,
   Music, Image as ImageIcon, FileText, ChevronDown, Pause,
-  Sparkles, LayoutGrid, Code2, ExternalLink
+  Sparkles, LayoutGrid, Code2, ExternalLink, Bot
 } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/Header';
@@ -13,11 +13,12 @@ import Footer from '@/components/Footer';
 import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
 import LearningGamesHub from '@/components/showcase/LearningGamesHub';
 import YsCodeAppsGrid from '@/components/showcase/YsCodeAppsGrid';
+import PromptPlaygroundSection from '@/components/showcase/PromptPlaygroundSection';
 import {
   sunoData, canvaData, notebookData, padletData,
 } from '@/data/showcaseData';
 
-type Tab = 'yscode' | 'apps' | 'gallery';
+type Tab = 'yscode' | 'playground' | 'apps' | 'gallery';
 type AppsSubTab = 'games' | 'mini';
 type GallerySub = 'suno' | 'canva' | 'notebook' | 'padlet';
 
@@ -45,7 +46,9 @@ export default function ShowcasePage() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('learning-games') || hash.includes('games')) {
+      if (hash.includes('playground') || hash.includes('prompt')) {
+        setActiveTab('playground');
+      } else if (hash.includes('learning-games') || hash.includes('games')) {
         setActiveTab('apps');
         setAppsSubTab('games');
       } else if (hash.includes('mini') || hash.includes('tools')) {
@@ -66,7 +69,9 @@ export default function ShowcasePage() {
     const handleCustomNav = (e: Event) => {
       const customEvent = e as CustomEvent<{ tab?: string }>;
       const tabId = customEvent.detail?.tab?.toLowerCase() || '';
-      if (tabId.includes('games') || tabId.includes('learning-games')) {
+      if (tabId.includes('playground') || tabId.includes('prompt')) {
+        setActiveTab('playground');
+      } else if (tabId.includes('games') || tabId.includes('learning-games')) {
         setActiveTab('apps');
         setAppsSubTab('games');
       } else if (tabId.includes('mini')) {
@@ -152,16 +157,17 @@ export default function ShowcasePage() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-lg text-slate-300 max-w-2xl mx-auto"
           >
-            교직·수업·여가를 아우르는 19종 개발 웹앱과 100종 교실 배움게임, 에듀테크 콘텐츠를 직접 체험해보세요.
+            교직·수업·여가를 아우르는 19종 개발 웹앱과 AI 프롬프트 놀이터, 100종 교실 배움게임, 에듀테크 콘텐츠를 직접 체험해보세요.
           </motion.p>
         </div>
       </motion.section>
 
       {/* Tab Buttons */}
       <div id="showcase-tabs" className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-2.5 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-2.5 py-3 sm:py-4">
           {([
             { key: 'yscode' as Tab, label: '💻 엽쌤 개발 웹앱 (19종)', icon: Code2 },
+            { key: 'playground' as Tab, label: '🤖 AI 프롬프트 놀이터', icon: Bot },
             { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱 & 100종 게임', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', icon: Rocket },
           ]).map((tab) => (
@@ -198,7 +204,46 @@ export default function ShowcasePage() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
+              {/* AI 놀이터 탭 바로가기 추천 배너/버튼 */}
+              <div className="flex gap-3 mb-8 flex-wrap justify-center sm:justify-start">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('yscode')}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-brand-navy text-white shadow-md shadow-brand-navy/30 dark:bg-brand-sky dark:text-slate-900 cursor-pointer"
+                >
+                  <Code2 className="w-4 h-4 text-sky-400 dark:text-slate-900" />
+                  <span>19종 바이브코딩 웹앱</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-white/20 font-extrabold">19종</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab('playground');
+                    if (window.location.hash !== '#playground') {
+                      window.history.pushState(null, '', '#playground');
+                    }
+                  }}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-amber-300 transition-all cursor-pointer"
+                >
+                  <Bot className="w-4 h-4 text-amber-500" />
+                  <span>AI 프롬프트 놀이터 탭으로 이동</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-amber-500/20 text-amber-700 dark:text-amber-300 font-extrabold">신규 탭</span>
+                </button>
+              </div>
+
               <YsCodeAppsGrid onPreview={(app) => setIframeModal(app)} />
+            </motion.div>
+          )}
+
+          {activeTab === 'playground' && (
+            <motion.div
+              key="playground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <PromptPlaygroundSection />
             </motion.div>
           )}
 

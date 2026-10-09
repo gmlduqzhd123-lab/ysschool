@@ -43,7 +43,7 @@ export const navLinks: NavItem[] = [
       {
         name: '엽쌤 개발 웹앱 모음',
         href: '/showcase#yscode',
-        description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱',
+        description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱 & AI 놀이터',
         iconName: 'Code2',
         badge: '19종',
       },
@@ -60,13 +60,6 @@ export const navLinks: NavItem[] = [
         description: '전자칠판 전용 무광고 아침 시계·자습 타이머·알림판·BGM',
         iconName: 'Sparkles',
         badge: 'NEW',
-      },
-      {
-        name: 'AI 프롬프트 놀이터',
-        href: '/playground',
-        description: '학생·교사용 생성형 AI 실습 게임',
-        iconName: 'Bot',
-        badge: 'AI',
       },
     ],
   },
