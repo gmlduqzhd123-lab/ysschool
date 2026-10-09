@@ -92,6 +92,28 @@ const QUICK_SAMPLE_SCHOOLS: SchoolProfile[] = [
   },
 ];
 
+// 전자칠판 급식 글씨 크기 3단계 프리셋 (기본 '크게')
+const MEAL_FONT_SIZES = [
+  {
+    name: '보통',
+    dishText: 'text-sm sm:text-base font-bold',
+    emojiText: 'text-xl sm:text-2xl',
+    padding: 'p-2 sm:p-2.5',
+  },
+  {
+    name: '크게',
+    dishText: 'text-base sm:text-lg lg:text-xl font-extrabold',
+    emojiText: 'text-2xl sm:text-3xl',
+    padding: 'p-3 sm:p-3.5',
+  },
+  {
+    name: '특대',
+    dishText: 'text-lg sm:text-xl lg:text-2xl font-black',
+    emojiText: 'text-3xl sm:text-4xl',
+    padding: 'p-3.5 sm:p-4',
+  },
+];
+
 // 음식 이름에 어울리는 이모지 배정
 function getDishEmoji(dishName: string): string {
   if (dishName.includes('밥') || dishName.includes('라이스') || dishName.includes('볶음밥')) return '🍚';
@@ -134,6 +156,36 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
   const [activeMealIndex, setActiveMealIndex] = useState<number>(0);
   const [showAllergy, setShowAllergy] = useState(false);
   const [mealErrorMessage, setMealErrorMessage] = useState<string | null>(null);
+
+  // 식단 글씨 크기 상태 (기본 '크게' = 1)
+  const [mealFontSizeLevel, setMealFontSizeLevel] = useState<number>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('ysschool_morning_meal_fontsize');
+        if (saved) {
+          const parsed = parseInt(saved, 10);
+          if (!isNaN(parsed) && parsed >= 0 && parsed < MEAL_FONT_SIZES.length) {
+            return parsed;
+          }
+        }
+      } catch {
+        // ignore
+      }
+    }
+    return 1; // '크게' 기본
+  });
+
+  const updateMealFontSize = (level: number) => {
+    const clamped = Math.max(0, Math.min(MEAL_FONT_SIZES.length - 1, level));
+    setMealFontSizeLevel(clamped);
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('ysschool_morning_meal_fontsize', String(clamped));
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   // 학교 검색 모달 내부 상태
   const [searchQuery, setSearchQuery] = useState('');
@@ -229,31 +281,58 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
 
   return (
     <>
-      <div className={`rounded-3xl p-5 border ${themeStyles.cardBg} shadow-xl flex flex-col justify-between`}>
-        {/* 상단 헤더: 타이틀 & 학교 설정 버튼 */}
-        <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/10">
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-xl bg-orange-500/20 text-orange-400">
-              <Utensils className="w-4 h-4" />
+      <div
+        className={`rounded-3xl p-5 sm:p-6 border ${themeStyles.cardBg} shadow-xl flex flex-col justify-between flex-1`}
+      >
+        {/* 상단 헤더: 타이틀 & 글씨 크기 조절 & 학교 설정 버튼 */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div className="flex items-center gap-2.5">
+            <span className="p-2 rounded-xl bg-orange-500/20 text-orange-400">
+              <Utensils className="w-5 h-5" />
             </span>
             <div>
               <div className="flex items-center gap-1.5">
-                <h3 className="font-extrabold text-sm sm:text-base">오늘의 급식 식단</h3>
+                <h3 className="font-extrabold text-base sm:text-lg">오늘의 급식 식단</h3>
                 {currentMeal && (
-                  <span className="px-1.5 py-0.2 rounded bg-amber-400/20 text-amber-300 text-[10px] font-black">
+                  <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-[11px] font-black">
                     {currentMeal.mealType}
                   </span>
                 )}
               </div>
               {selectedSchool && (
-                <p className="text-[11px] opacity-75 font-medium truncate max-w-[200px] sm:max-w-[240px]">
+                <p className="text-xs opacity-75 font-semibold truncate max-w-[200px] sm:max-w-[260px] mt-0.5">
                   🏫 {selectedSchool.schoolName}
                 </p>
               )}
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
+            {/* 급식 글씨 크기 조절기 */}
+            <div className="flex items-center rounded-xl bg-black/20 p-1 border border-white/10 text-xs">
+              <button
+                type="button"
+                onClick={() => updateMealFontSize(mealFontSizeLevel - 1)}
+                disabled={mealFontSizeLevel === 0}
+                className="px-2 py-0.5 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer text-[11px]"
+                title="식단 글씨 축소"
+              >
+                가-
+              </button>
+              <span className="px-1.5 opacity-90 font-mono text-[11px] font-bold text-amber-300">
+                {MEAL_FONT_SIZES[mealFontSizeLevel].name}
+              </span>
+              <button
+                type="button"
+                onClick={() => updateMealFontSize(mealFontSizeLevel + 1)}
+                disabled={mealFontSizeLevel === MEAL_FONT_SIZES.length - 1}
+                className="px-2 py-0.5 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer text-[11px]"
+                title="식단 글씨 확대"
+              >
+                가+
+              </button>
+            </div>
+
             {selectedSchool && (
               <button
                 type="button"
@@ -283,64 +362,69 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
         </div>
 
         {/* 본문 영역 */}
-        <div className="py-3 flex-1">
+        <div className="py-3 flex-1 flex flex-col justify-between">
           {isLoadingMeal ? (
-            <div className="py-8 flex flex-col items-center justify-center gap-2 opacity-70">
-              <RefreshCw className="w-6 h-6 animate-spin text-amber-400" />
+            <div className="py-12 flex flex-col items-center justify-center gap-2 opacity-70">
+              <RefreshCw className="w-7 h-7 animate-spin text-amber-400" />
               <span className="text-xs font-bold">나이스(NEIS) 급식 식단 불러오는 중...</span>
             </div>
           ) : currentMeal ? (
-            <div>
+            <div className="flex flex-col flex-grow">
               {/* 날짜 선택 및 칼로리 표시 바 */}
-              <div className="flex items-center justify-between mb-3 bg-black/20 p-2 rounded-xl text-xs">
-                <div className="flex items-center gap-1">
+              <div className="flex items-center justify-between mb-3 bg-black/25 p-2.5 rounded-2xl text-xs">
+                <div className="flex items-center gap-1.5">
                   <button
                     type="button"
                     onClick={() => setActiveMealIndex((prev) => Math.max(0, prev - 1))}
                     disabled={activeMealIndex === 0}
-                    className="p-1 rounded hover:bg-white/10 disabled:opacity-30 cursor-pointer"
+                    className="p-1 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
                     title="이전 급식"
                   >
-                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <ChevronLeft className="w-4 h-4" />
                   </button>
-                  <span className="font-extrabold text-amber-300">
+                  <span className="font-black text-sm sm:text-base text-amber-300">
                     {currentMeal.formattedDate}
                   </span>
                   <button
                     type="button"
                     onClick={() => setActiveMealIndex((prev) => Math.min(meals.length - 1, prev + 1))}
                     disabled={activeMealIndex === meals.length - 1}
-                    className="p-1 rounded hover:bg-white/10 disabled:opacity-30 cursor-pointer"
+                    className="p-1 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
                     title="다음 급식"
                   >
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
 
                 {currentMeal.calories && (
-                  <div className="flex items-center gap-1 text-[11px] font-bold text-orange-300">
-                    <Flame className="w-3.5 h-3.5 fill-current" />
+                  <div className="flex items-center gap-1 text-xs sm:text-sm font-black text-orange-300">
+                    <Flame className="w-4 h-4 fill-current" />
                     <span>{currentMeal.calories}</span>
                   </div>
                 )}
               </div>
 
-              {/* 반찬 리스트 (2열 그리드) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[190px] overflow-y-auto pr-1">
+              {/* 반찬 리스트 (2열 그리드, 넉넉한 공간과 대형 글씨) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 flex-grow overflow-y-auto pr-1 max-h-[360px] sm:max-h-[440px]">
                 {currentMeal.dishes.map((dish, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors"
+                    className={`flex items-center justify-between ${MEAL_FONT_SIZES[mealFontSizeLevel].padding} rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors shadow-sm`}
                   >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-base shrink-0">{getDishEmoji(dish.name)}</span>
-                      <span className="text-xs font-bold truncate" title={dish.name}>
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                      <span className={`${MEAL_FONT_SIZES[mealFontSizeLevel].emojiText} shrink-0`}>
+                        {getDishEmoji(dish.name)}
+                      </span>
+                      <span
+                        className={`${MEAL_FONT_SIZES[mealFontSizeLevel].dishText} truncate tracking-tight`}
+                        title={dish.name}
+                      >
                         {dish.name}
                       </span>
                     </div>
                     {showAllergy && dish.allergy.length > 0 && (
-                      <span className="text-[10px] text-amber-300/80 font-mono ml-1 shrink-0">
-                        ({dish.allergy.join('.')})
+                      <span className="text-xs text-amber-300 font-mono font-bold ml-1.5 shrink-0 px-2 py-0.5 rounded-lg bg-black/40 border border-white/10">
+                        {dish.allergy.join('.')}
                       </span>
                     )}
                   </div>
@@ -348,20 +432,20 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
               </div>
             </div>
           ) : (
-            <div className="py-6 text-center">
-              <div className="w-10 h-10 rounded-2xl bg-white/10 mx-auto flex items-center justify-center text-lg mb-2">
+            <div className="py-8 text-center">
+              <div className="w-12 h-12 rounded-2xl bg-white/10 mx-auto flex items-center justify-center text-2xl mb-2">
                 🍱
               </div>
-              <p className="text-xs font-bold mb-1">
+              <p className="text-sm font-bold mb-1">
                 {mealErrorMessage || '급식 정보가 없습니다.'}
               </p>
-              <p className="text-[11px] opacity-60 mb-3">
+              <p className="text-xs opacity-60 mb-4">
                 주말이나 공휴일, 방학 기간에는 식단이 등록되지 않습니다.
               </p>
               <button
                 type="button"
                 onClick={() => setIsSearchModalOpen(true)}
-                className="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs transition-colors cursor-pointer"
               >
                 다른 학교 검색하기
               </button>
@@ -379,7 +463,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
             <Info className="w-3 h-3" />
             <span>{showAllergy ? '알레르기 번호 숨기기' : '알레르기 번호 보기'}</span>
           </button>
-          <span>나이스(NEIS) 실시간</span>
+          <span>나이스(NEIS) 실시간 급식</span>
         </div>
       </div>
 
