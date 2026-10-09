@@ -6,6 +6,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollToTopOnMount from "@/components/ScrollToTopOnMount";
 import { LanguageProvider } from "@/components/LanguageContext";
+import { BgmProvider } from "@/components/BgmContext";
 import SplashScreen from "@/components/SplashScreen";
 import SearchModal from "@/components/SearchModal";
 import ChatBot from "@/components/ChatBot";
@@ -84,15 +85,17 @@ export default function RootLayout({
         {/* 📲 앱 설치 도우미: 바로 설치 또는 기기별 설치 방법 안내 (InstallAppButton이 사용) */}
         <Script src="/ys-install.js" strategy="afterInteractive" />
         <LanguageProvider>
-          <AdminProvider>
-            <SplashScreen />
-            <ScrollToTopOnMount />
-            <ScrollProgressBar />
-            <SearchModal />
-            {children}
-            <ScrollToTopButton />
-            <ChatBot />
-          </AdminProvider>
+          <BgmProvider>
+            <AdminProvider>
+              <SplashScreen />
+              <ScrollToTopOnMount />
+              <ScrollProgressBar />
+              <SearchModal />
+              {children}
+              <ScrollToTopButton />
+              <ChatBot />
+            </AdminProvider>
+          </BgmProvider>
         </LanguageProvider>
       </body>
     </html>

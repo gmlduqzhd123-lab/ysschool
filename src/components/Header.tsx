@@ -25,6 +25,7 @@ import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import InstallAppButton from './InstallAppButton';
+import BgmToggle from './BgmToggle';
 
 // ========== 메뉴 아이콘 렌더링 ==========
 function RenderNavIcon({ iconName }: { iconName?: string }) {
@@ -480,6 +481,7 @@ export default function Header() {
               </kbd>
             </button>
             <InstallAppButton className="px-3 py-1.5 rounded-full bg-brand-navy text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer" />
+            <BgmToggle />
             <LanguageToggle />
             <ThemeToggle />
           </nav>
@@ -498,6 +500,7 @@ export default function Header() {
               />
               <LanguageToggle />
             </div>
+            <BgmToggle />
             <ThemeToggle />
             <button
               type="button"
