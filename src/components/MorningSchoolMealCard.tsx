@@ -146,24 +146,27 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
   const [mealFontSizeLevel, setMealFontSizeLevel] = useState<number>(1);
 
   useEffect(() => {
-    try {
-      const savedSchool = localStorage.getItem('ysschool_morning_school');
-      if (savedSchool) {
-        const parsed = JSON.parse(savedSchool);
-        if (parsed.officeCode && parsed.schoolCode) {
-          setSelectedSchool(parsed);
+    const frame = requestAnimationFrame(() => {
+      try {
+        const savedSchool = localStorage.getItem('ysschool_morning_school');
+        if (savedSchool) {
+          const parsed = JSON.parse(savedSchool);
+          if (parsed.officeCode && parsed.schoolCode) {
+            setSelectedSchool(parsed);
+          }
         }
-      }
-      const savedSize = localStorage.getItem('ysschool_morning_meal_fontsize');
-      if (savedSize) {
-        const parsed = parseInt(savedSize, 10);
-        if (!isNaN(parsed) && parsed >= 0 && parsed < MEAL_FONT_SIZES.length) {
-          setMealFontSizeLevel(parsed);
+        const savedSize = localStorage.getItem('ysschool_morning_meal_fontsize');
+        if (savedSize) {
+          const parsed = parseInt(savedSize, 10);
+          if (!isNaN(parsed) && parsed >= 0 && parsed < MEAL_FONT_SIZES.length) {
+            setMealFontSizeLevel(parsed);
+          }
         }
+      } catch {
+        // ignore
       }
-    } catch {
-      // ignore
-    }
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const updateMealFontSize = (level: number) => {

@@ -107,20 +107,23 @@ export default function ClassroomMorningDesk() {
   const [isBoardMaximized, setIsBoardMaximized] = useState(false);
 
   useEffect(() => {
-    try {
-      const savedNotice = localStorage.getItem('ysschool_morning_notice');
-      if (savedNotice) setNoticeText(savedNotice);
+    const frame = requestAnimationFrame(() => {
+      try {
+        const savedNotice = localStorage.getItem('ysschool_morning_notice');
+        if (savedNotice) setNoticeText(savedNotice);
 
-      const savedSize = localStorage.getItem('ysschool_morning_notice_fontsize');
-      if (savedSize) {
-        const parsed = parseInt(savedSize, 10);
-        if (!isNaN(parsed) && parsed >= 0 && parsed < FONT_SIZES.length) {
-          setFontSizeLevel(parsed);
+        const savedSize = localStorage.getItem('ysschool_morning_notice_fontsize');
+        if (savedSize) {
+          const parsed = parseInt(savedSize, 10);
+          if (!isNaN(parsed) && parsed >= 0 && parsed < FONT_SIZES.length) {
+            setFontSizeLevel(parsed);
+          }
         }
+      } catch {
+        // ignore
       }
-    } catch {
-      // ignore
-    }
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // ESC 키로 알림판 전체화면 닫기
