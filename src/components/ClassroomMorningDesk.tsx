@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Maximize2,
   Minimize2,
@@ -29,6 +29,16 @@ import {
 import MorningSchoolMealCard from './MorningSchoolMealCard';
 
 type DeskTheme = 'chalkboard' | 'slate' | 'whiteboard';
+
+// 전자칠판 글씨 크기 6단계 프리셋
+const FONT_SIZES = [
+  'text-base sm:text-lg leading-relaxed',
+  'text-lg sm:text-xl leading-relaxed',
+  'text-xl sm:text-2xl leading-relaxed font-medium',
+  'text-2xl sm:text-3xl leading-relaxed font-semibold',
+  'text-3xl sm:text-4xl leading-relaxed font-bold',
+  'text-4xl sm:text-5xl leading-snug font-extrabold',
+];
 
 const TEMPLATES = [
   {
@@ -98,8 +108,45 @@ export default function ClassroomMorningDesk() {
     }
     return TEMPLATES[0].content;
   });
-  const [fontSizeLevel, setFontSizeLevel] = useState<number>(1); // 0: 작게, 1: 보통, 2: 크게, 3: 아주 크게
+  const [fontSizeLevel, setFontSizeLevel] = useState<number>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('ysschool_morning_notice_fontsize');
+        if (saved) {
+          const parsed = parseInt(saved, 10);
+          if (!isNaN(parsed) && parsed >= 0 && parsed < FONT_SIZES.length) return parsed;
+        }
+      } catch {
+        // ignore
+      }
+    }
+    return 1; // 2단계 (text-lg sm:text-xl) 기본
+  });
   const [isSavedRecently, setIsSavedRecently] = useState(false);
+  const [isBoardMaximized, setIsBoardMaximized] = useState(false);
+
+  // ESC 키로 알림판 전체화면 닫기
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isBoardMaximized) {
+        setIsBoardMaximized(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isBoardMaximized]);
+
+  const updateFontSize = (level: number) => {
+    const clamped = Math.max(0, Math.min(FONT_SIZES.length - 1, level));
+    setFontSizeLevel(clamped);
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('ysschool_morning_notice_fontsize', String(clamped));
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   const handleNoticeChange = (text: string) => {
     setNoticeText(text);
@@ -245,14 +292,6 @@ export default function ClassroomMorningDesk() {
   const seconds = timeRemaining % 60;
   const progressRatio = timerDuration > 0 ? (timerDuration - timeRemaining) / timerDuration : 0;
 
-  // 폰트 크기 클래스
-  const fontSizes = [
-    'text-base sm:text-lg leading-relaxed',
-    'text-lg sm:text-xl leading-relaxed',
-    'text-xl sm:text-2xl leading-loose',
-    'text-2xl sm:text-3xl leading-loose font-bold',
-  ];
-
   // 테마별 색상 스타일
   const themeStyles = {
     chalkboard: {
@@ -392,13 +431,13 @@ export default function ClassroomMorningDesk() {
         </div>
       </header>
 
-      {/* 2. 메인 컨텐츠 영역: [좌측: 칠판 알림판] + [우측: 집중 타이머 & BGM & 도우미 뽑기] */}
-      <main className="grid grid-cols-1 lg:grid-cols-12 gap-6 my-6 flex-grow items-stretch">
-        {/* 좌측: 전자칠판 오늘의 알림장 (7단) */}
+      {/* 2. 메인 컨텐츠 영역: [좌측 50%: 칠판 알림판] + [우측 50%: 집중 타이머 & BGM & 도우미 뽑기 & 식단] */}
+      <main className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-6 flex-grow items-stretch">
+        {/* 좌측 50%: 전자칠판 오늘의 아침 알림판 */}
         <section
-          className={`lg:col-span-7 rounded-3xl p-6 sm:p-8 flex flex-col justify-between border ${themeStyles.boardBg}`}
+          className={`w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between border ${themeStyles.boardBg}`}
         >
-          <div>
+          <div className="flex flex-col flex-grow">
             {/* 칠판 헤더 */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10 mb-4">
               <div className="flex items-center gap-2">
@@ -415,7 +454,7 @@ export default function ClassroomMorningDesk() {
                 </div>
               </div>
 
-              {/* 폰트 크기 조절 & 저장 알림 */}
+              {/* 폰트 크기 조절 & 저장 알림 & 알림판 전체화면 */}
               <div className="flex items-center gap-2">
                 {isSavedRecently && (
                   <span className="flex items-center gap-1 text-xs text-amber-300 font-bold animate-pulse">
@@ -423,25 +462,41 @@ export default function ClassroomMorningDesk() {
                     저장됨
                   </span>
                 )}
+                {/* 폰트 크기 조절기 */}
                 <div className="flex items-center rounded-xl bg-black/20 p-1 border border-white/10 text-xs">
                   <button
                     type="button"
-                    onClick={() => setFontSizeLevel((prev) => Math.max(0, prev - 1))}
-                    className="px-2 py-1 rounded hover:bg-white/10 font-bold cursor-pointer"
+                    onClick={() => updateFontSize(fontSizeLevel - 1)}
+                    disabled={fontSizeLevel === 0}
+                    className="px-2 py-1 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer"
                     title="글씨 축소"
                   >
                     가-
                   </button>
-                  <span className="px-1.5 opacity-60 font-mono text-[11px]">{fontSizeLevel + 1}</span>
+                  <span className="px-1.5 opacity-80 font-mono text-[11px] font-bold">
+                    크기 {fontSizeLevel + 1}
+                  </span>
                   <button
                     type="button"
-                    onClick={() => setFontSizeLevel((prev) => Math.min(fontSizes.length - 1, prev + 1))}
-                    className="px-2 py-1 rounded hover:bg-white/10 font-bold cursor-pointer"
+                    onClick={() => updateFontSize(fontSizeLevel + 1)}
+                    disabled={fontSizeLevel === FONT_SIZES.length - 1}
+                    className="px-2 py-1 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer"
                     title="글씨 확대"
                   >
                     가+
                   </button>
                 </div>
+
+                {/* 알림판 단독 전체화면 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => setIsBoardMaximized(true)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition-all cursor-pointer"
+                  title="알림판 화면 전체로 확대하기"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-amber-300" />
+                  <span className="hidden sm:inline">알림판 전체화면</span>
+                </button>
               </div>
             </div>
 
@@ -474,7 +529,7 @@ export default function ClassroomMorningDesk() {
               value={noticeText}
               onChange={(e) => handleNoticeChange(e.target.value)}
               placeholder="여기를 클릭하여 학생들에게 전할 오늘의 아침 미션이나 알림장을 적어보세요..."
-              className={`w-full min-h-[300px] sm:min-h-[380px] bg-transparent focus:outline-none resize-none font-medium leading-relaxed ${fontSizes[fontSizeLevel]}`}
+              className={`w-full min-h-[380px] sm:min-h-[460px] flex-grow bg-transparent focus:outline-none resize-none font-medium leading-relaxed ${FONT_SIZES[fontSizeLevel]}`}
               spellCheck={false}
             />
           </div>
@@ -485,8 +540,8 @@ export default function ClassroomMorningDesk() {
           </div>
         </section>
 
-        {/* 우측 사이드: [집중 타이머] + [아침 앰비언트 BGM] + [도우미 뽑기] (5단) */}
-        <section className="lg:col-span-5 flex flex-col gap-6">
+        {/* 우측 50%: [집중 타이머] + [아침 앰비언트 BGM] + [도우미 뽑기] + [오늘의 급식] */}
+        <section className="w-full flex flex-col gap-6">
           {/* A. 아침 자습·독서 집중 타이머 */}
           <div className={`rounded-3xl p-6 border ${themeStyles.cardBg} flex flex-col justify-between shadow-xl`}>
             <div>
@@ -719,6 +774,141 @@ export default function ClassroomMorningDesk() {
           엽쌤스쿨 · 교실 전자칠판 전용 모닝 데스크 (무설치/무광고)
         </div>
       </footer>
+
+      {/* 4. 오늘의 아침 알림판 전용 전체화면 모드 (전자칠판 단독 칠판 뷰) */}
+      <AnimatePresence>
+        {isBoardMaximized && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className={`fixed inset-0 z-50 p-4 sm:p-8 flex flex-col justify-between overflow-hidden select-none ${themeStyles.bg}`}
+          >
+            <div
+              className={`w-full h-full rounded-3xl p-6 sm:p-10 flex flex-col justify-between border ${themeStyles.boardBg} shadow-2xl`}
+            >
+              <div className="flex flex-col flex-grow">
+                {/* 상단 컨트롤 바 */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10 mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="p-2.5 rounded-2xl bg-amber-400/20 text-amber-300">
+                      <Sparkles className="w-6 h-6" />
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-xs font-extrabold">
+                          전자칠판 전체화면 모드
+                        </span>
+                        {isSavedRecently && (
+                          <span className="flex items-center gap-1 text-xs text-amber-300 font-bold animate-pulse">
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            실시간 저장됨
+                          </span>
+                        )}
+                      </div>
+                      <h2 className="text-xl sm:text-3xl font-black tracking-tight mt-0.5">
+                        오늘의 아침 알림판
+                      </h2>
+                    </div>
+                  </div>
+
+                  {/* 컨트롤러: 시계 & 폰트 크기 & 축소 버튼 */}
+                  <div className="flex items-center gap-2.5">
+                    {/* 실시간 시계 */}
+                    <div className="hidden md:flex font-mono font-black text-xl text-amber-300 mr-2">
+                      {currentTime
+                        ? currentTime.toLocaleTimeString('ko-KR', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit',
+                            hour12: false,
+                          })
+                        : ''}
+                    </div>
+
+                    {/* 폰트 크기 조절기 */}
+                    <div className="flex items-center rounded-xl bg-black/30 p-1 border border-white/10 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => updateFontSize(fontSizeLevel - 1)}
+                        disabled={fontSizeLevel === 0}
+                        className="px-2.5 py-1.5 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer"
+                        title="글씨 축소"
+                      >
+                        가-
+                      </button>
+                      <span className="px-2 font-mono text-xs font-bold text-amber-300">
+                        크기 {fontSizeLevel + 1}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => updateFontSize(fontSizeLevel + 1)}
+                        disabled={fontSizeLevel === FONT_SIZES.length - 1}
+                        className="px-2.5 py-1.5 rounded hover:bg-white/10 font-bold disabled:opacity-30 cursor-pointer"
+                        title="글씨 확대"
+                      >
+                        가+
+                      </button>
+                    </div>
+
+                    {/* 원래 화면으로 축소 버튼 */}
+                    <button
+                      type="button"
+                      onClick={() => setIsBoardMaximized(false)}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+                      title="원래 교실 데스크 화면으로 돌아가기 (ESC)"
+                    >
+                      <Minimize2 className="w-4 h-4" />
+                      <span>원래 크기로 (ESC)</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* 템플릿 프리셋 */}
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="text-xs opacity-75 mr-1 font-bold">빠른 템플릿:</span>
+                  {TEMPLATES.map((tmpl) => (
+                    <button
+                      key={tmpl.label}
+                      type="button"
+                      onClick={() => applyTemplate(tmpl.content)}
+                      className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold transition-all cursor-pointer"
+                    >
+                      {tmpl.label}
+                    </button>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => handleNoticeChange('')}
+                    className="px-2.5 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs font-bold transition-all cursor-pointer ml-auto"
+                    title="알림판 비우기"
+                  >
+                    <Trash2 className="w-3.5 h-3.5 inline mr-1" />
+                    비우기
+                  </button>
+                </div>
+
+                {/* 전체화면 대형 칠판 에디터 */}
+                <textarea
+                  value={noticeText}
+                  onChange={(e) => handleNoticeChange(e.target.value)}
+                  placeholder="여기를 클릭하여 학생들에게 전할 오늘의 아침 미션이나 알림장을 적어보세요..."
+                  className={`w-full min-h-[50vh] flex-grow bg-transparent focus:outline-none resize-none font-medium leading-relaxed ${FONT_SIZES[fontSizeLevel]}`}
+                  spellCheck={false}
+                  autoFocus
+                />
+              </div>
+
+              {/* 하단 바 */}
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs opacity-70">
+                <span>💡 팁: 전체화면에서 작성한 내용도 실시간 자동 저장됩니다.</span>
+                <span>키보드 ESC 키를 누르면 원래 교실 화면으로 돌아갑니다.</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
