@@ -485,17 +485,19 @@ export default function Header() {
           </nav>
 
           {/* Mobile toggle */}
-          <div className="lg:hidden flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2">
-            <InstallAppButton
-              label={
-                <>
-                  <Download className="w-4 h-4" aria-hidden="true" />
-                  <span className="hidden min-[400px]:inline">설치</span>
-                </>
-              }
-              className="flex items-center gap-1 px-2.5 py-2 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
-            />
-            <LanguageToggle />
+          <div className="lg:hidden flex items-center gap-1 sm:gap-2 shrink-0">
+            <div className="hidden sm:flex items-center gap-1.5">
+              <InstallAppButton
+                label={
+                  <>
+                    <Download className="w-4 h-4" aria-hidden="true" />
+                    <span>설치</span>
+                  </>
+                }
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
+              />
+              <LanguageToggle />
+            </div>
             <ThemeToggle />
             <button
               type="button"

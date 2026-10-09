@@ -131,26 +131,26 @@ export default function EdutechLibraryPage() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.45, duration: 0.5 }}
-            className="mt-8 sm:mt-10 flex justify-center"
+            className="mt-8 sm:mt-10 flex justify-center w-full px-2 sm:px-0"
           >
-            <div className="inline-flex p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto max-w-md sm:max-w-none p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl gap-1.5 sm:gap-1">
               <button
                 type="button"
                 onClick={() => handleTabChange('knowhow')}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm transition-all duration-200 cursor-pointer ${
+                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-extrabold text-sm transition-all duration-200 cursor-pointer w-full sm:w-auto ${
                   activeTab === 'knowhow'
-                    ? 'bg-white text-slate-900 shadow-lg scale-[1.02]'
+                    ? 'bg-white text-slate-900 shadow-lg scale-[1.01] sm:scale-[1.02]'
                     : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 <Sparkles
-                  className={`w-4 h-4 ${
+                  className={`w-4 h-4 shrink-0 ${
                     activeTab === 'knowhow' ? 'text-violet-600' : 'text-slate-300'
                   }`}
                 />
                 <span>AI 도구 활용 노하우</span>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  className={`px-2 py-0.5 rounded-full text-xs font-bold shrink-0 ${
                     activeTab === 'knowhow'
                       ? 'bg-violet-100 text-violet-700'
                       : 'bg-white/20 text-white'
@@ -163,20 +163,20 @@ export default function EdutechLibraryPage() {
               <button
                 type="button"
                 onClick={() => handleTabChange('tools')}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm transition-all duration-200 cursor-pointer ${
+                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-extrabold text-sm transition-all duration-200 cursor-pointer w-full sm:w-auto ${
                   activeTab === 'tools'
-                    ? 'bg-white text-slate-900 shadow-lg scale-[1.02]'
+                    ? 'bg-white text-slate-900 shadow-lg scale-[1.01] sm:scale-[1.02]'
                     : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 <Wrench
-                  className={`w-4 h-4 ${
+                  className={`w-4 h-4 shrink-0 ${
                     activeTab === 'tools' ? 'text-amber-600' : 'text-slate-300'
                   }`}
                 />
                 <span>추천 에듀테크 도구함</span>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  className={`px-2 py-0.5 rounded-full text-xs font-bold shrink-0 ${
                     activeTab === 'tools'
                       ? 'bg-amber-100 text-amber-700'
                       : 'bg-white/20 text-white'

@@ -131,23 +131,8 @@ function getDishEmoji(dishName: string): string {
 }
 
 export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMealCardProps) {
-  // 학교 설정 상태
-  const [selectedSchool, setSelectedSchool] = useState<SchoolProfile>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('ysschool_morning_school');
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          if (parsed.officeCode && parsed.schoolCode) {
-            return parsed;
-          }
-        }
-      } catch {
-        // 파싱 실패 시 무시
-      }
-    }
-    return QUICK_SAMPLE_SCHOOLS[0];
-  });
+  // 학교 설정 상태 (기본값으로 시작하여 SSR 수화 불일치 방지)
+  const [selectedSchool, setSelectedSchool] = useState<SchoolProfile>(QUICK_SAMPLE_SCHOOLS[0]);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   // 식단 데이터 상태
@@ -158,22 +143,28 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
   const [mealErrorMessage, setMealErrorMessage] = useState<string | null>(null);
 
   // 식단 글씨 크기 상태 (기본 '크게' = 1)
-  const [mealFontSizeLevel, setMealFontSizeLevel] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('ysschool_morning_meal_fontsize');
-        if (saved) {
-          const parsed = parseInt(saved, 10);
-          if (!isNaN(parsed) && parsed >= 0 && parsed < MEAL_FONT_SIZES.length) {
-            return parsed;
-          }
+  const [mealFontSizeLevel, setMealFontSizeLevel] = useState<number>(1);
+
+  useEffect(() => {
+    try {
+      const savedSchool = localStorage.getItem('ysschool_morning_school');
+      if (savedSchool) {
+        const parsed = JSON.parse(savedSchool);
+        if (parsed.officeCode && parsed.schoolCode) {
+          setSelectedSchool(parsed);
         }
-      } catch {
-        // ignore
       }
+      const savedSize = localStorage.getItem('ysschool_morning_meal_fontsize');
+      if (savedSize) {
+        const parsed = parseInt(savedSize, 10);
+        if (!isNaN(parsed) && parsed >= 0 && parsed < MEAL_FONT_SIZES.length) {
+          setMealFontSizeLevel(parsed);
+        }
+      }
+    } catch {
+      // ignore
     }
-    return 1; // '크게' 기본
-  });
+  }, []);
 
   const updateMealFontSize = (level: number) => {
     const clamped = Math.max(0, Math.min(MEAL_FONT_SIZES.length - 1, level));
@@ -319,7 +310,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
               >
                 가-
               </button>
-              <span className="px-1.5 opacity-90 font-mono text-[11px] font-bold text-amber-300">
+              <span suppressHydrationWarning className="px-1.5 opacity-90 font-mono text-[11px] font-bold text-amber-300">
                 {MEAL_FONT_SIZES[mealFontSizeLevel].name}
               </span>
               <button

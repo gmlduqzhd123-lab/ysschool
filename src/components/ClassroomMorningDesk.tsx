@@ -100,30 +100,28 @@ export default function ClassroomMorningDesk() {
     };
   }, []);
 
-  // 칠판 알림판 내용 (localStorage 보관)
-  const [noticeText, setNoticeText] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('ysschool_morning_notice');
-      if (saved) return saved;
-    }
-    return TEMPLATES[0].content;
-  });
-  const [fontSizeLevel, setFontSizeLevel] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('ysschool_morning_notice_fontsize');
-        if (saved) {
-          const parsed = parseInt(saved, 10);
-          if (!isNaN(parsed) && parsed >= 0 && parsed < FONT_SIZES.length) return parsed;
-        }
-      } catch {
-        // ignore
-      }
-    }
-    return 1; // 2단계 (text-lg sm:text-xl) 기본
-  });
+  // 칠판 알림판 내용 (기본값 설정 후 마운트 시 localStorage 동기화하여 수화 불일치 방지)
+  const [noticeText, setNoticeText] = useState(TEMPLATES[0].content);
+  const [fontSizeLevel, setFontSizeLevel] = useState<number>(1);
   const [isSavedRecently, setIsSavedRecently] = useState(false);
   const [isBoardMaximized, setIsBoardMaximized] = useState(false);
+
+  useEffect(() => {
+    try {
+      const savedNotice = localStorage.getItem('ysschool_morning_notice');
+      if (savedNotice) setNoticeText(savedNotice);
+
+      const savedSize = localStorage.getItem('ysschool_morning_notice_fontsize');
+      if (savedSize) {
+        const parsed = parseInt(savedSize, 10);
+        if (!isNaN(parsed) && parsed >= 0 && parsed < FONT_SIZES.length) {
+          setFontSizeLevel(parsed);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   // ESC 키로 알림판 전체화면 닫기
   useEffect(() => {
@@ -475,7 +473,7 @@ export default function ClassroomMorningDesk() {
                     >
                       가-
                     </button>
-                    <span className="px-1.5 opacity-80 font-mono text-[11px] font-bold">
+                    <span suppressHydrationWarning className="px-1.5 opacity-80 font-mono text-[11px] font-bold">
                       크기 {fontSizeLevel + 1}
                     </span>
                     <button
@@ -841,7 +839,7 @@ export default function ClassroomMorningDesk() {
                       >
                         가-
                       </button>
-                      <span className="px-2 font-mono text-xs font-bold text-amber-300">
+                      <span suppressHydrationWarning className="px-2 font-mono text-xs font-bold text-amber-300">
                         크기 {fontSizeLevel + 1}
                       </span>
                       <button
