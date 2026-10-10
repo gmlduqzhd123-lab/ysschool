@@ -1,0 +1,59 @@
+export const metadata = {
+  title: '할루시네이션(환각)을 교과서로 배우기 — 초등 생성형 AI 윤리 수업',
+  date: '2026-09-12',
+  description: '딥페이크, 저작권, AI 환각 현상을 아이들이 직접 "오류 탐정단"이 되어 찾아보며 비판적 사고력과 디지털 시민성을 기른 수업 실천 사례입니다.',
+  openGraph: {
+    title: '할루시네이션(환각)을 교과서로 배우기 — 초등 생성형 AI 윤리 수업',
+    description: '딥페이크, 저작권, AI 환각 현상을 아이들이 직접 "오류 탐정단"이 되어 찾아보며 비판적 사고력과 디지털 시민성을 기른 수업 실천 사례입니다.',
+    type: 'article',
+    publishedTime: '2026-09-12',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · AI 교육 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+"선생님, AI가 그러는데 세종대왕님이 훈민정음 만들다가 맥북을 던져서 깨뜨렸대요!"
+
+인터넷에서 화제가 되었던 유명한 밈을 보여주자 교실은 웃음바다가 되었습니다. 하지만 이내 아이들의 표정은 진지해졌습니다. "어? AI는 천재 아니었어요? 왜 이렇게 말도 안 되는 거짓말을 진짜처럼 그럴싸하게 하죠?"
+
+이것이 바로 생성형 AI의 가장 대표적인 한계인 **할루시네이션(Hallucination, 인공지능 환각 현상)**입니다.
+
+AI 윤리 수업은 "나쁜 짓 하지 마세요"라는 딱딱한 훈계로 가르치면 효과가 없습니다. 아이들이 직접 오류를 밝혀내는 **'팩트체크 탐정단'** 활동으로 풀어낸 수업 과정을 기록합니다.
+
+---
+
+## 1. 수업 활동: AI 거짓말 탐정단 (Fact-Check Challenge)
+
+아이들에게 3가지 미션을 줍니다.
+
+1. **역사적 왜곡 찾기**: 역사적 인물이나 사건에 대해 AI에게 묻고, 교과서 및 백과사전과 비교하여 잘못된 연도나 인물 찾아내기
+2. **그럴싸한 가짜 과학 지식 검증**: "공룡이 멸종한 진짜 이유가 외계인의 침공 때문이야?" 같은 유도 질문을 던졌을 때 AI가 동조하는지 실험하기
+3. **출처 추적하기**: AI에게 "그 정보의 출처 웹사이트 링크와 책 제목을 알려줘"라고 요구하고, 그 링크가 실제로 존재하는 웹사이트인지 클릭해 보기
+
+---
+
+## 2. 디지털 시민성(Digital Citizenship)의 핵심 3원칙
+
+- **신뢰하되 검증하라 (Trust, but Verify)**: AI의 답변은 완성된 진리가 아니라 '초안'이나 '참고 의견'일 뿐입니다.
+- **초상권과 저작권 존중**: 친구의 얼굴 사진이나 타인의 창작물을 허락 없이 AI 학습이나 합성에 사용하지 않습니다.
+- **인간의 따뜻함 지키기**: 따뜻한 마음과 공감, 도덕적 판단은 오직 인간만이 할 수 있는 고유한 영역임을 이해합니다.
+
+AI 시대를 살아갈 우리 아이들에게 가장 필요한 것은 코딩 문법보다도, **화면 너머의 정보를 의심하고 분별해 내는 건강한 비판적 문해력(Critical Literacy)**입니다.

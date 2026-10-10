@@ -1,0 +1,61 @@
+export const metadata = {
+  title: '아이들의 시가 노래가 되는 기적 — Suno AI로 학급가 & 교과송 작곡하기',
+  date: '2026-09-21',
+  description: '국어 시간에 쓴 감동적인 동시를 가사로 넣고 AI 작곡 도구 Suno를 활용해 아이들과 함께 학급 음원을 제작하고 뮤직비디오를 만든 프로젝트 이야기입니다.',
+  openGraph: {
+    title: '아이들의 시가 노래가 되는 기적 — Suno AI로 학급가 & 교과송 작곡하기',
+    description: '국어 시간에 쓴 감동적인 동시를 가사로 넣고 AI 작곡 도구 Suno를 활용해 아이들과 함께 학급 음원을 제작하고 뮤직비디오를 만든 프로젝트 이야기입니다.',
+    type: 'article',
+    publishedTime: '2026-09-21',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · AI 교육 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+"선생님, 우리가 쓴 시가 진짜 멜론이나 스포티파이에 나오는 K-POP 노래처럼 들려요!"
+
+전자칠판 스피커에서 흘러나오는 경쾌한 어쿠스틱 팝 멜로디에 아이들의 눈이 휘둥그레졌습니다. 가사는 바로 어제 국어 시간에 25명의 아이가 모둠별로 모여 쓴 '가을 운동회' 동시였습니다.
+
+AI 음악 생성 도구인 **Suno(수노) AI**를 활용해 교실에서 진행한 학급 음원 제작 프로젝트의 생생한 과정을 공유합니다.
+
+---
+
+## 1. 수업의 흐름: 국어, 음악, 미술의 완벽한 융합
+
+### 1단계: 마음에 남는 가사 쓰기 (국어)
+- 교실에서 있었던 기억에 남는 에피소드(체육대회 이어달리기, 급식 잔반 없는 날, 아침 독서 시간)를 떠올리며 운율에 맞춰 1절, 2절, 후렴구(Chorus)를 구성합니다.
+
+### 2단계: 음악 장르와 분위기 프로듀싱 (음악 & AI)
+- "우리 반 노래는 신나는 댄스팝 느낌이면 좋겠어요!"
+- "후렴구는 감미로운 피아노 발라드로 전환해 주세요!"
+
+아이들은 스스로 음악 프로듀서가 되어 영어 태그(`Upbeat acoustic pop`, `Children choir`, `Bright and joyful`)를 입력하고 멜로디를 생성합니다.
+
+### 3단계: 앨범 커버 디자인과 영상 클립 (미술 & 실과)
+- 생성된 음악을 바탕으로 캔바에서 앨범 재킷을 만들고, 태블릿으로 노래를 따라 부르는 립싱크 챌린지 숏폼 영상을 촬영했습니다.
+
+---
+
+## 2. 생성형 AI가 주는 진짜 교육적 가치
+
+예전에는 작곡이라는 영역이 악기를 다룰 줄 알고 화성학을 배운 소수만의 전유물이었습니다. 하지만 AI 도구의 도움으로, **자신만의 감성과 이야기를 가진 사람이라면 누구나 창작의 기쁨을 누릴 수 있는 시대**가 열렸습니다.
+
+우리 반 아이들은 더 이상 음악의 단순한 소비자가 아닙니다. 스스로 목소리를 내고 세상을 노래하는 당당한 크리에이터입니다.

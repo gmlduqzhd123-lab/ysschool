@@ -1,0 +1,63 @@
+export const metadata = {
+  title: 'Next.js 16과 Turbopack으로 초고속 교실 웹앱 구축하기',
+  date: '2026-08-20',
+  description: '수십 개의 에듀테크 도구와 게임을 하나의 Next.js 모노레포에 담으면서도 번개 같은 HMR(핫모듈리로드)과 최적화된 번들 크기를 유지한 빌드 튜닝 기록입니다.',
+  openGraph: {
+    title: 'Next.js 16과 Turbopack으로 초고속 교실 웹앱 구축하기',
+    description: '수십 개의 에듀테크 도구와 게임을 하나의 Next.js 모노레포에 담으면서도 번개 같은 HMR(핫모듈리로드)과 최적화된 번들 크기를 유지한 빌드 튜닝 기록입니다.',
+    type: 'article',
+    publishedTime: '2026-08-20',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 웹앱 개발 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+엽쌤스쿨 플랫폼은 매달 새로운 기능이 추가되는 살아있는 교육 웹앱입니다.
+- 100종 배움게임 허브
+- 아침 교실 전자칠판 데스크
+- 실시간 나이스 급식 조회 API
+- AI 프롬프트 인터랙티브 놀이터
+- 교실 3D 추첨기 및 자습 타이머
+
+콘텐츠가 방대해질수록 개발 서버가 무거워지고, 코드 한 줄 수정할 때마다 웹팩(Webpack) 리로딩에 5~10초씩 걸리는 병목 현상이 발생하기 시작했습니다. 
+
+이 문제를 해결하기 위해 도입한 **Next.js 16의 차세대 Rust 기반 번들러 Turbopack(터보팩)** 적용기를 공유합니다.
+
+---
+
+## 1. Turbopack 도입 후 체감 성능 변화
+
+`next dev --turbopack` 옵션을 적용한 후 개발 환경에 극적인 변화가 찾아왔습니다.
+
+- **로컬 개발 서버 최초 기동 시간**: 8.2초 → **0.8초** (10배 단축)
+- **HMR(핫 모듈 리플레이스먼트) 반영 시간**: 1.5초 → **30ms** (거의 실시간 즉각 반영)
+- **타입스크립트 컴파일 오버헤드 감소**: 메모리 점유율 40% 절감
+
+수업 전 쉬는 시간 10분 동안 급하게 교실용 퀴즈 데이터를 수정하거나 버그를 고쳐야 할 때, 이 찰나의 속도 차이는 천금 같은 차이를 만들어냈습니다.
+
+---
+
+## 2. SSG(정적 사이트 생성)와 에지 캐싱
+
+학교 네트워크는 트래픽이 몰릴 때 외부 API 서버와의 통신이 지연될 위험이 있습니다.
+이를 방어하기 위해 블로그 글과 게임 메타데이터는 빌드 타임에 완전한 정적 HTML로 굽는 **SSG(Static Site Generation)** 방식을 채택했습니다.
+
+Vercel ICN(인천 엣지 리전)에서 서빙되므로, 전국의 어느 학교 교실에서 접속하더라도 **TTFB(첫 바이트 수신 시간) 50ms 미만의 번개 같은 반응 속도**를 선사합니다.

@@ -60,8 +60,15 @@ interface MorningSchoolMealCardProps {
   };
 }
 
-// 기본 추천 학교 (여수북초 등)
+// 기본 추천 학교 (기본값: 여수한려초등학교)
 const QUICK_SAMPLE_SCHOOLS: SchoolProfile[] = [
+  {
+    officeCode: 'Q10',
+    schoolCode: '8512038',
+    schoolName: '여수한려초등학교',
+    region: '전남 여수',
+    address: '전남 여수시 여문1로 80',
+  },
   {
     officeCode: 'Q10',
     schoolCode: '8512030',
@@ -92,25 +99,28 @@ const QUICK_SAMPLE_SCHOOLS: SchoolProfile[] = [
   },
 ];
 
-// 전자칠판 급식 글씨 크기 3단계 프리셋 (기본 '크게')
+// 전자칠판 급식 글씨 크기 3단계 프리셋 (기본 '크게' - 화면에 시원하게 꽉 차도록 대형 폰트 및 높이 적용)
 const MEAL_FONT_SIZES = [
   {
     name: '보통',
-    dishText: 'text-sm sm:text-base font-bold',
-    emojiText: 'text-xl sm:text-2xl',
-    padding: 'p-2 sm:p-2.5',
+    dishText: 'text-base sm:text-lg lg:text-xl font-bold',
+    emojiText: 'text-2xl sm:text-3xl',
+    padding: 'p-3 sm:p-3.5',
+    minHeight: 'min-h-[58px] sm:min-h-[66px]',
   },
   {
     name: '크게',
-    dishText: 'text-base sm:text-lg lg:text-xl font-extrabold',
-    emojiText: 'text-2xl sm:text-3xl',
-    padding: 'p-3 sm:p-3.5',
+    dishText: 'text-lg sm:text-xl lg:text-2xl font-black',
+    emojiText: 'text-3xl sm:text-4xl',
+    padding: 'p-3.5 sm:p-4.5',
+    minHeight: 'min-h-[66px] sm:min-h-[76px]',
   },
   {
     name: '특대',
-    dishText: 'text-lg sm:text-xl lg:text-2xl font-black',
-    emojiText: 'text-3xl sm:text-4xl',
-    padding: 'p-3.5 sm:p-4',
+    dishText: 'text-xl sm:text-2xl lg:text-3xl font-black',
+    emojiText: 'text-4xl sm:text-5xl',
+    padding: 'p-4 sm:p-5',
+    minHeight: 'min-h-[74px] sm:min-h-[86px]',
   },
 ];
 
@@ -152,7 +162,13 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
         if (savedSchool) {
           const parsed = JSON.parse(savedSchool);
           if (parsed.officeCode && parsed.schoolCode) {
-            setSelectedSchool(parsed);
+            // 이전 기본 샘플이었던 여수북초(8512030)인 경우 새로운 기본값 여수한려초등학교로 자동 전환
+            if (parsed.schoolCode === '8512030') {
+              setSelectedSchool(QUICK_SAMPLE_SCHOOLS[0]);
+              localStorage.setItem('ysschool_morning_school', JSON.stringify(QUICK_SAMPLE_SCHOOLS[0]));
+            } else {
+              setSelectedSchool(parsed);
+            }
           }
         }
         const savedSize = localStorage.getItem('ysschool_morning_meal_fontsize');
@@ -286,15 +302,15 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
             </span>
             <div>
               <div className="flex items-center gap-1.5">
-                <h3 className="font-extrabold text-base sm:text-lg">오늘의 급식 식단</h3>
+                <h3 className="font-extrabold text-base sm:text-lg lg:text-xl">오늘의 급식 식단</h3>
                 {currentMeal && (
-                  <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-[11px] font-black">
+                  <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-xs font-black">
                     {currentMeal.mealType}
                   </span>
                 )}
               </div>
               {selectedSchool && (
-                <p className="text-xs opacity-75 font-semibold truncate max-w-[200px] sm:max-w-[260px] mt-0.5">
+                <p className="text-xs sm:text-sm opacity-85 font-bold truncate max-w-[200px] sm:max-w-[280px] mt-0.5">
                   🏫 {selectedSchool.schoolName}
                 </p>
               )}
@@ -365,47 +381,47 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
           ) : currentMeal ? (
             <div className="flex flex-col flex-grow">
               {/* 날짜 선택 및 칼로리 표시 바 */}
-              <div className="flex items-center justify-between mb-3 bg-black/25 p-2.5 rounded-2xl text-xs">
-                <div className="flex items-center gap-1.5">
+              <div className="flex items-center justify-between mb-3.5 bg-black/25 p-3 rounded-2xl text-xs sm:text-sm">
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setActiveMealIndex((prev) => Math.max(0, prev - 1))}
                     disabled={activeMealIndex === 0}
-                    className="p-1 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
+                    className="p-1.5 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
                     title="이전 급식"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
-                  <span className="font-black text-sm sm:text-base text-amber-300">
+                  <span className="font-black text-base sm:text-lg lg:text-xl text-amber-300">
                     {currentMeal.formattedDate}
                   </span>
                   <button
                     type="button"
                     onClick={() => setActiveMealIndex((prev) => Math.min(meals.length - 1, prev + 1))}
                     disabled={activeMealIndex === meals.length - 1}
-                    className="p-1 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
+                    className="p-1.5 rounded-lg hover:bg-white/10 disabled:opacity-30 cursor-pointer"
                     title="다음 급식"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
 
                 {currentMeal.calories && (
-                  <div className="flex items-center gap-1 text-xs sm:text-sm font-black text-orange-300">
-                    <Flame className="w-4 h-4 fill-current" />
+                  <div className="flex items-center gap-1.5 text-sm sm:text-base font-black text-orange-300">
+                    <Flame className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                     <span>{currentMeal.calories}</span>
                   </div>
                 )}
               </div>
 
-              {/* 반찬 리스트 (2열 그리드, 넉넉한 공간과 대형 글씨) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 flex-grow overflow-y-auto pr-1 max-h-[360px] sm:max-h-[440px]">
+              {/* 반찬 리스트 (2열 그리드, 넉넉한 공간과 대형 글씨로 화면에 가득 참) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 flex-grow overflow-y-auto pr-1 max-h-[480px] sm:max-h-[580px]">
                 {currentMeal.dishes.map((dish, idx) => (
                   <div
                     key={idx}
-                    className={`flex items-center justify-between ${MEAL_FONT_SIZES[mealFontSizeLevel].padding} rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors shadow-sm`}
+                    className={`flex items-center justify-between ${MEAL_FONT_SIZES[mealFontSizeLevel].padding} ${MEAL_FONT_SIZES[mealFontSizeLevel].minHeight} rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors shadow-sm`}
                   >
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <span className={`${MEAL_FONT_SIZES[mealFontSizeLevel].emojiText} shrink-0`}>
                         {getDishEmoji(dish.name)}
                       </span>
@@ -417,7 +433,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
                       </span>
                     </div>
                     {showAllergy && dish.allergy.length > 0 && (
-                      <span className="text-xs text-amber-300 font-mono font-bold ml-1.5 shrink-0 px-2 py-0.5 rounded-lg bg-black/40 border border-white/10">
+                      <span className="text-xs sm:text-sm text-amber-300 font-mono font-bold ml-1.5 shrink-0 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10">
                         {dish.allergy.join('.')}
                       </span>
                     )}
@@ -500,7 +516,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="학교 이름을 입력하세요 (예: 여수북초, 반포초)"
+                    placeholder="학교 이름을 입력하세요 (예: 한려초, 여수한려초)"
                     className="w-full pl-10 pr-24 py-3 rounded-2xl bg-slate-800 border border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 text-white placeholder-slate-500"
                     autoFocus
                   />

@@ -12,6 +12,8 @@ import {
   Sparkles,
   ArrowRight,
   RotateCcw,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 interface Message {
@@ -136,11 +138,41 @@ export default function ChatBot() {
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chipsRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScrollState = () => {
+    if (chipsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = chipsRef.current;
+      setCanScrollLeft(scrollLeft > 2);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 4);
+    }
+  };
+
+  const handleChipsScroll = (direction: 'left' | 'right') => {
+    if (chipsRef.current) {
+      const distance = 160;
+      chipsRef.current.scrollBy({
+        left: direction === 'left' ? -distance : distance,
+        behavior: 'smooth',
+      });
+      setTimeout(checkScrollState, 200);
+    }
+  };
+
+  const handleChipsWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (chipsRef.current && e.deltaY !== 0) {
+      chipsRef.current.scrollLeft += e.deltaY;
+      checkScrollState();
+    }
+  };
 
   // 메시지 스크롤 자동 이동
   useEffect(() => {
     if (isOpen) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      checkScrollState();
     }
   }, [messages, isTyping, isOpen]);
 
@@ -341,25 +373,72 @@ export default function ChatBot() {
             </div>
 
             {/* 원클릭 추천 퀵 칩 섹션 */}
-            <div className="px-3 pt-2 pb-1.5 bg-slate-50/80 dark:bg-slate-800/60 border-t border-slate-200/80 dark:border-slate-800 shrink-0">
-              <div className="flex items-center gap-1.5 mb-1.5 px-1">
-                <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                  자주 묻는 질문 퀵 추천:
-                </span>
-              </div>
-              <div className="flex gap-1.5 overflow-x-auto pb-1.5 scrollbar-none no-scrollbar">
-                {QUICK_CHIPS.map((chip) => (
+            <div className="px-3 pt-2 pb-2 bg-slate-50/90 dark:bg-slate-800/80 border-t border-slate-200/80 dark:border-slate-800 shrink-0">
+              <div className="flex items-center justify-between mb-1.5 px-0.5">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                  <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300 truncate">
+                    자주 묻는 질문 퀵 추천:
+                  </span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 font-normal hidden sm:inline">
+                    (마우스 휠/스크롤 이동)
+                  </span>
+                </div>
+                <div className="flex items-center gap-1 shrink-0">
                   <button
-                    key={chip.id}
                     type="button"
-                    onClick={() => handleSend(chip.query)}
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-[11px] font-bold whitespace-nowrap shadow-xs transition-all hover:scale-[1.02] active:scale-95 cursor-pointer shrink-0"
+                    onClick={() => handleChipsScroll('left')}
+                    disabled={!canScrollLeft}
+                    className="p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 disabled:opacity-25 transition-all cursor-pointer disabled:cursor-not-allowed"
+                    title="이전 퀵 추천 보기"
+                    aria-label="이전 퀵 추천"
                   >
-                    <span>{chip.icon}</span>
-                    <span>{chip.label}</span>
+                    <ChevronLeft className="w-3.5 h-3.5" />
                   </button>
-                ))}
+                  <button
+                    type="button"
+                    onClick={() => handleChipsScroll('right')}
+                    disabled={!canScrollRight}
+                    className="p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 disabled:opacity-25 transition-all cursor-pointer disabled:cursor-not-allowed"
+                    title="다음 퀵 추천 보기"
+                    aria-label="다음 퀵 추천"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* 칩 가로 스크롤 영역 */}
+              <div className="relative">
+                <div
+                  ref={chipsRef}
+                  onScroll={checkScrollState}
+                  onWheel={handleChipsWheel}
+                  className="flex gap-1.5 overflow-x-auto pb-1 scroll-smooth overscroll-x-contain select-none"
+                  style={{
+                    scrollbarWidth: 'thin',
+                  }}
+                >
+                  {QUICK_CHIPS.map((chip) => (
+                    <button
+                      key={chip.id}
+                      type="button"
+                      onClick={() => handleSend(chip.query)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-[11px] font-bold whitespace-nowrap shadow-xs transition-all hover:scale-[1.02] active:scale-95 cursor-pointer shrink-0"
+                    >
+                      <span>{chip.icon}</span>
+                      <span>{chip.label}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* 우측 추가 컨텐츠 그라데이션 페이드 힌트 */}
+                {canScrollRight && (
+                  <div
+                    onClick={() => handleChipsScroll('right')}
+                    className="absolute right-0 top-0 bottom-1 w-6 bg-gradient-to-l from-slate-100 dark:from-slate-800 to-transparent pointer-events-none"
+                  />
+                )}
               </div>
             </div>
 

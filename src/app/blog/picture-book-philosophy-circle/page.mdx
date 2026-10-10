@@ -1,0 +1,59 @@
+export const metadata = {
+  title: '그림책 한 권으로 철학하는 초등 하브루타 토론',
+  date: '2026-09-08',
+  description: '정답이 정해진 독서 퀴즈를 벗어나, 정답 없는 질문을 던지고 짝과 치열하게 논쟁하며 공감과 비판적 사고력을 기른 초등 그림책 철학 수업 이야기입니다.',
+  openGraph: {
+    title: '그림책 한 권으로 철학하는 초등 하브루타 토론',
+    description: '정답이 정해진 독서 퀴즈를 벗어나, 정답 없는 질문을 던지고 짝과 치열하게 논쟁하며 공감과 비판적 사고력을 기른 초등 그림책 철학 수업 이야기입니다.',
+    type: 'article',
+    publishedTime: '2026-09-08',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 인문 독서 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+"선생님, 고학년 형아들이 왜 유치원생이나 읽는 그림책을 읽어요?"
+
+초등학교 5, 6학년 아이들에게 그림책을 건네면 처음에는 쑥스러워합니다. 글밥이 적으니 금방 다 읽어버리고 시시하다고 생각하기 쉽습니다.
+
+하지만 그림책이야말로 **가장 압축된 언어와 시각적 은유로 인생의 심오한 철학적 질문을 던지는 최고의 텍스트**입니다.
+
+---
+
+## 1. 정답이 없는 하브루타 짝 토론의 질문들
+
+셸 실버스타인의 『아낌없이 주는 나무』를 읽고 난 뒤, 일반적인 국어 퀴즈라면 이렇습니다.
+- *"나무가 소년에게 마지막에 준 것은 무엇인가요?" (정답: 밑동)*
+
+하지만 하브루타 철학 토론에서는 정답이 없는 '가치 판단 질문'을 던집니다.
+- *"나무의 사랑은 진정한 헌신일까, 아니면 소년을 의존적으로 만든 잘못된 사랑일까?"*
+- *"소년은 정말 행복했을까? 왜 나이가 들어서도 계속 무언가를 요구했을까?"*
+- *"내가 나무라면, 소년이 세 번째 찾아왔을 때 어떤 말을 해줄까?"*
+
+---
+
+## 2. 반박과 경청이 공존하는 교실
+
+아이들은 짝과 마주 앉아 자신의 근거를 제시하고, 친구의 반론에 귀 기울입니다.
+"나는 처음엔 나무가 너무 착하다고만 생각했는데, 민수의 이야기를 듣고 보니 소년의 자립심을 해쳤을 수도 있겠다는 생각이 들었어."
+
+나와 다른 타인의 관점을 인정하고, 생각을 수정해 나가는 성숙한 태도. 
+그림책은 얇지만, 그 책을 덮고 나눈 아이들의 대화는 그 어떤 두꺼운 철학 개론서보다 깊었습니다.

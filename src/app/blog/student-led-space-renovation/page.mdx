@@ -1,0 +1,59 @@
+export const metadata = {
+  title: '아이들이 직접 설계한 꿈꾸는 교실 공간 혁신 프로젝트',
+  date: '2026-09-15',
+  description: '획일적인 일자형 책상 배치를 벗어나 북카페, 모둠 토의존, 다락방 쉼터를 아이들과 함께 스케치하고 꾸민 사용자 참여형 교실 공간 혁신 이야기입니다.',
+  openGraph: {
+    title: '아이들이 직접 설계한 꿈꾸는 교실 공간 혁신 프로젝트',
+    description: '획일적인 일자형 책상 배치를 벗어나 북카페, 모둠 토의존, 다락방 쉼터를 아이들과 함께 스케치하고 꾸민 사용자 참여형 교실 공간 혁신 이야기입니다.',
+    type: 'article',
+    publishedTime: '2026-09-15',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 교실 혁신 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+대한민국 학교의 교실은 지난 수십 년간 크게 변하지 않았습니다. 앞쪽 칠판을 향해 줄지어 늘어선 일자형 책상과 딱딱한 의자. 산업화 시대의 공장형 배치는 협업과 창의성이 중요한 21세기 교실과는 어울리지 않았습니다.
+
+"교실의 진짜 주인은 누구일까?"
+
+이 질문에서 시작하여, 25명의 아이들과 함께 교실 공간을 직접 뜯어고친 **'사용자 참여형 공간 혁신'** 프로젝트를 소개합니다.
+
+---
+
+## 1. 3D 모델링 툴로 그린 우리들의 비밀 아지트
+
+미술 시간과 실과 시간을 활용하여 무료 3D 모델링 도구(틴커캐드, 플로어플래너)로 이상적인 교실 평면도를 제작했습니다.
+
+아이들이 원한 공간은 생각보다 거창하지 않았습니다.
+- *"쉬는 시간에 편하게 누워서 책을 읽을 수 있는 푹신한 매트와 빈백이 있으면 좋겠어요."*
+- *"모둠 친구들과 마주 보고 토론할 수 있는 원형 테이블이 필요해요."*
+- *"속상한 일이 있을 때 혼자 조용히 마음을 가라앉힐 수 있는 '평화의 동굴' 코너가 있었으면 해요."*
+
+---
+
+## 2. 함께 만든 4대 테마 존(Zone)
+
+1. **북카페 존 (Book Cafe)**: 러그와 원목 책장, 은은한 스탠드 조명으로 아늑한 독서 쉼터
+2. **협업 브레인스토밍 존**: 보드마카로 마음껏 아이디어를 적을 수 있는 화이트보드 벽면
+3. **메이커 & 디지털 스테이션**: 3D 프린터와 태블릿 충전 보관함, 레고 조작 공간
+4. **미디어 스튜디오**: 크로마키 스크린과 삼각대가 놓인 1인 미디어 발표 코너
+
+공간이 바뀌면 행동이 바뀝니다. 딱딱한 책상에 갇혀 있던 아이들은 이제 공간의 주인이 되어 더 자유롭게 묻고, 토론하고, 꿈을 펼치고 있습니다.

@@ -1,0 +1,71 @@
+export const metadata = {
+  title: '인터넷이 끊겨도 문제없는 교실 PWA(프로그레시브 웹앱) 구현 노하우',
+  date: '2026-08-18',
+  description: '학교 Wi-Fi 불안정과 방화벽 차단 속에서도 태블릿 홈 화면에 앱처럼 1초 만에 설치되어 오프라인에서도 부드럽게 구동되는 PWA 서비스 워커 설계 노하우입니다.',
+  openGraph: {
+    title: '인터넷이 끊겨도 문제없는 교실 PWA(프로그레시브 웹앱) 구현 노하우',
+    description: '학교 Wi-Fi 불안정과 방화벽 차단 속에서도 태블릿 홈 화면에 앱처럼 1초 만에 설치되어 오프라인에서도 부드럽게 구동되는 PWA 서비스 워커 설계 노하우입니다.',
+    type: 'article',
+    publishedTime: '2026-08-18',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 웹앱 개발 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+"선생님, 갑자기 교실 인터넷이 끊겼어요! 화면이 하얗게 멈췄어요!"
+
+디지털 기기 수업을 진행하다가 인터넷 연결이 일시적으로 불안정해지면, 수업 전체가 일순간 멈춰버리고 교실은 혼란에 빠집니다. 앱스토어나 구글 플레이스토어에서 앱을 설치하자니 교육청 MDM(기기 관리 시스템) 정책 때문에 교사가 마음대로 앱을 다운로드할 권한도 없습니다.
+
+이 문제를 우아하게 해결하는 최고의 기술이 바로 **PWA(Progressive Web Apps)**입니다.
+
+---
+
+## 1. PWA가 교실 현장에 완벽한 3가지 이유
+
+1. **무설치 & 1초 홈 화면 추가**: 앱스토어 로그인 없이 브라우저 상단의 '홈 화면에 앱 추가' 버튼 하나로 태블릿 바탕화면에 즉시 아이콘이 생깁니다.
+2. **주소창 없는 전체화면(Standalone)**: 브라우저 상단의 뒤로가기 버튼이나 주소창이 사라져 아이들이 엉뚱한 사이트로 이탈하는 것을 막아줍니다.
+3. **오프라인 캐싱 (Service Worker)**: 한 번 열어본 게임과 도구는 인터넷 선을 뽑아도 로컬 캐시로 번개처럼 실행됩니다.
+
+---
+
+## 2. manifest.json과 캐시 전략
+
+```json
+{
+  "name": "엽쌤스쿨 교실 에듀테크",
+  "short_name": "엽쌤스쿨",
+  "start_url": "/morning",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+Service Worker의 **'Stale-While-Revalidate'** 전략을 적용하여, 평소에는 즉각 로컬 캐시에서 화면을 빠르게 띄우고, 백그라운드에서 최신 업데이트가 있는지 조용히 확인하여 동기화합니다.
+
+기술은 항상 가장 열악한 환경에서도 변함없이 굳건하게 사용자를 지켜줄 수 있어야 진정한 신뢰를 얻습니다.

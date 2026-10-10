@@ -1,0 +1,60 @@
+export const metadata = {
+  title: '시험이 아니라 축제가 되는 형성평가 — 퀴즈앤(QuizN)과 띵커벨 교실 배틀',
+  date: '2026-09-24',
+  description: '단원 평가 때마다 환호성이 터지는 실시간 퀴즈 배틀과 데이터 기반 오답 분석 노하우를 공유합니다. 줄 세우기 시험을 즐거운 배움의 놀이로 바꾼 이야기입니다.',
+  openGraph: {
+    title: '시험이 아니라 축제가 되는 형성평가 — 퀴즈앤(QuizN)과 띵커벨 교실 배틀',
+    description: '단원 평가 때마다 환호성이 터지는 실시간 퀴즈 배틀과 데이터 기반 오답 분석 노하우를 공유합니다. 줄 세우기 시험을 즐거운 배움의 놀이로 바꾼 이야기입니다.',
+    type: 'article',
+    publishedTime: '2026-09-24',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 에듀테크 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+"선생님, 오늘 4교시에 수학 단원평가 본다고요? 아, 싫은데..."
+
+교실에서 '시험'이라는 단어는 언제나 긴장과 스트레스의 동의어였습니다. 문제를 풀고 점수를 매기고 나면, 틀린 문제를 다시 들여다보는 아이는 거의 없습니다. "몇 점 맞았어?"라는 비교만 남을 뿐이죠.
+
+하지만 국산 에듀테크 플랫폼인 **띵커벨(Thinkerbell)**과 **퀴즈앤(QuizN)**을 수업 마무리 단계에 도입하면서, 우리 반의 형성평가는 '축제'이자 '게임 배틀'이 되었습니다.
+
+---
+
+## 1. 게이미피케이션(Gamification) 퀴즈의 위력
+
+### ① 실시간 랭킹과 반전의 보너스 라운드
+정답을 빨리 맞힐수록 점수가 오르고, 연속 정답(콤보) 시 추가 보너스가 붙습니다. 전자칠판 대화면에 순위 변동 그래프가 실시간으로 움직일 때 교실은 스포츠 경기장처럼 달아오릅니다.
+
+### ② 개인전이 부담스러울 땐 '모둠 협동 모드'
+문제를 혼자 풀지 않고 4인 1모둠이 머리를 맞대어 의논한 후 대표가 탭하는 모드를 쓰면, 학습 속도가 느린 학생도 소외되지 않고 자연스럽게 친구들의 설명을 들으며 배움에 참여합니다.
+
+---
+
+## 2. 교사에게 주어지는 진짜 선물: 정밀한 오답 통계 데이터
+
+게임이 끝난 후 교사 대시보드에는 단순한 점수가 아니라 **성취기준별 정답률 히트맵**이 제공됩니다.
+
+- "3번 문항(분수의 나눗셈 역수 개념) 정답률이 42%밖에 안 되네?"
+- "7번 문항에서 많은 아이가 2번 오답을 골랐구나!"
+
+선생님은 채점에 시간을 쏟지 않고, 아이들이 공통으로 헷갈려 한 핵심 오개념을 수업 종료 5분 전 즉시 짚어줄 수 있습니다.
+
+평가는 낙인을 찍는 것이 아니라, **어디를 다시 보듬어주어야 할지 교사에게 알려주는 내비게이션**이어야 합니다.

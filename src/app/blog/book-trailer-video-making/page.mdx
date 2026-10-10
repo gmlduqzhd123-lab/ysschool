@@ -1,0 +1,62 @@
+export const metadata = {
+  title: '내가 읽은 책을 영화 예고편으로! 초등 북트레일러 영상 제작 수업',
+  date: '2026-08-30',
+  description: '스마트폰과 무료 컷편집 도구를 이용해 책의 클라이맥스를 60초 영화 예고편 영상으로 제작하고 전교생 북 페스티벌을 개최한 미디어 리터러시 융합 수업기입니다.',
+  openGraph: {
+    title: '내가 읽은 책을 영화 예고편으로! 초등 북트레일러 영상 제작 수업',
+    description: '스마트폰과 무료 컷편집 도구를 이용해 책의 클라이맥스를 60초 영화 예고편 영상으로 제작하고 전교생 북 페스티벌을 개최한 미디어 리터러시 융합 수업기입니다.',
+    type: 'article',
+    publishedTime: '2026-08-30',
+  },
+};
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export default function Post({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+        <article className="prose prose-slate dark:prose-invert lg:prose-lg mx-auto">
+          <h1>{metadata.title}</h1>
+          <div className="text-sm text-slate-500 mb-8">{metadata.date} · 인문 독서 · 5분 읽기</div>
+          
+          {children}
+        </article>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+영화가 개봉하기 전 관객의 심장을 뛰게 만드는 60초의 영화 예고편(Trailer).
+
+책에도 이런 멋진 예고편이 있다면 어떨까요? 책을 읽고 독후감을 쓰라고 하면 한숨을 쉬던 아이들이 **"우리 모둠이 고른 책을 전교생이 읽고 싶어 미치게 만드는 60초 북트레일러 영상을 만들자!"**고 하자 눈빛이 달라졌습니다.
+
+미디어 소비자에 머물던 아이들을 독서 큐레이터이자 영상 프로듀서로 변신시킨 수업 과정을 소개합니다.
+
+---
+
+## 1. 북트레일러 제작의 4단계 로드맵
+
+### 1단계: 스토리보드(콘티) 기획
+- 책 전체 줄거리를 다 알려주면 스포일러가 됩니다.
+- 가장 긴장감 넘치는 사건의 발단과 위기 직전까지만 노출하고, *"과연 주인공의 운명은? 다음 주 도서관에서 확인하세요!"*라는 강력한 훅(Hook)을 설계합니다.
+
+### 2단계: 촬영과 무료 소스 수집
+- 아이들이 직접 스마트폰 카메라로 배우가 되어 연기하거나, 픽사베이(Pixabay) 등 무료 저작권 이미지와 컷을 수집합니다.
+- 배경음악(BGM)과 효과음(SFX)의 분위기를 고르며 감정선을 조율합니다.
+
+### 3단계: 컷편집과 타이포그래피 (VITA, 캡컷, 캔바)
+- 긴장감을 고조시키는 자막 애니메이션과 전환 효과를 넣습니다.
+
+### 4단계: 교내 도서관 QR코드 북 페스티벌
+- 완성된 영상을 유튜브 일부 공개로 올리고, 도서관 책 표지 옆에 QR코드를 부착했습니다.
+- 쉬는 시간마다 후배들이 태블릿으로 QR을 찍어 영상을 보고 해당 도서를 대출해 가면서, 도서관 대출률이 300% 폭증했습니다!
+
+---
+
+## 2. 미디어와 인문학의 행복한 결합
+
+디지털 미디어는 독서의 적이 아닙니다. 아이들의 언어와 감각으로 책의 가치를 재해석할 수 있는 가장 훌륭한 날개입니다.
