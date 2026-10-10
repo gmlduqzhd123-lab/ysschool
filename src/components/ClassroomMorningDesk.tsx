@@ -532,12 +532,12 @@ export default function ClassroomMorningDesk() {
                 value={noticeText}
                 onChange={(e) => handleNoticeChange(e.target.value)}
                 placeholder="여기를 클릭하여 학생들에게 전할 오늘의 아침 미션이나 알림장을 적어보세요..."
-                className={`w-full min-h-[170px] sm:min-h-[200px] flex-grow bg-transparent focus:outline-none resize-none font-medium leading-relaxed ${FONT_SIZES[fontSizeLevel]}`}
+                className={`w-full min-h-[170px] sm:min-h-[200px] max-h-[360px] overflow-y-auto flex-grow bg-transparent focus:outline-none resize-none font-medium leading-relaxed ${FONT_SIZES[fontSizeLevel]}`}
                 spellCheck={false}
               />
             </div>
 
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs opacity-70">
+            <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs opacity-70 gap-1">
               <span>💡 팁: 칠판 내용을 터치하거나 클릭하여 직접 입력하세요.</span>
               <span>창을 닫아도 브라우저에 안전하게 보관됩니다.</span>
             </div>

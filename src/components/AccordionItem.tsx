@@ -21,30 +21,32 @@ export default function AccordionItem({ item, isOpen, onToggle }: AccordionItemP
       {/* Header */}
       <button
         onClick={onToggle}
-        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left cursor-pointer group hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors duration-200"
+        className="w-full flex items-start sm:items-center justify-between gap-3 sm:gap-4 p-4 sm:p-6 text-left cursor-pointer group hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors duration-200"
       >
-        {/* Badges */}
-        <div className="flex-shrink-0 flex items-center gap-1.5 flex-wrap">
-          {item.category && (
-            <span className="text-[11px] font-bold px-2 py-1 rounded-md bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300 whitespace-nowrap">
-              {item.category}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 flex-grow min-w-0">
+          {/* Badges */}
+          <div className="flex-shrink-0 flex items-center gap-1.5 flex-wrap">
+            {item.category && (
+              <span className="text-[11px] font-bold px-2 py-0.5 sm:py-1 rounded-md bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300 whitespace-nowrap">
+                {item.category}
+              </span>
+            )}
+            <span className={`text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full whitespace-nowrap ${item.toolColor}`}>
+              {item.tool}
             </span>
-          )}
-          <span className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap ${item.toolColor}`}>
-            {item.tool}
+          </div>
+
+          {/* Title */}
+          <span className="text-sm sm:text-base lg:text-lg font-bold text-slate-800 dark:text-white leading-snug group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors break-keep">
+            {item.title}
           </span>
         </div>
-
-        {/* Title */}
-        <span className="flex-grow text-base sm:text-lg font-bold text-slate-800 dark:text-white leading-snug group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors">
-          {item.title}
-        </span>
 
         {/* Chevron */}
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="flex-shrink-0"
+          className="flex-shrink-0 mt-0.5 sm:mt-0 p-1"
         >
           <ChevronDown className="w-5 h-5 text-slate-400 dark:text-slate-500" />
         </motion.div>

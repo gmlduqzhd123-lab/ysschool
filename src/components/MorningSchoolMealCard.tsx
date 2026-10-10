@@ -426,7 +426,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
                         {getDishEmoji(dish.name)}
                       </span>
                       <span
-                        className={`${MEAL_FONT_SIZES[mealFontSizeLevel].dishText} truncate tracking-tight`}
+                        className={`${MEAL_FONT_SIZES[mealFontSizeLevel].dishText} break-keep leading-tight tracking-tight`}
                         title={dish.name}
                       >
                         {dish.name}
@@ -536,7 +536,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
                 <span className="text-[11px] text-slate-400 font-bold block mb-1.5">
                   빠른 선택:
                 </span>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
                   {QUICK_SAMPLE_SCHOOLS.map((s) => (
                     <button
                       key={s.schoolCode}
