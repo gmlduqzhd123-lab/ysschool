@@ -403,14 +403,14 @@ export default function Header() {
       }`}
     >
       <div
-        className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
+        className={`mx-auto px-3 min-[400px]:px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
           isScrolled
             ? 'glass-header shadow-xl lg:rounded-full lg:border lg:border-white/30 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl'
             : 'max-w-7xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm'
         }`}
       >
         <div
-          className={`flex justify-between items-center gap-3 sm:gap-6 lg:gap-8 transition-all duration-300 ${
+          className={`flex justify-between items-center gap-2 min-[400px]:gap-3 sm:gap-6 lg:gap-8 transition-all duration-300 ${
             isScrolled ? 'h-16 lg:h-14 lg:px-3' : 'h-20'
           }`}
         >
@@ -420,7 +420,7 @@ export default function Header() {
               <div className="bg-brand-navy p-1.5 min-[400px]:p-2 rounded-lg group-hover:bg-brand-sky transition-colors duration-300">
                 <BookOpen className="h-6 w-6 text-white" />
               </div>
-              <span className="font-bold text-lg min-[400px]:text-xl sm:text-2xl text-brand-navy dark:text-white tracking-tight whitespace-nowrap">
+              <span className="font-bold text-base min-[400px]:text-xl sm:text-2xl text-brand-navy dark:text-white tracking-tight whitespace-nowrap">
                 YSSCHOOL
               </span>
             </Link>
@@ -491,7 +491,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile toggle */}
-          <div className="lg:hidden flex items-center gap-1 sm:gap-2 shrink-0">
+          <div className="lg:hidden flex items-center gap-0.5 min-[400px]:gap-1 sm:gap-2 shrink-0">
             {/* 🔍 모바일 빠른 검색 버튼 */}
             <button
               type="button"
