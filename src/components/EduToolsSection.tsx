@@ -17,6 +17,7 @@ import {
   categoryBadgeStyles,
   EduToolCategory,
 } from '@/data/eduToolsData';
+import EduToolLogo from './EduToolLogo';
 
 interface EduToolsSectionProps {
   initialCategory?: EduToolCategory;
@@ -245,34 +246,43 @@ export default function EduToolsSection({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.03, duration: 0.3 }}
-                className="group relative flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className={`group relative flex flex-col justify-between p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                  tool.brandBg || ''
+                }`}
               >
                 <div>
-                  {/* 상단 뱃지 & 카테고리 */}
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span
-                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badgeStyle.bg} ${badgeStyle.text} ${badgeStyle.border}`}
-                    >
-                      {categoryLabels[tool.category]}
-                    </span>
-                    <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500">
-                      {tool.badge}
-                    </span>
+                  {/* 카드 상단: 대표 로고 + 뱃지 + 도구명 */}
+                  <div className="flex items-start gap-3.5 mb-3.5">
+                    <EduToolLogo tool={tool} size="md" />
+
+                    <div className="flex-1 min-w-0">
+                      {/* 뱃지 행 */}
+                      <div className="flex items-center justify-between gap-1.5 mb-1.5 flex-wrap">
+                        <span
+                          className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold border ${badgeStyle.bg} ${badgeStyle.text} ${badgeStyle.border}`}
+                        >
+                          {categoryLabels[tool.category]}
+                        </span>
+                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">
+                          {tool.badge}
+                        </span>
+                      </div>
+
+                      {/* 제목 */}
+                      <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug break-keep">
+                        {tool.name}
+                      </h3>
+                    </div>
                   </div>
 
-                  {/* 제목 */}
-                  <h3 className="text-lg font-black text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                    {tool.name}
-                  </h3>
-
                   {/* 한 줄 설명 */}
-                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mt-1 mb-2">
+                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 leading-relaxed">
                     {tool.desc}
                   </p>
 
                   {/* 교실 실전 활용 포인트 */}
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed break-keep">
-                    {tool.highlight}
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed break-keep bg-slate-50/80 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                    💡 {tool.highlight}
                   </p>
                 </div>
 
@@ -286,7 +296,7 @@ export default function EduToolsSection({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${tool.name} 사이트로 이동 (새 창)`}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-500 dark:hover:text-white text-slate-700 dark:text-slate-300 text-xs font-extrabold transition-all group-hover:bg-amber-500 group-hover:text-white shadow-sm cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-500 dark:hover:text-white text-slate-700 dark:text-slate-300 text-xs font-extrabold transition-all group-hover:bg-amber-500 group-hover:text-white shadow-xs cursor-pointer"
                   >
                     <span>바로가기</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -322,15 +332,20 @@ export default function EduToolsSection({
                     transition: { delay: idx * 0.03 },
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ scale: 1.1, y: -4 }}
+                  whileHover={{ scale: 1.08, y: -4 }}
                   onMouseEnter={() => setHoveredTool(tool.id)}
                   onMouseLeave={() => setHoveredTool(null)}
-                  className={`relative inline-flex items-center rounded-2xl font-black text-white bg-gradient-to-r ${
+                  className={`relative inline-flex items-center gap-2 rounded-2xl font-black text-white bg-gradient-to-r ${
                     categoryColors[tool.category]
                   } shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer ${
                     sizeClasses[tool.size]
                   }`}
                 >
+                  <EduToolLogo
+                    tool={tool}
+                    size="sm"
+                    className="bg-white/90 border-white/40 shadow-xs"
+                  />
                   <span>{tool.name}</span>
 
                   {/* 호버 툴팁 */}

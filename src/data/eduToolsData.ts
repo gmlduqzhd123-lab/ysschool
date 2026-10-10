@@ -20,6 +20,10 @@ export interface EduToolItem {
   category: EduToolItemCategory;
   badge: string;
   size: 'sm' | 'md' | 'lg';
+  logoUrl?: string;       // 대표 공식 로고 파비콘 URL
+  symbolEmoji?: string;   // 대체 상징 이모지
+  brandColor?: string;    // 브랜드 고유 헥스 컬러
+  brandBg?: string;       // 로고 박스 스타일
 }
 
 export const categoryLabels: Record<EduToolCategory, string> = {
@@ -94,6 +98,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'writing',
     badge: 'AI 글쓰기',
     size: 'lg',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.jajakjakjak.com&sz=128',
+    symbolEmoji: '✍️',
+    brandColor: '#2563EB',
+    brandBg: 'hover:border-blue-400',
   },
   {
     id: 'bookk',
@@ -104,6 +112,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'publishing',
     badge: '학생 출판',
     size: 'lg',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.bookk.co.kr&sz=128',
+    symbolEmoji: '📚',
+    brandColor: '#059669',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'cread',
@@ -114,6 +126,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'writing',
     badge: '첨삭 지도',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://cread.ai&sz=128',
+    symbolEmoji: '📝',
+    brandColor: '#0284C7',
+    brandBg: 'hover:border-sky-400',
   },
   {
     id: 'tooning',
@@ -124,6 +140,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'creative',
     badge: '웹툰 창작',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://tooning.io&sz=128',
+    symbolEmoji: '🎨',
+    brandColor: '#9333EA',
+    brandBg: 'hover:border-purple-400',
   },
   {
     id: 'canva',
@@ -134,6 +154,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'creative',
     badge: '교육용 무료',
     size: 'lg',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.canva.com&sz=128',
+    symbolEmoji: '🖌️',
+    brandColor: '#00C4CC',
+    brandBg: 'hover:border-teal-400',
   },
   {
     id: 'chatgpt',
@@ -144,6 +168,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'ai',
     badge: '생성형 AI',
     size: 'lg',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://chatgpt.com&sz=128',
+    symbolEmoji: '🤖',
+    brandColor: '#10A37F',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'padlet',
@@ -154,6 +182,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'collab',
     badge: '실시간 협업',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://padlet.com&sz=128',
+    symbolEmoji: '📌',
+    brandColor: '#FF5722',
+    brandBg: 'hover:border-orange-400',
   },
   {
     id: 'classcard',
@@ -164,6 +196,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'quiz',
     badge: '어휘 학습',
     size: 'sm',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.classcard.net&sz=128',
+    symbolEmoji: '🃏',
+    brandColor: '#E11D48',
+    brandBg: 'hover:border-rose-400',
   },
   {
     id: 'tkbell',
@@ -174,6 +210,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'quiz',
     badge: '형성평가',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.tkbell.co.kr&sz=128',
+    symbolEmoji: '🔔',
+    brandColor: '#F59E0B',
+    brandBg: 'hover:border-amber-400',
   },
   {
     id: 'wrtn',
@@ -184,6 +224,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'ai',
     badge: '한국형 AI',
     size: 'sm',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://wrtn.ai&sz=128',
+    symbolEmoji: '⚡',
+    brandColor: '#4F46E5',
+    brandBg: 'hover:border-indigo-400',
   },
   {
     id: 'kahoot',
@@ -194,6 +238,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'quiz',
     badge: '퀴즈 게임',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://kahoot.com&sz=128',
+    symbolEmoji: '🎯',
+    brandColor: '#46178F',
+    brandBg: 'hover:border-violet-400',
   },
   {
     id: 'miricanvas',
@@ -204,6 +252,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'creative',
     badge: '한국형 디자인',
     size: 'sm',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.miricanvas.com&sz=128',
+    symbolEmoji: '📐',
+    brandColor: '#00D282',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'blooket',
@@ -214,6 +266,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'game',
     badge: '게임화 러닝',
     size: 'sm',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.blooket.com&sz=128',
+    symbolEmoji: '🕹️',
+    brandColor: '#0284C7',
+    brandBg: 'hover:border-sky-400',
   },
   {
     id: 'notion',
@@ -224,6 +280,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'collab',
     badge: '학급 경영',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.notion.so&sz=128',
+    symbolEmoji: '📓',
+    brandColor: '#000000',
+    brandBg: 'hover:border-slate-400',
   },
   {
     id: 'quizlet',
@@ -234,6 +294,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'quiz',
     badge: '플래시카드',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://quizlet.com&sz=128',
+    symbolEmoji: '💡',
+    brandColor: '#4257B2',
+    brandBg: 'hover:border-blue-400',
   },
   {
     id: 'gimkit',
@@ -244,6 +308,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'game',
     badge: '화폐형 게임',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://www.gimkit.com&sz=128',
+    symbolEmoji: '🪙',
+    brandColor: '#10B981',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'entry',
@@ -254,6 +322,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'creative',
     badge: 'SW·AI 코딩',
     size: 'lg',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://playentry.org&sz=128',
+    symbolEmoji: '🧩',
+    brandColor: '#00B050',
+    brandBg: 'hover:border-green-400',
   },
   {
     id: 'clovadubbing',
@@ -264,6 +336,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'ai',
     badge: 'AI 보이스',
     size: 'sm',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://clovadubbing.naver.com&sz=128',
+    symbolEmoji: '🎙️',
+    brandColor: '#03C75A',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'google-classroom',
@@ -274,6 +350,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'collab',
     badge: '학습 관리',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://classroom.google.com&sz=128',
+    symbolEmoji: '🏫',
+    brandColor: '#1E8E3E',
+    brandBg: 'hover:border-emerald-400',
   },
   {
     id: 'nearpod',
@@ -284,6 +364,10 @@ export const eduToolsList: EduToolItem[] = [
     category: 'collab',
     badge: '인터랙티브 수업',
     size: 'md',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=https://nearpod.com&sz=128',
+    symbolEmoji: '🥽',
+    brandColor: '#007AFF',
+    brandBg: 'hover:border-blue-400',
   },
 ];
 
