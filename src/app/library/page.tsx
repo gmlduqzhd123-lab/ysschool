@@ -6,9 +6,19 @@
  * 2. 교실 추천 에듀테크 도구함 (14종 검증 도구 모음)
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Library, Sparkles, Wrench, ArrowRight, Bot } from 'lucide-react';
+import {
+  Library,
+  Sparkles,
+  Wrench,
+  ArrowRight,
+  Bot,
+  Search,
+  X,
+  ChevronsUpDown,
+  Filter,
+} from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -19,9 +29,20 @@ import { eduToolsList } from '@/data/eduToolsData';
 
 type LibraryTab = 'knowhow' | 'tools';
 
+const KNOWHOW_CATEGORIES = [
+  '전체',
+  '수업자료',
+  '학급경영·평가',
+  '코딩·체험',
+  '영상·음성',
+  '연구·검색',
+] as const;
+
 export default function EdutechLibraryPage() {
   const [activeTab, setActiveTab] = useState<LibraryTab>('knowhow');
-  const [openId, setOpenId] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('전체');
+  const [openedIds, setOpenedIds] = useState<number[]>([]);
 
   // URL 해시(#tools 등)에 따라 활성 탭 자동 전환
   useEffect(() => {
@@ -65,8 +86,54 @@ export default function EdutechLibraryPage() {
   };
 
   const handleToggle = (id: number) => {
-    setOpenId((prev) => (prev === id ? null : id));
+    setOpenedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
   };
+
+  // 필터링된 노하우 목록
+  const filteredLibrary = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return libraryData.filter((item) => {
+      const matchCategory =
+        selectedCategory === '전체' || item.category === selectedCategory;
+      if (!matchCategory) return false;
+
+      if (!query) return true;
+      const matchTitle = item.title.toLowerCase().includes(query);
+      const matchTool = item.tool.toLowerCase().includes(query);
+      const matchContent = item.content.toLowerCase().includes(query);
+      const matchCatText = item.category?.toLowerCase().includes(query) ?? false;
+      return matchTitle || matchTool || matchContent || matchCatText;
+    });
+  }, [searchQuery, selectedCategory]);
+
+  const allFilteredOpen =
+    filteredLibrary.length > 0 &&
+    filteredLibrary.every((item) => openedIds.includes(item.id));
+
+  const toggleAllFiltered = () => {
+    if (allFilteredOpen) {
+      // 현재 필터된 항목들 접기
+      const filteredSet = new Set(filteredLibrary.map((item) => item.id));
+      setOpenedIds((prev) => prev.filter((id) => !filteredSet.has(id)));
+    } else {
+      // 현재 필터된 항목들 모두 펼치기
+      const currentFilteredIds = filteredLibrary.map((item) => item.id);
+      setOpenedIds((prev) => Array.from(new Set([...prev, ...currentFilteredIds])));
+    }
+  };
+
+  // 카테고리별 개수 카운팅
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { 전체: libraryData.length };
+    libraryData.forEach((item) => {
+      if (item.category) {
+        counts[item.category] = (counts[item.category] || 0) + 1;
+      }
+    });
+    return counts;
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
@@ -117,11 +184,11 @@ export default function EdutechLibraryPage() {
           >
             바쁜 선생님들을 위한{' '}
             <strong className="text-violet-300 font-extrabold">
-              AI 도구 활용 노하우
+              AI 도구 활용 노하우 20종
             </strong>
-            와{' '}
+            과{' '}
             <strong className="text-amber-300 font-extrabold">
-              교실 검증 추천 에듀테크 도구함
+              교실 검증 추천 에듀테크 도구함 20종
             </strong>
             을 한곳에 모았습니다.
           </motion.p>
@@ -194,14 +261,14 @@ export default function EdutechLibraryPage() {
       <main className="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full">
         <AnimatePresence mode="wait">
           {activeTab === 'knowhow' ? (
-            /* 탭 1: AI 도구 활용 실전 노하우 (아코디언) */
+            /* 탭 1: AI 도구 활용 실전 노하우 (아코디언 & 검색 & 필터 목록화) */
             <motion.div
               key="knowhow-tab"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="space-y-6 max-w-3xl mx-auto"
+              className="space-y-6 max-w-4xl mx-auto"
             >
               {/* 소개 헤더 */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
@@ -213,31 +280,146 @@ export default function EdutechLibraryPage() {
                     AI 도구 실전 활용 노하우
                   </h2>
                   <span className="px-2.5 py-0.5 rounded-full bg-violet-100 dark:bg-violet-950/50 text-violet-700 dark:text-violet-300 text-xs font-extrabold">
-                    {libraryData.length}개
+                    총 {libraryData.length}종
                   </span>
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  각 카드를 클릭하면 상세 프롬프트 및 주의사항이 펼쳐집니다.
+                  교실 수업과 학급 운영에 즉시 적용 가능한 검증된 실전 팁 모음입니다.
                 </p>
               </div>
 
-              {/* 아코디언 목록 */}
-              <div className="flex flex-col gap-4">
-                {libraryData.map((item, i) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 + i * 0.04, duration: 0.3 }}
-                  >
-                    <AccordionItem
-                      item={item}
-                      isOpen={openId === item.id}
-                      onToggle={() => handleToggle(item.id)}
-                    />
-                  </motion.div>
-                ))}
+              {/* 검색 및 필터 컨트롤 바 */}
+              <div className="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                {/* 실시간 검색창 */}
+                <div className="relative">
+                  <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="도구 이름, 활용 키워드, 프롬프트 내용 검색 (예: 퀴즈, 루브릭, Canva, 음악)"
+                    className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                      aria-label="검색어 지우기"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+
+                {/* 카테고리 필터 칩 */}
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 mr-1 inline-flex items-center gap-1">
+                    <Filter className="w-3 h-3" /> 분류:
+                  </span>
+                  {KNOWHOW_CATEGORIES.map((cat) => {
+                    const count = categoryCounts[cat] || 0;
+                    const isSelected = selectedCategory === cat;
+                    return (
+                      <button
+                        key={cat}
+                        type="button"
+                        onClick={() => setSelectedCategory(cat)}
+                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-violet-600 text-white shadow-sm'
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
+                        }`}
+                      >
+                        <span>{cat}</span>
+                        <span
+                          className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                            isSelected
+                              ? 'bg-violet-700 text-violet-100'
+                              : 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300'
+                          }`}
+                        >
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* 컨트롤 하단 상태 및 전체 펼치기/접기 */}
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs text-slate-500 dark:text-slate-400">
+                  <div>
+                    검색 결과:{' '}
+                    <strong className="text-violet-600 dark:text-violet-400 font-extrabold">
+                      {filteredLibrary.length}
+                    </strong>
+                    건
+                    {(searchQuery || selectedCategory !== '전체') && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSearchQuery('');
+                          setSelectedCategory('전체');
+                        }}
+                        className="ml-3 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 underline cursor-pointer"
+                      >
+                        필터 초기화
+                      </button>
+                    )}
+                  </div>
+
+                  {filteredLibrary.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={toggleAllFiltered}
+                      className="inline-flex items-center gap-1 font-bold text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors cursor-pointer"
+                    >
+                      <ChevronsUpDown className="w-3.5 h-3.5" />
+                      <span>{allFilteredOpen ? '모두 접기' : '모두 펼치기'}</span>
+                    </button>
+                  )}
+                </div>
               </div>
+
+              {/* 아코디언 목록 */}
+              {filteredLibrary.length > 0 ? (
+                <div className="flex flex-col gap-3.5">
+                  {filteredLibrary.map((item, i) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: Math.min(i * 0.03, 0.3), duration: 0.25 }}
+                    >
+                      <AccordionItem
+                        item={item}
+                        isOpen={openedIds.includes(item.id)}
+                        onToggle={() => handleToggle(item.id)}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-12 text-center bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
+                  <p className="text-3xl mb-2">🔍</p>
+                  <h3 className="text-base font-bold text-slate-800 dark:text-slate-200">
+                    검색 조건에 맞는 노하우가 없습니다.
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    다른 검색어를 입력하시거나 카테고리 필터를 변경해 보세요.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      setSelectedCategory('전체');
+                    }}
+                    className="mt-4 px-4 py-2 rounded-xl bg-violet-600 text-white text-xs font-bold hover:bg-violet-700 transition-all cursor-pointer"
+                  >
+                    전체 목록 보기
+                  </button>
+                </div>
+              )}
 
               {/* 노하우 탭 하단 도구함 유도 배너 */}
               <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 dark:from-slate-900 dark:to-slate-900/60 border border-amber-200/80 dark:border-amber-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -247,10 +429,10 @@ export default function EdutechLibraryPage() {
                   </div>
                   <div>
                     <h3 className="text-sm font-black text-slate-900 dark:text-white">
-                      수업에 바로 쓰는 14가지 추천 에듀테크 도구함
+                      수업에 바로 쓰는 20가지 추천 에듀테크 도구함
                     </h3>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                      자작자작, 투닝, 캔바, 띵커벨 등 검증된 교실 툴 모아보기
+                      자작자작, 투닝, 캔바, 띵커벨, 퀴즐렛, 엔트리 등 검증된 교실 툴 모아보기
                     </p>
                   </div>
                 </div>
@@ -259,7 +441,7 @@ export default function EdutechLibraryPage() {
                   onClick={() => handleTabChange('tools')}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs shadow-sm hover:shadow transition-all shrink-0 cursor-pointer"
                 >
-                  <span>도구함 탭 보기</span>
+                  <span>도구함 탭 보기 ({eduToolsList.length}종)</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -284,10 +466,10 @@ export default function EdutechLibraryPage() {
                   </div>
                   <div>
                     <h3 className="text-sm font-black text-slate-900 dark:text-white">
-                      AI 도구 200% 활용하는 실전 프롬프트 &amp; 노하우
+                      AI 도구 200% 활용하는 20가지 실전 프롬프트 &amp; 노하우
                     </h3>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                      NotebookLM, Cursor, Suno, Gamma 등 현장 교사 실전 팁 모음
+                      NotebookLM, Cursor, Suno, Gamma, Perplexity, Teachable Machine 등 현장 실전 팁 모음
                     </p>
                   </div>
                 </div>
@@ -296,7 +478,7 @@ export default function EdutechLibraryPage() {
                   onClick={() => handleTabChange('knowhow')}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-extrabold text-xs shadow-sm hover:shadow transition-all shrink-0 cursor-pointer"
                 >
-                  <span>노하우 탭 보기</span>
+                  <span>노하우 탭 보기 ({libraryData.length}종)</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

@@ -23,10 +23,17 @@ export default function AccordionItem({ item, isOpen, onToggle }: AccordionItemP
         onClick={onToggle}
         className="w-full flex items-center gap-4 p-5 sm:p-6 text-left cursor-pointer group hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors duration-200"
       >
-        {/* Tool Badge */}
-        <span className={`flex-shrink-0 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap ${item.toolColor}`}>
-          {item.tool}
-        </span>
+        {/* Badges */}
+        <div className="flex-shrink-0 flex items-center gap-1.5 flex-wrap">
+          {item.category && (
+            <span className="text-[11px] font-bold px-2 py-1 rounded-md bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300 whitespace-nowrap">
+              {item.category}
+            </span>
+          )}
+          <span className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap ${item.toolColor}`}>
+            {item.tool}
+          </span>
+        </div>
 
         {/* Title */}
         <span className="flex-grow text-base sm:text-lg font-bold text-slate-800 dark:text-white leading-snug group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors">

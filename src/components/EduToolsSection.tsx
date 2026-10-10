@@ -89,7 +89,7 @@ export default function EduToolsSection({
               교실 추천 에듀테크 도구함
             </h2>
             <span className="px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 text-xs font-extrabold">
-              14종
+              {eduToolsList.length}종
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">

@@ -5,6 +5,7 @@ export interface LibraryItem {
   title: string;
   tool: string;
   toolColor: string;   // 배지 색상 클래스
+  category?: string;   // 카테고리 태그
   content: string;      // 마크다운 형태의 상세 노하우
 }
 
@@ -13,6 +14,7 @@ export const libraryData: LibraryItem[] = [
     id: 1,
     tool: 'Antigravity & Cursor AI',
     toolColor: 'bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300',
+    category: '코딩·체험',
     title: '프롬프트 몇 줄로 학급용 미니 웹앱 뚝딱 만들기',
     content: `AI 코딩 도구를 활용하면 코딩 경험이 없어도 학급 운영에 유용한 미니 웹앱을 빠르게 만들 수 있습니다.
 
@@ -34,6 +36,7 @@ export const libraryData: LibraryItem[] = [
     id: 2,
     tool: 'NotebookLM',
     toolColor: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+    category: '수업자료',
     title: '교과서·연수 PDF로 나만의 수업 요약 봇 & 퀴즈 생성기 만들기',
     content: `Google NotebookLM에 교과서나 연수 자료를 업로드하면, AI가 내용을 분석해 질문에 답해주는 맞춤형 봇이 됩니다.
 
@@ -55,6 +58,7 @@ export const libraryData: LibraryItem[] = [
     id: 3,
     tool: 'Suno AI & Canva',
     toolColor: 'bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300',
+    category: '영상·음성',
     title: '수업용 타이머 BGM 작곡 & Canva로 학급 안내장 디자인하기',
     content: `Suno AI로 세상에 하나뿐인 수업 BGM을 만들고, Canva로 전문 디자이너급 안내장을 제작할 수 있습니다.
 
@@ -76,6 +80,7 @@ export const libraryData: LibraryItem[] = [
     id: 4,
     tool: 'Claude Code',
     toolColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+    category: '코딩·체험',
     title: '바이브 코딩 동아리에서 학생 눈높이로 에러 설명하기',
     content: `Claude Code를 활용하면 초등학생들이 코딩하다 만나는 에러 메시지를 쉽고 재미있게 설명해줄 수 있습니다.
 
@@ -100,6 +105,7 @@ export const libraryData: LibraryItem[] = [
     id: 5,
     tool: 'Gamma',
     toolColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
+    category: '수업자료',
     title: 'AI로 5분 만에 수업 프레젠테이션 완성하기',
     content: `Gamma(gamma.app)는 프롬프트 한 줄로 프레젠테이션, 문서, 웹페이지를 자동 생성해주는 AI 도구입니다.
 
@@ -122,6 +128,7 @@ export const libraryData: LibraryItem[] = [
     id: 6,
     tool: 'ChatGPT',
     toolColor: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+    category: '학급경영·평가',
     title: '성취기준 기반 평가 루브릭 & 피드백 문구 자동 생성',
     content: `ChatGPT를 활용하면 성취기준에 맞춘 평가 루브릭과 학생 개별 피드백 문구를 효율적으로 작성할 수 있습니다.
 
@@ -148,6 +155,7 @@ export const libraryData: LibraryItem[] = [
     id: 7,
     tool: 'Gemini',
     toolColor: 'bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300',
+    category: '수업자료',
     title: 'Google Gemini로 교육과정 재구성 & 주제 통합 수업 설계',
     content: `Google Gemini는 교육과정 문서를 분석하고, 여러 교과를 아우르는 주제 통합 수업을 설계하는 데 강력한 도구입니다.
 
@@ -174,6 +182,7 @@ export const libraryData: LibraryItem[] = [
     id: 8,
     tool: 'Padlet',
     toolColor: 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
+    category: '수업자료',
     title: 'Padlet으로 실시간 협업 수업 & AI 기반 토론 운영하기',
     content: `Padlet은 학생들이 실시간으로 아이디어를 공유하고 협업할 수 있는 디지털 벽보 도구입니다.
 
@@ -202,6 +211,7 @@ export const libraryData: LibraryItem[] = [
     id: 9,
     tool: 'Midjourney & DALL-E',
     toolColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
+    category: '수업자료',
     title: 'AI 이미지 생성으로 수업 자료 & 학습지 삽화 직접 만들기',
     content: `AI 이미지 생성 도구를 활용하면 수업에 딱 맞는 삽화와 시각 자료를 직접 만들 수 있습니다.
 
@@ -231,6 +241,7 @@ export const libraryData: LibraryItem[] = [
     id: 10,
     tool: 'Google Workspace',
     toolColor: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
+    category: '학급경영·평가',
     title: 'Google 설문·스프레드시트로 자동 채점 & 학습 데이터 분석',
     content: `Google Forms와 Sheets를 조합하면 자동 채점 시스템과 학습 데이터 분석 대시보드를 만들 수 있습니다.
 
@@ -258,6 +269,7 @@ export const libraryData: LibraryItem[] = [
     id: 11,
     tool: 'Kahoot & Quizizz',
     toolColor: 'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
+    category: '수업자료',
     title: 'AI 퀴즈 자동 생성으로 게이미피케이션 수업 운영하기',
     content: `Kahoot과 Quizizz의 AI 퀴즈 생성 기능을 활용하면 수업 내용에 맞는 퀴즈를 몇 분 만에 만들 수 있습니다.
 
@@ -285,6 +297,7 @@ export const libraryData: LibraryItem[] = [
     id: 12,
     tool: 'Scratch & AI',
     toolColor: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300',
+    category: '코딩·체험',
     title: 'Scratch + AI 조합으로 창의 코딩 수업 업그레이드',
     content: `Scratch에 AI 도구를 결합하면 학생들의 코딩 수업을 한 단계 업그레이드할 수 있습니다.
 
@@ -312,6 +325,7 @@ export const libraryData: LibraryItem[] = [
     id: 13,
     tool: 'Luma AI & CapCut',
     toolColor: 'bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-900/40 dark:text-fuchsia-300',
+    category: '영상·음성',
     title: 'AI 영상 편집으로 수업 기록 & 학급 브이로그 만들기',
     content: `Luma AI와 CapCut을 활용하면 전문 편집 기술 없이도 멋진 수업 기록 영상을 만들 수 있습니다.
 
@@ -339,6 +353,7 @@ export const libraryData: LibraryItem[] = [
     id: 14,
     tool: 'Whisper & Clova Note',
     toolColor: 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
+    category: '학급경영·평가',
     title: 'AI 음성 인식으로 수업 녹음 자동 전사 & 회의록 작성',
     content: `AI 음성 인식 도구를 활용하면 연수, 회의, 수업을 녹음하고 텍스트로 자동 변환할 수 있습니다.
 
@@ -366,6 +381,7 @@ export const libraryData: LibraryItem[] = [
     id: 15,
     tool: '뤼튼 (Wrtn)',
     toolColor: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+    category: '학급경영·평가',
     title: '뤼튼으로 가정통신문·공문 초안 작성 & 업무 자동화',
     content: `뤼튼은 한국어에 특화된 AI 글쓰기 도구로, 교사 업무 문서 작성을 크게 도와줍니다.
 
@@ -393,6 +409,7 @@ export const libraryData: LibraryItem[] = [
     id: 16,
     tool: 'Bing Image Creator',
     toolColor: 'bg-lime-100 text-lime-700 dark:bg-lime-900/40 dark:text-lime-300',
+    category: '수업자료',
     title: '무료 AI 이미지로 학급 캐릭터 & 교실 환경 꾸미기',
     content: `Bing Image Creator(DALL-E 3 기반)는 Microsoft 계정만 있으면 무료로 고품질 AI 이미지를 생성할 수 있습니다.
 
@@ -417,4 +434,80 @@ export const libraryData: LibraryItem[] = [
 • 용도 명시: "흰 배경, 스티커용", "A4 포스터 비율", "가로형 배너"
 • 한국어로도 잘 작동하지만, 영어 프롬프트가 더 정밀한 결과를 보여줍니다.`,
   },
+  {
+    id: 17,
+    tool: 'Perplexity AI',
+    toolColor: 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
+    category: '연구·검색',
+    title: '출처 검증된 교육 통계 & 학술 논문 실시간 검색 노하우',
+    content: `Perplexity AI는 답변마다 신뢰할 수 있는 학술 출처와 공식 링크를 각주로 제공하는 대화형 인용 검색 엔진입니다.
+
+🎯 교원 연구 및 발표 자료 수집
+• "최근 3개년 대한민국 초등학교 디지털 선도학교 효과성에 관한 국내 학술지 논문 5편을 요약하고 출처 링크를 달아줘"
+• "OECD 국가들의 주당 수업 시수와 교사 1인당 학생 수 통계를 비교표로 정리해줘"
+• "2022 개정 초등 실과 SW·AI 성취기준의 핵심 변화 포인트를 교육부 원문 문서 기반으로 정리해줘"
+
+💡 수업 활용 아이디어
+• 사회·과학 탐구 수업: 학생들과 가짜 뉴스 판별하기 수업 시 "이 뉴스의 팩트체크 출처를 찾아줘" 실습
+• 토론 찬반 근거 수집: 공신력 있는 기관(통계청, 한국교육개발원) 데이터만 필터링하여 수집
+
+📌 실전 팁
+• 'Academic' 검색 포커스를 선택하면 논문과 공공 보고서 위주로 엄선된 자료를 검색합니다.
+• 검색 결과에서 각주 번호를 클릭해 원문 PDF나 웹사이트를 교사가 직접 교차 검증하세요.`,
+  },
+  {
+    id: 18,
+    tool: 'Canva Magic Studio',
+    toolColor: 'bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300',
+    category: '수업자료',
+    title: '터치 한 번으로 그림·글자 분리 & 지우개 마법 — 학습지 리마스터',
+    content: `Canva의 매직 스튜디오 AI 도구를 활용하면 낡은 학습지나 캡처 이미지의 불필요한 얼룩과 글자를 3초 만에 지우고 재편집할 수 있습니다.
+
+🎯 3대 필수 매직 도구
+1. 매직 지우개(Magic Eraser): 교과서 삽화에서 원치 않는 말풍선이나 이전 필기 흔적을 붓으로 쓱 문지르면 감쪽같이 지워집니다.
+2. 매직 그랩(Magic Grab): 인쇄물 사진에서 캐릭터나 글자만 쏙 뽑아내어 크기를 조절하거나 위치를 이동시킵니다.
+3. 매직 확장(Magic Expand): 정사각형 사진을 A4 가로 학습지 비율로 AI가 주변 배경을 자연스럽게 연장해 줍니다.
+
+💡 수업 활용 팁
+• 단원 도입 만화 말풍선 비우기: 말풍선 글자를 지우고 "내가 주인공이라면 뭐라고 말할까?" 빈칸 채우기 학습지로 변환
+• 흑백 도안 컬러화: 교과서 흑백 선화에 생동감 있는 색상을 입혀 시각 자료로 업그레이드
+
+⚠️ 주의사항
+• 저작권이 있는 상용 교재 삽화는 교실 수업 용도로만 제한적으로 활용하세요.`,
+  },
+  {
+    id: 19,
+    tool: 'Typecast & ElevenLabs',
+    toolColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+    category: '영상·음성',
+    title: '동화 구연 & 역사 인물 감정 더빙 — AI 성우 오디오북 제작',
+    content: `Typecast와 ElevenLabs를 활용하면 다양한 연령, 성별, 감정(기쁨, 슬픔, 분노)을 담은 실감 나는 AI 보이스를 제작할 수 있습니다.
+
+🎯 국어·사회 수업 오디오 콘텐츠 제작
+• 역사적 인물 가상 라디오: "이순신 장군의 명량해전 출전 직전 결연한 목소리로 독백 낭독 음원 만들기"
+• 온작품 읽기 오디오북: 등장인물별로 각각 다른 성우(할머니, 어린이, 악당, 해설자) 목소리를 매칭해 한 편의 라디오 드라마 제작
+• 영어 섀도잉 음원: 원어민 발음 속도(0.8배속, 1.0배속)와 억양을 맞춤형으로 조절하여 듣기 학습자료 제공
+
+💡 교실 실전 팁
+• 텍스트 입력 후 쉼표(,)와 마침표(.)를 적절히 배치하면 자연스러운 숨소리와 쉼(Pause)이 형성됩니다.
+• MP3 파일로 다운로드하여 전자칠판 아침 안내방송이나 팟캐스트 수업에 즉시 활용할 수 있습니다.`,
+  },
+  {
+    id: 20,
+    tool: 'Teachable Machine',
+    toolColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
+    category: '코딩·체험',
+    title: '초등학생도 10분 만에 만드는 분리배출 AI 비전 머신러닝',
+    content: `Google 티처블 머신(Teachable Machine)은 코딩 없이 웹캠이나 마이크로 인공지능 분류 모델을 직접 학습시키는 노코드 AI 체험 도구입니다.
+
+🎯 교실 머신러닝 3단계 실습
+1단계 (데이터 수집): 클래스 3개 생성 (1: 페트병, 2: 알루미늄 캔, 3: 종이팩) 후 웹캠 버튼을 길게 눌러 각 물건의 사진을 50장씩 캡처
+2단계 (모델 학습): '모델 학습시키기(Train Model)' 버튼을 클릭하여 브라우저에서 10초 만에 딥러닝 가중치 계산
+3단계 (실시간 테스트): 새로운 쓰레기를 비추었을 때 AI가 98% 확률로 올바른 분리수거통을 찾아내는지 확인
+
+💡 엔트리(Entry) 및 마이크로비트 연동
+• 티처블 머신에서 생성된 모델 공유 링크를 초등 엔트리(Entry) 블록 코딩에 붙여넣기만 하면 "AI가 캔을 인식하면 서보모터가 열리는 스마트 쓰레기통" 완제품을 만들 수 있습니다.
+• 인공지능이 마법이 아니라 '데이터 기반 패턴 인식'이라는 원리를 아이들이 온몸으로 체득하게 됩니다.`,
+  },
 ];
+
