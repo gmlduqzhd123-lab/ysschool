@@ -470,11 +470,12 @@ export default function Header() {
 
             <button
               onClick={() => {
+                window.dispatchEvent(new CustomEvent('open-search-modal'));
                 const e = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true });
                 window.dispatchEvent(e);
               }}
               className="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 text-sm transition-all duration-200 cursor-pointer border border-slate-200 dark:border-slate-700"
-              aria-label="검색"
+              aria-label="통합 검색 열기"
             >
               <Search className="w-4 h-4" />
               <span className="text-xs">검색</span>
@@ -491,6 +492,18 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <div className="lg:hidden flex items-center gap-1 sm:gap-2 shrink-0">
+            {/* 🔍 모바일 빠른 검색 버튼 */}
+            <button
+              type="button"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('open-search-modal'));
+              }}
+              className="p-1.5 rounded-xl text-slate-600 dark:text-slate-300 hover:text-brand-navy hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              aria-label="통합 검색 열기"
+              title="통합 검색"
+            >
+              <Search className="w-4 h-4" />
+            </button>
             {/* 📲 앱 설치 · 📱 QR: 휴대폰에서도 상단에 (좁은 화면은 아이콘만) */}
             <InstallAppButton
               label={
@@ -540,9 +553,26 @@ export default function Header() {
         <nav
           id="mobile-navigation"
           aria-label="모바일 메뉴"
-          className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-full left-0 w-full shadow-lg max-h-[75vh] overflow-y-auto"
+          className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 absolute top-full left-0 w-full shadow-lg max-h-[calc(100dvh-5rem)] overflow-y-auto"
         >
-          <div className="px-3 pt-2 pb-4 space-y-1">
+          <div className="px-3 pt-2.5 pb-5 space-y-1">
+            {/* 모바일 검색 바 */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-search-modal'));
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 mb-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-slate-200 dark:border-slate-700"
+            >
+              <div className="flex items-center gap-2">
+                <Search className="w-4 h-4 text-brand-navy dark:text-brand-sky" />
+                <span>엽쌤스쿨 통합 검색...</span>
+              </div>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 text-slate-500 font-mono font-bold">
+                검색
+              </span>
+            </button>
             {navLinks.map((item) => {
               if (item.children) {
                 return (

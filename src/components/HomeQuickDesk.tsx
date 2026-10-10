@@ -34,19 +34,19 @@ export default function HomeQuickDesk() {
   };
 
   return (
-    <section className="relative z-10 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <section className="relative z-10 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mb-16">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200/80 dark:border-slate-800/80"
+        className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-slate-200/80 dark:border-slate-800/80"
       >
         {/* Top Banner & Student PIN Bar */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-md shadow-orange-500/20">
-              <Sparkles className="w-6 h-6" />
+            <div className="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-md shadow-orange-500/20 shrink-0">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -66,9 +66,9 @@ export default function HomeQuickDesk() {
           {/* Student Fast PIN Bar */}
           <form
             onSubmit={handlePinSubmit}
-            className="w-full lg:w-auto flex items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700"
+            className="w-full lg:w-auto flex items-center justify-between sm:justify-start gap-1.5 sm:gap-2 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700"
           >
-            <div className="flex items-center gap-2 px-3 text-slate-500 dark:text-slate-400 text-xs font-bold whitespace-nowrap">
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-bold whitespace-nowrap">
               <Gamepad2 className="w-4 h-4 text-emerald-500" />
               <span>학생 게임 PIN:</span>
             </div>

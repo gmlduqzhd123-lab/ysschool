@@ -485,7 +485,7 @@ export default function MorningSchoolMealCard({ themeStyles }: MorningSchoolMeal
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-lg rounded-3xl bg-slate-900 border border-slate-700 p-6 text-white shadow-2xl relative"
+              className="w-full max-w-lg rounded-3xl bg-slate-900 border border-slate-700 p-5 sm:p-6 text-white shadow-2xl relative max-h-[92vh] overflow-y-auto"
             >
               {/* 모달 닫기 */}
               <button

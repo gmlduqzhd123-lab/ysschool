@@ -67,7 +67,7 @@ export default function SearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  // Cmd+K / Ctrl+K shortcut
+  // Cmd+K / Ctrl+K shortcut & custom event
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -76,8 +76,17 @@ export default function SearchModal() {
       }
       if (e.key === 'Escape') setIsOpen(false);
     };
+
+    const handleOpenCustom = () => {
+      setIsOpen(true);
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('open-search-modal', handleOpenCustom);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('open-search-modal', handleOpenCustom);
+    };
   }, []);
 
   // Focus input when opening
@@ -140,7 +149,7 @@ export default function SearchModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-[200] flex items-start justify-center pt-[15vh] px-4 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[200] flex items-start justify-center pt-[8vh] sm:pt-[15vh] px-3 sm:px-4 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           >
             <motion.div

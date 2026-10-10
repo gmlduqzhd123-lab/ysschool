@@ -51,7 +51,7 @@ export default function PasswordConfirmModal({
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl text-slate-900 dark:text-white relative"
+          className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl text-slate-900 dark:text-white relative"
         >
           {/* 닫기 버튼 */}
           <button
@@ -71,17 +71,17 @@ export default function PasswordConfirmModal({
             >
               <Lock className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0 flex-1">
               <h3 className="font-extrabold text-base sm:text-lg">
                 글 <span className={actionColor}>{actionName}</span> 비밀번호 확인
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[260px]">
+              <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[200px] sm:max-w-[260px]">
                 {postTitle}
               </p>
             </div>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed break-keep">
             이 글을 {actionName}하려면 관리자 비밀번호를 입력해주세요.
             <br />
             <span className="text-xs text-slate-400 dark:text-slate-500">
