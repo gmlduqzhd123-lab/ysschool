@@ -20,11 +20,13 @@ import {
   Mail,
   Sparkles,
   Code2,
+  QrCode,
 } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import InstallAppButton from './InstallAppButton';
+import QrButton from './QrButton';
 import BgmToggle from './BgmToggle';
 
 // ========== 메뉴 아이콘 렌더링 ==========
@@ -425,7 +427,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+          <nav className="hidden lg:flex items-center gap-2.5 xl:gap-3.5">
             {navLinks.map((item) => {
               if (item.children) {
                 return <DesktopDropdown key={item.name} item={item} />;
@@ -476,11 +478,12 @@ export default function Header() {
             >
               <Search className="w-4 h-4" />
               <span className="text-xs">검색</span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-[10px] font-mono font-bold">
+              <kbd className="hidden 2xl:inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-[10px] font-mono font-bold">
                 <Command className="w-2.5 h-2.5" />K
               </kbd>
             </button>
             <InstallAppButton className="px-3 py-1.5 rounded-full bg-brand-navy text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer" />
+            <QrButton label="📱 QR" className="px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold whitespace-nowrap hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer" />
             <BgmToggle />
             <LanguageToggle />
             <ThemeToggle />
@@ -488,16 +491,26 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <div className="lg:hidden flex items-center gap-1 sm:gap-2 shrink-0">
+            {/* 📲 앱 설치 · 📱 QR: 휴대폰에서도 상단에 (좁은 화면은 아이콘만) */}
+            <InstallAppButton
+              label={
+                <>
+                  <Download className="w-4 h-4" aria-hidden="true" />
+                  <span className="hidden sm:inline">설치</span>
+                </>
+              }
+              className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
+            />
+            <QrButton
+              label={
+                <>
+                  <QrCode className="w-4 h-4" aria-hidden="true" />
+                  <span className="hidden sm:inline">QR</span>
+                </>
+              }
+              className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold leading-4 whitespace-nowrap cursor-pointer"
+            />
             <div className="hidden sm:flex items-center gap-1.5">
-              <InstallAppButton
-                label={
-                  <>
-                    <Download className="w-4 h-4" aria-hidden="true" />
-                    <span>설치</span>
-                  </>
-                }
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-brand-navy text-white text-xs font-bold leading-4 whitespace-nowrap shadow-sm cursor-pointer"
-              />
               <LanguageToggle />
             </div>
             <BgmToggle />

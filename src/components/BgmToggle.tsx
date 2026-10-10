@@ -61,7 +61,7 @@ export default function BgmToggle({ className }: { className?: string }) {
         <button
           type="button"
           onClick={toggleBgm}
-          className="flex items-center gap-1.5 px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-l-xl transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 px-2 sm:px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-l-xl max-sm:rounded-r-xl transition-colors cursor-pointer"
           aria-label={isPlaying ? 'BGM 일시정지' : 'BGM 재생'}
           title={isPlaying ? '🎵 BGM 일시정지' : '🎵 BGM 재생'}
         >
@@ -73,24 +73,24 @@ export default function BgmToggle({ className }: { className?: string }) {
                 <span className="w-0.5 bg-current rounded-full animate-[musicBar_1.1s_ease-in-out_infinite_alternate_0.2s]" style={{ height: '100%' }} />
                 <span className="w-0.5 bg-current rounded-full animate-[musicBar_0.9s_ease-in-out_infinite_alternate_0.4s]" style={{ height: '50%' }} />
               </div>
-              <span className="text-xs font-black tracking-tight">BGM</span>
+              <span className="hidden sm:inline text-xs font-black tracking-tight">BGM</span>
             </>
           ) : (
             <>
               <Music className="w-3.5 h-3.5 opacity-70" />
-              <span className="text-xs font-bold opacity-75">BGM</span>
+              <span className="hidden sm:inline text-xs font-bold opacity-75">BGM</span>
             </>
           )}
         </button>
 
         {/* 구분선 */}
-        <span className="w-px h-3.5 bg-slate-300 dark:bg-slate-700/80 shrink-0" aria-hidden="true" />
+        <span className="hidden sm:block w-px h-3.5 bg-slate-300 dark:bg-slate-700/80 shrink-0" aria-hidden="true" />
 
         {/* 2. 볼륨 조절 팝업 열기 버튼 */}
         <button
           type="button"
           onClick={() => setShowVolumeSlider((prev) => !prev)}
-          className={`px-2 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-r-xl transition-colors cursor-pointer flex items-center gap-1 ${
+          className={`hidden sm:flex px-2 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-r-xl transition-colors cursor-pointer items-center gap-1 ${
             showVolumeSlider ? 'bg-black/10 dark:bg-white/10' : ''
           }`}
           aria-label="BGM 볼륨 조절"
