@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     // Static, hand-authored game bundles served as-is and archived files.
     "public/**",
     "archive/**",
+    // Claude Code skills (helper scripts/examples, not part of the website).
+    ".claude/**",
   ]),
 ]);
 
