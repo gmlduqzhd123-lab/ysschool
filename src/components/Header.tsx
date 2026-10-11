@@ -469,10 +469,12 @@ export default function Header() {
             })}
 
             <button
+              type="button"
               onClick={() => {
                 window.dispatchEvent(new CustomEvent('open-search-modal'));
-                const e = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true });
-                window.dispatchEvent(e);
+                if (typeof window !== 'undefined' && (window as unknown as { openSearchModal?: () => void }).openSearchModal) {
+                  (window as unknown as { openSearchModal?: () => void }).openSearchModal?.();
+                }
               }}
               className="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 text-sm transition-all duration-200 cursor-pointer border border-slate-200 dark:border-slate-700"
               aria-label="통합 검색 열기"
@@ -497,6 +499,9 @@ export default function Header() {
               type="button"
               onClick={() => {
                 window.dispatchEvent(new CustomEvent('open-search-modal'));
+                if (typeof window !== 'undefined' && (window as unknown as { openSearchModal?: () => void }).openSearchModal) {
+                  (window as unknown as { openSearchModal?: () => void }).openSearchModal?.();
+                }
               }}
               className="p-1.5 rounded-xl text-slate-600 dark:text-slate-300 hover:text-brand-navy hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               aria-label="통합 검색 열기"
@@ -562,6 +567,9 @@ export default function Header() {
               onClick={() => {
                 setMobileMenuOpen(false);
                 window.dispatchEvent(new CustomEvent('open-search-modal'));
+                if (typeof window !== 'undefined' && (window as unknown as { openSearchModal?: () => void }).openSearchModal) {
+                  (window as unknown as { openSearchModal?: () => void }).openSearchModal?.();
+                }
               }}
               className="w-full flex items-center justify-between px-3.5 py-2.5 mb-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-slate-200 dark:border-slate-700"
             >

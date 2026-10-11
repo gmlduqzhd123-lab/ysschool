@@ -117,7 +117,7 @@ export default function SearchModal() {
   // Cmd+K / Ctrl+K shortcut & custom event
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
         e.preventDefault();
         setIsOpen((prev) => !prev);
       }
@@ -128,9 +128,17 @@ export default function SearchModal() {
       setIsOpen(true);
     };
 
+    // 전역 함수 등록 (직접 호출 지원)
+    if (typeof window !== 'undefined') {
+      (window as unknown as { openSearchModal?: () => void }).openSearchModal = handleOpenCustom;
+    }
+
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('open-search-modal', handleOpenCustom);
     return () => {
+      if (typeof window !== 'undefined') {
+        delete (window as unknown as { openSearchModal?: () => void }).openSearchModal;
+      }
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('open-search-modal', handleOpenCustom);
     };
