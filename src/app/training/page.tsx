@@ -223,7 +223,11 @@ export default function TrainingPage() {
         if (data.configured) {
           if (!cancelled) {
             setSharedMode(true);
-            const sharedItems = Array.isArray(data.items) ? data.items : [];
+            const sharedItems = (Array.isArray(data.items) ? data.items : []).map((item: DisplayMaterial) => ({
+              ...item,
+              title: formatDisplayTitle(item.title),
+              description: formatDisplayDesc(item.description, item.title, item.fileType),
+            }));
             requestAnimationFrame(() => setMaterials([...sharedItems, ...localItems]));
             if (!response.ok && data.error) setErrorMsg(data.error);
           }
@@ -413,7 +417,14 @@ export default function TrainingPage() {
           return;
         }
 
-        if (data.item) setMaterials((current) => [data.item, ...current]);
+        if (data.item) {
+          const formattedItem: DisplayMaterial = {
+            ...data.item,
+            title: formatDisplayTitle(data.item.title),
+            description: formatDisplayDesc(data.item.description, data.item.title, data.item.fileType),
+          };
+          setMaterials((current) => [formattedItem, ...current]);
+        }
         resetForm();
       } catch {
         setErrorMsg('공유 저장소에 연결할 수 없습니다.');
@@ -425,8 +436,8 @@ export default function TrainingPage() {
 
     const newMaterial: DisplayMaterial = {
       id: Date.now(),
-      title: title.trim(),
-      description: description.trim(),
+      title: formatDisplayTitle(title.trim()),
+      description: formatDisplayDesc(description.trim(), title.trim(), fileType),
       category,
       date: new Date().toISOString().split('T')[0],
       link: link.trim() || undefined,
