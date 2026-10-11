@@ -1216,9 +1216,21 @@ export default function TrainingPage() {
 
                             {/* Title & Desc */}
                             <td className="py-3.5 px-4 min-w-[240px]">
-                              <div className="font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand-sky transition-colors line-clamp-1">
-                                {cleanHtmlText(item.title)}
-                              </div>
+                              {item.link || item.fileUrl ? (
+                                <a
+                                  href={item.link || item.fileUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="font-extrabold text-slate-900 dark:text-white leading-snug hover:text-brand-sky dark:hover:text-brand-sky transition-colors line-clamp-1 block cursor-pointer"
+                                  title="자료 열기"
+                                >
+                                  {cleanHtmlText(item.title)}
+                                </a>
+                              ) : (
+                                <div className="font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand-sky transition-colors line-clamp-1">
+                                  {cleanHtmlText(item.title)}
+                                </div>
+                              )}
                               {item.description && (
                                 <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
                                   {cleanHtmlText(item.description)}
