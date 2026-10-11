@@ -1,6 +1,6 @@
-/* YSSCHOOL Learning Game World Font Pack V12
-   V11에서 제목용 장식 글꼴이 한글을 지나치게 뭉개 보이게 하던 문제를 해결했습니다.
-   원칙: 제목은 귀엽게(Jua), 본문/문제는 선명하게(Noto Sans KR/Gowun Dodum), 버튼은 둥글게(Jua).
+/* YSSCHOOL Learning Game World Font Pack V13
+   한글 글씨 겹침(Line-height 1.18 충돌 및 버튼 overflow) 및 깨짐 방지 패치
+   원칙: 제목은 선명한 가독성 확보(줄간격 1.4+), 본문/문제는 선명하게(Noto Sans KR), 방향키/선택지는 모양 보존.
 */
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
 
@@ -30,7 +30,7 @@ h1,h2,h3,h4,.title,.dashboard-title,.game-title,.logo,.hero h1,.heroBox h1,.eyeb
   font-family:var(--ys-font-title)!important;
   font-weight:400!important;
   letter-spacing:0!important;
-  line-height:1.18!important;
+  line-height:1.38!important;
   word-break:keep-all!important;
   overflow-wrap:break-word!important;
   text-shadow:none!important;
@@ -40,7 +40,7 @@ h1,h2,h3,h4,.title,.dashboard-title,.game-title,.logo,.hero h1,.heroBox h1,.eyeb
 .hero h1,.heroBox h1{
   font-family:var(--ys-font-title)!important;
   font-size:clamp(2.4rem, 7vw, 5.1rem)!important;
-  line-height:1.08!important;
+  line-height:1.2!important;
   letter-spacing:-0.01em!important;
   font-weight:400!important;
 }
@@ -58,13 +58,25 @@ textarea::placeholder,input::placeholder{
   font-family:var(--ys-font-main)!important;
   font-weight:700!important;
   letter-spacing:-0.01em!important;
+  line-height:1.45!important;
 }
 
-button,.btn,.chip,.tab,.play-button,.menu-button,.ctrl,.miniIcon,.filter-btn,.game button{
+/* 일반 버튼은 Jua 글꼴 및 둥근 필 스타일 */
+button:not(.ctrl):not([data-act]):not(.cell):not(.mem-card):not(.action-btn):not(.choice):not(.hud div):not(.pad button),
+.btn:not(.ctrl):not([data-act]):not(.action-btn):not(.choice):not(.mini),
+.chip,.tab,.play-button,.menu-button,.miniIcon,.filter-btn{
   font-family:var(--ys-font-ui)!important;
   font-weight:400!important;
   letter-spacing:0!important;
   border-radius:999px!important;
+}
+
+/* 컨트롤러 방향키, 조이스틱, 퀴즈 선택지 버튼은 글씨가 잘리거나 겹치지 않게 안정적인 사각 둥근형 유지 */
+.ctrl,.pad button,[data-act],.joystick button,.choice,.cell,.mem-card,.action-btn,.mini{
+  font-family:var(--ys-font-main)!important;
+  font-weight:800!important;
+  border-radius:14px!important;
+  line-height:1.25!important;
 }
 
 /* 기존 V11 장식 글꼴 계열이 남아 있는 요소도 강제로 정상화 */
@@ -72,14 +84,14 @@ button,.btn,.chip,.tab,.play-button,.menu-button,.ctrl,.miniIcon,.filter-btn,.ga
   font-family:var(--ys-font-main)!important;
 }
 
-/* 카드 제목과 버튼은 살짝 귀엽게 */
+/* 카드 제목과 주요 플레이 버튼 */
 .game-card h3,.card h3,.game h3,.play-button,.btn.primary{
   font-family:var(--ys-font-ui)!important;
 }
 
 /* 모바일에서 글자가 뭉개져 보이지 않게 글자 크기와 줄간격 확보 */
 @media(max-width:640px){
-  .hero h1,.heroBox h1{font-size:clamp(2.1rem, 12vw, 3.4rem)!important; line-height:1.08!important;}
-  h1,h2,h3,.title{letter-spacing:0!important;}
-  p,.hint,.notice,.desc,.card-desc{line-height:1.72!important;}
+  .hero h1,.heroBox h1{font-size:clamp(2.1rem, 12vw, 3.4rem)!important; line-height:1.15!important;}
+  h1,h2,h3,.title{letter-spacing:0!important; line-height:1.32!important;}
+  p,.hint,.notice,.desc,.card-desc{line-height:1.68!important;}
 }

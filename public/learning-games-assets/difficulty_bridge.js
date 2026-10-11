@@ -54,10 +54,11 @@
   window.YS_heal = function(current, amount=2){ return Math.min(window.YS_maxLives(preset.maxLives||preset.lives), (Number(current)||0)+amount); };
   window.YS_itemChance = base => Math.min(0.90, (Number(base)||0.25) * (preset.itemMul||1));
   window.YS_limitChoices = function(choices, answer){
-    if(!Array.isArray(choices)) return choices;
+    if(!Array.isArray(choices) || !choices.length) return choices || [];
+    const safeAnswer = (answer != null && answer !== '') ? answer : choices[0];
     const limit = Math.max(2, preset.answerLimit || choices.length);
     if(choices.length<=limit) return choices.slice();
-    const ans = choices.find(c=>String(c)===String(answer)) ?? answer;
+    const ans = choices.find(c=>String(c)===String(safeAnswer)) ?? safeAnswer;
     const rest = choices.filter(c=>String(c)!==String(ans));
     for(let i=rest.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [rest[i],rest[j]]=[rest[j],rest[i]]; }
     const picked=[ans, ...rest.slice(0, Math.max(0,limit-1))];
