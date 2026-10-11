@@ -1,3 +1,5 @@
+import { yscodeApps } from './yscodeData';
+
 export interface NavChild {
   name: string;
   href: string;
@@ -43,9 +45,9 @@ export const navLinks: NavItem[] = [
       {
         name: '엽쌤 개발 웹앱 모음',
         href: '/showcase#yscode',
-        description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱 & AI 놀이터',
+        description: `교직·수업·여가를 아우르는 ${yscodeApps.length}종 바이브코딩 웹앱 & AI 놀이터`,
         iconName: 'Code2',
-        badge: '19종',
+        badge: `${yscodeApps.length}종`,
       },
       {
         name: '엽쌤 제작 수업 자료',

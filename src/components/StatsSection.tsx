@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from './LanguageContext';
+import { yscodeApps } from '@/data/yscodeData';
 
 function Counter({ from = 0, to, duration = 2, suffix = '' }: { from?: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = useState(from);
@@ -55,7 +56,7 @@ export default function StatsSection() {
   const stats = [
     { label: t('수업 자료', 'Teaching Materials'), value: 100, suffix: t('개+', '+'), delay: 0.1 },
     { label: t('공연 횟수', 'Performances'), value: 30, suffix: t('회+', '+'), delay: 0.2 },
-    { label: t('개발한 웹/앱', 'Web/Apps Built'), value: 15, suffix: t('개+', '+'), delay: 0.3 },
+    { label: t('개발한 웹/앱', 'Web/Apps Built'), value: yscodeApps.length, suffix: t('개+', '+'), delay: 0.3 },
     { label: t('지도한 학생', 'Students Mentored'), value: 300, suffix: t('명+', '+'), delay: 0.4 },
     { label: t('강의 및 컨설팅', 'Lectures & Consulting'), value: 80, suffix: t('회+', '+'), delay: 0.5 },
   ];

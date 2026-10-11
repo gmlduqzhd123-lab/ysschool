@@ -13,6 +13,7 @@ import Footer from '@/components/Footer';
 import MiniAppsGrid from '@/components/showcase/MiniAppsGrid';
 import LearningGamesHub from '@/components/showcase/LearningGamesHub';
 import YsCodeAppsGrid from '@/components/showcase/YsCodeAppsGrid';
+import { yscodeApps } from '@/data/yscodeData';
 import PromptPlaygroundSection from '@/components/showcase/PromptPlaygroundSection';
 import {
   sunoData, canvaData, notebookData, padletData,
@@ -157,7 +158,7 @@ export default function ShowcasePage() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-lg text-slate-300 max-w-2xl mx-auto"
           >
-            교직·수업·여가를 아우르는 19종 개발 웹앱과 AI 프롬프트 놀이터, 100종 교실 배움게임, 에듀테크 콘텐츠를 직접 체험해보세요.
+            교직·수업·여가를 아우르는 {yscodeApps.length}종 개발 웹앱과 AI 프롬프트 놀이터, 100종 교실 배움게임, 에듀테크 콘텐츠를 직접 체험해보세요.
           </motion.p>
         </div>
       </motion.section>
@@ -166,7 +167,7 @@ export default function ShowcasePage() {
       <div id="showcase-tabs" className="sticky top-16 lg:top-[4.5rem] z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 py-2.5 sm:py-4">
           {([
-            { key: 'yscode' as Tab, label: '💻 엽쌤 개발 웹앱 (19종)', shortLabel: '💻 엽쌤 웹앱', icon: Code2 },
+            { key: 'yscode' as Tab, label: `💻 엽쌤 개발 웹앱 (${yscodeApps.length}종)`, shortLabel: '💻 엽쌤 웹앱', icon: Code2 },
             { key: 'playground' as Tab, label: '🤖 AI 프롬프트 놀이터', shortLabel: '🤖 AI 놀이터', icon: Bot },
             { key: 'apps' as Tab, label: '🚀 교실 미니 웹앱 & 100종 게임', shortLabel: '🚀 미니앱·게임', icon: Sparkles },
             { key: 'gallery' as Tab, label: '🎨 에듀테크 갤러리', shortLabel: '🎨 갤러리', icon: Rocket },
@@ -213,8 +214,8 @@ export default function ShowcasePage() {
                   className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-brand-navy text-white shadow-md shadow-brand-navy/30 dark:bg-brand-sky dark:text-slate-900 cursor-pointer"
                 >
                   <Code2 className="w-4 h-4 text-sky-400 dark:text-slate-900" />
-                  <span>19종 바이브코딩 웹앱</span>
-                  <span className="px-2 py-0.5 rounded-full text-xs bg-white/20 font-extrabold">19종</span>
+                  <span>{yscodeApps.length}종 바이브코딩 웹앱</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-white/20 font-extrabold">{yscodeApps.length}종</span>
                 </button>
                 <button
                   type="button"

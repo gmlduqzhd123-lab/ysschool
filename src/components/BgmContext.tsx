@@ -20,9 +20,32 @@ interface BgmContextType {
   title: string;
 }
 
+const DEFAULT_VOLUME = 0.2; // 사이트 첫 접속 시 기본 볼륨 20%
+const OUTPUT_GAIN_SCALE = 0.5; // 실제 오디오 출력 게인 계수 (UI 표시는 유지하되 실제 소리 크기를 50% 수준으로 감쇄)
+
+function toActualAudioVolume(uiVolume: number): number {
+  return Math.max(0, Math.min(1, uiVolume * OUTPUT_GAIN_SCALE));
+}
+
+function getSavedOrInitialVolume(): number {
+  if (typeof window === 'undefined') return DEFAULT_VOLUME;
+  try {
+    const savedVol = localStorage.getItem('ys_bgm_volume');
+    if (savedVol !== null) {
+      const parsed = parseFloat(savedVol);
+      if (!isNaN(parsed) && parsed >= 0 && parsed <= 1) {
+        return parsed;
+      }
+    }
+  } catch {
+    // localStorage 접근 불가 환경 예외 처리
+  }
+  return DEFAULT_VOLUME;
+}
+
 const BgmContext = createContext<BgmContextType>({
   isPlaying: false,
-  volume: 0.4,
+  volume: DEFAULT_VOLUME,
   toggleBgm: () => {},
   playBgm: async () => {},
   pauseBgm: () => {},
@@ -32,22 +55,16 @@ const BgmContext = createContext<BgmContextType>({
 
 export function BgmProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolumeState] = useState(0.4);
+  const [volume, setVolumeState] = useState(DEFAULT_VOLUME);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // 1. 초기 볼륨 복원
+  // 1. 초기 볼륨 복원 및 오디오 요소 볼륨 동기화
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      const savedVol = localStorage.getItem('ys_bgm_volume');
-      if (savedVol !== null) {
-        const parsed = parseFloat(savedVol);
-        if (!isNaN(parsed) && parsed >= 0 && parsed <= 1) {
-          setVolumeState(parsed);
-          if (audioRef.current) audioRef.current.volume = parsed;
-        }
-      }
-    });
-    return () => cancelAnimationFrame(frame);
+    const currentVol = getSavedOrInitialVolume();
+    setVolumeState(currentVol);
+    if (audioRef.current) {
+      audioRef.current.volume = toActualAudioVolume(currentVol);
+    }
   }, []);
 
   // 2. 첫 접속 시 자동 재생 처리 (브라우저 Autoplay 보안 정책 완벽 대응)
@@ -64,6 +81,8 @@ export function BgmProvider({ children }: { children: ReactNode }) {
     const tryAutoPlay = async () => {
       if (hasStarted || !audio) return;
       try {
+        const currentVol = getSavedOrInitialVolume();
+        audio.volume = toActualAudioVolume(currentVol);
         await audio.play();
         hasStarted = true;
         setIsPlaying(true);
@@ -102,9 +121,13 @@ export function BgmProvider({ children }: { children: ReactNode }) {
     const clamped = Math.max(0, Math.min(1, val));
     setVolumeState(clamped);
     if (audioRef.current) {
-      audioRef.current.volume = clamped;
+      audioRef.current.volume = toActualAudioVolume(clamped);
     }
-    localStorage.setItem('ys_bgm_volume', clamped.toString());
+    try {
+      localStorage.setItem('ys_bgm_volume', clamped.toString());
+    } catch {
+      // ignore
+    }
   }, []);
 
   const playBgm = useCallback(async () => {
@@ -112,7 +135,7 @@ export function BgmProvider({ children }: { children: ReactNode }) {
     if (!audio) return;
     try {
       sessionStorage.removeItem('ys_bgm_disabled');
-      audio.volume = volume;
+      audio.volume = toActualAudioVolume(volume);
       await audio.play();
       setIsPlaying(true);
     } catch (err) {
@@ -126,7 +149,11 @@ export function BgmProvider({ children }: { children: ReactNode }) {
     if (!audio) return;
     audio.pause();
     setIsPlaying(false);
-    sessionStorage.setItem('ys_bgm_disabled', 'true');
+    try {
+      sessionStorage.setItem('ys_bgm_disabled', 'true');
+    } catch {
+      // ignore
+    }
   }, []);
 
   const toggleBgm = useCallback(() => {
@@ -151,7 +178,12 @@ export function BgmProvider({ children }: { children: ReactNode }) {
     >
       {/* 전역 지속 오디오 엘리먼트 (페이지 이동 시에도 끊김 없음) */}
       <audio
-        ref={audioRef}
+        ref={(el) => {
+          audioRef.current = el;
+          if (el) {
+            el.volume = toActualAudioVolume(getSavedOrInitialVolume());
+          }
+        }}
         src="/audio/bgm.mp3"
         autoPlay
         loop

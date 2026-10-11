@@ -72,13 +72,13 @@ export default function YsCodeAppsGrid({ onPreview }: YsCodeAppsGridProps) {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-sky-200">
               <Code2 className="w-3.5 h-3.5 text-sky-300" />
-              <span>YScode Collection · 19 Apps</span>
+              <span>YScode Collection · {yscodeApps.length} Apps</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
               엽쌤의 바이브 코딩 교실 웹앱 모음
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              교실 현장의 고민을 해결하기 위해 AI와 바이브 코딩으로 직접 개발한 웹앱 19종입니다.
+              교실 현장의 고민을 해결하기 위해 AI와 바이브 코딩으로 직접 개발한 웹앱 {yscodeApps.length}종입니다.
               설치 없이 브라우저에서 바로 실행되며 학생 수업, 교직 업무, 교실 여가 시간에 자유롭게 활용할 수 있습니다.
             </p>
           </div>

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ArrowRight, Command } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { yscodeApps } from '@/data/yscodeData';
 
 interface SearchItem {
   title: string;
@@ -28,7 +29,7 @@ const searchItems: SearchItem[] = [
   // 서브 페이지
   { title: '엽쌤 제작 수업 자료실', category: '수업자료', href: '/materials', description: '국어·독서, 인문·토론, 에듀테크·AI, 발명영재 지도안 & HWP 활동지 59종' },
   { title: '아침 맞이 3초 교실 데스크', category: '교실도구', href: '/morning', description: '전자칠판 전용 풀스크린 아침활동 시계·타이머·알림판·무광고 BGM' },
-  { title: '엽쌤 개발 웹앱 모음', category: '페이지', href: '/showcase#yscode', description: '교직·수업·여가를 아우르는 19종 바이브코딩 웹앱' },
+  { title: '엽쌤 개발 웹앱 모음', category: '페이지', href: '/showcase#yscode', description: `교직·수업·여가를 아우르는 ${yscodeApps.length}종 바이브코딩 웹앱` },
   { title: '교실 추천 에듀테크 도구함', category: '에듀테크', href: '/library#tools', description: '자작자작, 투닝, 캔바 등 교실 추천 에듀테크 모음' },
   { title: 'AI 프롬프트 놀이터', category: '페이지', href: '/playground', description: '학생·교사용 생성형 AI 실습 게임' },
   { title: '연수 강의안·자료실', category: '페이지', href: '/training', description: 'AI·디지털선도·독서인문 연수 PPT 및 자료 940여 종' },
@@ -48,7 +49,10 @@ const searchItems: SearchItem[] = [
   // 주요 프로젝트
   { title: '엽쌤스쿨 배움게임월드', category: '프로젝트', href: '/showcase#apps', description: '100개 HTML 학습 게임' },
   { title: 'HALLYO SWIM', category: '프로젝트', href: '/showcase#yscode', description: '수영부 관리 어플리케이션' },
-  { title: '매쓰 서바이벌', category: '프로젝트', href: '/showcase#yscode', description: '수학 연산 미니게임' },
+  { title: '매쓰 서바이벌', category: '프로젝트', href: '/showcase#yscode', description: '수학 연산 서바이벌 게임' },
+  { title: '엽쌤의 패들렛 정리함', category: '프로젝트', href: '/showcase#yscode', description: '패들렛 자료·첨부파일 정리 및 ZIP 백업 도구' },
+  { title: '지도안 대백과', category: '프로젝트', href: '/showcase#yscode', description: '초등·유아 지도안 1,700여 개 및 한글 분석' },
+  { title: '웜즈 아마겟돈(Remake)', category: '프로젝트', href: '/showcase#yscode', description: '바람을 읽고 겨루는 턴제 포격전' },
   // 저서
   { title: '고학년 독서인문교육, 독서미션으로 끝장내기', category: '저서', href: '/portfolio#publications', description: '김희엽 저' },
   { title: '우리의 서로가 계절이 되어가는 동안', category: '저서', href: '/portfolio#publications', description: '김희엽 저 (2026)' },

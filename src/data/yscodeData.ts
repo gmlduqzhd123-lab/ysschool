@@ -76,6 +76,15 @@ export const yscodeApps: YsCodeApp[] = [
     accent: '#d97706',
   },
   {
+    id: 'math-survival',
+    name: '매쓰 서바이벌',
+    category: '수업용',
+    icon: '🌍',
+    desc: '초등 1~6학년 수학 문제를 풀며 몬스터·보스를 물리치는 서바이벌 게임 · 학습 결과 분석',
+    url: 'https://gmlduqzhd123-lab.github.io/Math-Survival/',
+    accent: '#22c55e',
+  },
+  {
     id: 'for-teacher',
     featured: true,
     name: '교직백서 1000',
@@ -102,6 +111,15 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '학생 관찰 기록과 학기말 종합의견 작성을 돕고 나이스(NEIS) 입력을 준비하는 담임 업무 도구',
     url: 'https://nicehelperys.vercel.app/',
     accent: '#3b82f6',
+  },
+  {
+    id: 'padlet',
+    name: '엽쌤의 패들렛 정리함',
+    category: '업무용',
+    icon: '📌',
+    desc: '패들렛 게시물과 첨부 파일을 한곳에 모아 정리하고 폴더·ZIP으로 저장하는 도구',
+    url: 'https://gmlduqzhd123-lab.github.io/padlet/',
+    accent: '#14b8a6',
   },
   {
     id: 'hwp',
@@ -131,6 +149,15 @@ export const yscodeApps: YsCodeApp[] = [
     accent: '#0ea5e9',
   },
   {
+    id: 'lesson-plan',
+    name: '지도안 대백과',
+    category: '업무용',
+    icon: '📚',
+    desc: '학년·교과·단원으로 찾는 초등·유아 지도안 1,700여 개 · 한글 파일 분석까지',
+    url: 'https://gmlduqzhd123-lab.github.io/lesson-plan/',
+    accent: '#10b981',
+  },
+  {
     id: 'teacher-game',
     name: '건물주가 되고 싶은 선생님',
     category: '여가용',
@@ -156,6 +183,15 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '귀여운 선생님이 교실 몬스터를 물리치는 방치형 RPG · 켜자마자 자동 전투, 가입 없이 바로',
     url: 'https://gmlduqzhd123-lab.github.io/Hand-Free-Game/',
     accent: '#2dd4bf',
+  },
+  {
+    id: 'worms',
+    name: '웜즈 아마겟돈(Remake)',
+    category: '여가용',
+    icon: '🪱',
+    desc: '바람을 읽고 한 방을 노리는 턴제 포격전 · 10가지 전장 테마, CPU 대전, 설치 없이 바로',
+    url: 'https://gmlduqzhd123-lab.github.io/Worms/',
+    accent: '#f97316',
   },
   {
     id: 'acaraca',
