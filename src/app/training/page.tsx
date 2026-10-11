@@ -667,8 +667,24 @@ export default function TrainingPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.04, duration: 0.3 }}
-                    className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 flex flex-col justify-between"
+                    className="group relative bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 flex flex-col justify-between"
                   >
+                    {/* 우측 상단 호버 시에만 나타나는 아주 작은 삭제 버튼 */}
+                    {(item.source !== 'shared' || isAdmin) && (
+                      <button
+                        onClick={() => {
+                          setDeleteModalId(item.id);
+                          setDeletePassword('');
+                          setDeletePasswordError('');
+                        }}
+                        className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs border border-slate-200/70 dark:border-slate-700 text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/60 dark:hover:text-rose-400 shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-200 cursor-pointer"
+                        title="자료 삭제"
+                        aria-label="자료 삭제"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+
                     <div>
                       {/* Thumbnail */}
                       {item.thumbnail && (
@@ -714,45 +730,29 @@ export default function TrainingPage() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="p-5 pt-0 flex items-center justify-between gap-2 flex-wrap">
-                      <div className="flex gap-2 flex-wrap items-center">
-                        {item.link && (
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky hover:text-slate-950 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
-                          >
-                            <ExternalLink className="w-3.5 h-3.5" />
-                            자료 열람 및 다운로드
-                          </a>
-                        )}
-                        {item.fileUrl && !item.fileUrl.includes('storage.googleapis.com') && (
-                          <a
-                            href={item.fileUrl}
-                            download={cleanHtmlText(item.title)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
-                          >
-                            <Download className="w-3.5 h-3.5" />
-                            {getFileIcon(item.fileType)} 파일 다운로드
-                          </a>
-                        )}
-                      </div>
-                      {(item.source !== 'shared' || isAdmin) && (
-                        <button
-                          onClick={() => {
-                            setDeleteModalId(item.id);
-                            setDeletePassword('');
-                            setDeletePasswordError('');
-                          }}
-                          className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
-                          title={item.source === 'shared' ? '공유 자료 관리자 삭제' : '이 기기 자료 삭제'}
+                    <div className="p-5 pt-0 flex items-center gap-2 flex-wrap">
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky hover:text-slate-950 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
-                          삭제
-                        </button>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          자료 열람 및 다운로드
+                        </a>
+                      )}
+                      {item.fileUrl && !item.fileUrl.includes('storage.googleapis.com') && (
+                        <a
+                          href={item.fileUrl}
+                          download={cleanHtmlText(item.title)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          {getFileIcon(item.fileType)} 파일 다운로드
+                        </a>
                       )}
                     </div>
                   </motion.div>
