@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink, Download, Search,
   Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2,
-  ArrowRight, ChevronDown, BookOpen, Layers3
+  ArrowRight, ChevronDown, BookOpen, Layers3, Lock
 } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -18,6 +18,7 @@ import { trainingData, type TrainingMaterial } from '@/data/trainingData';
 type DisplayMaterial = TrainingMaterial & { source?: 'shared' | 'local' | 'default' };
 
 const categories = ['전체', '에듀테크', 'AI활용', '독서인문', '기타'] as const;
+const DELETE_PASSWORD = '1234';
 
 function readJsonArray<T>(key: string): T[] {
   try {
@@ -50,13 +51,20 @@ export default function TrainingPage() {
 
   // Delete modal state
   const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
+  const [deletePassword, setDeletePassword] = useState('');
+  const [deletePasswordError, setDeletePasswordError] = useState('');
 
   // ESC 키로 열린 모달 닫기
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        if (deleteModalId !== null) setDeleteModalId(null);
-        else if (isModalOpen) setIsModalOpen(false);
+        if (deleteModalId !== null) {
+          setDeleteModalId(null);
+          setDeletePassword('');
+          setDeletePasswordError('');
+        } else if (isModalOpen) {
+          setIsModalOpen(false);
+        }
       }
     };
     if (isModalOpen || deleteModalId !== null) {
@@ -734,7 +742,11 @@ export default function TrainingPage() {
                       </div>
                       {(item.source !== 'shared' || isAdmin) && (
                         <button
-                          onClick={() => setDeleteModalId(item.id)}
+                          onClick={() => {
+                            setDeleteModalId(item.id);
+                            setDeletePassword('');
+                            setDeletePasswordError('');
+                          }}
                           className="inline-flex items-center gap-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 font-bold text-xs px-3 py-2.5 rounded-xl transition-colors cursor-pointer ml-auto"
                           title={item.source === 'shared' ? '공유 자료 관리자 삭제' : '이 기기 자료 삭제'}
                         >
@@ -996,7 +1008,11 @@ export default function TrainingPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
-            onClick={() => setDeleteModalId(null)}
+            onClick={() => {
+              setDeleteModalId(null);
+              setDeletePassword('');
+              setDeletePasswordError('');
+            }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -1008,29 +1024,84 @@ export default function TrainingPage() {
               <div className="flex justify-between items-center mb-4">
                 <h2 id="delete-material-title" className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-lg">
                   <Trash2 className="w-5 h-5" />
-                  자료 삭제
+                  자료 삭제 확인
                 </h2>
                 <button
                   type="button"
                   aria-label="닫기"
-                  onClick={() => setDeleteModalId(null)}
+                  onClick={() => {
+                    setDeleteModalId(null);
+                    setDeletePassword('');
+                    setDeletePasswordError('');
+                  }}
                   className="p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                {materials.find((item) => item.id === deleteModalId)?.source === 'shared'
-                  ? '관리자 권한으로 공유 저장소에서 이 자료를 삭제합니다. 모든 방문자 화면에서 사라집니다.'
-                  : '이 브라우저에 저장된 자료를 삭제하거나 기본 자료를 이 기기에서 숨깁니다.'}
-              </p>
+              {/* 삭제 대상 자료 안내 */}
+              {(() => {
+                const target = materials.find((item) => item.id === deleteModalId);
+                return (
+                  <div className="mb-4 p-3.5 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40">
+                    <p className="text-xs font-bold text-rose-900 dark:text-rose-200 line-clamp-1 mb-1">
+                      {target?.title ? cleanHtmlText(target.title) : '선택한 자료'}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {target?.source === 'shared'
+                        ? '공유 저장소에서 이 자료를 영구 삭제합니다.'
+                        : '이 기기 목록에서 해당 자료를 삭제(숨김)합니다.'}
+                    </p>
+                  </div>
+                );
+              })()}
 
-              <form onSubmit={(e) => { e.preventDefault(); handleDeleteMaterial(deleteModalId); }}>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (deletePassword !== DELETE_PASSWORD) {
+                    setDeletePasswordError('비밀번호가 올바르지 않습니다.');
+                    return;
+                  }
+                  handleDeleteMaterial(deleteModalId);
+                  setDeleteModalId(null);
+                  setDeletePassword('');
+                  setDeletePasswordError('');
+                }}
+              >
+                <div className="mb-5">
+                  <label htmlFor="delete-password-input" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-rose-500" />
+                    관리자 비밀번호 확인
+                  </label>
+                  <input
+                    id="delete-password-input"
+                    type="password"
+                    autoFocus
+                    placeholder="비밀번호 입력"
+                    value={deletePassword}
+                    onChange={(e) => {
+                      setDeletePassword(e.target.value);
+                      if (deletePasswordError) setDeletePasswordError('');
+                    }}
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
+                  />
+                  {deletePasswordError && (
+                    <p className="mt-1.5 text-xs font-bold text-rose-500">
+                      {deletePasswordError}
+                    </p>
+                  )}
+                </div>
+
                 <div className="flex gap-2 justify-end">
                   <button
                     type="button"
-                    onClick={() => setDeleteModalId(null)}
+                    onClick={() => {
+                      setDeleteModalId(null);
+                      setDeletePassword('');
+                      setDeletePasswordError('');
+                    }}
                     className="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
                   >
                     취소
@@ -1039,7 +1110,7 @@ export default function TrainingPage() {
                     type="submit"
                     className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm transition-colors cursor-pointer shadow-md shadow-rose-600/30"
                   >
-                    삭제하기
+                    삭제 확인
                   </button>
                 </div>
               </form>
