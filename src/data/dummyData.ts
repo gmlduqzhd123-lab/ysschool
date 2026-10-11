@@ -48,11 +48,11 @@ export const navLinks: NavItem[] = [
         badge: '19종',
       },
       {
-        name: '교실 미니 웹앱 & 배움게임',
-        href: '/showcase#apps',
-        description: '100종 배움게임 및 교실 실무 도구 미니웹앱',
-        iconName: 'Sparkles',
-        badge: '100종+',
+        name: '엽쌤 제작 수업 자료',
+        href: '/materials',
+        description: '국어·독서·인문·에듀테크 초등 수업 지도안 & 활동지',
+        iconName: 'FileText',
+        badge: 'NEW',
       },
       {
         name: '아침 맞이 교실 데스크',
