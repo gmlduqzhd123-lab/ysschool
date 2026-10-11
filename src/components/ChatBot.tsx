@@ -34,7 +34,7 @@ const QUICK_CHIPS: QuickChip[] = [
   { id: 'games', label: '100종 배움게임 추천', icon: '🎮', query: '100종 배움게임 추천해줘', category: '게임' },
   { id: 'morning', label: '아침 교실 전자칠판', icon: '🌅', query: '아침 교실 데스크 어떻게 써?', category: '교실' },
   { id: 'meal', label: '오늘 학교 급식 식단', icon: '🍱', query: '학교 급식 어떻게 확인해?', category: '교실' },
-  { id: 'books', label: '엽쌤 저서 10권 & 출판', icon: '📖', query: '출간하신 책 어디서 사?', category: '저서' },
+  { id: 'books', label: '엽쌤 저서 14권 & 출판', icon: '📖', query: '출간하신 책 어디서 사?', category: '저서' },
   { id: 'tools', label: '에듀테크 추천 도구함', icon: '🛠️', query: '추천 에듀테크 도구 알려줘', category: '자료' },
   { id: 'training', label: '연수 및 강의 섭외', icon: '✉️', query: '연수 강의 의뢰하고 싶어요', category: '연수' },
   { id: 'acappella', label: '아카펠라 공연 영상', icon: '🎤', query: '아카펠라 공연 보고 싶어', category: '공연' },
@@ -47,7 +47,7 @@ const faqData = [
   },
   {
     keywords: ['책', '구매', '도서', '출판', '부크크', 'yes24', '저서'],
-    answer: '엽쌤의 대표 저서 "고학년 독서인문교육, 독서미션으로 끝장내기" 및 학생 출판 프로젝트 도서 10여 권은 YES24, 교보문고, 부크크에서 만나보실 수 있습니다! 📚\n\n📖 저서 & 출판 도서 둘러보기 → /portfolio#publications',
+    answer: '엽쌤의 대표 저서 "고학년 독서인문교육, 독서미션으로 끝장내기" 및 학생 출판 프로젝트 도서 14권은 YES24, 교보문고, 부크크에서 만나보실 수 있습니다! 📚\n\n📖 저서 & 출판 도서 둘러보기 → /portfolio#publications',
   },
   {
     keywords: ['아침', '교실', '데스크', '전자칠판', '모닝'],

@@ -16,7 +16,7 @@ const skillsTranslations: Record<string, { title: string; description: string }>
   },
   'Author & Creator': {
     title: 'Author & Creator',
-    description: 'Author of 10 books on reading & humanities education, and a vocal percussionist/baritone in the Jeonnam Elementary A Cappella Group "Akaraka".',
+    description: 'Author of 14 books on reading & humanities education, and a vocal percussionist/baritone in the Jeonnam Elementary A Cappella Group "Akaraka".',
   },
 };
 

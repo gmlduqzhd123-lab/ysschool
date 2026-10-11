@@ -90,16 +90,16 @@ export default function HeroSection() {
             {/* Key Metrics Ticker */}
             <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 grid grid-cols-3 gap-4 max-w-md">
               <div>
-                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">100<span className="text-emerald-500 text-lg font-bold">+</span></p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">배움게임 & 웹앱</p>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">112<span className="text-emerald-500 text-lg font-bold">회</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">{t('강연 및 공연', 'Lectures & Shows')}</p>
               </div>
               <div>
-                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">10<span className="text-blue-500 text-lg font-bold">권</span></p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">출간 및 집필</p>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">14<span className="text-blue-500 text-lg font-bold">권</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">{t('출간 도서', 'Published Books')}</p>
               </div>
               <div>
-                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">10<span className="text-indigo-500 text-lg font-bold">년차</span></p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">현직 초등교사</p>
+                <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">19<span className="text-indigo-500 text-lg font-bold">종</span></p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">{t('개발 웹앱', 'Web Apps Built')}</p>
               </div>
             </div>
 
