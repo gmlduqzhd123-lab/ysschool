@@ -63,7 +63,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 6,
     "title": "여수의(義) 사랑, 우리들의 이야기 책 전체",
-    "description": "여수의(義) 사랑, 우리들의 이야기 책 전체 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621574749",
@@ -72,7 +72,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 7,
     "title": "<박하람>도시로 변하던 신비한 곳(1)",
-    "description": "<박하람>도시로 변하던 신비한 곳(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621585557",
@@ -81,7 +81,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 8,
     "title": "<박하람>도시로 변하던 신비한 곳(2)",
-    "description": "<박하람>도시로 변하던 신비한 곳(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621585559",
@@ -90,7 +90,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 9,
     "title": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(1)",
-    "description": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621585560",
@@ -99,7 +99,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 10,
     "title": "<박하람>도시로 변하던 신비한 곳(3)",
-    "description": "<박하람>도시로 변하던 신비한 곳(3) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621585562",
@@ -108,7 +108,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 11,
     "title": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(4)",
-    "description": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621589081",
@@ -117,7 +117,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 12,
     "title": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(3)",
-    "description": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(3) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621589082",
@@ -126,7 +126,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 13,
     "title": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(2)",
-    "description": "<윤예서>동동이와 당당이의 신비한 여수 퀴즈(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621589083",
@@ -135,7 +135,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 14,
     "title": "<이채민> 나의 고향(3)",
-    "description": "<이채민> 나의 고향(3) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621590240",
@@ -144,7 +144,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 15,
     "title": "<이채민> 나의 고향(2)",
-    "description": "<이채민> 나의 고향(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621590241",
@@ -153,7 +153,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 16,
     "title": "<이채민> 나의 고향(1)",
-    "description": "<이채민> 나의 고향(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621590242",
@@ -162,7 +162,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 17,
     "title": "<조은강>여수로 여행 가는 날(1)",
-    "description": "<조은강>여수로 여행 가는 날(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621591289",
@@ -171,7 +171,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 18,
     "title": "<정서영>이순신 광장을 소개합니다(1)",
-    "description": "<정서영>이순신 광장을 소개합니다(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621591291",
@@ -180,7 +180,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 19,
     "title": "<정서영>이순신 광장을 소개합니다(2)",
-    "description": "<정서영>이순신 광장을 소개합니다(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621591292",
@@ -189,7 +189,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 20,
     "title": "<조은강>여수로 여행 가는 날(2)",
-    "description": "<조은강>여수로 여행 가는 날(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621591293",
@@ -198,7 +198,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 21,
     "title": "<박세준>나라를 위한 희생(1)",
-    "description": "<박세준>나라를 위한 희생(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608407",
@@ -207,7 +207,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 22,
     "title": "<박세준>나라를 위한 희생(2)",
-    "description": "<박세준>나라를 위한 희생(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608567",
@@ -216,7 +216,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 23,
     "title": "<정호준>여수 그리고 바다",
-    "description": "<정호준>여수 그리고 바다 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608738",
@@ -225,7 +225,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 24,
     "title": "<서아현>여수가 담고 있는 것",
-    "description": "<서아현>여수가 담고 있는 것 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608744",
@@ -234,7 +234,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 25,
     "title": "<마현아>여수 평화의 소녀상",
-    "description": "<마현아>여수 평화의 소녀상 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608749",
@@ -243,7 +243,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 26,
     "title": "<이주연>하멜 동상",
-    "description": "<이주연>하멜 동상 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621608751",
@@ -252,7 +252,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 27,
     "title": "<김수민>약분과 통분에 얽힌 슬픈 전설(2)",
-    "description": "<김수민>약분과 통분에 얽힌 슬픈 전설(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633562",
@@ -261,7 +261,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 28,
     "title": "<문에녹>구름 위의 꿈과 철길 위의 꿈",
-    "description": "<문에녹>구름 위의 꿈과 철길 위의 꿈 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633569",
@@ -270,7 +270,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 29,
     "title": "<최하윤>도전하고 싶은 두 가지 꿈",
-    "description": "<최하윤>도전하고 싶은 두 가지 꿈 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633571",
@@ -279,7 +279,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 30,
     "title": "<김수민>약분과 통분에 얽힌 슬픈 전설(1)",
-    "description": "<김수민>약분과 통분에 얽힌 슬픈 전설(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633572",
@@ -288,7 +288,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 31,
     "title": "<최은성>집에 왔더니 늘 나를 반겨주던 언니가 보이지 않는다.(1)",
-    "description": "<최은성>집에 왔더니 늘 나를 반겨주던 언니가 보이지 않는다.(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633575",
@@ -297,7 +297,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 32,
     "title": "<정시우>아직 정해지지 않은 나의 꿈",
-    "description": "<정시우>아직 정해지지 않은 나의 꿈 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633576",
@@ -306,7 +306,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 33,
     "title": "<최은성>집에 왔더니 늘 반겨주던 언니가 보이지 않는다(2)",
-    "description": "<최은성>집에 왔더니 늘 반겨주던 언니가 보이지 않는다(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621633587",
@@ -315,7 +315,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 34,
     "title": "자작자작, 우리들의 이야기 책 전체",
-    "description": "자작자작, 우리들의 이야기 책 전체 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621638725",
@@ -324,7 +324,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 35,
     "title": "여수의(義) 사랑, 우리들의 이야기2 책 전체",
-    "description": "여수의(義) 사랑, 우리들의 이야기2 책 전체 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621648554",
@@ -333,7 +333,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 36,
     "title": "우리들의 눈물 상자 책 전체",
-    "description": "우리들의 눈물 상자 책 전체 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621655709",
@@ -342,7 +342,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 37,
     "title": "<김찬영> 마음 속 눈물, 내가 모은 이야기(2)",
-    "description": "<김찬영> 마음 속 눈물, 내가 모은 이야기(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621662161",
@@ -351,7 +351,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 38,
     "title": "<김찬영> 마음 속 눈물, 내가 모은 이야기(1)",
-    "description": "<김찬영> 마음 속 눈물, 내가 모은 이야기(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621662162",
@@ -360,7 +360,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 39,
     "title": "<임소은> 내 마음에만 있는 색, 슬픔(3)",
-    "description": "<임소은> 내 마음에만 있는 색, 슬픔(3) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621662775",
@@ -369,7 +369,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 40,
     "title": "<임소은> 내 마음에만 있는 색, 슬픔(1)",
-    "description": "<임소은> 내 마음에만 있는 색, 슬픔(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621662786",
@@ -378,7 +378,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 41,
     "title": "<임소은> 내 마음에만 있는 색, 슬픔(2)",
-    "description": "<임소은> 내 마음에만 있는 색, 슬픔(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621662787",
@@ -387,7 +387,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 42,
     "title": "<박래은>사랑은 눈물이 되어 흐른다(1)",
-    "description": "<박래은>사랑은 눈물이 되어 흐른다(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621663499",
@@ -396,7 +396,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 43,
     "title": "<박래은>사랑은 눈물이 되어 흐른다(2)",
-    "description": "<박래은>사랑은 눈물이 되어 흐른다(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621667824",
@@ -405,7 +405,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 44,
     "title": "<이도윤>세상에 단 하나의 선물, 부모님(1)",
-    "description": "<이도윤>세상에 단 하나의 선물, 부모님(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621668707",
@@ -414,7 +414,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 45,
     "title": "<이도윤>세상에 단 하나의 선물, 부모님(2)",
-    "description": "<이도윤>세상에 단 하나의 선물, 부모님(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "기타",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621668928",
@@ -423,7 +423,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 46,
     "title": "<정유하>형과 나, 두 빛깔의 눈물 이야기(1)",
-    "description": "<정유하>형과 나, 두 빛깔의 눈물 이야기(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621669919",
@@ -432,7 +432,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 47,
     "title": "<정유하>형과 나, 두 빛깔의 눈물 이야기(2)",
-    "description": "<정유하>형과 나, 두 빛깔의 눈물 이야기(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-10-07",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621670052",
@@ -441,7 +441,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 48,
     "title": "나, 그리고 여수(박하람)",
-    "description": "나, 그리고 여수(박하람) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631368515",
@@ -450,7 +450,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 49,
     "title": "꿈꾸는 여수(박세준)",
-    "description": "꿈꾸는 여수(박세준) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631368899",
@@ -459,7 +459,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 50,
     "title": "바다의 노래를 찾은 아이(최은성)",
-    "description": "바다의 노래를 찾은 아이(최은성) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631369413",
@@ -468,7 +468,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 51,
     "title": "나, 그리고 여수(이채민)",
-    "description": "나, 그리고 여수(이채민) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631369685",
@@ -477,7 +477,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 52,
     "title": "초능력 편의점(정서영)",
-    "description": "초능력 편의점(정서영) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631370206",
@@ -486,7 +486,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 53,
     "title": "나, 그리고 여수(정유하)",
-    "description": "나, 그리고 여수(정유하) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631370568",
@@ -495,7 +495,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 54,
     "title": "나의 여수(조은강)",
-    "description": "나의 여수(조은강) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631370766",
@@ -504,7 +504,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 55,
     "title": "나, 그리고 여수(서아현)",
-    "description": "나, 그리고 여수(서아현) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631371081",
@@ -513,7 +513,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 56,
     "title": "나, 그리고 여수(박래은)",
-    "description": "나, 그리고 여수(박래은) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631371399",
@@ -522,7 +522,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 57,
     "title": "무엇을 고를래?(김찬영)",
-    "description": "무엇을 고를래?(김찬영) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631371722",
@@ -531,7 +531,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 58,
     "title": "나, 그리고 여수(임소은)",
-    "description": "나, 그리고 여수(임소은) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631371999",
@@ -540,7 +540,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 59,
     "title": "게임 속 나의 일기(이주연)",
-    "description": "게임 속 나의 일기(이주연) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631372493",
@@ -549,7 +549,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 60,
     "title": "여수(김수민)",
-    "description": "여수(김수민) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631372800",
@@ -558,7 +558,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 61,
     "title": "늘 반겨주던 똘똘이가 더 이상 없다.(마현아)",
-    "description": "늘 반겨주던 똘똘이가 더 이상 없다.(마현아) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631373395",
@@ -567,7 +567,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 62,
     "title": "여수와 산책하는 아이, 그리고 여수를 사랑하는 소녀들(최하윤)",
-    "description": "여수와 산책하는 아이, 그리고 여수를 사랑하는 소녀들(최하윤) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631373777",
@@ -576,7 +576,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 63,
     "title": "나와 여수의 추억(문에녹)",
-    "description": "나와 여수의 추억(문에녹) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631373978",
@@ -585,7 +585,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 64,
     "title": "나 그리고 여수(정시우)",
-    "description": "나 그리고 여수(정시우) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631374171",
@@ -594,7 +594,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 65,
     "title": "나, 그리고 여수(이도윤)",
-    "description": "나, 그리고 여수(이도윤) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631374536",
@@ -603,7 +603,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 66,
     "title": "추억의 집(정호준)",
-    "description": "추억의 집(정호준) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-14",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3631374709",
@@ -612,7 +612,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 67,
     "title": "희미한 너에게(윤예서)",
-    "description": "희미한 너에게(윤예서) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-10-16",
     "link": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3634856862",
@@ -621,7 +621,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 68,
     "title": "학교자율시간 활동 계획서",
-    "description": "학교자율시간 활동 계획서 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601158",
@@ -630,7 +630,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 69,
     "title": "설계 · 운영 방향 선정(예)",
-    "description": "설계 · 운영 방향 선정(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601160",
@@ -639,7 +639,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 70,
     "title": "교육과정 설계운영 현장지원자료 QR",
-    "description": "교육과정 설계운영 현장지원자료 QR 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601162",
@@ -648,7 +648,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 71,
     "title": "실습형 연수를 위해 첨부파일을 다운 받으세요.",
-    "description": "실습형 연수를 위해 첨부파일을 다운 받으세요. 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601169",
@@ -657,7 +657,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 72,
     "title": "의견수렴을 위한 설문문항 구성(예)",
-    "description": "의견수렴을 위한 설문문항 구성(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601170",
@@ -666,7 +666,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 73,
     "title": "2022 개정교육과정 분석(예)",
-    "description": "2022 개정교육과정 분석(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601174",
@@ -675,7 +675,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 74,
     "title": "전라남도교육청 학교자율시간 설계·운영지침",
-    "description": "전라남도교육청 학교자율시간 설계·운영지침 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601177",
@@ -684,7 +684,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 75,
     "title": "전라남도 초등학교 교육과정 분석(예)",
-    "description": "전라남도 초등학교 교육과정 분석(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601180",
@@ -693,7 +693,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 76,
     "title": "학교자율시간 쉽게 따라하기 장학자료",
-    "description": "학교자율시간 쉽게 따라하기 장학자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601182",
@@ -702,7 +702,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 77,
     "title": "2022개정교육과정 이해 도움자료",
-    "description": "2022개정교육과정 이해 도움자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601184",
@@ -711,7 +711,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 78,
     "title": "활동 승인 신청서(예)",
-    "description": "활동 승인 신청서(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601186",
@@ -720,7 +720,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 79,
     "title": "학교교육과정 실태 분석(예)",
-    "description": "학교교육과정 실태 분석(예) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601187",
@@ -729,7 +729,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 80,
     "title": "학교교육과정 설계운영 따라하기",
-    "description": "학교교육과정 설계운영 따라하기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601190",
@@ -738,7 +738,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 81,
     "title": "교사교육과정 이해",
-    "description": "교사교육과정 이해 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601193",
@@ -747,7 +747,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 82,
     "title": "2022 개정교육과정 톺아보기",
-    "description": "2022 개정교육과정 톺아보기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601194",
@@ -756,7 +756,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 83,
     "title": "새학년 집중준비기간 도움자료",
-    "description": "새학년 집중준비기간 도움자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601196",
@@ -765,7 +765,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 84,
     "title": "과목별 수업모형 정리",
-    "description": "과목별 수업모형 정리 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601198",
@@ -774,7 +774,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 85,
     "title": "초등 학생평가 길라잡이",
-    "description": "초등 학생평가 길라잡이 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601199",
@@ -783,7 +783,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 86,
     "title": "의견 수렴을 위한 설문 문항(교직원용)",
-    "description": "의견 수렴을 위한 설문 문항(교직원용) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601202",
@@ -792,7 +792,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 87,
     "title": "의견 수렴을 위한 설문 문항(학부모용)",
-    "description": "의견 수렴을 위한 설문 문항(학부모용) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601205",
@@ -801,7 +801,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 88,
     "title": "의견 수렴을 위한 설문 문항(학생용)",
-    "description": "의견 수렴을 위한 설문 문항(학생용) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601208",
@@ -810,7 +810,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 89,
     "title": "2025. 학교자율시간 (놀러와요 우리지역)",
-    "description": "2025. 학교자율시간 (놀러와요 우리지역) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601220",
@@ -819,7 +819,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 90,
     "title": "2025. 학교자율시간 (섬섬여수)",
-    "description": "2025. 학교자율시간 (섬섬여수) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601221",
@@ -828,7 +828,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 91,
     "title": "2025. 학교자율시간 (이순신과 여수義 길)",
-    "description": "2025. 학교자율시간 (이순신과 여수義 길) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601224",
@@ -837,7 +837,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 92,
     "title": "컨설팅 자료",
-    "description": "컨설팅 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709601225",
@@ -846,7 +846,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 93,
     "title": "2025. 학교자율시간 승인 신청서(종고초 4)",
-    "description": "2025. 학교자율시간 승인 신청서(종고초 4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709607470",
@@ -855,7 +855,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 94,
     "title": "2025. 학교자율시간 승인 신청서(종고초 6)",
-    "description": "2025. 학교자율시간 승인 신청서(종고초 6) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709608099",
@@ -864,7 +864,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 95,
     "title": "2025. 학교자율시간 승인 신청서(종고초 4, PDF)",
-    "description": "2025. 학교자율시간 승인 신청서(종고초 4, PDF) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709609541",
@@ -873,7 +873,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 96,
     "title": "2025. 학교자율시간 승인 신청서(종고초6, PDF)",
-    "description": "2025. 학교자율시간 승인 신청서(종고초6, PDF) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709610067",
@@ -882,7 +882,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 97,
     "title": "종고초 자료 바로가기 패들렛",
-    "description": "종고초 자료 바로가기 패들렛 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709613406",
@@ -891,7 +891,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 98,
     "title": "2025. 학교 자율시간 운영 자료집",
-    "description": "2025. 학교 자율시간 운영 자료집 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-04",
     "link": "https://padlet.com/gmlduqzhd12/wn3jhuqwa232p18e/wish/3709617758",
@@ -900,7 +900,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 99,
     "title": "두클래스",
-    "description": "두클래스 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-04",
     "link": "https://ele.douclass.com/autonomytime"
@@ -1188,7 +1188,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 135,
     "title": "kread",
-    "description": "kread 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-01-15",
     "link": "https://www.kread.ai"
@@ -1228,7 +1228,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 140,
     "title": "학교교육과정 쉽게 따라하기",
-    "description": "학교교육과정 쉽게 따라하기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882827",
@@ -1237,7 +1237,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 141,
     "title": "교수평 현장지원자료",
-    "description": "교수평 현장지원자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882828",
@@ -1246,7 +1246,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 142,
     "title": "2022개정교육과정 총론",
-    "description": "2022개정교육과정 총론 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882830",
@@ -1263,7 +1263,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 144,
     "title": "2022개정교육과정 총론 해설(초등학교)",
-    "description": "2022개정교육과정 총론 해설(초등학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882834",
@@ -1272,7 +1272,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 145,
     "title": "전라남도 초등학교 교육과정",
-    "description": "전라남도 초등학교 교육과정 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882835",
@@ -1281,7 +1281,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 146,
     "title": "학교교육과정 설계 흐름도",
-    "description": "학교교육과정 설계 흐름도 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882836",
@@ -1290,7 +1290,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 147,
     "title": "OO초 학교교육과정 설계 계획",
-    "description": "OO초 학교교육과정 설계 계획 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882838",
@@ -1299,7 +1299,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 148,
     "title": "교육과정 되돌아보기 일정",
-    "description": "교육과정 되돌아보기 일정 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882841",
@@ -1308,7 +1308,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 149,
     "title": "안건1",
-    "description": "안건1 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882844",
@@ -1317,7 +1317,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 150,
     "title": "안건2",
-    "description": "안건2 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882846",
@@ -1326,7 +1326,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 151,
     "title": "건의사항 사전협의내용 안내",
-    "description": "건의사항 사전협의내용 안내 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882847",
@@ -1335,7 +1335,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 152,
     "title": "교사용 설문양식",
-    "description": "교사용 설문양식 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882850",
@@ -1344,7 +1344,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 153,
     "title": "학부모용 설문 양식",
-    "description": "학부모용 설문 양식 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882852",
@@ -1353,7 +1353,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 154,
     "title": "학생용 설문 양식",
-    "description": "학생용 설문 양식 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882853",
@@ -1378,7 +1378,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 157,
     "title": "연간학사일정 및 편제표",
-    "description": "연간학사일정 및 편제표 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882858",
@@ -1387,7 +1387,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 158,
     "title": "학교교육과정 톺아보기(예시1)",
-    "description": "학교교육과정 톺아보기(예시1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882859",
@@ -1396,7 +1396,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 159,
     "title": "학교교육과정 톺아보기(예시2)",
-    "description": "학교교육과정 톺아보기(예시2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882860",
@@ -1405,7 +1405,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 160,
     "title": "시수편성 점검표",
-    "description": "시수편성 점검표 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882861",
@@ -1414,7 +1414,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 161,
     "title": "2026년 달력(학사일정 계산)",
-    "description": "2026년 달력(학사일정 계산) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882862",
@@ -1423,7 +1423,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 162,
     "title": "학교교육과정 쉽게 따라하기 한글파일",
-    "description": "학교교육과정 쉽게 따라하기 한글파일 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882863",
@@ -1432,7 +1432,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 163,
     "title": "학교교육과정 일관성 점검 실습지",
-    "description": "학교교육과정 일관성 점검 실습지 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882871",
@@ -1441,7 +1441,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 164,
     "title": "신기초-학생용",
-    "description": "신기초-학생용 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://docs.google.com/forms/d/13aFW98Ne43dZuSj6ddb_NPAVF0W8Q3kPf3RNkVL8lt4/copy"
@@ -1449,7 +1449,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 165,
     "title": "신기초-학부모용",
-    "description": "신기초-학부모용 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://docs.google.com/forms/d/14UegmkNnjFnXVAYjRCG3UdLOMcvnG0Mok5Wjv-0jVVQ/copy"
@@ -1457,7 +1457,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 166,
     "title": "신기초-교원용",
-    "description": "신기초-교원용 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://docs.google.com/forms/d/1UemhrpCSBNsbO4gi0UcreD03NBHW1MpoS8LeFNv7dcY/copy"
@@ -1465,7 +1465,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 167,
     "title": "새학년집중준비기간 도움자료",
-    "description": "새학년집중준비기간 도움자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882876",
@@ -1474,7 +1474,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 168,
     "title": "3일 운영 (예시)",
-    "description": "3일 운영 (예시) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882877",
@@ -1483,7 +1483,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 169,
     "title": "운영 안내(3일형)",
-    "description": "운영 안내(3일형) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882878",
@@ -1492,7 +1492,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 170,
     "title": "1일 운영 (예시)",
-    "description": "1일 운영 (예시) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882880",
@@ -1501,7 +1501,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 171,
     "title": "운영 안내(1일형-석면공사)",
-    "description": "운영 안내(1일형-석면공사) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882882",
@@ -1510,7 +1510,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 172,
     "title": "학교교육과정 간소화 틀(예시)",
-    "description": "학교교육과정 간소화 틀(예시) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882883",
@@ -1519,7 +1519,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 173,
     "title": "되돌아보기 결과 보고(양식)",
-    "description": "되돌아보기 결과 보고(양식) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882884",
@@ -1528,7 +1528,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 174,
     "title": "되돌아보기 및 교육계획 설계 계획",
-    "description": "되돌아보기 및 교육계획 설계 계획 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882885",
@@ -1536,8 +1536,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 175,
-    "title": "되돌아보기 운영(PPT)",
-    "description": "되돌아보기 운영(PPT) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "되돌아보기 운영",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882886",
@@ -1546,7 +1546,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 176,
     "title": "연수ppt",
-    "description": "연수ppt 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2025-12-11",
     "link": "https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882888",
@@ -1605,7 +1605,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 183,
     "title": "우리들의 눈물 상자",
-    "description": "우리들의 눈물 상자 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://bookk.co.kr/bookStore/6848db46e0dad5f48f236880"
@@ -1654,7 +1654,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 189,
     "title": "학생 탐구 중심 국어 수업 지도안 예시 자료",
-    "description": "학생 탐구 중심 국어 수업 지도안 예시 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127653",
@@ -1663,7 +1663,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 190,
     "title": "개념기반 탐구학습 모형 적용 수업 사례",
-    "description": "개념기반 탐구학습 모형 적용 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127654",
@@ -1680,7 +1680,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 192,
     "title": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어)",
-    "description": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127657",
@@ -1689,7 +1689,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 193,
     "title": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원",
-    "description": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127659",
@@ -1698,7 +1698,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 194,
     "title": "학생주도성 키움 수업을 위한 국어과 수업 방안",
-    "description": "학생주도성 키움 수업을 위한 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127660",
@@ -1707,7 +1707,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 195,
     "title": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127661",
@@ -1716,7 +1716,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 196,
     "title": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127662",
@@ -1733,7 +1733,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 198,
     "title": "1~2학년군 성취기준(엑셀 파일)",
-    "description": "1~2학년군 성취기준(엑셀 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127664",
@@ -1742,7 +1742,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 199,
     "title": "AI를 활용한 국어(독서) 수업 사례",
-    "description": "AI를 활용한 국어(독서) 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127665",
@@ -1751,7 +1751,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 200,
     "title": "개념기반 탐구학습 모형 적용 국어과 수업 방안",
-    "description": "개념기반 탐구학습 모형 적용 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127666",
@@ -1760,7 +1760,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 201,
     "title": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례",
-    "description": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127667",
@@ -1769,7 +1769,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 202,
     "title": "1~2학년군 성취기준(한글 파일)",
-    "description": "1~2학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127668",
@@ -1805,7 +1805,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 206,
     "title": "3~4학년군 성취기준(한글 파일)",
-    "description": "3~4학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127672",
@@ -1814,7 +1814,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 207,
     "title": "교육과정 총론",
-    "description": "교육과정 총론 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127673",
@@ -1841,7 +1841,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 210,
     "title": "5~6학년군 성취기준(한글 파일)",
-    "description": "5~6학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127678",
@@ -1850,7 +1850,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 211,
     "title": "2022 개정 교육과정 반영 국어 수업 설계",
-    "description": "2022 개정 교육과정 반영 국어 수업 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127680",
@@ -1859,7 +1859,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 212,
     "title": "범교과 주제 적용 자료",
-    "description": "범교과 주제 적용 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127681",
@@ -1877,7 +1877,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 214,
     "title": "학습자 주도성 함양을 위한 교수학습설계 방안",
-    "description": "학습자 주도성 함양을 위한 교수학습설계 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127684",
@@ -1886,7 +1886,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 215,
     "title": "부크크 원고 서식 모음",
-    "description": "부크크 원고 서식 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127685",
@@ -1895,7 +1895,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 216,
     "title": "학습자 주도성 함양을 위한 미래 학습 전략",
-    "description": "학습자 주도성 함양을 위한 미래 학습 전략 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127686",
@@ -1904,7 +1904,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 217,
     "title": "학교 자율시간 설계 관련",
-    "description": "학교 자율시간 설계 관련 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127687",
@@ -2050,7 +2050,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 235,
     "title": "3학년 나눗셈 수업 사례",
-    "description": "3학년 나눗셈 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127709",
@@ -2059,7 +2059,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 236,
     "title": "3학년 2학기 수학 교과서 (천재 박만구)",
-    "description": "3학년 2학기 수학 교과서 (천재 박만구) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127710",
@@ -2068,7 +2068,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 237,
     "title": "3학년 1학기 사회 교과서(천재 김정인)",
-    "description": "3학년 1학기 사회 교과서(천재 김정인) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127711",
@@ -2077,7 +2077,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 238,
     "title": "학생 주도성 키움 수업을 위한 에듀테크 활용 방안",
-    "description": "학생 주도성 키움 수업을 위한 에듀테크 활용 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-7picscpatfa5b2zk"
@@ -2085,7 +2085,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 239,
     "title": "독서인문교육의 모든 것",
-    "description": "독서인문교육의 모든 것 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-bv8b2q8avfzxcesx"
@@ -2093,7 +2093,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 240,
     "title": "깊이 있는 학습을 위한 수업과 평가 설계",
-    "description": "깊이 있는 학습을 위한 수업과 평가 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-7hhpa6pwjxgik6mp"
@@ -2101,7 +2101,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 241,
     "title": "초등교원의 AI디지털교과서 활용 수업",
-    "description": "초등교원의 AI디지털교과서 활용 수업 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-ai-_-4azexnwd73y00j2"
@@ -2109,7 +2109,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 242,
     "title": "학생 작가 워크북 제작의 실제",
-    "description": "학생 작가 워크북 제작의 실제 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/5-26-dzxq76ve7xrplgnh"
@@ -2150,7 +2150,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 247,
     "title": "6학년 문학 수업 사례",
-    "description": "6학년 문학 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2026-01-19",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127724",
@@ -2334,8 +2334,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 270,
-    "title": "GPKIs.zip",
-    "description": "GPKIs.zip 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "GPKIs",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2026-08-07",
     "link": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/4001186382",
@@ -2344,7 +2344,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 271,
     "title": "URL 단축 사이트",
-    "description": "URL 단축 사이트 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://숏.한국"
@@ -2352,7 +2352,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 272,
     "title": "그리기 기능",
-    "description": "그리기 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964416",
@@ -2361,7 +2361,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 273,
     "title": "AI 그리기 기능",
-    "description": "AI 그리기 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "AI활용",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964418",
@@ -2371,7 +2371,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 274,
     "title": "Padlet",
-    "description": "Padlet 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/"
@@ -2379,7 +2379,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 275,
     "title": "에듀테크 도서관",
-    "description": "에듀테크 도서관 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/simya94/padlet-itsjf6rsbpyom635"
@@ -2396,7 +2396,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 277,
     "title": "색칠공부 도안",
-    "description": "색칠공부 도안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964423",
@@ -2405,7 +2405,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 278,
     "title": "Youtube",
-    "description": "Youtube 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://www.youtube.com/"
@@ -2413,7 +2413,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 279,
     "title": "연수 과정 안내",
-    "description": "연수 과정 안내 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964426",
@@ -2422,7 +2422,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 280,
     "title": "전체 연수 안내 패들렛",
-    "description": "전체 연수 안내 패들렛 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/jetida/ai-e15wak1ba2a0zhk2"
@@ -2430,7 +2430,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 281,
     "title": "오후 연수 패들렛(수업 설계)",
-    "description": "오후 연수 패들렛(수업 설계) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/teachjunghyun/2026-ai-1-4ec483t51wzdc7f3"
@@ -2438,7 +2438,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 282,
     "title": "사다리게임",
-    "description": "사다리게임 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://lazygyu.github.io/roulette/"
@@ -2446,7 +2446,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 283,
     "title": "메모리 타일",
-    "description": "메모리 타일 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/memory-tiles/zqrv2wObr1/play"
@@ -2454,7 +2454,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 284,
     "title": "플래시카드",
-    "description": "플래시카드 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/flashcards/mVraVb6Vj1/play"
@@ -2462,7 +2462,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 285,
     "title": "초등아이스크림",
-    "description": "초등아이스크림 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://www.i-scream.co.kr/user/main/MainPage.do"
@@ -2470,7 +2470,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 286,
     "title": "매칭",
-    "description": "매칭 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/matching/zVKZg3qlrm/play"
@@ -2478,7 +2478,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 287,
     "title": "객관식",
-    "description": "객관식 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/multiple-choice/3ZjOgAxEjO/play"
@@ -2486,7 +2486,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 288,
     "title": "빈칸 채우기",
-    "description": "빈칸 채우기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/fill-in-the-blank/e8jYgBg2KA/play"
@@ -2494,7 +2494,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 289,
     "title": "정렬",
-    "description": "정렬 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/sorting/60Km419Wp7/play"
@@ -2502,7 +2502,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 290,
     "title": "순서 정하기",
-    "description": "순서 정하기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/sequencing/9LKlmlg0rD/play"
@@ -2544,7 +2544,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 295,
     "title": "수업 활동 아이디어",
-    "description": "수업 활동 아이디어 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/class-activities/ZRKMgbx5jA"
@@ -2552,7 +2552,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 296,
     "title": "2022개정 교육과정 성취기준",
-    "description": "2022개정 교육과정 성취기준 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://moduai.notion.site/2022-47cb6c83366e4458ac90d2a061f23621?source=copy_link"
@@ -2560,7 +2560,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 297,
     "title": "ChatGPT 수업설계 도우미",
-    "description": "ChatGPT 수업설계 도우미 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2026-02-03",
     "link": "https://chatgpt.com/g/g-S0sHqcIV0-d2-sueobseolgyeguseong-doumi"
@@ -2568,7 +2568,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 298,
     "title": "기준표",
-    "description": "기준표 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/rubric/3ZjOgDOZjO"
@@ -2584,7 +2584,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 300,
     "title": "설문조사 기능",
-    "description": "설문조사 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964455"
@@ -2592,7 +2592,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 301,
     "title": "지도 기능",
-    "description": "지도 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://google-maps-static-proxy-f80f.padlet.workers.dev/?center=Palm+Jumeirah&key=AIzaSyD3kjetwpeAYF-eXThlRhc1F1EYwsQvHcY&size=640x480&scale=2&maptype=hybrid&language=ko&region=KR&markers="
@@ -2600,7 +2600,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 302,
     "title": "사진 앨범 기능",
-    "description": "사진 앨범 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964457",
@@ -2609,7 +2609,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 303,
     "title": "AI 음성 기능",
-    "description": "AI 음성 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964458",
@@ -2618,7 +2618,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 304,
     "title": "샌드박스 기능",
-    "description": "샌드박스 기능 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/padlets/qqj7woav70d0tjqz"
@@ -2626,7 +2626,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 305,
     "title": "캔바 교안(기본)",
-    "description": "캔바 교안(기본) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964460",
@@ -2635,7 +2635,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 306,
     "title": "캔바 교안(수업사례)",
-    "description": "캔바 교안(수업사례) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964461",
@@ -2644,7 +2644,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 307,
     "title": "패들렛 교안(TA 포함)",
-    "description": "패들렛 교안(TA 포함) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "AI활용",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964462",
@@ -2653,7 +2653,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 308,
     "title": "Padlet TA",
-    "description": "Padlet TA 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2026-02-03",
     "link": "https://ta.padlet.com/"
@@ -2661,7 +2661,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 309,
     "title": "GyPQvXmldBJ743OL-MDj9zy9N4EMgz7Qn",
-    "description": "GyPQvXmldBJ743OL-MDj9zy9N4EMgz7Qn 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/breakout-room/GyPQvXmldBJ743OL-MDj9zy9N4EMgz7Qn"
@@ -2669,7 +2669,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 310,
     "title": "패들렛 유료 계정",
-    "description": "패들렛 유료 계정 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://padlet.com/jetida/student/2wZKjXd6iRdhsYah"
@@ -2677,7 +2677,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 311,
     "title": "연수일정 및 장소 2기",
-    "description": "연수일정 및 장소 2기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775998802",
@@ -2686,7 +2686,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 312,
     "title": "강의 원고",
-    "description": "강의 원고 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://www.canva.com/design/DAHATnWxynM/6sGD30My6vm35asakuXXRA/edit?ui=eyJBIjp7fX0"
@@ -2694,7 +2694,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 313,
     "title": "블루킷(Blooket)",
-    "description": "블루킷(Blooket) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2026-02-03",
     "link": "https://dashboard.blooket.com/my-sets"
@@ -2702,7 +2702,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 314,
     "title": "4학년 미술",
-    "description": "4학년 미술 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-05",
     "link": "https://padlet.com/hallyoes/padlet-6yyu009vtjcd5pvu"
@@ -2710,7 +2710,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 315,
     "title": "나만의 음악 만들기",
-    "description": "나만의 음악 만들기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-05",
     "link": "https://padlet.com/hallyoes/singscape-964kl9mbc7bs4ivl"
@@ -2718,7 +2718,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 316,
     "title": "2-1-1-vqlzeizsrkwxe27r",
-    "description": "2-1-1-vqlzeizsrkwxe27r 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-05",
     "link": "https://padlet.com/hallyoes/2-1-1-vqlzeizsrkwxe27r"
@@ -2734,7 +2734,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 318,
     "title": "1학년 국어",
-    "description": "1학년 국어 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-05",
     "link": "https://padlet.com/hallyoes/1-1-2d8nr25dwc9rqm7"
@@ -2742,7 +2742,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 319,
     "title": "가져가세요",
-    "description": "가져가세요 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2026-02-05",
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3778091573",
@@ -2759,7 +2759,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 321,
     "title": "강의 자료 바로가기",
-    "description": "강의 자료 바로가기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727974981",
@@ -2776,7 +2776,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 323,
     "title": "강의 교안(김희엽)",
-    "description": "강의 교안(김희엽) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://www.canva.com/design/DAGvHNhhlcw/B0VcT32WcwQFOqL6z_g3cQ/edit?utm_content=DAGvHNhhlcw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -2801,7 +2801,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 326,
     "title": "우리들의 눈물 상자",
-    "description": "우리들의 눈물 상자 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://bookk.co.kr/bookStore/6848db46e0dad5f48f236880"
@@ -2849,7 +2849,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 332,
     "title": "학생 탐구 중심 국어 수업 지도안 예시 자료",
-    "description": "학생 탐구 중심 국어 수업 지도안 예시 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975004",
@@ -2858,7 +2858,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 333,
     "title": "개념기반 탐구학습 모형 적용 수업 사례",
-    "description": "개념기반 탐구학습 모형 적용 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975007",
@@ -2875,7 +2875,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 335,
     "title": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어)",
-    "description": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975011",
@@ -2884,7 +2884,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 336,
     "title": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원",
-    "description": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975014",
@@ -2893,7 +2893,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 337,
     "title": "학생주도성 키움 수업을 위한 국어과 수업 방안",
-    "description": "학생주도성 키움 수업을 위한 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975016",
@@ -2902,7 +2902,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 338,
     "title": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975017",
@@ -2911,7 +2911,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 339,
     "title": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975021",
@@ -2928,7 +2928,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 341,
     "title": "1~2학년군 성취기준(엑셀 파일)",
-    "description": "1~2학년군 성취기준(엑셀 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975023",
@@ -2937,7 +2937,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 342,
     "title": "AI를 활용한 국어(독서) 수업 사례",
-    "description": "AI를 활용한 국어(독서) 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975026",
@@ -2946,7 +2946,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 343,
     "title": "개념기반 탐구학습 모형 적용 국어과 수업 방안",
-    "description": "개념기반 탐구학습 모형 적용 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975027",
@@ -2955,7 +2955,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 344,
     "title": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례",
-    "description": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975031",
@@ -2964,7 +2964,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 345,
     "title": "1~2학년군 성취기준(한글 파일)",
-    "description": "1~2학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975032",
@@ -3000,7 +3000,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 349,
     "title": "3~4학년군 성취기준(한글 파일)",
-    "description": "3~4학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975040",
@@ -3009,7 +3009,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 350,
     "title": "교육과정 총론",
-    "description": "교육과정 총론 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975041",
@@ -3036,7 +3036,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 353,
     "title": "5~6학년군 성취기준(한글 파일)",
-    "description": "5~6학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975047",
@@ -3045,7 +3045,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 354,
     "title": "2022 개정 교육과정 반영 국어 수업 설계",
-    "description": "2022 개정 교육과정 반영 국어 수업 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975049",
@@ -3054,7 +3054,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 355,
     "title": "범교과 주제 적용 자료",
-    "description": "범교과 주제 적용 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975052",
@@ -3072,7 +3072,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 357,
     "title": "학습자 주도성 함양을 위한 교수학습설계 방안",
-    "description": "학습자 주도성 함양을 위한 교수학습설계 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975055",
@@ -3081,7 +3081,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 358,
     "title": "부크크 원고 서식 모음",
-    "description": "부크크 원고 서식 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975059",
@@ -3090,7 +3090,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 359,
     "title": "학습자 주도성 함양을 위한 미래 학습 전략",
-    "description": "학습자 주도성 함양을 위한 미래 학습 전략 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975061",
@@ -3099,7 +3099,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 360,
     "title": "학교 자율시간 설계 관련",
-    "description": "학교 자율시간 설계 관련 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/jf0h4y6gp8ryzmv5/wish/3727975064",
@@ -3236,7 +3236,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 377,
     "title": "학생 주도성 키움 수업을 위한 에듀테크 활용 방안",
-    "description": "학생 주도성 키움 수업을 위한 에듀테크 활용 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-7picscpatfa5b2zk"
@@ -3244,7 +3244,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 378,
     "title": "독서인문교육의 모든 것",
-    "description": "독서인문교육의 모든 것 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-bv8b2q8avfzxcesx"
@@ -3252,7 +3252,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 379,
     "title": "깊이 있는 학습을 위한 수업과 평가 설계",
-    "description": "깊이 있는 학습을 위한 수업과 평가 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-7hhpa6pwjxgik6mp"
@@ -3260,7 +3260,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 380,
     "title": "초등교원의 AI디지털교과서 활용 수업",
-    "description": "초등교원의 AI디지털교과서 활용 수업 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/2025-ai-_-4azexnwd73y00j2"
@@ -3268,7 +3268,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 381,
     "title": "학생 작가 워크북 제작의 실제",
-    "description": "학생 작가 워크북 제작의 실제 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-12-19",
     "link": "https://padlet.com/gmlduqzhd12/5-26-dzxq76ve7xrplgnh"
@@ -3292,7 +3292,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 384,
     "title": "사후 설문(김희엽)",
-    "description": "사후 설문(김희엽) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://form.naver.com/response/9hxA2F3UluEeRjqysnd1JQ"
@@ -3300,7 +3300,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 385,
     "title": "실습 링크",
-    "description": "실습 링크 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-12-19",
     "link": "https://docs.google.com/document/d/1wzC4rOMXJRRHKXXKvYimrPSOecRPDtGLmZAHdKVdJKo/edit?usp=sharing"
@@ -3437,7 +3437,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 402,
     "title": "개념기반 탐구학습 모형 적용 국어과 수업 방안",
-    "description": "개념기반 탐구학습 모형 적용 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065319",
@@ -3446,7 +3446,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 403,
     "title": "교육과정 총론",
-    "description": "교육과정 총론 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065320",
@@ -3455,7 +3455,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 404,
     "title": "2022 개정 교육과정 반영 국어 수업 설계",
-    "description": "2022 개정 교육과정 반영 국어 수업 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065321",
@@ -3464,7 +3464,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 405,
     "title": "학습자 주도성 함양을 위한 교수학습설계 방안",
-    "description": "학습자 주도성 함양을 위한 교수학습설계 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065322",
@@ -3473,7 +3473,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 406,
     "title": "학습자 주도성 함양을 위한 미래 학습 전략",
-    "description": "학습자 주도성 함양을 위한 미래 학습 전략 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065324",
@@ -3518,7 +3518,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 411,
     "title": "부크크 원고 서식 모음",
-    "description": "부크크 원고 서식 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065335",
@@ -3527,7 +3527,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 412,
     "title": "AI를 활용한 국어(독서) 수업 사례",
-    "description": "AI를 활용한 국어(독서) 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065338",
@@ -3536,7 +3536,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 413,
     "title": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례",
-    "description": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065339",
@@ -3554,7 +3554,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 415,
     "title": "1~2학년군 성취기준(엑셀 파일)",
-    "description": "1~2학년군 성취기준(엑셀 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065354",
@@ -3563,7 +3563,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 416,
     "title": "1~2학년군 성취기준(한글 파일)",
-    "description": "1~2학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065355",
@@ -3572,7 +3572,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 417,
     "title": "3~4학년군 성취기준(한글 파일)",
-    "description": "3~4학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065356",
@@ -3581,7 +3581,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 418,
     "title": "5~6학년군 성취기준(한글 파일)",
-    "description": "5~6학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065357",
@@ -3590,7 +3590,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 419,
     "title": "범교과 주제 적용 자료",
-    "description": "범교과 주제 적용 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065358",
@@ -3599,7 +3599,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 420,
     "title": "학교 자율시간 설계 관련",
-    "description": "학교 자율시간 설계 관련 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065359",
@@ -3608,7 +3608,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 421,
     "title": "개념기반 탐구학습 모형 적용 수업 사례",
-    "description": "개념기반 탐구학습 모형 적용 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065362",
@@ -3617,7 +3617,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 422,
     "title": "학생 탐구 중심 국어 수업 지도안 예시 자료",
-    "description": "학생 탐구 중심 국어 수업 지도안 예시 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065364",
@@ -3626,7 +3626,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 423,
     "title": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어)",
-    "description": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065366",
@@ -3635,7 +3635,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 424,
     "title": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원",
-    "description": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065372",
@@ -3644,7 +3644,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 425,
     "title": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안 (출처: IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065374",
@@ -3653,7 +3653,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 426,
     "title": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교)",
-    "description": "개념기반 탐구학습 모형 적용 지도안(2) (출처:IB 연구학교) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065375",
@@ -3662,7 +3662,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 427,
     "title": "학생주도성 키움 수업을 위한 국어과 수업 방안",
-    "description": "학생주도성 키움 수업을 위한 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-06-24",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3500065377",
@@ -3689,7 +3689,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 430,
     "title": "3학년 나눗셈 수업 사례",
-    "description": "3학년 나눗셈 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-08-04",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3534821090",
@@ -3698,7 +3698,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 431,
     "title": "3학년 2학기 수학 교과서 (천재 박만구)",
-    "description": "3학년 2학기 수학 교과서 (천재 박만구) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-08-04",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3534932255",
@@ -3707,7 +3707,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 432,
     "title": "3학년 1학기 사회 교과서(천재 김정인)",
-    "description": "3학년 1학기 사회 교과서(천재 김정인) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-08-04",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3534937665",
@@ -3750,7 +3750,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 437,
     "title": "실습 링크(시간이 남으면 진행)",
-    "description": "실습 링크(시간이 남으면 진행) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-08-04",
     "link": "https://docs.google.com/document/d/1wzC4rOMXJRRHKXXKvYimrPSOecRPDtGLmZAHdKVdJKo/edit?usp=sharing"
@@ -3758,7 +3758,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 438,
     "title": "6학년 문학 수업 사례",
-    "description": "6학년 문학 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-08-04",
     "link": "https://padlet.com/gmlduqzhd12/7hhpa6pwjxgik6mp/wish/3535330680",
@@ -3767,7 +3767,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 439,
     "title": "강의 교안(김나래)",
-    "description": "강의 교안(김나래) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-08-04",
     "link": "https://www.miricanvas.com/v/14y2k2b"
@@ -3929,7 +3929,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 459,
     "title": "PPT 활용 사진 원본",
-    "description": "PPT 활용 사진 원본 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018744",
@@ -3937,8 +3937,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 460,
-    "title": "___________________________________.pdf",
-    "description": "___________________________________.pdf 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018750",
@@ -3947,7 +3947,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 461,
     "title": "개념기반 탐구학습 모형 적용 국어과 수업 방안",
-    "description": "개념기반 탐구학습 모형 적용 국어과 수업 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018751",
@@ -3956,7 +3956,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 462,
     "title": "교육과정 총론",
-    "description": "교육과정 총론 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018753",
@@ -3965,7 +3965,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 463,
     "title": "2022 개정 교육과정 반영 국어 수업 설계",
-    "description": "2022 개정 교육과정 반영 국어 수업 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018755",
@@ -3974,7 +3974,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 464,
     "title": "학습자 주도성 함양을 위한 교수학습설계 방안",
-    "description": "학습자 주도성 함양을 위한 교수학습설계 방안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018757",
@@ -3983,7 +3983,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 465,
     "title": "학습자 주도성 함양을 위한 미래 학습 전략",
-    "description": "학습자 주도성 함양을 위한 미래 학습 전략 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018758",
@@ -4028,7 +4028,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 470,
     "title": "부크크 원고 서식 모음",
-    "description": "부크크 원고 서식 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018776",
@@ -4037,7 +4037,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 471,
     "title": "AI를 활용한 국어(독서) 수업 사례",
-    "description": "AI를 활용한 국어(독서) 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018780",
@@ -4046,7 +4046,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 472,
     "title": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례",
-    "description": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018781",
@@ -4064,7 +4064,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 474,
     "title": "디지털원패스",
-    "description": "디지털원패스 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://edupass.neisplus.kr/nxuiPtl/index.html"
@@ -4072,7 +4072,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 475,
     "title": "AI디지털교과서 교원 연수 포털",
-    "description": "AI디지털교과서 교원 연수 포털 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2025-07-03",
     "link": "https://edu.aidtbook.kr/edu/"
@@ -4096,7 +4096,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 478,
     "title": "평가 도구 개발 실습 도우미 GPTS",
-    "description": "평가 도구 개발 실습 도우미 GPTS 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "AI활용",
     "date": "2025-07-03",
     "link": "https://chatgpt.com/g/g-7TBkTMCbQ-f2-pyeongga-dogu-gaebal-silseub-doumi"
@@ -4104,7 +4104,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 479,
     "title": "1~2학년군 성취기준(엑셀 파일)",
-    "description": "1~2학년군 성취기준(엑셀 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018804",
@@ -4113,7 +4113,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 480,
     "title": "1~2학년군 성취기준(한글 파일)",
-    "description": "1~2학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018805",
@@ -4122,7 +4122,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 481,
     "title": "3~4학년군 성취기준(한글 파일)",
-    "description": "3~4학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018808",
@@ -4131,7 +4131,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 482,
     "title": "5~6학년군 성취기준(한글 파일)",
-    "description": "5~6학년군 성취기준(한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018809",
@@ -4140,7 +4140,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 483,
     "title": "범교과 주제 적용 자료",
-    "description": "범교과 주제 적용 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018811",
@@ -4149,7 +4149,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 484,
     "title": "학교 자율시간 설계 관련",
-    "description": "학교 자율시간 설계 관련 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018813",
@@ -4158,7 +4158,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 485,
     "title": "개념기반 탐구학습 모형 적용 수업 사례",
-    "description": "개념기반 탐구학습 모형 적용 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018815",
@@ -4167,7 +4167,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 486,
     "title": "학생 탐구 중심 국어 수업 지도안 예시 자료",
-    "description": "학생 탐구 중심 국어 수업 지도안 예시 자료 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018817",
@@ -4176,7 +4176,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 487,
     "title": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어)",
-    "description": "학생주도성 키움 수업을 위한 질문기반 PBL 수업(3학년 국어) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018819",
@@ -4185,7 +4185,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 488,
     "title": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원",
-    "description": "PBL 기반 학생주도성키움수업 - 5학년 독서 단원 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-07-03",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3509018821",
@@ -4262,8 +4262,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 497,
-    "title": "Screenshot_20250724_133252_Hancom_Office_Viewer.jpg",
-    "description": "Screenshot_20250724_133252_Hancom_Office_Viewer.jpg 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "Screenshot_20250724_133252_Hancom_Office_Viewer",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-07-24",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3527562323",
@@ -4271,8 +4271,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 498,
-    "title": "Screenshot_20250724_133323_Hancom_Office_Viewer.jpg",
-    "description": "Screenshot_20250724_133323_Hancom_Office_Viewer.jpg 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "Screenshot_20250724_133323_Hancom_Office_Viewer",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-07-24",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3527562717",
@@ -4306,7 +4306,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 502,
     "title": "안지영 블루캣",
-    "description": "안지영 블루캣 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-07-24",
     "link": "https://dashboard.blooket.com/set/6881be46bafdf98f3b0d3a5f"
@@ -4322,7 +4322,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 504,
     "title": "여름방학 퀴즈",
-    "description": "여름방학 퀴즈 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-24",
     "link": "https://dashboard.blooket.com/set/6881be0bbafdf98f3b0d3a59"
@@ -4330,7 +4330,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 505,
     "title": "사자성어, 속담",
-    "description": "사자성어, 속담 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-07-24",
     "link": "https://dashboard.blooket.com/my-sets"
@@ -4398,8 +4398,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 513,
-    "title": "2025_________.zip",
-    "description": "2025_________.zip 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2025",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-07-28",
     "link": "https://padlet.com/gmlduqzhd12/g5gei3haowl2fxrv/wish/3530359679",
@@ -4408,7 +4408,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 514,
     "title": "여수종고초",
-    "description": "여수종고초 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2024-12-06",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3249036351",
@@ -4426,7 +4426,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 516,
     "title": "여수종고초",
-    "description": "여수종고초 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2024-12-06",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3249133704",
@@ -4435,7 +4435,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 517,
     "title": "웅천초",
-    "description": "웅천초 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2024-12-06",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3249179648",
@@ -4444,7 +4444,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 518,
     "title": "2024. 창의융합 인재양성 프로젝트 성과발표회(우현, 김근우, 승현)",
-    "description": "2024. 창의융합 인재양성 프로젝트 성과발표회(우현, 김근우, 승현) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2024-12-08",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3251226168",
@@ -4453,7 +4453,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 519,
     "title": "2024. 창의융합 인재양성 프로젝트 성과발표회(크로스, 연우, 우준)",
-    "description": "2024. 창의융합 인재양성 프로젝트 성과발표회(크로스, 연우, 우준) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2024-12-08",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3251226424",
@@ -4462,7 +4462,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 520,
     "title": "2024. 창의융합 인재양성 프로젝트 성과발표회(크로스, 연우, 우준)",
-    "description": "2024. 창의융합 인재양성 프로젝트 성과발표회(크로스, 연우, 우준) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2024-12-08",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3251227504",
@@ -4471,7 +4471,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 521,
     "title": "여수한려초",
-    "description": "여수한려초 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2024-12-10",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3253350554",
@@ -4480,7 +4480,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 522,
     "title": "2024. 창의융합 인재양성 프로젝트 성과발표회(우현, 김근우, 김승현)",
-    "description": "2024. 창의융합 인재양성 프로젝트 성과발표회(우현, 김근우, 김승현) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2024-12-10",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3253654110",
@@ -4488,8 +4488,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 523,
-    "title": "______.zip",
-    "description": "______.zip 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2024-12-11",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3255134920",
@@ -4497,8 +4497,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 524,
-    "title": "____________________________.pptx",
-    "description": "____________________________.pptx 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2024-12-11",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3255191109",
@@ -4506,8 +4506,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 525,
-    "title": "________AI___________________________________.pptx",
-    "description": "________AI___________________________________.pptx 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "AI",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "AI활용",
     "date": "2024-12-11",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3255218241",
@@ -4515,8 +4515,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 526,
-    "title": "KakaoTalk_20241211_141634147.mp4",
-    "description": "KakaoTalk_20241211_141634147.mp4 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "KakaoTalk_20241211_141634147",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "AI활용",
     "date": "2024-12-11",
     "link": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3255218716",
@@ -4717,7 +4717,7 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 551,
-    "title": "3학년  하교후",
+    "title": "3학년 하교후",
     "description": "나는 학교가 끝난후 아빠학원을 갔다.갑자기 어떤할아버지께서 나좀 전기 휠체어를 밀어주시라고했다.밀어주었는데 엄마가 아빠학원을로 빨리오라고해어 나는엄마한테 전화로 엄마나 어떤할아버지를 도와주고 갈게라고 말했다. 엄마가 같이 도와준다고해서 나는 엄마랑 어떤할아버지랑 가달렸다. 그래서 엄마가 온뒤에 계속 밀어주고있었다. 갑자기 언덕에서 있어다 나는 기절을 할뻔했다 .그리고 다밀어주었다. 나는엄마랑 같이 학원에 가는다. 그 할아버지가 고마워요 하면서 나에게 1000원을 건넸다. 얼마안되지만 이걸받아가라 꼬마야를하셔다. 나는 거절을했다. 어떤할아버지가 어른이주는거 받을라고 했어 받아다. 나는 고맙습니다 . 하고 갔다. 그리고 엄마랑 걷고 있는다. 엄마가 착한 일을 좋지만 아까전에도와준것 어른에게 도와주라고 말했다. 그래서 나는 뿌듯하고 좀 혼난다. 아무튼 나는 혼나 것보다 는 도와준 게 훨씬 뿌듯하다.그리고 나는 받은 천원으로 말랑이를 샀다. 그리고 내가 내자신에게 뿌듯했다. 그리고 나는 아직도 그 일을 아직도 생생하게 남는다. 그리고 학교 갔을때 선생님이 자신이 도와 준 경험이 있다면 손을 들라고 했다. 그레서 나는 손을 들었다. 너는 자신 있게 손을들었다. 그래서 나는 어제 있던 일을 다 말했다.그리고3학년때부터4학년까지 않무릴도 없서다. 그리고 5학년때 준우라는 친구가 다라을 다쳤다. 나는 준우를 도와주었다. 어떻게 도와주러야면 급식 배식을 받아주고 남는 걸 버린다. 그러데 장점이 있어서 계단 말고 엘레베이터를 탄다 단점은 내 순서가 뒤이다 그래서 좀 속상했다.",
     "category": "독서인문",
     "date": "2024-04-11",
@@ -5126,7 +5126,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 602,
     "title": "내가 생각하는 미래의 여수",
-    "description": "내가 생각하는 미래의 여수 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732957525",
@@ -5144,7 +5144,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 604,
     "title": "아름다운 탄소 도시",
-    "description": "아름다운 탄소 도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732968713",
@@ -5180,7 +5180,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 608,
     "title": "내가 만든 미래의 탄소 중립 도시",
-    "description": "내가 만든 미래의 탄소 중립 도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732977315",
@@ -5198,7 +5198,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 610,
     "title": "탄소를 줄이는 태양열 자동차",
-    "description": "탄소를 줄이는 태양열 자동차 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732979066",
@@ -5243,7 +5243,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 615,
     "title": "별이 뜨는 태양열 도시",
-    "description": "별이 뜨는 태양열 도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732983208",
@@ -5252,7 +5252,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 616,
     "title": "미래에 태양열",
-    "description": "미래에 태양열 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732984675",
@@ -5260,8 +5260,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 617,
-    "title": "autodraw_2023__10__5_____10_10_13.png",
-    "description": "autodraw_2023__10__5_____10_10_13.png 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "autodraw_2023 10 5 10_10_13",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732985287",
@@ -5279,7 +5279,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 619,
     "title": "미래의 탄소중립도시",
-    "description": "미래의 탄소중립도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732988048",
@@ -5287,7 +5287,7 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 620,
-    "title": "나무가  많은 태양열 도시",
+    "title": "나무가 많은 태양열 도시",
     "description": "좀 허전하지만 숲이 있는 친환경 도시입니다",
     "category": "독서인문",
     "date": "2023-10-05",
@@ -5297,7 +5297,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 621,
     "title": "자동차가 안다니는 친환경 도시",
-    "description": "자동차가 안다니는 친환경 도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732993743",
@@ -5306,7 +5306,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 622,
     "title": "우리 미래에 탄소 발전도시",
-    "description": "우리 미래에 탄소 발전도시 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2023-10-05",
     "link": "https://padlet.com/gmlduqzhd12/7wjm2iivaw642ox9/wish/2732995389",
@@ -5324,7 +5324,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 624,
     "title": "연구학교 운영 방안 PPT",
-    "description": "연구학교 운영 방안 PPT 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438234",
@@ -5333,7 +5333,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 625,
     "title": "강의 PPT",
-    "description": "강의 PPT 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438235",
@@ -5342,7 +5342,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 626,
     "title": "생성형 AI를 활용한 독서인문교육 꿀팁",
-    "description": "생성형 AI를 활용한 독서인문교육 꿀팁 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438236",
@@ -5351,7 +5351,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 627,
     "title": "2024학년도 1차 독서인문 선도교실 공개수업 지도안",
-    "description": "2024학년도 1차 독서인문 선도교실 공개수업 지도안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438239",
@@ -5360,7 +5360,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 628,
     "title": "2024학년도 2차 독서인문 선도교실 공개수업 지도안",
-    "description": "2024학년도 2차 독서인문 선도교실 공개수업 지도안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438240",
@@ -5369,7 +5369,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 629,
     "title": "2025. 디지털 기반 수업 설계(AI기반 독서인문교육 프로젝트 수업)",
-    "description": "2025. 디지털 기반 수업 설계(AI기반 독서인문교육 프로젝트 수업) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438244",
@@ -5378,7 +5378,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 630,
     "title": "2024. 대한민국 글로컬 미래교실 박람회 공개수업 지도안",
-    "description": "2024. 대한민국 글로컬 미래교실 박람회 공개수업 지도안 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438245",
@@ -5387,7 +5387,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 631,
     "title": "운영 계획서",
-    "description": "운영 계획서 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438247",
@@ -5396,7 +5396,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 632,
     "title": "AI를 활용한 국어(독서) 수업 사례",
-    "description": "AI를 활용한 국어(독서) 수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438314",
@@ -5405,7 +5405,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 633,
     "title": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례",
-    "description": "AI와 미네르바 토론을 활용한 국어(독서)수업 사례 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438315",
@@ -5423,7 +5423,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 635,
     "title": "질문이 있는 PBL 수업 설계",
-    "description": "질문이 있는 PBL 수업 설계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438317",
@@ -5432,7 +5432,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 636,
     "title": "소나기 뒷 이야기 쓰기(6학년)",
-    "description": "소나기 뒷 이야기 쓰기(6학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438331",
@@ -5441,7 +5441,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 637,
     "title": "속담 사용 글짓기(6학년)",
-    "description": "속담 사용 글짓기(6학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438332",
@@ -5450,7 +5450,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 638,
     "title": "관용표현 사용 영화 감상문(6학년)",
-    "description": "관용표현 사용 영화 감상문(6학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438333",
@@ -5459,7 +5459,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 639,
     "title": "설명하는 글쓰기(5학년)",
-    "description": "설명하는 글쓰기(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438334",
@@ -5468,7 +5468,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 640,
     "title": "설명하는 글쓰기 2(5학년)",
-    "description": "설명하는 글쓰기 2(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438335",
@@ -5477,7 +5477,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 641,
     "title": "드라마 작가(5학년)",
-    "description": "드라마 작가(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438338",
@@ -5486,7 +5486,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 642,
     "title": "경험이나 상상이 담긴 글쓰기(5학년)",
-    "description": "경험이나 상상이 담긴 글쓰기(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438339",
@@ -5495,7 +5495,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 643,
     "title": "경험이나 상상하는 글쓰기 2(5학년)",
-    "description": "경험이나 상상하는 글쓰기 2(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438341",
@@ -5504,7 +5504,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 644,
     "title": "글쓰기 대회 되돌아보기(1)",
-    "description": "글쓰기 대회 되돌아보기(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438343",
@@ -5513,7 +5513,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 645,
     "title": "글쓰기 대회 되돌아보기(2)",
-    "description": "글쓰기 대회 되돌아보기(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438344",
@@ -5522,7 +5522,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 646,
     "title": "글쓰기 대회 활용 수업",
-    "description": "글쓰기 대회 활용 수업 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438345",
@@ -5531,7 +5531,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 647,
     "title": "합동 글쓰기 대회(5학년)",
-    "description": "합동 글쓰기 대회(5학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438346",
@@ -5540,7 +5540,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 648,
     "title": "논설문 쓰기(6학년)",
-    "description": "논설문 쓰기(6학년) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438347",
@@ -5549,7 +5549,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 649,
     "title": "광고 만들기",
-    "description": "광고 만들기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438348",
@@ -5558,7 +5558,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 650,
     "title": "나의 인생 도서 발표",
-    "description": "나의 인생 도서 발표 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438349",
@@ -5567,7 +5567,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 651,
     "title": "문해력 측정",
-    "description": "문해력 측정 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438350",
@@ -5576,7 +5576,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 652,
     "title": "발표 대전",
-    "description": "발표 대전 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438351",
@@ -5585,7 +5585,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 653,
     "title": "영상 공모전",
-    "description": "영상 공모전 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438353",
@@ -5594,7 +5594,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 654,
     "title": "토의 토론 수업",
-    "description": "토의 토론 수업 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "에듀테크",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438354",
@@ -5630,7 +5630,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 658,
     "title": "슬기로운 학교생활 그림책(조선미 수석 편집)",
-    "description": "슬기로운 학교생활 그림책(조선미 수석 편집)",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438361",
@@ -5639,7 +5639,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 659,
     "title": "엄마를 기쁘게 하는 17가지 방법(조선미 수석 편집)",
-    "description": "엄마를 기쁘게 하는 17가지 방법(조선미 수석 편집)",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438363",
@@ -5648,7 +5648,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 660,
     "title": "놀이동산 ㄱㄴㄷ(조선미 수석교사 편집)",
-    "description": "놀이동산 ㄱㄴㄷ(조선미 수석교사 편집)",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438364",
@@ -5657,7 +5657,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 661,
     "title": "나만의 눈물 상자(글, 그림 모음)",
-    "description": "나만의 눈물 상자(글, 그림 모음) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438365",
@@ -5666,7 +5666,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 662,
     "title": "눈물 상자 프로젝트 공개수업 PPT",
-    "description": "눈물 상자 프로젝트 공개수업 PPT 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438367",
@@ -5675,7 +5675,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 663,
     "title": "공개수업 지도안(김희엽)",
-    "description": "공개수업 지도안(김희엽) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "에듀테크",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438369",
@@ -5684,7 +5684,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 664,
     "title": "눈물 상자 큐레이션 산출물 모음",
-    "description": "눈물 상자 큐레이션 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2025-05-21",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438370",
@@ -5693,7 +5693,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 665,
     "title": "2025. 디지털 기반 융합 한려 Summer 프로젝트",
-    "description": "2025. 디지털 기반 융합 한려 Summer 프로젝트 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-07-30",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531824390",
@@ -5702,7 +5702,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 666,
     "title": "한려 Summer 프로젝트 안내장",
-    "description": "한려 Summer 프로젝트 안내장 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-07-30",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531824482",
@@ -5711,7 +5711,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 667,
     "title": "2025. 글로-CAL 프로젝트 기반 수업",
-    "description": "2025. 글로-CAL 프로젝트 기반 수업 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-07-30",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531824708",
@@ -5720,7 +5720,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 668,
     "title": "2025. 글로-CAL 프로젝트 기반 수업 (한글 파일)",
-    "description": "2025. 글로-CAL 프로젝트 기반 수업 (한글 파일) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "독서인문",
     "date": "2025-07-30",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531825329",
@@ -5738,7 +5738,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 670,
     "title": "글로-CAL 프로젝트 출판 도서",
-    "description": "글로-CAL 프로젝트 출판 도서 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672405553",
@@ -5747,7 +5747,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 671,
     "title": "우리들의 눈물 상자",
-    "description": "우리들의 눈물 상자 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672405858",
@@ -5756,7 +5756,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 672,
     "title": "여수의(義) 사랑, 우리들의 이야기",
-    "description": "여수의(義) 사랑, 우리들의 이야기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672406426",
@@ -5765,7 +5765,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 673,
     "title": "우리들의 눈물 상자",
-    "description": "우리들의 눈물 상자 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672406859",
@@ -5774,7 +5774,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 674,
     "title": "여수의(義) 사랑, 우리들의 이야기",
-    "description": "여수의(義) 사랑, 우리들의 이야기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672406945",
@@ -5783,7 +5783,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 675,
     "title": "여수의(義) 사랑,우리들의 이야기2",
-    "description": "여수의(義) 사랑,우리들의 이야기2 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672407175",
@@ -5792,7 +5792,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 676,
     "title": "자작자작, 우리들의 이야기",
-    "description": "자작자작, 우리들의 이야기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672407225",
@@ -5801,7 +5801,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 677,
     "title": "여수의(義)사랑, 우리들의 이야기 2",
-    "description": "여수의(義)사랑, 우리들의 이야기 2 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672407371",
@@ -5810,7 +5810,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 678,
     "title": "자작자작, 우리들의 이야기",
-    "description": "자작자작, 우리들의 이야기 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672407615",
@@ -5819,7 +5819,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 679,
     "title": "참관 등록부",
-    "description": "참관 등록부 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672408681",
@@ -5828,7 +5828,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 680,
     "title": "아무도 모르는 5학년의 속마음",
-    "description": "아무도 모르는 5학년의 속마음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672409163",
@@ -5837,7 +5837,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 681,
     "title": "AI와 함께 그린 꿈의 조각",
-    "description": "AI와 함께 그린 꿈의 조각 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "AI활용",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672409286",
@@ -5846,7 +5846,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 682,
     "title": "해를 담은 아이",
-    "description": "해를 담은 아이 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672410056",
@@ -5855,7 +5855,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 683,
     "title": "운영 결과 보고서",
-    "description": "운영 결과 보고서 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672410797",
@@ -5864,7 +5864,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 684,
     "title": "운영 결과 책자(도서)",
-    "description": "운영 결과 책자(도서) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672413195",
@@ -5873,7 +5873,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 685,
     "title": "학급별 수업 공개 계획",
-    "description": "학급별 수업 공개 계획 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672418587",
@@ -6035,7 +6035,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 703,
     "title": "그림책 만들기 활동(1학년 신하민)",
-    "description": "그림책 만들기 활동(1학년 신하민) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672429738",
@@ -6044,7 +6044,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 704,
     "title": "이순신 역사 문화 체험(1학년 주서하)",
-    "description": "이순신 역사 문화 체험(1학년 주서하) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672430179",
@@ -6053,7 +6053,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 705,
     "title": "글로-CAL 작가와의 만남(1학년 남한별)",
-    "description": "글로-CAL 작가와의 만남(1학년 남한별) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672430635",
@@ -6062,7 +6062,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 706,
     "title": "이순신 장군에 대해 알아보기(2학년 강하윤)",
-    "description": "이순신 장군에 대해 알아보기(2학년 강하윤) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672432438",
@@ -6071,7 +6071,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 707,
     "title": "이순신 장군 독후 활동(2학년 양아영)",
-    "description": "이순신 장군 독후 활동(2학년 양아영) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672433195",
@@ -6080,7 +6080,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 708,
     "title": "이순신의 길 프로젝트(2학년 이라희)",
-    "description": "이순신의 길 프로젝트(2학년 이라희) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672434293",
@@ -6089,7 +6089,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 709,
     "title": "이순신의 길 프로젝트 종료(2학년 최지민, 문건우)",
-    "description": "이순신의 길 프로젝트 종료(2학년 최지민, 문건우) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672435333",
@@ -6098,7 +6098,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 710,
     "title": "이순신 프로젝트 기반 수업(3학년 김서아)",
-    "description": "이순신 프로젝트 기반 수업(3학년 김서아) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672436207",
@@ -6107,7 +6107,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 711,
     "title": "여수의 섬 알아보기(환상항해)(2학년 김라희)",
-    "description": "여수의 섬 알아보기(환상항해)(2학년 김라희) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672437134",
@@ -6116,7 +6116,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 712,
     "title": "글로-CAL 기록장 작성(2학년 박유주)",
-    "description": "글로-CAL 기록장 작성(2학년 박유주) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672437483",
@@ -6125,7 +6125,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 713,
     "title": "진짜 대장 이순신 독후 활동(3학년 남윤정)",
-    "description": "진짜 대장 이순신 독후 활동(3학년 남윤정) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672437877",
@@ -6134,7 +6134,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 714,
     "title": "이순신 장군에 관하여(3학년 정윤호)",
-    "description": "이순신 장군에 관하여(3학년 정윤호) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672438458",
@@ -6143,7 +6143,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 715,
     "title": "궁금해요, 이순신 교과 연계 활동(3학년 우효원, 정지후)",
-    "description": "궁금해요, 이순신 교과 연계 활동(3학년 우효원, 정지후) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672439405",
@@ -6152,7 +6152,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 716,
     "title": "한려 Summer 프로젝트 참여(4학년 박다윤, 이예솜, 임서령)",
-    "description": "한려 Summer 프로젝트 참여(4학년 박다윤, 이예솜, 임서령) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672439914",
@@ -6161,7 +6161,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 717,
     "title": "여수의(義) 사랑, 우리들의 이야기 2 출판",
-    "description": "여수의(義) 사랑, 우리들의 이야기 2 출판 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672440358",
@@ -6170,7 +6170,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 718,
     "title": "여수의 문화와 역사를 찾아서 책 만들기(4학년 김고은, 윤연희, 정민권)",
-    "description": "여수의 문화와 역사를 찾아서 책 만들기(4학년 김고은, 윤연희, 정민권) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672440967",
@@ -6179,7 +6179,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 719,
     "title": "여수의(義) 사랑, 우리들의 이야기 출판(5학년 윤예서)",
-    "description": "여수의(義) 사랑, 우리들의 이야기 출판(5학년 윤예서) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672441406",
@@ -6188,7 +6188,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 720,
     "title": "우리들의 눈물 상자 출판(5학년 이채민)",
-    "description": "우리들의 눈물 상자 출판(5학년 이채민) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672441738",
@@ -6197,7 +6197,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 721,
     "title": "자작자작, 우리들의 이야기 출판(5학년 문에녹)",
-    "description": "자작자작, 우리들의 이야기 출판(5학년 문에녹) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672441904",
@@ -6206,7 +6206,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 722,
     "title": "여수의 사랑 체험학습, 프로젝트 수업(5학년 권하연)",
-    "description": "여수의 사랑 체험학습, 프로젝트 수업(5학년 권하연) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672442366",
@@ -6215,7 +6215,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 723,
     "title": "연구학교 참여, 작가의 꿈(5학년 이서윤)",
-    "description": "연구학교 참여, 작가의 꿈(5학년 이서윤) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672443015",
@@ -6224,7 +6224,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 724,
     "title": "소안도 프로젝트 참여(5학년 이서린)",
-    "description": "소안도 프로젝트 참여(5학년 이서린) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672443504",
@@ -6233,7 +6233,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 725,
     "title": "평화의 여수, 여순사건 프로젝트(6학년 윤지원)",
-    "description": "평화의 여수, 여순사건 프로젝트(6학년 윤지원) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672443887",
@@ -6242,7 +6242,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 726,
     "title": "평화의 여수, 여순사건 프로젝트(6학년 정은유)",
-    "description": "평화의 여수, 여순사건 프로젝트(6학년 정은유) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672444151",
@@ -6251,7 +6251,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 727,
     "title": "여순 사건 프로젝트, AI 그림 그리기(6학년 김민설)",
-    "description": "여순 사건 프로젝트, AI 그림 그리기(6학년 김민설) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "AI활용",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672444555",
@@ -6260,7 +6260,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 728,
     "title": "여순 사건 프로젝트(6학년 이승준)",
-    "description": "여순 사건 프로젝트(6학년 이승준) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672444851",
@@ -6269,7 +6269,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 729,
     "title": "여순 사건 프로젝트(6학년 최윤건)",
-    "description": "여순 사건 프로젝트(6학년 최윤건) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672445137",
@@ -6278,7 +6278,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 730,
     "title": "학교 자율시간 성과 발표회 참관(4학년 학부모)",
-    "description": "학교 자율시간 성과 발표회 참관(4학년 학부모) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672446006",
@@ -6287,7 +6287,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 731,
     "title": "학교 자율시간 성과 발표회 참관(4학년 학부모 2)",
-    "description": "학교 자율시간 성과 발표회 참관(4학년 학부모 2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672446149",
@@ -6296,7 +6296,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 732,
     "title": "연구학교 운영 전반(5, 6학년 학부모)",
-    "description": "연구학교 운영 전반(5, 6학년 학부모) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672446473",
@@ -6305,7 +6305,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 733,
     "title": "1학년 산출물 모음",
-    "description": "1학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672449343",
@@ -6314,7 +6314,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 734,
     "title": "2학년 산출물 모음",
-    "description": "2학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672449814",
@@ -6323,7 +6323,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 735,
     "title": "3학년 산출물 모음",
-    "description": "3학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672449908",
@@ -6332,7 +6332,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 736,
     "title": "4학년 산출물 모음",
-    "description": "4학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672450131",
@@ -6341,7 +6341,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 737,
     "title": "6학년 산출물 모음",
-    "description": "6학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672450306",
@@ -6350,7 +6350,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 738,
     "title": "5학년 산출물 모음",
-    "description": "5학년 산출물 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672450509",
@@ -6359,7 +6359,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 739,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/8-m2zd1lyjjuyqy1ta"
@@ -6367,7 +6367,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 740,
     "title": "4학년 독서 연계",
-    "description": "4학년 독서 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-ll75eohbp5ya30er"
@@ -6375,7 +6375,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 741,
     "title": "4학년 사회 연계",
-    "description": "4학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-ys8qbp2pdlk71t1p"
@@ -6383,7 +6383,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 742,
     "title": "4학년 국어 연계",
-    "description": "4학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/5-k2ke38yqqq9tlprn"
@@ -6391,7 +6391,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 743,
     "title": "3학년 사회 연계",
-    "description": "3학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-722ockxuh3632zbt"
@@ -6399,7 +6399,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 744,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/9-bj4nrf3c5iqydd1m"
@@ -6407,7 +6407,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 745,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/9-9z0z112td2epr5ge"
@@ -6415,7 +6415,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 746,
     "title": "4학년 과학 연계",
-    "description": "4학년 과학 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/3-cwjr48c1nnuggkza"
@@ -6423,7 +6423,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 747,
     "title": "4학년 미술 연계",
-    "description": "4학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-6yyu009vtjcd5pvu"
@@ -6431,7 +6431,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 748,
     "title": "4학년 과학 연계",
-    "description": "4학년 과학 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/3-4kyg00l5ri95k8zu"
@@ -6439,7 +6439,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 749,
     "title": "4학년 과학 연계",
-    "description": "4학년 과학 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/3-qy3010yyck7lacmc"
@@ -6447,7 +6447,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 750,
     "title": "1학년 국어 연계",
-    "description": "1학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/1-1-2d8nr25dwc9rqm7"
@@ -6455,7 +6455,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 751,
     "title": "1학년 국어 연계",
-    "description": "1학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/2-1-1-vqlzeizsrkwxe27r"
@@ -6463,7 +6463,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 752,
     "title": "6학년 실과 연계",
-    "description": "6학년 실과 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/3-hmodcubccc4j9vs7"
@@ -6471,7 +6471,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 753,
     "title": "4학년 국어 연계",
-    "description": "4학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/6-8l4gyaglxbc04iu"
@@ -6479,7 +6479,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 754,
     "title": "4학년 사회 연계",
-    "description": "4학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-ee4xb21gf796jj7l"
@@ -6487,7 +6487,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 755,
     "title": "3학년 미술 연계",
-    "description": "3학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-jact2t55cww9sjx7"
@@ -6495,7 +6495,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 756,
     "title": "6학년 미술 연계",
-    "description": "6학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/6-4-2fd3awxwyb1mc8fw"
@@ -6503,7 +6503,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 757,
     "title": "6학년 미술 연계",
-    "description": "6학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/5-su077f7uyo4toe6j"
@@ -6511,7 +6511,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 758,
     "title": "4학년 국어 연계",
-    "description": "4학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/6-ixh4wx9mlc72264x"
@@ -6519,7 +6519,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 759,
     "title": "6학년 음악 연계",
-    "description": "6학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/6-4-un083kek6qmnet9q"
@@ -6527,7 +6527,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 760,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-8hwnair9zo5qch1"
@@ -6535,7 +6535,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 761,
     "title": "5학년 음악 연계",
-    "description": "5학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/singscape-964kl9mbc7bs4ivl"
@@ -6543,7 +6543,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 762,
     "title": "6학년 음악 연계",
-    "description": "6학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-mnw66l7oivx9ee9r"
@@ -6551,7 +6551,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 763,
     "title": "4학년 과학 연계",
-    "description": "4학년 과학 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-12w3pesxk0s5cscm"
@@ -6559,7 +6559,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 764,
     "title": "3학년 국어 연계",
-    "description": "3학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-7n6scwt6f7s7w9x6"
@@ -6567,7 +6567,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 765,
     "title": "4학년 과학 연계",
-    "description": "4학년 과학 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-sk98gohaig4sgjf0"
@@ -6575,7 +6575,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 766,
     "title": "6학년 음악 연계",
-    "description": "6학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/6-mi58zc84pp8cyza3"
@@ -6583,7 +6583,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 767,
     "title": "6학년 음악 연계",
-    "description": "6학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-bzu3edlvejxmm891"
@@ -6591,7 +6591,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 768,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-iqitr3d2s63wgxea"
@@ -6599,7 +6599,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 769,
     "title": "5학년 미술 연계",
-    "description": "5학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-pyzjsxd1osnw42eu"
@@ -6607,7 +6607,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 770,
     "title": "6학년 국어 연계",
-    "description": "6학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-j3ja9hsg5hciwo73"
@@ -6615,7 +6615,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 771,
     "title": "4학년 사회 연계",
-    "description": "4학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-ifvl5pgrh9w71o48"
@@ -6623,7 +6623,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 772,
     "title": "4학년 사회 연계",
-    "description": "4학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-8yq1sruf4cpaf50v"
@@ -6631,7 +6631,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 773,
     "title": "5학년 미술 연계",
-    "description": "5학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/padlet-hs3f9k14arwu6aov"
@@ -6639,7 +6639,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 774,
     "title": "6학년 사회 연계",
-    "description": "6학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-07",
     "link": "https://padlet.com/hallyoes/2025-6-2-zxs2m2jxtpgbdbpq"
@@ -6647,7 +6647,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 775,
     "title": "여수의 사랑 교내 글쓰기 대회 산출물(1)",
-    "description": "여수의 사랑 교내 글쓰기 대회 산출물(1) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/1-z29kggxkxagzj7qh"
@@ -6655,7 +6655,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 776,
     "title": "여수의 사랑 교내 글쓰기 대회 산출물(2)",
-    "description": "여수의 사랑 교내 글쓰기 대회 산출물(2) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/2-6xnjs2k39ua832q8"
@@ -6663,7 +6663,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 777,
     "title": "여수의 사랑 교내 글쓰기 대회 산출물(3)",
-    "description": "여수의 사랑 교내 글쓰기 대회 산출물(3) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/3-rkzsyzkyjtucy984"
@@ -6671,7 +6671,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 778,
     "title": "여수의 사랑 교내 글쓰기 대회 산출물(4)",
-    "description": "여수의 사랑 교내 글쓰기 대회 산출물(4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/4-geazm45pzqwrq25g"
@@ -6679,7 +6679,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 779,
     "title": "여수의 사랑 교내 글쓰기 대회 산출물(5)",
-    "description": "여수의 사랑 교내 글쓰기 대회 산출물(5) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/5-zb2uwpe5eymnde60"
@@ -6687,7 +6687,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 780,
     "title": "여수의 사랑 교내 글쓰기 대회 대상작",
-    "description": "여수의 사랑 교내 글쓰기 대회 대상작 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/padlet-a6aywlgxbtbkfmwx"
@@ -6695,7 +6695,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 781,
     "title": "평가 활용 에듀테크 모음",
-    "description": "평가 활용 에듀테크 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/padlet-4elkdszvtkzv0z9j"
@@ -6703,7 +6703,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 782,
     "title": "5학년 음악 연계",
-    "description": "5학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/cal-rigkw5ko2bpypvre"
@@ -6711,7 +6711,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 783,
     "title": "디지털 기반 수업 운영의 실제",
-    "description": "디지털 기반 수업 운영의 실제 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "에듀테크",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/2025-g5gei3haowl2fxrv"
@@ -6719,7 +6719,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 784,
     "title": "한려 Summer 프로젝트 공모전 우수작 모음",
-    "description": "한려 Summer 프로젝트 공모전 우수작 모음 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/summer-a50pj7qvszo7dj3c"
@@ -6727,7 +6727,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 785,
     "title": "5학년 국어 연계",
-    "description": "5학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/cal-3oyq9pefl8tr5ti5"
@@ -6735,7 +6735,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 786,
     "title": "교수·학습과정안(통합본)",
-    "description": "교수·학습과정안(통합본) 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.",
     "category": "기타",
     "date": "2025-11-08",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672510069",
@@ -6744,7 +6744,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 787,
     "title": "2학년",
-    "description": "2학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673736053",
@@ -6753,7 +6753,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 788,
     "title": "1학년",
-    "description": "1학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673736518",
@@ -6762,7 +6762,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 789,
     "title": "사제동행 독서토론글쓰기 동아리",
-    "description": "사제동행 독서토론글쓰기 동아리 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "독서인문",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673736854",
@@ -6771,7 +6771,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 790,
     "title": "6학년",
-    "description": "6학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673737552",
@@ -6780,7 +6780,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 791,
     "title": "4학년",
-    "description": "4학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673737650",
@@ -6789,7 +6789,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 792,
     "title": "5학년",
-    "description": "5학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673738246",
@@ -6798,7 +6798,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 793,
     "title": "3학년",
-    "description": "3학년 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3673738933",
@@ -6807,7 +6807,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 794,
     "title": "수업 나눔의 날 세부 일정",
-    "description": "수업 나눔의 날 세부 일정 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "에듀테크",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3674094348",
@@ -6816,7 +6816,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 795,
     "title": "학교 배치도",
-    "description": "학교 배치도 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-11-09",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3674095424",
@@ -6825,7 +6825,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 796,
     "title": "각종 자료 모음 안내",
-    "description": "각종 자료 모음 안내 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
     "category": "기타",
     "date": "2025-11-11",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3676247040",
@@ -6834,7 +6834,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 797,
     "title": "여수의(義) 사랑 교내 글쓰기 대회 홍보",
-    "description": "여수의(義) 사랑 교내 글쓰기 대회 홍보 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-13",
     "link": "https://www.canva.com/design/DAGl4urNej8/P_Q0ZcYhEWljHnHq-j-42w/edit?utm_content=DAGl4urNej8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -6842,7 +6842,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 798,
     "title": "눈물 상자 프로젝트 공개 수업 PPT",
-    "description": "눈물 상자 프로젝트 공개 수업 PPT 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-13",
     "link": "https://www.canva.com/design/DAGnPbV2Ssc/hyGRIMXUJBbwLSVGMdsBPA/edit?utm_content=DAGnPbV2Ssc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -6850,7 +6850,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 799,
     "title": "출동! 비비빅볼 작가와의 만남 홍보",
-    "description": "출동! 비비빅볼 작가와의 만남 홍보 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-13",
     "link": "https://www.canva.com/design/DAGrasFrUXg/vQrgw7eUGGK1vZxRrJMRKg/edit?utm_content=DAGrasFrUXg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -6858,7 +6858,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 800,
     "title": "선배 작가와의 만남 홍보",
-    "description": "선배 작가와의 만남 홍보 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "독서인문",
     "date": "2025-11-13",
     "link": "https://www.canva.com/design/DAGsvL7vJng/k125uxCun6DpoRv9gv0ZwQ/edit?utm_content=DAGsvL7vJng&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -6938,7 +6938,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 810,
     "title": "5학년 음악 연계",
-    "description": "5학년 음악 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/hallyoes/padlet-d7x8qfd655n15tlr"
@@ -6946,7 +6946,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 811,
     "title": "5학년 국어 연계",
-    "description": "5학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/hallyoes/5-2-t64628io4gf4a2nu"
@@ -6954,7 +6954,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 812,
     "title": "3학년 미술 연계",
-    "description": "3학년 미술 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/hallyoes/padlet-ubz0i9dfb4iab68o"
@@ -6962,7 +6962,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 813,
     "title": "6학년 사회 연계",
-    "description": "6학년 사회 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/hallyoes/padlet-52yytviipwt6p4lg"
@@ -6970,7 +6970,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 814,
     "title": "5학년 국어 연계",
-    "description": "5학년 국어 연계 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
     "category": "기타",
     "date": "2026-02-03",
     "link": "https://padlet.com/hallyoes/5-2-5-2-7-frz4d0tubv1xqpnp"
@@ -6978,7 +6978,7 @@ export const trainingData: TrainingMaterial[] = [
   {
     "id": 815,
     "title": "특허 출원",
-    "description": "특허 출원 원본 자료 다운로드 및 열람 링크입니다.",
+    "description": "지도안과 학습지가 모두 포함된 통합 수업 패키지 압축파일입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530543214",
@@ -6986,8 +6986,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 816,
-    "title": "발명영재 교육자료 (2025______________.pptx)",
-    "description": "발명영재 교육자료 (2025______________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530543380",
@@ -6995,8 +6995,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 817,
-    "title": "발명영재 교육자료 (_______.pptx)",
-    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530543789",
@@ -7004,8 +7004,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 818,
-    "title": "발명영재 교육자료 (1__________.ppt)",
-    "description": "발명영재 교육자료 (1__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530543791",
@@ -7013,8 +7013,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 819,
-    "title": "발명영재 교육자료 (3d________.pptx)",
-    "description": "발명영재 교육자료 (3d________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 창의 설계 및 3D 모델링 교안",
+    "description": "틴커캐드와 3D 모델링 기초를 익히는 3차시 수업 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544071",
@@ -7022,8 +7022,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 820,
-    "title": "발명영재 교육자료 (4__________.hwp)",
-    "description": "발명영재 교육자료 (4__________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4차시 제작 실습 활동지",
+    "description": "발명품 시제품 제작 계획 및 재료 선정을 위한 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544132",
@@ -7031,8 +7031,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 821,
-    "title": "발명영재 교육자료 (3_____________.hwp)",
-    "description": "발명영재 교육자료 (3_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 아이디어 스케치 활동지",
+    "description": "아이디어의 3차원 입체 표현 및 스케치를 위한 학습지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544134",
@@ -7040,8 +7040,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 822,
-    "title": "발명영재 교육자료 (5________B________.hwp)",
-    "description": "발명영재 교육자료 (5________B________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 5차시 심화 활동지 (B형)",
+    "description": "발명 아이디어 구체화 및 실용신안 검토를 위한 심화 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544140",
@@ -7049,8 +7049,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 823,
-    "title": "발명영재 교육자료 (2______________.hwp)",
-    "description": "발명영재 교육자료 (2______________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허 탐구 활동지",
+    "description": "학생 눈높이에 맞춘 특허 명세서 분석 및 검색 실습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544146",
@@ -7058,8 +7058,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 824,
-    "title": "발명영재 교육자료 (1__________.ppt)",
-    "description": "발명영재 교육자료 (1__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544147",
@@ -7067,8 +7067,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 825,
-    "title": "발명영재 교육자료 (2________.hwp)",
-    "description": "발명영재 교육자료 (2________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허 탐구 활동지",
+    "description": "학생 눈높이에 맞춘 특허 명세서 분석 및 검색 실습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544154",
@@ -7076,8 +7076,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 826,
-    "title": "발명영재 교육자료 (____A_.avi)",
-    "description": "발명영재 교육자료 (____A_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 수업 우수 시연 영상 (A)",
+    "description": "실제 수업 현장에서 학생들의 탐구 과정을 기록한 시연 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544199",
@@ -7085,8 +7085,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 827,
-    "title": "발명영재 교육자료 (5__________.hwp)",
-    "description": "발명영재 교육자료 (5__________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 5차시 제작 실습 활동지",
+    "description": "발명품 시제품 제작 계획 및 재료 선정을 위한 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544219",
@@ -7094,8 +7094,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 828,
-    "title": "발명영재 교육자료 (____C_.avi)",
-    "description": "발명영재 교육자료 (____C_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 수업 우수 시연 영상 (C)",
+    "description": "실제 수업 현장에서 학생들의 탐구 과정을 기록한 시연 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544257",
@@ -7103,8 +7103,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 829,
-    "title": "발명영재 교육자료 (____B_.avi)",
-    "description": "발명영재 교육자료 (____B_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 수업 우수 시연 영상 (B)",
+    "description": "실제 수업 현장에서 학생들의 탐구 과정을 기록한 시연 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544274",
@@ -7112,8 +7112,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 830,
-    "title": "발명영재 교육자료 (__10___20160328.pptx)",
-    "description": "발명영재 교육자료 (__10___20160328.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 10차시 최종 산출물 발표 슬라이드",
+    "description": "10차시 프로젝트 산출물 발표 및 상호 피드백을 위한 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544309",
@@ -7121,8 +7121,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 831,
-    "title": "발명영재 교육자료 (______________20161005_.pptx)",
-    "description": "발명영재 교육자료 (______________20161005_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 10차시 최종 산출물 발표 슬라이드",
+    "description": "10차시 프로젝트 산출물 발표 및 상호 피드백을 위한 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544327",
@@ -7130,8 +7130,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 832,
-    "title": "발명영재 교육자료 (________2.avi)",
-    "description": "발명영재 교육자료 (________2.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 아이디어 사례 연구 영상 (2편)",
+    "description": "일상 속 불편함을 해결한 학생 창의 발명 성공 사례 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544393",
@@ -7139,8 +7139,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 833,
-    "title": "발명영재 교육자료 (________7.avi)",
-    "description": "발명영재 교육자료 (________7.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 아이디어 사례 연구 영상 (7편)",
+    "description": "일상 속 불편함을 해결한 학생 창의 발명 성공 사례 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544402",
@@ -7148,8 +7148,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 834,
-    "title": "발명영재 교육자료 (________1.avi)",
-    "description": "발명영재 교육자료 (________1.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명 아이디어 사례 연구 영상 (1편)",
+    "description": "일상 속 불편함을 해결한 학생 창의 발명 성공 사례 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544557",
@@ -7157,8 +7157,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 835,
-    "title": "발명영재 교육자료 (________________.hwp)",
-    "description": "발명영재 교육자료 (________________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 탐구 활동지 및 서식",
+    "description": "학생들이 발명 아이디어를 구체화하고 도면을 그리는 HWP 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544844",
@@ -7166,8 +7166,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 836,
-    "title": "발명영재 교육자료 (_________ppt.pptx)",
-    "description": "발명영재 교육자료 (_________ppt.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544845",
@@ -7175,8 +7175,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 837,
-    "title": "발명영재 교육자료 (_______.mp4)",
-    "description": "발명영재 교육자료 (_______.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544846",
@@ -7184,8 +7184,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 838,
-    "title": "발명영재 교육자료 (_______.mp4)",
-    "description": "발명영재 교육자료 (_______.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544847",
@@ -7193,24 +7193,24 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 839,
-    "title": "발명영재 교육자료 (ppt19B5.tmp)",
-    "description": "발명영재 교육자료 (ppt19B5.tmp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544851"
   },
   {
     "id": 840,
-    "title": "발명영재 교육자료 (___________.txt)",
-    "description": "발명영재 교육자료 (___________.txt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 교육자료",
+    "description": "초·중등 발명영재 학생들을 위한 창의융합 발명 지도자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544853"
   },
   {
     "id": 841,
-    "title": "발명영재 교육자료 (____________.hwp)",
-    "description": "발명영재 교육자료 (____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 탐구 활동지 및 서식",
+    "description": "학생들이 발명 아이디어를 구체화하고 도면을 그리는 HWP 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544854",
@@ -7218,8 +7218,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 842,
-    "title": "발명영재 교육자료 (____________________________________________________________mp4_20210326_125432.mkv)",
-    "description": "발명영재 교육자료 (____________________________________________________________mp4_20210326_125432.mkv) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544949",
@@ -7227,8 +7227,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 843,
-    "title": "발명영재 교육자료 (____________________________.mp4)",
-    "description": "발명영재 교육자료 (____________________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545103",
@@ -7236,8 +7236,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 844,
-    "title": "발명영재 교육자료 (240511___.ent)",
-    "description": "발명영재 교육자료 (240511___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 5차시 수업 통합 패키지 (ZIP)",
+    "description": "5차시 발명 설계 및 제작 실습을 위한 통합 수업 압축 파일입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545839",
@@ -7245,8 +7245,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 845,
-    "title": "발명영재 교육자료 (230909___.ent)",
-    "description": "발명영재 교육자료 (230909___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (230909)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545878",
@@ -7254,8 +7254,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 846,
-    "title": "발명영재 교육자료 (IP___2025_3_17____.png)",
-    "description": "발명영재 교육자료 (IP___2025_3_17____.png) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산(IP) 특허 출원 가이드",
+    "description": "학생 발명전시회 출품 및 지식재산권 확보 절차 안내 자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545885",
@@ -7263,8 +7263,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 847,
-    "title": "발명영재 교육자료 (6____.ent)",
-    "description": "발명영재 교육자료 (6____.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (6)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545898",
@@ -7272,8 +7272,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 848,
-    "title": "발명영재 교육자료 (_______________23_11_29__.pptx)",
-    "description": "발명영재 교육자료 (_______________23_11_29__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 11차시 프로젝트 종합 정리 슬라이드",
+    "description": "11차시 발명 활동 성과 공유 및 포트폴리오 정리를 위한 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545976",
@@ -7281,8 +7281,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 849,
-    "title": "발명영재 교육자료 (24_______________PPT____2.pptx)",
-    "description": "발명영재 교육자료 (24_______________PPT____2.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530545982",
@@ -7290,8 +7290,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 850,
-    "title": "발명영재 교육자료 (24_4________________.ent)",
-    "description": "발명영재 교육자료 (24_4________________.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (24_4)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546062",
@@ -7299,8 +7299,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 851,
-    "title": "발명영재 교육자료 (___________.ent)",
-    "description": "발명영재 교육자료 (___________.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (실습)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546094",
@@ -7308,8 +7308,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 852,
-    "title": "발명영재 교육자료 (_____________1_.ent)",
-    "description": "발명영재 교육자료 (_____________1_.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (1_)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546100",
@@ -7317,8 +7317,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 853,
-    "title": "발명영재 교육자료 (_________.pptx)",
-    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546107",
@@ -7326,8 +7326,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 854,
-    "title": "발명영재 교육자료 (PPT_______________________.ppt)",
-    "description": "발명영재 교육자료 (PPT_______________________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546134",
@@ -7335,8 +7335,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 855,
-    "title": "발명영재 교육자료 (_____ppt_____________________.pptx)",
-    "description": "발명영재 교육자료 (_____ppt_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 아이디어 구체화 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546242",
@@ -7344,8 +7344,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 856,
-    "title": "발명영재 교육자료 (_____________________.pptx)",
-    "description": "발명영재 교육자료 (_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546288",
@@ -7353,8 +7353,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 857,
-    "title": "발명영재 교육자료 (230916___.ent)",
-    "description": "발명영재 교육자료 (230916___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 엔트리(Entry) 코딩 프로젝트 (230916)",
+    "description": "피지컬 컴퓨팅 및 센서 연동 발명품 구현을 위한 엔트리 코딩 예제입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546402",
@@ -7362,8 +7362,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 858,
-    "title": "발명영재 교육자료 (24_______________PPT____1.pptx)",
-    "description": "발명영재 교육자료 (24_______________PPT____1.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546499",
@@ -7371,8 +7371,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 859,
-    "title": "발명영재 교육자료 (______________PPT____11.pptx)",
-    "description": "발명영재 교육자료 (______________PPT____11.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 11차시 프로젝트 종합 정리 슬라이드",
+    "description": "11차시 발명 활동 성과 공유 및 포트폴리오 정리를 위한 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546586",
@@ -7380,8 +7380,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 860,
-    "title": "발명영재 교육자료 (______________PPT____7.pptx)",
-    "description": "발명영재 교육자료 (______________PPT____7.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 7차시 발명품 개선 및 최적화 슬라이드",
+    "description": "시제품 테스트 결과를 바탕으로 문제점을 개선하는 7차시 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546588",
@@ -7389,8 +7389,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 861,
-    "title": "발명영재 교육자료 (_______.pptx)",
-    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546614",
@@ -7398,8 +7398,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 862,
-    "title": "발명영재 교육자료 (_____.pptx)",
-    "description": "발명영재 교육자료 (_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530546679",
@@ -7407,8 +7407,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 863,
-    "title": "발명영재 교육자료 (________.pptx)",
-    "description": "발명영재 교육자료 (________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547687",
@@ -7416,8 +7416,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 864,
-    "title": "발명영재 교육자료 (lot_________________2023_02_03__1_.pdf)",
-    "description": "발명영재 교육자료 (lot_________________2023_02_03__1_.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 지도자료 및 안내서",
+    "description": "발명교육센터 및 학교 교실에서 활용하는 PDF 교사용 가이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547754",
@@ -7425,8 +7425,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 865,
-    "title": "발명영재 교육자료 (4__1_____________.hwp)",
-    "description": "발명영재 교육자료 (4__1_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-1차시 탐구 활동지",
+    "description": "발명 문제 해결과 아이디어 확장을 위한 4-1차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547966",
@@ -7434,8 +7434,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 866,
-    "title": "발명영재 교육자료 (1________.pptx)",
-    "description": "발명영재 교육자료 (1________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547967",
@@ -7443,8 +7443,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 867,
-    "title": "발명영재 교육자료 (2____________.pptx)",
-    "description": "발명영재 교육자료 (2____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547969",
@@ -7452,8 +7452,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 868,
-    "title": "발명영재 교육자료 (3________________.pptx)",
-    "description": "발명영재 교육자료 (3________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 창의 설계 및 3D 모델링 교안",
+    "description": "틴커캐드와 3D 모델링 기초를 익히는 3차시 수업 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547973",
@@ -7461,8 +7461,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 869,
-    "title": "발명영재 교육자료 (4__2_________.hwp)",
-    "description": "발명영재 교육자료 (4__2_________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547975",
@@ -7470,8 +7470,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 870,
-    "title": "발명영재 교육자료 (______.jpg)",
-    "description": "발명영재 교육자료 (______.jpg) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 교육자료",
+    "description": "초·중등 발명영재 학생들을 위한 창의융합 발명 지도자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547977",
@@ -7479,8 +7479,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 871,
-    "title": "발명영재 교육자료 (__.png)",
-    "description": "발명영재 교육자료 (__.png) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 교육자료",
+    "description": "초·중등 발명영재 학생들을 위한 창의융합 발명 지도자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547978",
@@ -7488,8 +7488,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 872,
-    "title": "발명영재 교육자료 (t___________.jpeg)",
-    "description": "발명영재 교육자료 (t___________.jpeg) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 교육자료",
+    "description": "초·중등 발명영재 학생들을 위한 창의융합 발명 지도자료입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547979",
@@ -7497,8 +7497,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 873,
-    "title": "발명영재 교육자료 (T_____________.pptx)",
-    "description": "발명영재 교육자료 (T_____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547980",
@@ -7506,8 +7506,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 874,
-    "title": "발명영재 교육자료 (T_____.pptx)",
-    "description": "발명영재 교육자료 (T_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547982",
@@ -7515,8 +7515,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 875,
-    "title": "발명영재 교육자료 (3d__________________________T_____________.pptx)",
-    "description": "발명영재 교육자료 (3d__________________________T_____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 창의 설계 및 3D 모델링 교안",
+    "description": "틴커캐드와 3D 모델링 기초를 익히는 3차시 수업 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530548062",
@@ -7524,8 +7524,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 876,
-    "title": "발명영재 교육자료 (_______.pptx)",
-    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530548195",
@@ -7533,8 +7533,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 877,
-    "title": "발명영재 교육자료 (24_________.pptx)",
-    "description": "발명영재 교육자료 (24_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530548815",
@@ -7542,8 +7542,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 878,
-    "title": "발명영재 교육자료 (____________________4_____23_9_23____1_.pptx)",
-    "description": "발명영재 교육자료 (____________________4_____23_9_23____1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549233",
@@ -7551,8 +7551,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 879,
-    "title": "발명영재 교육자료 (____________________4_____23_9_23__.pptx)",
-    "description": "발명영재 교육자료 (____________________4_____23_9_23__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549333",
@@ -7560,8 +7560,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 880,
-    "title": "발명영재 교육자료 (_________.pptm)",
-    "description": "발명영재 교육자료 (_________.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 아이디어 구체화 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549396",
@@ -7569,8 +7569,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 881,
-    "title": "발명영재 교육자료 (___________1_.pptm)",
-    "description": "발명영재 교육자료 (___________1_.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549426",
@@ -7578,8 +7578,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 882,
-    "title": "발명영재 교육자료 (_________.pptx)",
-    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549543",
@@ -7587,8 +7587,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 883,
-    "title": "발명영재 교육자료 (_______________2_____________________.mp4)",
-    "description": "발명영재 교육자료 (_______________2_____________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549570",
@@ -7596,8 +7596,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 884,
-    "title": "발명영재 교육자료 (____.pptm)",
-    "description": "발명영재 교육자료 (____.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549777",
@@ -7605,8 +7605,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 885,
-    "title": "발명영재 교육자료 (_______________1__________________.mp4)",
-    "description": "발명영재 교육자료 (_______________1__________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530549955",
@@ -7614,8 +7614,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 886,
-    "title": "발명영재 교육자료 (_________.ppt)",
-    "description": "발명영재 교육자료 (_________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530550060",
@@ -7623,8 +7623,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 887,
-    "title": "발명영재 교육자료 (____1_2______.pptx)",
-    "description": "발명영재 교육자료 (____1_2______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530550490",
@@ -7632,8 +7632,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 888,
-    "title": "발명영재 교육자료 (_________.pptx)",
-    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530550776",
@@ -7641,8 +7641,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 889,
-    "title": "발명영재 교육자료 (24__________3___________24_4_27____1_.pptx)",
-    "description": "발명영재 교육자료 (24__________3___________24_4_27____1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530550966",
@@ -7650,8 +7650,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 890,
-    "title": "발명영재 교육자료 (24__________3___________24_4_27__.pptx)",
-    "description": "발명영재 교육자료 (24__________3___________24_4_27__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551000",
@@ -7659,8 +7659,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 891,
-    "title": "발명영재 교육자료 (____1_2__.pptx)",
-    "description": "발명영재 교육자료 (____1_2__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551204",
@@ -7668,8 +7668,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 892,
-    "title": "발명영재 교육자료 (____1_2__.pptm)",
-    "description": "발명영재 교육자료 (____1_2__.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551235",
@@ -7677,8 +7677,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 893,
-    "title": "발명영재 교육자료 (06__________.ppt)",
-    "description": "발명영재 교육자료 (06__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 6차시 메이커 제작 실습 슬라이드",
+    "description": "아이디어를 실물로 제작하는 6차시 메이커 프로젝트 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551274",
@@ -7686,8 +7686,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 894,
-    "title": "발명영재 교육자료 (____1_2__150713.pptm)",
-    "description": "발명영재 교육자료 (____1_2__150713.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 7차시 발명품 개선 및 최적화 슬라이드",
+    "description": "시제품 테스트 결과를 바탕으로 문제점을 개선하는 7차시 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551299",
@@ -7695,8 +7695,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 895,
-    "title": "발명영재 교육자료 (1_______1.ppt)",
-    "description": "발명영재 교육자료 (1_______1.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551486",
@@ -7704,8 +7704,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 896,
-    "title": "발명영재 교육자료 (_____7__.pptx)",
-    "description": "발명영재 교육자료 (_____7__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 7차시 발명품 개선 및 최적화 슬라이드",
+    "description": "시제품 테스트 결과를 바탕으로 문제점을 개선하는 7차시 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551853",
@@ -7713,8 +7713,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 897,
-    "title": "발명영재 교육자료 (24_________.pptx)",
-    "description": "발명영재 교육자료 (24_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551881",
@@ -7722,8 +7722,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 898,
-    "title": "발명영재 교육자료 (____________________5_____23_10_14__1012__1_.pptx)",
-    "description": "발명영재 교육자료 (____________________5_____23_10_14__1012__1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-1차시 탐구 활동지",
+    "description": "발명 문제 해결과 아이디어 확장을 위한 4-1차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551958",
@@ -7731,8 +7731,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 899,
-    "title": "발명영재 교육자료 (5____________.zip)",
-    "description": "발명영재 교육자료 (5____________.zip) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 5차시 수업 통합 패키지 (ZIP)",
+    "description": "5차시 발명 설계 및 제작 실습을 위한 통합 수업 압축 파일입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530551983",
@@ -7740,8 +7740,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 900,
-    "title": "발명영재 교육자료 (2_______.pptx)",
-    "description": "발명영재 교육자료 (2_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552007",
@@ -7749,8 +7749,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 901,
-    "title": "발명영재 교육자료 (____________________5_____23_10_14__1012.pptx)",
-    "description": "발명영재 교육자료 (____________________5_____23_10_14__1012.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-1차시 탐구 활동지",
+    "description": "발명 문제 해결과 아이디어 확장을 위한 4-1차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552110",
@@ -7758,8 +7758,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 902,
-    "title": "발명영재 교육자료 (__________6___23_10_21__.pptx)",
-    "description": "발명영재 교육자료 (__________6___23_10_21__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 10차시 최종 산출물 발표 슬라이드",
+    "description": "10차시 프로젝트 산출물 발표 및 상호 피드백을 위한 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552280",
@@ -7767,8 +7767,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 903,
-    "title": "발명영재 교육자료 (____.pptx)",
-    "description": "발명영재 교육자료 (____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552383",
@@ -7776,8 +7776,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 904,
-    "title": "발명영재 교육자료 (___________.pptx)",
-    "description": "발명영재 교육자료 (___________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552505",
@@ -7785,8 +7785,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 905,
-    "title": "발명영재 교육자료 (24_4_____________4________24_5_11__.pptx)",
-    "description": "발명영재 교육자료 (24_4_____________4________24_5_11__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530552550",
@@ -7794,8 +7794,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 906,
-    "title": "발명영재 교육자료 (____PPT_2023_9_27_.pptx)",
-    "description": "발명영재 교육자료 (____PPT_2023_9_27_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 7차시 발명품 개선 및 최적화 슬라이드",
+    "description": "시제품 테스트 결과를 바탕으로 문제점을 개선하는 7차시 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530553000",
@@ -7803,8 +7803,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 907,
-    "title": "발명영재 교육자료 (______.pptx)",
-    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530553269",
@@ -7812,8 +7812,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 908,
-    "title": "발명영재 교육자료 (3d_pen_________.pptx)",
-    "description": "발명영재 교육자료 (3d_pen_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 창의 설계 및 3D 모델링 교안",
+    "description": "틴커캐드와 3D 모델링 기초를 익히는 3차시 수업 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530553939",
@@ -7821,8 +7821,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 909,
-    "title": "발명영재 교육자료 (_______.pptx)",
-    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530554054",
@@ -7830,8 +7830,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 910,
-    "title": "발명영재 교육자료 (___________________10kg_____YouTube.mp4)",
-    "description": "발명영재 교육자료 (___________________10kg_____YouTube.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 10차시 최종 산출물 발표 슬라이드",
+    "description": "10차시 프로젝트 산출물 발표 및 상호 피드백을 위한 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530554823",
@@ -7839,8 +7839,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 911,
-    "title": "발명영재 교육자료 (_____.pptx)",
-    "description": "발명영재 교육자료 (_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530554940",
@@ -7848,8 +7848,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 912,
-    "title": "발명영재 교육자료 (_______________3_____________________.mp4)",
-    "description": "발명영재 교육자료 (_______________3_____________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의융합 수업 시연 영상",
+    "description": "발명품 제작 과정과 원리를 쉽게 설명하는 교실 교육용 영상입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530555078",
@@ -7857,8 +7857,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 913,
-    "title": "발명영재 교육자료 (______2021___________________________.pdf)",
-    "description": "발명영재 교육자료 (______2021___________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2021 발명영재 산출물 지도 보고서 서식",
+    "description": "영재학급 산출물 발표회 준비를 위한 학생 보고서 및 심사 양식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664229",
@@ -7866,8 +7866,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 914,
-    "title": "발명영재 교육자료 (______2021__________________________.pdf)",
-    "description": "발명영재 교육자료 (______2021__________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2021 발명영재 산출물 지도 보고서 서식",
+    "description": "영재학급 산출물 발표회 준비를 위한 학생 보고서 및 심사 양식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664230",
@@ -7875,8 +7875,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 915,
-    "title": "발명영재 교육자료 (______2021__________________________.pdf)",
-    "description": "발명영재 교육자료 (______2021__________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2021 발명영재 산출물 지도 보고서 서식",
+    "description": "영재학급 산출물 발표회 준비를 위한 학생 보고서 및 심사 양식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664231",
@@ -7884,8 +7884,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 916,
-    "title": "발명영재 교육자료 (______2021__________________________________.pdf)",
-    "description": "발명영재 교육자료 (______2021__________________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2021 발명영재 산출물 지도 보고서 서식",
+    "description": "영재학급 산출물 발표회 준비를 위한 학생 보고서 및 심사 양식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664232",
@@ -7893,8 +7893,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 917,
-    "title": "발명영재 교육자료 (______2021________________________.pdf)",
-    "description": "발명영재 교육자료 (______2021________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2021 발명영재 산출물 지도 보고서 서식",
+    "description": "영재학급 산출물 발표회 준비를 위한 학생 보고서 및 심사 양식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664236",
@@ -7902,8 +7902,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 918,
-    "title": "발명영재 교육자료 (___.pptx)",
-    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664240",
@@ -7911,8 +7911,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 919,
-    "title": "발명영재 교육자료 (___.pptx)",
-    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664241",
@@ -7920,8 +7920,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 920,
-    "title": "발명영재 교육자료 (______.pptx)",
-    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 아이디어 구체화 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664242",
@@ -7929,8 +7929,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 921,
-    "title": "발명영재 교육자료 (___.pptx)",
-    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664243",
@@ -7938,8 +7938,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 922,
-    "title": "발명영재 교육자료 (___.pptx)",
-    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664244",
@@ -7947,8 +7947,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 923,
-    "title": "발명영재 교육자료 (___2024_______________________.pptx)",
-    "description": "발명영재 교육자료 (___2024_______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664249",
@@ -7956,8 +7956,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 924,
-    "title": "발명영재 교육자료 (___2024__________________.pptx)",
-    "description": "발명영재 교육자료 (___2024__________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664250",
@@ -7965,8 +7965,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 925,
-    "title": "발명영재 교육자료 (___2024__________________.pptx)",
-    "description": "발명영재 교육자료 (___2024__________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664253",
@@ -7974,8 +7974,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 926,
-    "title": "발명영재 교육자료 (___2024______________________.pptx)",
-    "description": "발명영재 교육자료 (___2024______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664257",
@@ -7983,8 +7983,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 927,
-    "title": "발명영재 교육자료 (___2024_____________________.pptx)",
-    "description": "발명영재 교육자료 (___2024_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664258",
@@ -7992,8 +7992,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 928,
-    "title": "발명영재 교육자료 (3D____.pptx)",
-    "description": "발명영재 교육자료 (3D____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 3차시 창의 설계 및 3D 모델링 교안",
+    "description": "틴커캐드와 3D 모델링 기초를 익히는 3차시 수업 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664259",
@@ -8001,8 +8001,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 929,
-    "title": "발명영재 교육자료 (______.pptx)",
-    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664260",
@@ -8010,8 +8010,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 930,
-    "title": "발명영재 교육자료 (___________________.pptx)",
-    "description": "발명영재 교육자료 (___________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 아이디어 구체화 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664261",
@@ -8019,8 +8019,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 931,
-    "title": "발명영재 교육자료 (_______________________.pptx)",
-    "description": "발명영재 교육자료 (_______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664263",
@@ -8028,8 +8028,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 932,
-    "title": "발명영재 교육자료 (____.pptx)",
-    "description": "발명영재 교육자료 (____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664264",
@@ -8037,8 +8037,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 933,
-    "title": "발명영재 교육자료 (___________________________.pptx)",
-    "description": "발명영재 교육자료 (___________________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 지식재산권(특허) 출원 가이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664266",
@@ -8046,8 +8046,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 934,
-    "title": "발명영재 교육자료 (____AI__POD____________.pptx)",
-    "description": "발명영재 교육자료 (____AI__POD____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 AI POD 활용 창의융합 슬라이드",
+    "description": "인공지능과 발명 아이디어를 융합한 AI POD 활용 교실 수업자료입니다.",
     "category": "AI활용",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664269",
@@ -8055,8 +8055,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 935,
-    "title": "발명영재 교육자료 (________________________.pptx)",
-    "description": "발명영재 교육자료 (________________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 아이디어 구체화 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664273",
@@ -8064,8 +8064,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 936,
-    "title": "발명영재 교육자료 (______________________.pptx)",
-    "description": "발명영재 교육자료 (______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 발명 기법 10가지 강의 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664274",
@@ -8073,8 +8073,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 937,
-    "title": "발명영재 교육자료 (________________.pptx)",
-    "description": "발명영재 교육자료 (________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의 설계 및 메이커 교안",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664276",
@@ -8082,8 +8082,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 938,
-    "title": "발명영재 교육자료 (1________.pptx)",
-    "description": "발명영재 교육자료 (1________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 1차시 오리엔테이션 & 발명발상 슬라이드",
+    "description": "발명의 첫걸음과 아이디어 발상법을 안내하는 1차시 프레젠테이션 교안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664277",
@@ -8091,8 +8091,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 939,
-    "title": "발명영재 교육자료 (2____________.pptx)",
-    "description": "발명영재 교육자료 (2____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 2차시 특허와 아이디어 검색 슬라이드",
+    "description": "선행 기술 조사 및 키프리스(KIPRIS) 특허 검색 실습 슬라이드입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664278",
@@ -8100,8 +8100,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 940,
-    "title": "발명영재 교육자료 (4__1_____________.hwp)",
-    "description": "발명영재 교육자료 (4__1_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-1차시 탐구 활동지",
+    "description": "발명 문제 해결과 아이디어 확장을 위한 4-1차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664279",
@@ -8109,8 +8109,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 941,
-    "title": "발명영재 교육자료 (4__1_____________.pdf)",
-    "description": "발명영재 교육자료 (4__1_____________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-1차시 지도 가이드북",
+    "description": "발명 문제 해결과 아이디어 확장을 위한 4-1차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664280",
@@ -8118,8 +8118,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 942,
-    "title": "발명영재 교육자료 (4__2_________.hwp)",
-    "description": "발명영재 교육자료 (4__2_________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 4-2차시 탐구 활동지",
+    "description": "아이디어 구체화 및 도면 설계를 위한 4-2차시 학습 활동지입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664283",
@@ -8127,8 +8127,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 943,
-    "title": "발명영재 교육자료 (2025_______Summer______.hwp)",
-    "description": "발명영재 교육자료 (2025_______Summer______.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "2025 발명영재 Summer 프로젝트 지도계획서",
+    "description": "여름방학 발명영재 집중캠프 프로젝트 운영 계획 및 차시별 지도 서식입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664284",
@@ -8136,8 +8136,8 @@ export const trainingData: TrainingMaterial[] = [
   },
   {
     "id": 944,
-    "title": "발명영재 교육자료 (______.pptx)",
-    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "title": "발명영재 창의발명 탐구 수업 슬라이드",
+    "description": "교실 수업과 발명캠프에서 바로 활용하는 프레젠테이션 강의안입니다.",
     "category": "에듀테크",
     "date": "2025-07-29",
     "link": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664287",

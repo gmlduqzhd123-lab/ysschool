@@ -76,6 +76,58 @@ function readJsonArray<T>(key: string): T[] {
   }
 }
 
+function cleanHtmlText(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .trim();
+}
+
+function formatDisplayTitle(rawTitle: string): string {
+  if (!rawTitle) return '';
+  let t = cleanHtmlText(rawTitle);
+  // 언더바 다중 치환
+  t = t.replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
+  // 괄호 안에 언더바나 공백만 남은 것 제거
+  t = t.replace(/\(\s*\)/g, '').trim();
+  // 제목 끝의 확장자 제거
+  t = t.replace(/\.(pptx|ppt|hwp|pdf|docx|doc|xlsx|xls|zip|mp4|avi|png|jpg|jpeg|mkv|ent)$/i, '');
+  return t.trim();
+}
+
+function formatDisplayDesc(rawDesc: string, title: string, fileType?: string): string {
+  const d = cleanHtmlText(rawDesc);
+  if (!d || d.includes('원본 자료 다운로드 및 열람 링크입니다') || d.trim() === title.trim()) {
+    const ft = (fileType || '').toLowerCase();
+    if (title.includes('출판') || title.includes('이야기') || title.includes('모둠') || /<[^>]+>/.test(title)) {
+      return '학생들의 진솔한 삶과 상상력이 담긴 자작자작 출판 도서 원고입니다.';
+    }
+    if (ft === 'hwp') {
+      return '수업과 학생 지도에 바로 활용할 수 있는 한글(HWP) 활동지 원본 서식입니다.';
+    }
+    if (ft === 'pptx' || ft === 'ppt') {
+      return '교실 수업 및 연수에서 상영할 수 있는 프레젠테이션 교안 슬라이드입니다.';
+    }
+    if (ft === 'pdf') {
+      return '출력 배부 및 태블릿 열람에 최적화된 PDF 가이드 문서입니다.';
+    }
+    if (ft === 'video') {
+      return '생생한 교실 수업 현장과 활동 시연을 담은 교육용 영상입니다.';
+    }
+    if (ft === 'zip') {
+      return '지도안과 학습지가 모두 포함된 통합 수업 패키지 파일입니다.';
+    }
+    return '교육 현장에서 검증된 수업 및 연구 참고 자료입니다.';
+  }
+  return d;
+}
+
 // Follows ?category= on every client navigation (e.g. header dropdown links while already on /training).
 function CategoryFromUrl({ onChange }: { onChange: (category: string) => void }) {
   const searchParams = useSearchParams();
@@ -159,18 +211,6 @@ export default function TrainingPage() {
   const [thumbnail, setThumbnail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  function cleanHtmlText(str: string): string {
-    if (!str) return '';
-    return str
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/&apos;/g, "'")
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&amp;/g, '&')
-      .replace(/&nbsp;/g, ' ')
-      .trim();
-  }
 
   const readLocalMaterials = useCallback((): DisplayMaterial[] => {
     const stored = typeof window !== 'undefined' ? localStorage.getItem('ysschool_training_materials') : null;
@@ -179,8 +219,8 @@ export default function TrainingPage() {
       .filter((item) => !deletedIds.includes(item.id))
       .map((item) => ({
         ...item,
-        title: cleanHtmlText(item.title),
-        description: cleanHtmlText(item.description),
+        title: formatDisplayTitle(item.title),
+        description: formatDisplayDesc(item.description, item.title, item.fileType),
         source: 'default' as const,
       }));
 
@@ -204,8 +244,8 @@ export default function TrainingPage() {
           }
           return {
             ...item,
-            title: cleanHtmlText(item.title),
-            description: cleanHtmlText(item.description),
+            title: formatDisplayTitle(item.title),
+            description: formatDisplayDesc(item.description, item.title, item.fileType),
             link: safeLink,
             fileUrl: safeFile,
             thumbnail: safeThumb,
@@ -1224,16 +1264,16 @@ export default function TrainingPage() {
                                   className="font-extrabold text-slate-900 dark:text-white leading-snug hover:text-brand-sky dark:hover:text-brand-sky transition-colors line-clamp-1 block cursor-pointer"
                                   title="자료 열기"
                                 >
-                                  {cleanHtmlText(item.title)}
+                                  {formatDisplayTitle(item.title)}
                                 </a>
                               ) : (
                                 <div className="font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand-sky transition-colors line-clamp-1">
-                                  {cleanHtmlText(item.title)}
+                                  {formatDisplayTitle(item.title)}
                                 </div>
                               )}
                               {item.description && (
                                 <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
-                                  {cleanHtmlText(item.description)}
+                                  {formatDisplayDesc(item.description, item.title, item.fileType)}
                                 </div>
                               )}
                             </td>
@@ -1380,10 +1420,10 @@ export default function TrainingPage() {
 
                           {/* Title & Description */}
                           <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">
-                            {cleanHtmlText(item.title)}
+                            {formatDisplayTitle(item.title)}
                           </h3>
                           <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                            {cleanHtmlText(item.description)}
+                            {formatDisplayDesc(item.description, item.title, item.fileType)}
                           </p>
                         </div>
                       </div>
@@ -1708,7 +1748,7 @@ export default function TrainingPage() {
                 return (
                   <div className="mb-4 p-3.5 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40">
                     <p className="text-xs font-bold text-rose-900 dark:text-rose-200 line-clamp-1 mb-1">
-                      {target?.title ? cleanHtmlText(target.title) : '선택한 자료'}
+                      {target?.title ? formatDisplayTitle(target.title) : '선택한 자료'}
                     </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                       {target?.source === 'shared'
