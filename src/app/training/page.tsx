@@ -440,11 +440,39 @@ export default function TrainingPage() {
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            {/* Workshop Card 1: 2026 AI Lesson Design */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Workshop Card 1: 2026 School Curriculum (NEW) */}
+            <Link
+              href="/training/school-curriculum-2026"
+              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-sky-950 to-blue-950 p-6 sm:p-7 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-sky-800/50 flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                    2026 교육과정
+                  </span>
+                  <span className="text-[11px] font-semibold text-sky-200">
+                    40종 실무 서식
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-black leading-snug group-hover:text-sky-300 transition-colors">
+                  2026. 학교교육과정 설계의 모든 것
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-sky-100/90 leading-relaxed line-clamp-2">
+                  학교 비전 수립부터 교원·학부모·학생 설문지(구글폼/HWP), 시수 편제표 엑셀 계산기, 새학년 집중준비기간 운영 서식.
+                </p>
+              </div>
+              <div className="relative mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-bold text-sky-300">
+                <span>전용 연수 페이지 열기</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Workshop Card 2: 2026 AI Lesson Design */}
             <Link
               href="/training/ai-lesson-design-2026"
-              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 p-6 sm:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-indigo-800/50 flex flex-col justify-between"
+              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 p-6 sm:p-7 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-indigo-800/50 flex flex-col justify-between"
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
               <div className="relative">
@@ -456,8 +484,8 @@ export default function TrainingPage() {
                     49개 실습 자료
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black leading-snug group-hover:text-emerald-300 transition-colors">
-                  2026. AI 활용 수업 설계 역량강화 직무연수
+                <h3 className="text-lg sm:text-xl font-black leading-snug group-hover:text-emerald-300 transition-colors">
+                  2026. AI 활용 수업 설계 역량강화
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-indigo-100/90 leading-relaxed line-clamp-2">
                   수업에 바로 쓰는 디지털 도구 레시피! Padlet TA, Canva 강의 원고, 8종 아케이드 배움게임, 국어·미술·음악 교실 수업사례 모음.
@@ -469,29 +497,29 @@ export default function TrainingPage() {
               </div>
             </Link>
 
-            {/* Workshop Card 2: 2026 Student Growth */}
+            {/* Workshop Card 3: 2026 Student Growth */}
             <Link
               href="/training/student-growth-2026"
-              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-teal-950 to-emerald-950 p-6 sm:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-800/50 flex flex-col justify-between"
+              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-teal-950 to-emerald-950 p-6 sm:p-7 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-800/50 flex flex-col justify-between"
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
               <div className="relative">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30">
                     2026. 8. 5. 연수
                   </span>
                   <span className="text-[11px] font-semibold text-teal-200">
                     94개 연수 자료
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black leading-snug group-hover:text-sky-300 transition-colors">
+                <h3 className="text-lg sm:text-xl font-black leading-snug group-hover:text-teal-300 transition-colors">
                   2026. 학생 성장을 위한 수업-평가-기록
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-teal-100/90 leading-relaxed line-clamp-2">
                   개념기반 탐구학습과 PBL, AI 활용 국어·독서 수업, 자작자작 글쓰기 & 학생 작가 출판 프로젝트 자료 모음집.
                 </p>
               </div>
-              <div className="relative mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-bold text-sky-300">
+              <div className="relative mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-bold text-teal-300">
                 <span>전용 연수 페이지 열기</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
