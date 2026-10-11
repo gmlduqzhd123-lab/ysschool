@@ -9,6 +9,7 @@ import {
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { teachingMaterialsData } from '@/data/teachingMaterialsData';
+import { formatDisplayTitle, formatDisplayDesc } from '@/lib/formatResourceText';
 
 const categories = ['전체', '국어·독서', '인문·토론', '에듀테크·AI', '예체능·통합', '학급·프로젝트'] as const;
 
@@ -18,10 +19,15 @@ export default function TeachingMaterialsPage() {
 
   const filtered = teachingMaterialsData.filter((item) => {
     const matchCat = selectedCategory === '전체' || item.subject === selectedCategory;
-    const q = searchQuery.toLowerCase();
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return matchCat;
+    const displayTitle = formatDisplayTitle(item.title).toLowerCase();
+    const displayDesc = formatDisplayDesc(item.description, item.title, item.fileType).toLowerCase();
     const matchSearch =
       item.title.toLowerCase().includes(q) ||
+      displayTitle.includes(q) ||
       item.description.toLowerCase().includes(q) ||
+      displayDesc.includes(q) ||
       (item.grade && item.grade.toLowerCase().includes(q));
     return matchCat && matchSearch;
   });
@@ -185,10 +191,10 @@ export default function TeachingMaterialsPage() {
 
                       {/* Title & Desc */}
                       <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-brand-navy dark:group-hover:text-brand-sky transition-colors">
-                        {item.title}
+                        {formatDisplayTitle(item.title)}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                        {item.description}
+                        {formatDisplayDesc(item.description, item.title, item.fileType)}
                       </p>
                     </div>
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const handouts = [
   {
-    title: '강의 원고 (Canva 슬라이드)',
+    title: '강의 원고 슬라이드',
     desc: '김희엽 강사의 AI 활용 수업 설계 직무연수 전체 공식 강의 슬라이드 원고입니다.',
     link: 'https://www.canva.com/design/DAHATnWxynM/6sGD30My6vm35asakuXXRA/edit?ui=eyJBIjp7fX0',
     type: 'canva',
@@ -47,14 +47,14 @@ const handouts = [
     badge: 'PDF 다운로드',
   },
   {
-    title: '전체 연수 종합 교안 (가져가세요)',
+    title: '전체 연수 종합 교안',
     desc: '연수 전 과정을 한 권으로 정리한 2026. 2. 5. 최종 종합 연수자료집',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3778091573',
     type: 'pdf',
     badge: '최종 종합본',
   },
   {
-    title: '연수 과정 안내 및 계획서 (HWP)',
+    title: '연수 과정 안내 및 운영 계획서',
     desc: '2026 AI 활용 수업 설계 역량강화 직무연수 운영 계획 및 시간표',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964426',
     type: 'hwp',

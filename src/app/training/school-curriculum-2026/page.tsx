@@ -19,21 +19,21 @@ export const metadata: Metadata = {
 
 const guideItems = [
   {
-    title: '공식 연수 PPT (2026 학교교육과정 설계)',
+    title: '2026 학교교육과정 설계 공식 연수 교안',
     desc: '학교교육과정 설계의 단계별 핵심 원리와 실무 노하우를 담은 공식 발표 슬라이드',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882888',
     type: 'pptx',
     badge: '공식 연수 PPTX',
   },
   {
-    title: '학교교육과정 쉽게 따라하기 (가이드북 PDF)',
+    title: '학교교육과정 쉽게 따라하기 가이드북',
     desc: '처음 교육과정 업무를 맡은 선생님도 순서대로 따라할 수 있는 단계별 상세 안내서',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882827',
     type: 'pdf',
     badge: '가이드 PDF',
   },
   {
-    title: '학교교육과정 쉽게 따라하기 (한글 HWP)',
+    title: '학교교육과정 쉽게 따라하기 편집 서식',
     desc: '학교 실정에 맞게 수정하고 인쇄할 수 있는 편집 가능한 한글 문서 원본',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882863',
     type: 'hwp',
@@ -88,14 +88,14 @@ const surveyItems = [
 
 const timetableItems = [
   {
-    title: '2026년 달력 기반 학사일정 계산기 (Excel)',
+    title: '2026 달력 기반 학사일정 계산기',
     desc: '2026학년도 법정 수업일수(190일 이상) 및 학기별 수업일수를 자동 계산하는 달력 서식',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882862',
     type: 'xlsx',
     badge: '엑셀 계산기',
   },
   {
-    title: '시수편성 점검표 (Excel)',
+    title: '시수편성 점검표',
     desc: '학년군별 기준 시수 및 학교자율시간 확보에 따른 시수 증감 오차를 즉시 검증',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882861',
     type: 'xlsx',
@@ -119,7 +119,7 @@ const timetableItems = [
 
 const preparationItems = [
   {
-    title: '새학년 집중준비기간 도움자료 (종합 PDF)',
+    title: '새학년 집중준비기간 도움자료',
     desc: '새 학년 2월 워크숍 및 집중준비기간 기획을 위한 교육청 공식 안내 매뉴얼',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882876',
     badge: '도움자료 PDF',
@@ -146,17 +146,17 @@ const preparationItems = [
 
 const curriculumStandards = [
   {
-    title: '2022 개정 교육과정 총론 원문 (HWP)',
+    title: '2022 개정 교육과정 총론 원문',
     desc: '교육부 고시 2022 개정 초·중등학교 교육과정 총론 전문 한글파일',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882830',
   },
   {
-    title: '2022 개정 교육과정 총론 해설 (초등학교 HWP)',
+    title: '2022 개정 교육과정 총론 해설 (초등학교)',
     desc: '초등학교 현장에서 바로 적용할 수 있는 총론 핵심 해설집 원문',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882834',
   },
   {
-    title: '전라남도 초등학교 교육과정 (HWP)',
+    title: '전라남도 초등학교 교육과정 편성·운영 지침',
     desc: '전라남도교육청 초등학교 교육과정 편성·운영 지침 전문',
     downloadUrl: 'https://padlet.com/gmlduqzhd12/xe2ch83qupo2ue1y/wish/3718882835',
   },

@@ -41,8 +41,8 @@ export default function FeaturedHighlights() {
           </h2>
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 break-keep leading-relaxed">
             {t(
-              '100종 무설치 배움게임부터 엽쌤 제작 수업 자료, 844종 교원 연수자료, 출간 도서, 교실 스마트 도구까지 체계적으로 만나보세요.',
-              'Explore 100+ installation-free learning games, classroom teaching materials, 844+ teacher training archives, publications, and smart tools.'
+              '100종 무설치 배움게임부터 엽쌤 제작 수업 자료, 944종 교원 연수자료, 출간 도서, 교실 스마트 도구까지 체계적으로 만나보세요.',
+              'Explore 100+ installation-free learning games, classroom teaching materials, 944+ teacher training archives, publications, and smart tools.'
             )}
           </p>
         </motion.div>
@@ -178,7 +178,7 @@ export default function FeaturedHighlights() {
                   Teacher Training
                 </span>
                 <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 font-bold text-[10px]">
-                  844종 통합 DB
+                  944종 통합 DB
                 </span>
               </div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white mt-1 mb-2">

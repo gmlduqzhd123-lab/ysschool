@@ -238,7 +238,7 @@ export default function HomeQuickDesk() {
                   연수 강의안·서식
                 </span>
                 <span className="px-1.5 py-0.2 rounded bg-blue-500/15 text-blue-700 dark:text-blue-300 text-[10px] font-extrabold">
-                  844종 DB
+                  944종 DB
                 </span>
               </div>
               <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">

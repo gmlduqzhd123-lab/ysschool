@@ -214,8 +214,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 19,
-    "title": "자작자작, 우리들의 이야기 (학생 출판 도서 전문 PDF)",
-    "description": "여수한려초등학교 학생들이 직접 쓴 글과 삶의 고백을 한 권으로 엮어 출판한 도서 전체 전문 PDF 파일",
+    "title": "자작자작, 우리들의 이야기 (학생 출간 도서)",
+    "description": "여수한려초 학생들이 직접 쓴 글과 삶의 고백을 한 권으로 엮어 출판한 도서 전문입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
@@ -225,8 +225,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 20,
-    "title": "여수의(義) 사랑, 우리들의 이야기 2 (출판 도서 전문 PDF)",
-    "description": "여수의 역사, 인물, 지역 사랑과 아이들의 성장을 담아 출판한 글로-CAL 학생 작가 프로젝트 2호 도서 전문 PDF",
+    "title": "여수의(義) 사랑, 우리들의 이야기 2 (학생 출간 도서)",
+    "description": "여수의 역사·생태와 아이들의 성장을 담아 엮은 글로-CAL 학생 작가 출간 도서입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
@@ -236,8 +236,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 21,
-    "title": "우리들의 눈물 상자 (출판 도서 전체 전문 PDF)",
-    "description": "마음속 눈물과 슬픔을 솔직하게 털어놓고 서로를 위로하며 탄생한 여수한려초 대표 학생 출간작 전문 PDF 파일",
+    "title": "우리들의 눈물 상자 (학생 출간 도서)",
+    "description": "마음속 눈물과 슬픔을 털어놓고 서로를 위로하며 탄생한 여수한려초 대표 학생 출간작입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
@@ -292,7 +292,7 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   {
     "id": 26,
     "title": "에듀테크 및 AI 활용 공개 수업 지도안 모음집",
-    "description": "수업 현장에 즉시 적용할 수 있는 다양한 에듀테크 및 생성형 AI 도구 융합 공개수업 지도안 압축 패키지",
+    "description": "수업 현장에 즉시 적용할 수 있는 다양한 에듀테크·생성형 AI 융합 공개수업 지도안 패키지입니다.",
     "subject": "에듀테크·AI",
     "grade": "초등 전학년",
     "fileType": "zip",
@@ -490,7 +490,7 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   {
     "id": 44,
     "title": "학생 출판 도서 원고: 아무도 모르는 5학년의 속마음",
-    "description": "초등학교 5학년 아이들의 솔직 담백한 고민과 학교생활 속 비밀을 담아낸 학생 창작 도서 전체 원고 파일",
+    "description": "초등학교 5학년 아이들의 솔직 담백한 고민과 학교생활 속 비밀을 담아낸 학생 창작 원고입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5학년",
     "fileType": "hwp",
@@ -533,8 +533,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 48,
-    "title": "AI를 활용한 국어·독서 수업 우수 실천 사례집",
-    "description": "생성형 AI를 활용하여 시 쓰기, 책 표지 만들기, 질문 생성 등 국어 교과에 녹여낸 생생한 수업 실천 PPT",
+    "title": "AI를 활용한 국어·독서 수업 우수 실천 사례",
+    "description": "생성형 AI를 활용하여 시 쓰기, 책 표지 만들기, 질문 생성을 국어 교과에 녹여낸 수업 실천 교안입니다.",
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
@@ -544,8 +544,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 49,
-    "title": "눈물 상자 프로젝트 감정 치유 수업 PPT",
-    "description": "마음속 눈물과 슬픔을 표현하고 공감하며 자존감을 회복하는 정서 함양 프로젝트 공개수업 프레젠테이션",
+    "title": "눈물 상자 프로젝트 감정 치유 수업 교안",
+    "description": "마음속 감정을 표현하고 공감하며 자존감을 회복하는 정서 함양 프로젝트 공개수업 슬라이드입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
@@ -566,7 +566,7 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 51,
-    "title": "내가 꿈꾸는 미래 탄소 중립 도시 (오토드로우 수업 보드)",
+    "title": "내가 꿈꾸는 미래 탄소 중립 도시 (오토드로우)",
     "description": "구글 오토드로우(AutoDraw) AI 드로잉 툴을 활용하여 학생들이 직접 디자인한 미래 친환경 여수 도시 설계관",
     "subject": "에듀테크·AI",
     "grade": "초등 4~6학년",
@@ -599,8 +599,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 54,
-    "title": "특허 출원 실전 서식 및 가이드 (발명영재 패키지)",
-    "description": "초·중등 발명영재 학생들의 창의 아이디어를 실제 특허 및 실용신안으로 구체화하는 출원 양식 압축 파일",
+    "title": "특허 출원 실전 서식 및 가이드",
+    "description": "초·중등 발명영재 학생들의 창의 아이디어를 실제 특허 및 실용신안으로 구체화하는 출원 양식 패키지입니다.",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "zip",
@@ -643,8 +643,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 58,
-    "title": "발명영재 창의 공학 설계 및 3D 모델링 수업 PPT",
-    "description": "팅커캐드 등 기초 3D CAD를 활용한 창의적 공학 설계 원리와 3차원 출력물 제작 과정을 담은 프레젠테이션",
+    "title": "발명영재 창의 공학 설계 및 3D 모델링",
+    "description": "팅커캐드 기초 3D CAD를 활용한 창의적 공학 설계 원리와 3차원 모델링 실습 슬라이드입니다.",
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
@@ -654,7 +654,7 @@ export const teachingMaterialsData: TeachingMaterial[] = [
   },
   {
     "id": 59,
-    "title": "발명영재 단계별 탐구 활동지 및 지도안 (차시별 모음)",
+    "title": "발명영재 단계별 탐구 활동지 및 지도안",
     "description": "발명 아이디어 발상 기법(브레인스토밍, SCAMPER)과 구체화 과정을 기록하는 1~5차시 정규 탐구 활동지",
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
