@@ -4,12 +4,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Filter, Download, ExternalLink, Tag,
-  FileText, Sparkles, BookOpen, Layers3, FolderPlus,
-  CheckCircle2
+  Sparkles, Layers3, FolderPlus, CheckCircle2
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { teachingMaterialsData, type TeachingMaterial } from '@/data/teachingMaterialsData';
+import { teachingMaterialsData } from '@/data/teachingMaterialsData';
 
 const categories = ['전체', '국어·독서', '인문·토론', '에듀테크·AI', '예체능·통합', '학급·프로젝트'] as const;
 

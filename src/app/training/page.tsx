@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink, Download, Search,
   Sparkles, Filter, Calendar, Tag, Plus, X, Upload, Link2, Image as ImageIcon, Trash2,
-  ArrowRight, ChevronDown, BookOpen, Layers3, Lock
+  ArrowRight, ChevronDown, Lock
 } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -98,9 +98,9 @@ export default function TrainingPage() {
       .trim();
   }
 
-  const readLocalMaterials = (): DisplayMaterial[] => {
-    const stored = localStorage.getItem('ysschool_training_materials');
-    const deletedIds = readJsonArray<number>('ysschool_training_deleted_ids');
+  const readLocalMaterials = useCallback((): DisplayMaterial[] => {
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('ysschool_training_materials') : null;
+    const deletedIds = typeof window !== 'undefined' ? readJsonArray<number>('ysschool_training_deleted_ids') : [];
     const base = trainingData
       .filter((item) => !deletedIds.includes(item.id))
       .map((item) => ({
@@ -143,7 +143,7 @@ export default function TrainingPage() {
     } catch {
       return base;
     }
-  };
+  }, []);
 
   // Prefer the shared store when configured, while preserving older browser-only items.
   useEffect(() => {
@@ -180,7 +180,7 @@ export default function TrainingPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [readLocalMaterials]);
 
   const saveLocalMaterials = (newMaterials: DisplayMaterial[]) => {
     setMaterials(newMaterials);
@@ -384,11 +384,14 @@ export default function TrainingPage() {
     return matchesCategory && matchesSearch;
   });
 
+  const [prevFilterKey, setPrevFilterKey] = useState(`${selectedCategory}-${searchQuery}`);
   const [visibleCount, setVisibleCount] = useState(18);
 
-  useEffect(() => {
+  const currentFilterKey = `${selectedCategory}-${searchQuery}`;
+  if (prevFilterKey !== currentFilterKey) {
+    setPrevFilterKey(currentFilterKey);
     setVisibleCount(18);
-  }, [selectedCategory, searchQuery]);
+  }
 
   const visibleData = filteredData.slice(0, visibleCount);
 
