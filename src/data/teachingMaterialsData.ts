@@ -7,8 +7,8 @@ export interface TeachingMaterial {
   subject: '국어·독서' | '인문·토론' | '에듀테크·AI' | '예체능·통합' | '학급·프로젝트';
   grade?: string;          // 권장 학년 (예: '초등 3~4학년', '전학년', '초등 5학년')
   fileType?: 'hwp' | 'pdf' | 'pptx' | 'zip' | 'canva' | 'padlet' | 'link';
-  fileUrl?: string;        // 파일 다운로드 URL
-  linkUrl?: string;        // 웹/Canva/Padlet 링크
+  fileUrl?: string;        // 안전한 직접 파일 다운로드 URL (외부 호스팅 등)
+  linkUrl?: string;        // 웹/Canva/Padlet 및 원본 열람 링크
   date: string;            // 등록/제작일 (YYYY-MM-DD)
   badge?: string;
 }
@@ -21,9 +21,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 4~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/2a15810057952972c28a6e1efd0f2373/_____________________________.pdf",
     "date": "2026-02-05",
-    "badge": "지도안 PDF"
+    "badge": "지도안 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127654"
   },
   {
     "id": 2,
@@ -32,9 +32,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1be6f2c95af95bbcbe2324616ff5b10e/2025_________________1__5_________3_.pdf",
     "date": "2026-01-20",
-    "badge": "수업안 PDF"
+    "badge": "수업안 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127659"
   },
   {
     "id": 3,
@@ -43,9 +43,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 3학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/94d70cda08196345a6599c4dace091b1/2025_______________________3_____1_.hwp",
     "date": "2026-01-15",
-    "badge": "한글 HWP"
+    "badge": "한글 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127657"
   },
   {
     "id": 4,
@@ -54,9 +54,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "인문·토론",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/930d31162cbe34999d74f3dc2f1684d5/___________________.pptx",
     "date": "2026-02-05",
-    "badge": "발표 PPTX"
+    "badge": "발표 PPTX",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127667"
   },
   {
     "id": 5,
@@ -65,9 +65,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "인문·토론",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/3d0feee6132d73fefc66ec567fc3d64c/__________________.pdf",
     "date": "2026-01-20",
-    "badge": "루브릭 PDF"
+    "badge": "루브릭 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621574749"
   },
   {
     "id": 6,
@@ -76,9 +76,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/eb334999d74f3dc2f1684d51be6f2c95/slow_reading_worksheet_package.hwp",
     "date": "2025-11-10",
-    "badge": "활동지 HWP"
+    "badge": "활동지 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd"
   },
   {
     "id": 7,
@@ -87,9 +87,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 4~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/563e4612d91986927dafc95fc9f6ee52/____________________.pdf",
     "date": "2025-10-18",
-    "badge": "가이드 PDF"
+    "badge": "가이드 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621574749"
   },
   {
     "id": 8,
@@ -98,9 +98,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/7b003a27e7dcae42ff3fae39b9866ad7/Suno_AI_________________.pptx",
     "date": "2025-12-05",
-    "badge": "수업 PPTX"
+    "badge": "수업 PPTX",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/padlet-7wjm2iivaw642ox9"
   },
   {
     "id": 9,
@@ -109,9 +109,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "예체능·통합",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a12b9c3d4e5f6a7b8c9d0e1f2a3b4c5d/book_trailer_storyboard_template.hwp",
     "date": "2025-10-30",
-    "badge": "활동지 HWP"
+    "badge": "활동지 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5"
   },
   {
     "id": 10,
@@ -131,9 +131,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "예체능·통합",
     "grade": "초등 4~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0656fb33276eb13b5bf5a19000a6e3ce/____________________________.pdf",
     "date": "2025-09-15",
-    "badge": "지도안 PDF"
+    "badge": "지도안 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127654"
   },
   {
     "id": 12,
@@ -142,9 +142,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6/student_led_space_project.hwp",
     "date": "2025-08-25",
-    "badge": "워크북 HWP"
+    "badge": "워크북 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/padlet-2nb1dgoqyf7b7mkv"
   },
   {
     "id": 13,
@@ -153,9 +153,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e6c92e74288b835e5d3257850a58ad0c/______________________.pdf",
     "date": "2026-01-10",
-    "badge": "교재 PDF"
+    "badge": "교재 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621574749"
   },
   {
     "id": 14,
@@ -175,9 +175,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 전학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/195b05a76985fe6220b33c0490b4fe7e/2026_________________1__5_________3_.pdf",
     "date": "2026-02-01",
-    "badge": "수업안 PDF"
+    "badge": "수업안 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd"
   },
   {
     "id": 16,
@@ -186,9 +186,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6/morning_meeting_circle_cards.hwp",
     "date": "2025-09-01",
-    "badge": "활동지 HWP"
+    "badge": "활동지 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd"
   },
   {
     "id": 17,
@@ -197,9 +197,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0dfe49e4a59bb95048c32c2f6e3026b1/_______PBL_______5___.pdf",
     "date": "2025-10-15",
-    "badge": "설계안 PDF"
+    "badge": "설계안 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438317"
   },
   {
     "id": 18,
@@ -208,9 +208,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9b5d3c1a7e2f4b6d8a0c2e4f6a8b0d2e/gamified_quiz_rubric_template.hwp",
     "date": "2026-01-15",
-    "badge": "지도안 HWP"
+    "badge": "지도안 HWP",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/padlet-bd4z5q09u3ttv4fw"
   },
   {
     "id": 19,
@@ -219,9 +219,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e97c0f0525b318f48d60a22bbbbb80f9/____________________.pdf",
     "date": "2025-10-16",
-    "badge": "도서전문 PDF"
+    "badge": "도서전문 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621638725"
   },
   {
     "id": 20,
@@ -230,9 +230,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/865b0deca9f957e063d4b7c24915f8c4/____________________2_______.pdf",
     "date": "2025-10-16",
-    "badge": "도서전문 PDF"
+    "badge": "도서전문 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621648554"
   },
   {
     "id": 21,
@@ -241,9 +241,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/47ac49ae3714df640b001c4b7fd317d2/________________.pdf",
     "date": "2025-10-16",
-    "badge": "도서전문 PDF"
+    "badge": "도서전문 PDF",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5/wish/3621655709"
   },
   {
     "id": 22,
@@ -263,9 +263,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/598d1ab16426dbd668bf6ad7a81f057f/2024_____________________2_____1__5______.hwp",
     "badge": "지도안 HWP",
-    "date": "2025-06-12"
+    "date": "2025-06-12",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438239"
   },
   {
     "id": 24,
@@ -274,9 +274,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/003750cf4585160c2f76dff80669e329/2024____________2______________________________5______.hwp",
     "badge": "지도안 HWP",
-    "date": "2025-10-24"
+    "date": "2025-10-24",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438240"
   },
   {
     "id": 25,
@@ -285,9 +285,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/f67aa9e59256ebc1cbe2eeafd1b9574a/___________________________.hwp",
     "badge": "박람회 지도안",
-    "date": "2025-05-30"
+    "date": "2025-05-30",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438245"
   },
   {
     "id": 26,
@@ -296,9 +296,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 전학년",
     "fileType": "zip",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/bf3124e0e17ffdfe379a58f855b8f72c/____________.zip",
     "badge": "지도안 패키지",
-    "date": "2025-09-15"
+    "date": "2025-09-15",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438316"
   },
   {
     "id": 27,
@@ -307,9 +307,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "인문·토론",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/0dfe49e4a59bb95048c32c2f6e3026b1/_______PBL_______5___.hwp",
     "badge": "PBL 지도안",
-    "date": "2025-04-18"
+    "date": "2025-04-18",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438317"
   },
   {
     "id": 28,
@@ -318,9 +318,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/d30a55a4673aee4990f1efada9fa4f05/_2____1__________________________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-07-02"
+    "date": "2025-07-02",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438331"
   },
   {
     "id": 29,
@@ -329,9 +329,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/634a05d70c4670e7cbb74c09399787bd/_2____3_________________________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-07-08"
+    "date": "2025-07-08",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438332"
   },
   {
     "id": 30,
@@ -340,9 +340,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/3fccff7f38717ab1e85830e054deddfd/_2____7______________________________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-07-15"
+    "date": "2025-07-15",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438333"
   },
   {
     "id": 31,
@@ -351,9 +351,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/9b0e67583587bc443e1376e5b7413a89/_3_____2______________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-09-05"
+    "date": "2025-09-05",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438334"
   },
   {
     "id": 32,
@@ -362,9 +362,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/d909b2dbcc5448a011b816787dc93c18/_4_____3______________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-09-12"
+    "date": "2025-09-12",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438338"
   },
   {
     "id": 33,
@@ -373,9 +373,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/10a0dc2ccd498e3527568147e5930275/_4____1______________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-09-20"
+    "date": "2025-09-20",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438339"
   },
   {
     "id": 34,
@@ -384,9 +384,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/1a61594f2a68b2bf850488f0686e6d41/__2____________________.hwp",
     "badge": "평가지 HWP",
-    "date": "2025-10-02"
+    "date": "2025-10-02",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438343"
   },
   {
     "id": 35,
@@ -395,9 +395,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/45b243d00d833c2b6681ceb662c38d5e/_8___________________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-10-15"
+    "date": "2025-10-15",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438347"
   },
   {
     "id": 36,
@@ -406,9 +406,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "인문·토론",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/e80507697b5bccc123c72bef3737cc58/___vs_________.hwp",
     "badge": "토론 활동지",
-    "date": "2025-10-20"
+    "date": "2025-10-20",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438354"
   },
   {
     "id": 37,
@@ -417,9 +417,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/7b493a579ede592ed77577447c4b0eda/____________.hwp",
     "badge": "평가 도구 HWP",
-    "date": "2025-05-10"
+    "date": "2025-05-10",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438350"
   },
   {
     "id": 38,
@@ -428,9 +428,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "국어·독서",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/1010fee0372e652ba69d0d11b19b1ab5/____________1__________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-06-25"
+    "date": "2025-06-25",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438349"
   },
   {
     "id": 39,
@@ -439,9 +439,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "예체능·통합",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/bd09dcb8b4b2746d72dc4da2bf84ebcc/_______________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-08-30"
+    "date": "2025-08-30",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438348"
   },
   {
     "id": 40,
@@ -450,9 +450,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/eb9ba58d0d0c4c5f2323fcd865e5d3b6/_1______________.hwp",
     "badge": "활동 서식 HWP",
-    "date": "2025-09-18"
+    "date": "2025-09-18",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438351"
   },
   {
     "id": 41,
@@ -461,9 +461,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "예체능·통합",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/8d8268ca035832616347d955e67914df/_2_________________.hwp",
     "badge": "콘티 활동지",
-    "date": "2025-10-10"
+    "date": "2025-10-10",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3461438353"
   },
   {
     "id": 42,
@@ -472,9 +472,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/6ceeac4186b1811481f66cace73f3e01/2025____________________________.hwp",
     "badge": "PBL 계획서",
-    "date": "2025-03-10"
+    "date": "2025-03-10",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531825329"
   },
   {
     "id": 43,
@@ -483,9 +483,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 전학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/49cfb1b9f9697ac8d34789f181c9a393/2025_______________Summer___________________.hwp",
     "badge": "안내장 HWP",
-    "date": "2025-07-15"
+    "date": "2025-07-15",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3531824482"
   },
   {
     "id": 44,
@@ -494,9 +494,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/351f8681b9ccac2a7d87f4ce3df83ab1/________5_______.hwp",
     "badge": "도서원고 HWP",
-    "date": "2025-11-20"
+    "date": "2025-11-20",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672409163"
   },
   {
     "id": 45,
@@ -505,9 +505,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d0c8559517c02b39f90a67ed6cb2490a/AI__________________.hwp",
     "badge": "도서원고 HWP",
-    "date": "2025-11-25"
+    "date": "2025-11-25",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672409286"
   },
   {
     "id": 46,
@@ -516,9 +516,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d8d8e128b2f579f68063341732d456c4/_____________.hwp",
     "badge": "도서원고 HWP",
-    "date": "2025-11-28"
+    "date": "2025-11-28",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3672410056"
   },
   {
     "id": 47,
@@ -527,9 +527,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 전학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/9ed07d5e29a40f2090d6a26d70ff8b26/AI____________.pptx",
     "badge": "연수 PPT",
-    "date": "2025-08-20"
+    "date": "2025-08-20",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/g1lklclbxwve0dgg/wish/3755127665"
   },
   {
     "id": 48,
@@ -538,9 +538,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/8427831cb6a7082e948906ccafbfa95f/AI_______2.pptx",
     "badge": "사례 PPT",
-    "date": "2025-09-10"
+    "date": "2025-09-10",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd"
   },
   {
     "id": 49,
@@ -549,9 +549,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/c664013afa9715ef13bb9134442b5883/PPT.pptx",
     "badge": "수업 PPT",
-    "date": "2025-10-16"
+    "date": "2025-10-16",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3oyq9pefl8tr5ti5"
   },
   {
     "id": 50,
@@ -560,9 +560,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads.storage.googleapis.com/1745856714/159fc63a7f1890f0fd7b7658dc04fdf0/________AI__________________________.pdf",
     "badge": "성과집 PDF",
-    "date": "2024-12-11"
+    "date": "2024-12-11",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/ye6by77ztlhw9hpp/wish/3249101574"
   },
   {
     "id": 51,
@@ -604,9 +604,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "zip",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/68d7187cf40e2d03e8489a25be60f4fb/____.zip",
     "badge": "특허 서식 ZIP",
-    "date": "2025-05-10"
+    "date": "2025-05-10",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530543214"
   },
   {
     "id": 55,
@@ -615,9 +615,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 4~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d6a3da24a87754d58850616b71f928e1/2025_______Summer______.hwp",
     "badge": "지도안 HWP",
-    "date": "2025-07-20"
+    "date": "2025-07-20",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530664284"
   },
   {
     "id": 56,
@@ -626,9 +626,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pdf",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0a7e0253fc52ee4db2a8ba7e727672dc/lot_________________2023_02_03__1_.pdf",
     "badge": "보고서 PDF",
-    "date": "2025-02-03"
+    "date": "2025-02-03",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530547754"
   },
   {
     "id": 57,
@@ -637,9 +637,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "예체능·통합",
     "grade": "초등 전학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/f2249c5ebf5ef9919f5d37651a511ff0/3d_pen_________.pptx",
     "badge": "수업 PPT",
-    "date": "2024-09-25"
+    "date": "2024-09-25",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530553939"
   },
   {
     "id": 58,
@@ -648,9 +648,9 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "에듀테크·AI",
     "grade": "초등 5~6학년",
     "fileType": "pptx",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/70f5ef8f339fc01ec0bb89f9288a5c6b/3d________.pptx",
     "badge": "3D설계 PPT",
-    "date": "2024-10-18"
+    "date": "2024-10-18",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544071"
   },
   {
     "id": 59,
@@ -659,8 +659,8 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "subject": "학급·프로젝트",
     "grade": "초등 5~6학년",
     "fileType": "hwp",
-    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/21cce522e9976d7515e6679d71fb37c9/4__________.hwp",
     "badge": "활동지 HWP",
-    "date": "2025-04-12"
+    "date": "2025-04-12",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/3t3gcouxyn2zjwv9/wish/3530544132"
   }
 ];

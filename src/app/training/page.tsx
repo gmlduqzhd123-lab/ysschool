@@ -77,19 +77,59 @@ export default function TrainingPage() {
   const [thumbnail, setThumbnail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  function cleanHtmlText(str: string): string {
+    if (!str) return '';
+    return str
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&amp;/g, '&')
+      .replace(/&nbsp;/g, ' ')
+      .trim();
+  }
+
   const readLocalMaterials = (): DisplayMaterial[] => {
     const stored = localStorage.getItem('ysschool_training_materials');
     const deletedIds = readJsonArray<number>('ysschool_training_deleted_ids');
     const base = trainingData
       .filter((item) => !deletedIds.includes(item.id))
-      .map((item) => ({ ...item, source: 'default' as const }));
+      .map((item) => ({
+        ...item,
+        title: cleanHtmlText(item.title),
+        description: cleanHtmlText(item.description),
+        source: 'default' as const,
+      }));
 
     if (!stored) return base;
 
     try {
       const parsed = JSON.parse(stored) as TrainingMaterial[];
       return [
-        ...parsed.map((item) => ({ ...item, source: 'local' as const })),
+        ...parsed.map((item) => {
+          let safeLink = item.link;
+          if (safeLink && (safeLink.includes('storage.googleapis.com') || safeLink.includes('padlet-uploads'))) {
+            safeLink = undefined;
+          }
+          let safeFile = item.fileUrl;
+          if (safeFile && (safeFile.includes('storage.googleapis.com') || safeFile.includes('padlet-uploads'))) {
+            safeFile = undefined;
+          }
+          let safeThumb = item.thumbnail;
+          if (safeThumb && (safeThumb.includes('storage.googleapis.com') || safeThumb.includes('padlet-uploads'))) {
+            safeThumb = undefined;
+          }
+          return {
+            ...item,
+            title: cleanHtmlText(item.title),
+            description: cleanHtmlText(item.description),
+            link: safeLink,
+            fileUrl: safeFile,
+            thumbnail: safeThumb,
+            source: 'local' as const,
+          };
+        }),
         ...base,
       ];
     } catch {
@@ -624,15 +664,19 @@ export default function TrainingPage() {
                     <div>
                       {/* Thumbnail */}
                       {item.thumbnail && (
-                        <div className="relative aspect-video overflow-hidden">
+                        <div className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
                           {/* User-provided thumbnails can come from arbitrary hosts, so native img is intentional here. */}
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={item.thumbnail}
-                            alt={item.title}
+                            alt={cleanHtmlText(item.title)}
                             loading="lazy"
                             decoding="async"
                             referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              const parent = e.currentTarget.parentElement;
+                              if (parent) parent.style.display = 'none';
+                            }}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
@@ -653,10 +697,10 @@ export default function TrainingPage() {
 
                         {/* Title & Description */}
                         <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">
-                          {item.title}
+                          {cleanHtmlText(item.title)}
                         </h3>
                         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                          {item.description}
+                          {cleanHtmlText(item.description)}
                         </p>
                       </div>
                     </div>
@@ -669,16 +713,18 @@ export default function TrainingPage() {
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
+                            className="inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-sky hover:text-slate-950 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
-                            링크 열기
+                            자료 열람 및 다운로드
                           </a>
                         )}
-                        {item.fileUrl && (
+                        {item.fileUrl && !item.fileUrl.includes('storage.googleapis.com') && (
                           <a
                             href={item.fileUrl}
-                            download={item.title}
+                            download={cleanHtmlText(item.title)}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
                           >
                             <Download className="w-3.5 h-3.5" />

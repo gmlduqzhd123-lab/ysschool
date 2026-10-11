@@ -194,8 +194,8 @@ export default function TeachingMaterialsPage() {
                     </div>
 
                     {/* Action Button */}
-                    <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                      {item.fileUrl && (
+                    <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
+                      {item.fileUrl && !item.fileUrl.includes('storage.googleapis.com') && (
                         <a
                           href={item.fileUrl}
                           target="_blank"
@@ -204,7 +204,7 @@ export default function TeachingMaterialsPage() {
                           className="inline-flex w-full items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-brand-navy hover:bg-brand-sky hover:text-slate-950 text-white font-bold text-xs shadow-sm transition-all"
                         >
                           <Download className="w-3.5 h-3.5" />
-                          {format.label} 파일 다운로드
+                          {format.label} 파일 직접 다운로드
                         </a>
                       )}
                       {item.linkUrl && (
@@ -215,7 +215,7 @@ export default function TeachingMaterialsPage() {
                           className="inline-flex w-full items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm transition-all"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
-                          수업 자료/보드 바로가기
+                          {item.linkUrl.includes('/wish/') ? `${format.label} 열람 및 다운로드` : '수업 자료 원본 바로가기'}
                         </a>
                       )}
                     </div>
