@@ -1,4 +1,4 @@
-// Auto-generated unified training and materials data across all 16 padlets
+// Auto-generated unified training and materials data across all 17 padlets
 export interface TrainingMaterial {
   id: number;
   title: string;
@@ -6286,5 +6286,1177 @@ export const trainingData: TrainingMaterial[] = [
     "category": "독서인문",
     "date": "2025-11-20",
     "link": "https://padlet.com/gmlduqzhd12/gud9zkrdhfyo8jjd/wish/3691511089"
+  },
+  {
+    "id": 715,
+    "title": "특허 출원",
+    "description": "특허 출원 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/68d7187cf40e2d03e8489a25be60f4fb/____.zip",
+    "fileType": "zip"
+  },
+  {
+    "id": 716,
+    "title": "발명영재 교육자료 (2025______________.pptx)",
+    "description": "발명영재 교육자료 (2025______________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/103af230cefc3828b477d152a1002051/2025______________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 717,
+    "title": "발명영재 교육자료 (_______.pptx)",
+    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e0614b7067f5d9c57c1c97753074252b/_______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 718,
+    "title": "발명영재 교육자료 (1__________.ppt)",
+    "description": "발명영재 교육자료 (1__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/453ae2ed83c810fe75477b345fc0457f/1__________.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 719,
+    "title": "발명영재 교육자료 (3d________.pptx)",
+    "description": "발명영재 교육자료 (3d________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/70f5ef8f339fc01ec0bb89f9288a5c6b/3d________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 720,
+    "title": "발명영재 교육자료 (4__________.hwp)",
+    "description": "발명영재 교육자료 (4__________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/21cce522e9976d7515e6679d71fb37c9/4__________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 721,
+    "title": "발명영재 교육자료 (3_____________.hwp)",
+    "description": "발명영재 교육자료 (3_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ea7ff1f77cb20578aaa297eeb144b315/3_____________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 722,
+    "title": "발명영재 교육자료 (5________B________.hwp)",
+    "description": "발명영재 교육자료 (5________B________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ff435d7738811e810f1eee68489c1f02/5________B________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 723,
+    "title": "발명영재 교육자료 (2______________.hwp)",
+    "description": "발명영재 교육자료 (2______________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/fdd1d160035eec2c88a0d17396b55354/2______________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 724,
+    "title": "발명영재 교육자료 (1__________.ppt)",
+    "description": "발명영재 교육자료 (1__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/39c62f92f1e3d587fb785cd1ab7d12d6/1__________.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 725,
+    "title": "발명영재 교육자료 (2________.hwp)",
+    "description": "발명영재 교육자료 (2________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1712ce9e275593ab2fc174dcc9fcf41f/2________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 726,
+    "title": "발명영재 교육자료 (____A_.avi)",
+    "description": "발명영재 교육자료 (____A_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/dd5af98733b6a96fd66d650b5f94b372/____A_.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 727,
+    "title": "발명영재 교육자료 (5__________.hwp)",
+    "description": "발명영재 교육자료 (5__________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ac86722fad17e8c66fc7d05ad4bc50aa/5__________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 728,
+    "title": "발명영재 교육자료 (____C_.avi)",
+    "description": "발명영재 교육자료 (____C_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/b52787e234dd6fbdcd1c3c26b3b03e59/____C_.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 729,
+    "title": "발명영재 교육자료 (____B_.avi)",
+    "description": "발명영재 교육자료 (____B_.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9d4b19c07d7dcd7510f49a02ba991a85/____B_.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 730,
+    "title": "발명영재 교육자료 (__10___20160328.pptx)",
+    "description": "발명영재 교육자료 (__10___20160328.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1b04f28e90bc37aa7aa4a409406f9563/__10___20160328.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 731,
+    "title": "발명영재 교육자료 (______________20161005_.pptx)",
+    "description": "발명영재 교육자료 (______________20161005_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/49ae6f857bc6e59180c2c4b29c62c499/______________20161005_.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 732,
+    "title": "발명영재 교육자료 (________2.avi)",
+    "description": "발명영재 교육자료 (________2.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/50177ce6b39f277120162140e080989c/________2.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 733,
+    "title": "발명영재 교육자료 (________7.avi)",
+    "description": "발명영재 교육자료 (________7.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/917a70fd25b634ae002a890aacf45ef6/________7.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 734,
+    "title": "발명영재 교육자료 (________1.avi)",
+    "description": "발명영재 교육자료 (________1.avi) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/be38201e1ce1bac6522f01598f69de40/________1.avi",
+    "fileType": "video"
+  },
+  {
+    "id": 735,
+    "title": "발명영재 교육자료 (________________.hwp)",
+    "description": "발명영재 교육자료 (________________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/2af7ff80a4e8e7db10856b101121d759/________________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 736,
+    "title": "발명영재 교육자료 (_________ppt.pptx)",
+    "description": "발명영재 교육자료 (_________ppt.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/bee3ab144aeab73e0464715a4da162c0/_________ppt.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 737,
+    "title": "발명영재 교육자료 (_______.mp4)",
+    "description": "발명영재 교육자료 (_______.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/632bfd0829cf5737bbd61d65e4b3ac2f/_______.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 738,
+    "title": "발명영재 교육자료 (_______.mp4)",
+    "description": "발명영재 교육자료 (_______.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/bf0b419345cd78b7867b4414fffcf7e4/_______.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 739,
+    "title": "발명영재 교육자료 (ppt19B5.tmp)",
+    "description": "발명영재 교육자료 (ppt19B5.tmp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/4e1de6c0392bbe759e1b3eae91cf6dd3/ppt19B5.tmp"
+  },
+  {
+    "id": 740,
+    "title": "발명영재 교육자료 (___________.txt)",
+    "description": "발명영재 교육자료 (___________.txt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a85becf64ccbd3d442498d62f0ada961/___________.txt"
+  },
+  {
+    "id": 741,
+    "title": "발명영재 교육자료 (____________.hwp)",
+    "description": "발명영재 교육자료 (____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0fde7a43ec0e8e0206ac07d05342766d/____________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 742,
+    "title": "발명영재 교육자료 (____________________________________________________________mp4_20210326_125432.mkv)",
+    "description": "발명영재 교육자료 (____________________________________________________________mp4_20210326_125432.mkv) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/97a2a7cd7ed12c72093f1eeb100b97a4/____________________________________________________________mp4_20210326_125432.mkv",
+    "fileType": "video"
+  },
+  {
+    "id": 743,
+    "title": "발명영재 교육자료 (____________________________.mp4)",
+    "description": "발명영재 교육자료 (____________________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/5026c24d1eff3c7388990b8c1c081cde/____________________________.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 744,
+    "title": "발명영재 교육자료 (240511___.ent)",
+    "description": "발명영재 교육자료 (240511___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/37ceff9fe0ab7000af6f787dddc1429f/240511___.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 745,
+    "title": "발명영재 교육자료 (230909___.ent)",
+    "description": "발명영재 교육자료 (230909___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e8489799bd69d716f365e5ba17ffc284/230909___.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 746,
+    "title": "발명영재 교육자료 (IP___2025_3_17____.png)",
+    "description": "발명영재 교육자료 (IP___2025_3_17____.png) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1721285bf7d3cfa9d74e685799e2afe2/IP___2025_3_17____.png",
+    "fileType": "image",
+    "thumbnail": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1721285bf7d3cfa9d74e685799e2afe2/IP___2025_3_17____.png"
+  },
+  {
+    "id": 747,
+    "title": "발명영재 교육자료 (6____.ent)",
+    "description": "발명영재 교육자료 (6____.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/2c6937e9f65c9498f7672537a9c44b89/6____.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 748,
+    "title": "발명영재 교육자료 (_______________23_11_29__.pptx)",
+    "description": "발명영재 교육자료 (_______________23_11_29__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/4c06677cd9ce2060fa98453751f02763/_______________23_11_29__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 749,
+    "title": "발명영재 교육자료 (24_______________PPT____2.pptx)",
+    "description": "발명영재 교육자료 (24_______________PPT____2.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9d9cb816cdd6c3631758e660d3d92422/24_______________PPT____2.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 750,
+    "title": "발명영재 교육자료 (24_4________________.ent)",
+    "description": "발명영재 교육자료 (24_4________________.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/18622bb42cb2840cb1ecb5c8f65e9290/24_4________________.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 751,
+    "title": "발명영재 교육자료 (___________.ent)",
+    "description": "발명영재 교육자료 (___________.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/8bad1a764d279b732ed2af5cb91285e9/___________.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 752,
+    "title": "발명영재 교육자료 (_____________1_.ent)",
+    "description": "발명영재 교육자료 (_____________1_.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/3ace1dc363e90edfb2b22d359dec48eb/_____________1_.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 753,
+    "title": "발명영재 교육자료 (_________.pptx)",
+    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a4c6d8ba3c2ee116eceb35bee10fe740/_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 754,
+    "title": "발명영재 교육자료 (PPT_______________________.ppt)",
+    "description": "발명영재 교육자료 (PPT_______________________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/4e4da673b6c04280a7bf83aaac159a91/PPT_______________________.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 755,
+    "title": "발명영재 교육자료 (_____ppt_____________________.pptx)",
+    "description": "발명영재 교육자료 (_____ppt_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ade9d3f96731f5750bcef39819cc2edd/_____ppt_____________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 756,
+    "title": "발명영재 교육자료 (_____________________.pptx)",
+    "description": "발명영재 교육자료 (_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/35074bf19a8e3e4aa8e918c8cfd75d2f/_____________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 757,
+    "title": "발명영재 교육자료 (230916___.ent)",
+    "description": "발명영재 교육자료 (230916___.ent) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/909a00336719334160df603f9a641672/230916___.ent",
+    "fileType": "zip"
+  },
+  {
+    "id": 758,
+    "title": "발명영재 교육자료 (24_______________PPT____1.pptx)",
+    "description": "발명영재 교육자료 (24_______________PPT____1.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/7bd84fbb422eab6645d4dc1b04af6215/24_______________PPT____1.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 759,
+    "title": "발명영재 교육자료 (______________PPT____11.pptx)",
+    "description": "발명영재 교육자료 (______________PPT____11.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d941583735ff14e30dbbea6054d5c994/______________PPT____11.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 760,
+    "title": "발명영재 교육자료 (______________PPT____7.pptx)",
+    "description": "발명영재 교육자료 (______________PPT____7.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a851973ac8ebffc97d1e5c0bc45e973e/______________PPT____7.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 761,
+    "title": "발명영재 교육자료 (_______.pptx)",
+    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a209aad8c8f237eb0dc99bd8d9aee95d/_______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 762,
+    "title": "발명영재 교육자료 (_____.pptx)",
+    "description": "발명영재 교육자료 (_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9dc096d89ba0e52fec08b3a02616dd51/_____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 763,
+    "title": "발명영재 교육자료 (________.pptx)",
+    "description": "발명영재 교육자료 (________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cdc4e79cb7a4ad37488b7c5c3f0351a0/________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 764,
+    "title": "발명영재 교육자료 (lot_________________2023_02_03__1_.pdf)",
+    "description": "발명영재 교육자료 (lot_________________2023_02_03__1_.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/5b8dd4ee79d5c45199b2bc75b15e96d9/lot_________________2023_02_03__1_.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 765,
+    "title": "발명영재 교육자료 (4__1_____________.hwp)",
+    "description": "발명영재 교육자료 (4__1_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/dd1639f1e87f17ea09d4e89e4ad17f60/4__1_____________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 766,
+    "title": "발명영재 교육자료 (1________.pptx)",
+    "description": "발명영재 교육자료 (1________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/fea67dca087e07adaff46fb1e3307ef5/1________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 767,
+    "title": "발명영재 교육자료 (2____________.pptx)",
+    "description": "발명영재 교육자료 (2____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/47f4cc7c5dec569125cac29266166be3/2____________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 768,
+    "title": "발명영재 교육자료 (3________________.pptx)",
+    "description": "발명영재 교육자료 (3________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/73d2238771ef77d2f476eed50482ab14/3________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 769,
+    "title": "발명영재 교육자료 (4__2_________.hwp)",
+    "description": "발명영재 교육자료 (4__2_________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/3f11fab633056170db854ef778636ac9/4__2_________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 770,
+    "title": "발명영재 교육자료 (______.jpg)",
+    "description": "발명영재 교육자료 (______.jpg) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/5d052571b1491a1a4aaf85cc9ce46541/______.jpg",
+    "fileType": "image",
+    "thumbnail": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/5d052571b1491a1a4aaf85cc9ce46541/______.jpg"
+  },
+  {
+    "id": 771,
+    "title": "발명영재 교육자료 (__.png)",
+    "description": "발명영재 교육자료 (__.png) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/be272a11600dbae11398da30cf459dc8/__.png",
+    "fileType": "image",
+    "thumbnail": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/be272a11600dbae11398da30cf459dc8/__.png"
+  },
+  {
+    "id": 772,
+    "title": "발명영재 교육자료 (t___________.jpeg)",
+    "description": "발명영재 교육자료 (t___________.jpeg) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "link": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cd12033c334922ef172ec505f4d0c6fb/t___________.jpeg",
+    "fileType": "image",
+    "thumbnail": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cd12033c334922ef172ec505f4d0c6fb/t___________.jpeg"
+  },
+  {
+    "id": 773,
+    "title": "발명영재 교육자료 (T_____________.pptx)",
+    "description": "발명영재 교육자료 (T_____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/68f0caaee1f056752ae733537a7cd8a0/T_____________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 774,
+    "title": "발명영재 교육자료 (T_____.pptx)",
+    "description": "발명영재 교육자료 (T_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/b368186c62b4cc5945e4fe1367e427db/T_____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 775,
+    "title": "발명영재 교육자료 (3d__________________________T_____________.pptx)",
+    "description": "발명영재 교육자료 (3d__________________________T_____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/4852ebe4ffdd9b450179595b3fc7eb37/3d__________________________T_____________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 776,
+    "title": "발명영재 교육자료 (_______.pptx)",
+    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/54c4f22a9dd1c8e8a07646d02652f445/_______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 777,
+    "title": "발명영재 교육자료 (24_________.pptx)",
+    "description": "발명영재 교육자료 (24_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/37a8cf622fe82b10cf39f175d3b7ac4e/24_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 778,
+    "title": "발명영재 교육자료 (____________________4_____23_9_23____1_.pptx)",
+    "description": "발명영재 교육자료 (____________________4_____23_9_23____1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/a208c1d716a4c667030b094143434b64/____________________4_____23_9_23____1_.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 779,
+    "title": "발명영재 교육자료 (____________________4_____23_9_23__.pptx)",
+    "description": "발명영재 교육자료 (____________________4_____23_9_23__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/6e4b6a9dbc7eb00620ddc6d14c473bae/____________________4_____23_9_23__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 780,
+    "title": "발명영재 교육자료 (_________.pptm)",
+    "description": "발명영재 교육자료 (_________.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/8a07daf81941f9d36adcfce72c4b40d8/_________.pptm",
+    "fileType": "pptx"
+  },
+  {
+    "id": 781,
+    "title": "발명영재 교육자료 (___________1_.pptm)",
+    "description": "발명영재 교육자료 (___________1_.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/97c95e427591a8985d943a9a4c93c28b/___________1_.pptm",
+    "fileType": "pptx"
+  },
+  {
+    "id": 782,
+    "title": "발명영재 교육자료 (_________.pptx)",
+    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/534ac684d180f33af1984f1be76024cc/_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 783,
+    "title": "발명영재 교육자료 (_______________2_____________________.mp4)",
+    "description": "발명영재 교육자료 (_______________2_____________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/69d82797bcd083af64eefd4b5746fc82/_______________2_____________________.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 784,
+    "title": "발명영재 교육자료 (____.pptm)",
+    "description": "발명영재 교육자료 (____.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/67153230c2b635ae803cab4b496d3c9a/____.pptm",
+    "fileType": "pptx"
+  },
+  {
+    "id": 785,
+    "title": "발명영재 교육자료 (_______________1__________________.mp4)",
+    "description": "발명영재 교육자료 (_______________1__________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/23225802ab65e582a7b441c03f01fe2b/_______________1__________________.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 786,
+    "title": "발명영재 교육자료 (_________.ppt)",
+    "description": "발명영재 교육자료 (_________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/27caa5c9c301e471e9fa4a7f19ee99a1/_________.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 787,
+    "title": "발명영재 교육자료 (____1_2______.pptx)",
+    "description": "발명영재 교육자료 (____1_2______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/87d5a8b1905e4296d6a83df0e46c94e7/____1_2______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 788,
+    "title": "발명영재 교육자료 (_________.pptx)",
+    "description": "발명영재 교육자료 (_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cf8f64f9a5cf51890ea582db0a037130/_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 789,
+    "title": "발명영재 교육자료 (24__________3___________24_4_27____1_.pptx)",
+    "description": "발명영재 교육자료 (24__________3___________24_4_27____1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cedac5e4652c39a1938e7bc6147bcf19/24__________3___________24_4_27____1_.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 790,
+    "title": "발명영재 교육자료 (24__________3___________24_4_27__.pptx)",
+    "description": "발명영재 교육자료 (24__________3___________24_4_27__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e98c6888eac3f56aba03877094866620/24__________3___________24_4_27__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 791,
+    "title": "발명영재 교육자료 (____1_2__.pptx)",
+    "description": "발명영재 교육자료 (____1_2__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/516315d84cfcaf81c9685a205c851aa1/____1_2__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 792,
+    "title": "발명영재 교육자료 (____1_2__.pptm)",
+    "description": "발명영재 교육자료 (____1_2__.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9596c8c9f8f12c18a3696cc2e23c9286/____1_2__.pptm",
+    "fileType": "pptx"
+  },
+  {
+    "id": 793,
+    "title": "발명영재 교육자료 (06__________.ppt)",
+    "description": "발명영재 교육자료 (06__________.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ecc4f818c72b572aae5ad65956556544/06__________.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 794,
+    "title": "발명영재 교육자료 (____1_2__150713.pptm)",
+    "description": "발명영재 교육자료 (____1_2__150713.pptm) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d32125616bc732067cee21fb1a9af0d1/____1_2__150713.pptm",
+    "fileType": "pptx"
+  },
+  {
+    "id": 795,
+    "title": "발명영재 교육자료 (1_______1.ppt)",
+    "description": "발명영재 교육자료 (1_______1.ppt) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/401755c9066ed7f1f4f2ecb9ec526850/1_______1.ppt",
+    "fileType": "pptx"
+  },
+  {
+    "id": 796,
+    "title": "발명영재 교육자료 (_____7__.pptx)",
+    "description": "발명영재 교육자료 (_____7__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/39f2f95cf055fe929b7f657da9180133/_____7__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 797,
+    "title": "발명영재 교육자료 (24_________.pptx)",
+    "description": "발명영재 교육자료 (24_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/34a52da82025bc774cb9e148772e3c5e/24_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 798,
+    "title": "발명영재 교육자료 (____________________5_____23_10_14__1012__1_.pptx)",
+    "description": "발명영재 교육자료 (____________________5_____23_10_14__1012__1_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/b5d3010e75e5dae5d4ceed3a0948fe6d/____________________5_____23_10_14__1012__1_.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 799,
+    "title": "발명영재 교육자료 (5____________.zip)",
+    "description": "발명영재 교육자료 (5____________.zip) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/de23b1fd3740466de72c0a26f2b04a69/5____________.zip",
+    "fileType": "zip"
+  },
+  {
+    "id": 800,
+    "title": "발명영재 교육자료 (2_______.pptx)",
+    "description": "발명영재 교육자료 (2_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/9f09167a625234c9df562a1805bf0134/2_______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 801,
+    "title": "발명영재 교육자료 (____________________5_____23_10_14__1012.pptx)",
+    "description": "발명영재 교육자료 (____________________5_____23_10_14__1012.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0ba27ace6021ad2fc4e029133448094e/____________________5_____23_10_14__1012.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 802,
+    "title": "발명영재 교육자료 (__________6___23_10_21__.pptx)",
+    "description": "발명영재 교육자료 (__________6___23_10_21__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/fd3272f53348920d903fe61382fe5ead/__________6___23_10_21__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 803,
+    "title": "발명영재 교육자료 (____.pptx)",
+    "description": "발명영재 교육자료 (____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/385fa7c01d3d01d987aa120f7b24b66c/____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 804,
+    "title": "발명영재 교육자료 (___________.pptx)",
+    "description": "발명영재 교육자료 (___________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/2416a5bd62560e791f139cf8fd76ef92/___________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 805,
+    "title": "발명영재 교육자료 (24_4_____________4________24_5_11__.pptx)",
+    "description": "발명영재 교육자료 (24_4_____________4________24_5_11__.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1540baad8803ab4ebab5763f5aca838a/24_4_____________4________24_5_11__.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 806,
+    "title": "발명영재 교육자료 (____PPT_2023_9_27_.pptx)",
+    "description": "발명영재 교육자료 (____PPT_2023_9_27_.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/c01ceee76c6d2b061754235b127977b7/____PPT_2023_9_27_.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 807,
+    "title": "발명영재 교육자료 (______.pptx)",
+    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d62250abcb80b970388a3bd19e0a68e7/______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 808,
+    "title": "발명영재 교육자료 (3d_pen_________.pptx)",
+    "description": "발명영재 교육자료 (3d_pen_________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d164d92475dc30b5e3f03bc8bb6529fb/3d_pen_________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 809,
+    "title": "발명영재 교육자료 (_______.pptx)",
+    "description": "발명영재 교육자료 (_______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/518e9fb46555e8b4892b73e2e18a0e04/_______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 810,
+    "title": "발명영재 교육자료 (___________________10kg_____YouTube.mp4)",
+    "description": "발명영재 교육자료 (___________________10kg_____YouTube.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/be98eae07006a9648f965e922f8a80d3/___________________10kg_____YouTube.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 811,
+    "title": "발명영재 교육자료 (_____.pptx)",
+    "description": "발명영재 교육자료 (_____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/af9c1c4025c6a6a30349e770fcb232a9/_____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 812,
+    "title": "발명영재 교육자료 (_______________3_____________________.mp4)",
+    "description": "발명영재 교육자료 (_______________3_____________________.mp4) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1ca519c5ef4a1c4197f938cb7f65e122/_______________3_____________________.mp4",
+    "fileType": "video"
+  },
+  {
+    "id": 813,
+    "title": "발명영재 교육자료 (______2021___________________________.pdf)",
+    "description": "발명영재 교육자료 (______2021___________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/25a5982f3f607fa2878a7452ae3aa3b8/______2021___________________________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 814,
+    "title": "발명영재 교육자료 (______2021__________________________.pdf)",
+    "description": "발명영재 교육자료 (______2021__________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/cdfd4eb8ab60e383114227ba5b0eb198/______2021__________________________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 815,
+    "title": "발명영재 교육자료 (______2021__________________________.pdf)",
+    "description": "발명영재 교육자료 (______2021__________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/559ac318cf52b394e590372d2a163978/______2021__________________________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 816,
+    "title": "발명영재 교육자료 (______2021__________________________________.pdf)",
+    "description": "발명영재 교육자료 (______2021__________________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/87ac4def596a2c6a07caed353711b34a/______2021__________________________________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 817,
+    "title": "발명영재 교육자료 (______2021________________________.pdf)",
+    "description": "발명영재 교육자료 (______2021________________________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e58d046294b18cfe0a7e3c290f20b9e8/______2021________________________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 818,
+    "title": "발명영재 교육자료 (___.pptx)",
+    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/2a23f044f2989fe4c0ebe92cc7a10b97/___.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 819,
+    "title": "발명영재 교육자료 (___.pptx)",
+    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/8e05b323428ce994a42a2bc320974c65/___.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 820,
+    "title": "발명영재 교육자료 (______.pptx)",
+    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/e3cc82401f90e010bd54f12f808e7a4d/______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 821,
+    "title": "발명영재 교육자료 (___.pptx)",
+    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/6784690379aa89d9fa203fcfa8df50bf/___.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 822,
+    "title": "발명영재 교육자료 (___.pptx)",
+    "description": "발명영재 교육자료 (___.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/04a320a037c877dd827cf8ed56552e42/___.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 823,
+    "title": "발명영재 교육자료 (___2024_______________________.pptx)",
+    "description": "발명영재 교육자료 (___2024_______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/544083d36cc53e315da5db84cc941d14/___2024_______________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 824,
+    "title": "발명영재 교육자료 (___2024__________________.pptx)",
+    "description": "발명영재 교육자료 (___2024__________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ca45654264a5b6404824be38210013be/___2024__________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 825,
+    "title": "발명영재 교육자료 (___2024__________________.pptx)",
+    "description": "발명영재 교육자료 (___2024__________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/166c22775b28b04e74ff839e4a6cd065/___2024__________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 826,
+    "title": "발명영재 교육자료 (___2024______________________.pptx)",
+    "description": "발명영재 교육자료 (___2024______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/5765c9f7014f9a952694e34a0ee5e81a/___2024______________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 827,
+    "title": "발명영재 교육자료 (___2024_____________________.pptx)",
+    "description": "발명영재 교육자료 (___2024_____________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/675fb9b0d87eb3cffc4793009a667955/___2024_____________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 828,
+    "title": "발명영재 교육자료 (3D____.pptx)",
+    "description": "발명영재 교육자료 (3D____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/944c2b2f0f46ba4a19952208de743402/3D____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 829,
+    "title": "발명영재 교육자료 (______.pptx)",
+    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/819bd88d500e7df8099d5bbaf52f25ed/______.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 830,
+    "title": "발명영재 교육자료 (___________________.pptx)",
+    "description": "발명영재 교육자료 (___________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/3260ef770463169ff04084b98da6ab70/___________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 831,
+    "title": "발명영재 교육자료 (_______________________.pptx)",
+    "description": "발명영재 교육자료 (_______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/12a0411eb660d25b268c2c206fe43543/_______________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 832,
+    "title": "발명영재 교육자료 (____.pptx)",
+    "description": "발명영재 교육자료 (____.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/c0888983e5f0c47671d001e9f76d7422/____.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 833,
+    "title": "발명영재 교육자료 (___________________________.pptx)",
+    "description": "발명영재 교육자료 (___________________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/57b8ca46d30b7e1459e5fba23d6632f4/___________________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 834,
+    "title": "발명영재 교육자료 (____AI__POD____________.pptx)",
+    "description": "발명영재 교육자료 (____AI__POD____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "AI활용",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/05a61c986a0ccd71f9343dc5b4049d22/____AI__POD____________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 835,
+    "title": "발명영재 교육자료 (________________________.pptx)",
+    "description": "발명영재 교육자료 (________________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/88f5e5acc592355c3cc976dd9a012fe3/________________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 836,
+    "title": "발명영재 교육자료 (______________________.pptx)",
+    "description": "발명영재 교육자료 (______________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/7faabcafd8ab987c62362cfea9544785/______________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 837,
+    "title": "발명영재 교육자료 (________________.pptx)",
+    "description": "발명영재 교육자료 (________________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/bd67e77e072838d2a2b6a82958bf9f62/________________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 838,
+    "title": "발명영재 교육자료 (1________.pptx)",
+    "description": "발명영재 교육자료 (1________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/f8fe8c4524b8c9d5e545e830411be49c/1________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 839,
+    "title": "발명영재 교육자료 (2____________.pptx)",
+    "description": "발명영재 교육자료 (2____________.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/910de5a44a038a17d7d3d598a7a51ce1/2____________.pptx",
+    "fileType": "pptx"
+  },
+  {
+    "id": 840,
+    "title": "발명영재 교육자료 (4__1_____________.hwp)",
+    "description": "발명영재 교육자료 (4__1_____________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/6583ecf88218b48858d3e794f2309131/4__1_____________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 841,
+    "title": "발명영재 교육자료 (4__1_____________.pdf)",
+    "description": "발명영재 교육자료 (4__1_____________.pdf) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/f924e414a99c7a9b5d8fb98ab6b99aea/4__1_____________.pdf",
+    "fileType": "pdf"
+  },
+  {
+    "id": 842,
+    "title": "발명영재 교육자료 (4__2_________.hwp)",
+    "description": "발명영재 교육자료 (4__2_________.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/b3f60883224a7d97142e737bbe35b324/4__2_________.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 843,
+    "title": "발명영재 교육자료 (2025_______Summer______.hwp)",
+    "description": "발명영재 교육자료 (2025_______Summer______.hwp) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/ffc0cb922b3d0e1011478998e6e22474/2025_______Summer______.hwp",
+    "fileType": "hwp"
+  },
+  {
+    "id": 844,
+    "title": "발명영재 교육자료 (______.pptx)",
+    "description": "발명영재 교육자료 (______.pptx) 원본 자료 다운로드 및 열람 링크입니다.",
+    "category": "에듀테크",
+    "date": "2025-07-29",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/1e118cef9aa8c3017bb85951d22a5b92/______.pptx",
+    "fileType": "pptx"
   }
 ];

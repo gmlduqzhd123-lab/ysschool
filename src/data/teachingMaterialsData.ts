@@ -585,5 +585,82 @@ export const teachingMaterialsData: TeachingMaterial[] = [
     "linkUrl": "https://padlet.com/gmlduqzhd12/cal-gud9zkrdhfyo8jjd",
     "badge": "연구학교 패들렛",
     "date": "2025-11-30"
+  },
+  {
+    "id": 53,
+    "title": "발명영재 수업 자료 & 특허 출원 종합 마스터보드",
+    "description": "특허 출원 양식, 3D 모델링 교안, 차시별 발명 지도안, 엔트리 코딩 프로젝트 등 발명영재 130종 아카이브",
+    "subject": "에듀테크·AI",
+    "grade": "초등 4~6학년",
+    "fileType": "padlet",
+    "linkUrl": "https://padlet.com/gmlduqzhd12/padlet-3t3gcouxyn2zjwv9",
+    "badge": "발명영재 보드",
+    "date": "2025-05-15"
+  },
+  {
+    "id": 54,
+    "title": "특허 출원 실전 서식 및 가이드 (발명영재 패키지)",
+    "description": "초·중등 발명영재 학생들의 창의 아이디어를 실제 특허 및 실용신안으로 구체화하는 출원 양식 압축 파일",
+    "subject": "학급·프로젝트",
+    "grade": "초등 5~6학년",
+    "fileType": "zip",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/68d7187cf40e2d03e8489a25be60f4fb/____.zip",
+    "badge": "특허 서식 ZIP",
+    "date": "2025-05-10"
+  },
+  {
+    "id": 55,
+    "title": "2025 발명영재 Summer 프로젝트 지도 계획서",
+    "description": "여름방학 기간 중 창의 융합 발명 메이커 활동을 집중 탐구할 수 있도록 구성된 특색 프로젝트 지도안",
+    "subject": "학급·프로젝트",
+    "grade": "초등 4~6학년",
+    "fileType": "hwp",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/d6a3da24a87754d58850616b71f928e1/2025_______Summer______.hwp",
+    "badge": "지도안 HWP",
+    "date": "2025-07-20"
+  },
+  {
+    "id": 56,
+    "title": "IoT 기반 스마트 창의 발명 프로젝트 보고서",
+    "description": "사물인터넷(IoT) 센서 기술과 생활 속 문제 해결을 결합한 학생 주도형 스마트 발명 결과 보고서",
+    "subject": "에듀테크·AI",
+    "grade": "초등 5~6학년",
+    "fileType": "pdf",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/0a7e0253fc52ee4db2a8ba7e727672dc/lot_________________2023_02_03__1_.pdf",
+    "badge": "보고서 PDF",
+    "date": "2025-02-03"
+  },
+  {
+    "id": 57,
+    "title": "3D 펜 활용 입체 조형 및 메이커 교육 교안",
+    "description": "안전한 3D 펜 사용법부터 입체 구조물 모델링 및 창의적 발명 시제품 제작 실습을 단계별로 안내하는 교안",
+    "subject": "예체능·통합",
+    "grade": "초등 전학년",
+    "fileType": "pptx",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/f2249c5ebf5ef9919f5d37651a511ff0/3d_pen_________.pptx",
+    "badge": "수업 PPT",
+    "date": "2024-09-25"
+  },
+  {
+    "id": 58,
+    "title": "발명영재 창의 공학 설계 및 3D 모델링 수업 PPT",
+    "description": "팅커캐드 등 기초 3D CAD를 활용한 창의적 공학 설계 원리와 3차원 출력물 제작 과정을 담은 프레젠테이션",
+    "subject": "에듀테크·AI",
+    "grade": "초등 5~6학년",
+    "fileType": "pptx",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/70f5ef8f339fc01ec0bb89f9288a5c6b/3d________.pptx",
+    "badge": "3D설계 PPT",
+    "date": "2024-10-18"
+  },
+  {
+    "id": 59,
+    "title": "발명영재 단계별 탐구 활동지 및 지도안 (차시별 모음)",
+    "description": "발명 아이디어 발상 기법(브레인스토밍, SCAMPER)과 구체화 과정을 기록하는 1~5차시 정규 탐구 활동지",
+    "subject": "학급·프로젝트",
+    "grade": "초등 5~6학년",
+    "fileType": "hwp",
+    "fileUrl": "https://padlet-uploads-usc1.storage.googleapis.com/1745856714/21cce522e9976d7515e6679d71fb37c9/4__________.hwp",
+    "badge": "활동지 HWP",
+    "date": "2025-04-12"
   }
 ];
