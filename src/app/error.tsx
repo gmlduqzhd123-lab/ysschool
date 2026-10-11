@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 export default function Error({
   error,
-  retry,
+  reset,
 }: {
   error: Error & { digest?: string };
-  retry: () => void;
+  reset: () => void;
 }) {
   useEffect(() => {
     console.error(error);
@@ -27,7 +27,7 @@ export default function Error({
         <div className="flex flex-wrap justify-center gap-3">
           <button
             type="button"
-            onClick={() => retry()}
+            onClick={() => reset()}
             className="rounded-2xl bg-brand-navy hover:bg-brand-sky text-white font-bold px-6 py-3 transition-colors cursor-pointer"
           >
             다시 시도

@@ -14,7 +14,12 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem('theme');
+    } catch {
+      // ignore
+    }
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const dark = saved ? saved === 'dark' : prefersDark;
     document.documentElement.classList.toggle('dark', dark);
@@ -31,13 +36,24 @@ export default function ThemeToggle() {
     const newDark = !isDark;
     setIsDark(newDark);
     document.documentElement.classList.toggle('dark', newDark);
-    localStorage.setItem('theme', newDark ? 'dark' : 'light');
+    try {
+      localStorage.setItem('theme', newDark ? 'dark' : 'light');
+    } catch {
+      // ignore
+    }
 
     // 🎉 폭죽 효과!
     fireConfetti();
   };
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <div
+        className="w-9 h-9 min-[400px]:w-10 min-[400px]:h-10 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 animate-pulse"
+        aria-hidden="true"
+      />
+    );
+  }
 
   return (
     <button

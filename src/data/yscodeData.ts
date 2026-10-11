@@ -7,6 +7,8 @@ export interface YsCodeApp {
   url: string;
   accent: string;
   featured?: boolean;
+  tags?: string[];
+  tip?: string;
 }
 
 export const yscodeApps: YsCodeApp[] = [
@@ -19,6 +21,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '쉬는 시간에 즐기는 추억의 미니게임 100종 모음',
     url: 'https://gmlduqzhd123-lab.github.io/old-game/',
     accent: '#a855f7',
+    tags: ['#쉬는시간', '#미니게임', '#스트레스해소', '#학생활동'],
+    tip: '비 오는 날 중간놀이 시간이나 방학 전 교실 자유시간에 큰 화면으로 띄워주면 인기 만점입니다.',
   },
   {
     id: 'cooking',
@@ -28,6 +32,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '실과 교과 요리부터 자취·혼밥 레시피까지 215선. 재료 검색, 단계별 요리 모드, 유튜브 영상까지 한 번에',
     url: 'https://gmlduqzhd123-lab.github.io/cooking-/',
     accent: '#fb7185',
+    tags: ['#실과수업', '#요리실습', '#식생활', '#초등5_6학년'],
+    tip: '실과 5-6학년 영양과 식사 단원에서 조별 실습 전 레시피 탐색 과제로 활용해 보세요.',
   },
   {
     id: 'ysk-food',
@@ -37,6 +43,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '여수·순천·광양 맛집 114곳을 카카오맵에서 한눈에. 내 주변 찾기와 길찾기 지원',
     url: 'https://gmlduqzhd123-lab.github.io/YSK-food/',
     accent: '#ff5722',
+    tags: ['#지역탐방', '#여순광', '#교직원회식', '#맛집지도'],
+    tip: '지역화 수업에서 우리 고장 명소/먹거리 탐방 참고 자료 및 교직원 회식 장소 선정에 유용합니다.',
   },
   {
     id: 'acapella',
@@ -46,6 +54,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '파트별로 녹음·반복해 우리 반 아카펠라를 만드는 음악 수업 도구 (마이크 필요)',
     url: 'https://gmlduqzhd123-lab.github.io/Acapella/',
     accent: '#10b981',
+    tags: ['#음악수업', '#합창', '#아카펠라', '#모둠활동'],
+    tip: '소프라노/알토/베이스 파트별 가이드 음원을 재생하며 아이들이 화음을 직접 체감하도록 지도할 수 있습니다.',
   },
   {
     id: 'asian-game',
@@ -56,6 +66,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '아시안게임 종목을 교실·강당용 리드업 게임으로 바꾼 체육 수업 도구 (준비운동·미션·기록)',
     url: 'https://gmlduqzhd123-lab.github.io/Asian-Game/',
     accent: '#eab308',
+    tags: ['#체육수업', '#강당수업', '#리드업게임', '#모둠대결'],
+    tip: '미세먼지나 우천 시 강당 또는 교실에서 모둠별 랭킹 챌린지로 진행하기에 최적입니다.',
   },
   {
     id: 'physical',
@@ -65,6 +77,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '땀 흘리며 함께 떠나는 체육 원정! 학생들과 즐기는 체육 수업 웹앱',
     url: 'https://physical-pi.vercel.app/',
     accent: '#06b6d4',
+    tags: ['#체육활동', '#운동기록', '#건강체력', '#PAPS'],
+    tip: 'PAPS 건강체력 측정 전 모둠별 기초체력 트레이닝 루틴으로 화면에 띄워두고 실시하세요.',
   },
   {
     id: 'history',
@@ -74,6 +88,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '초등 5학년 2학기 사회(역사) 자기주도 학습 · 유물 탐정부터 한 줄 정리까지 퀘스트로',
     url: 'https://gmlduqzhd123-lab.github.io/History/',
     accent: '#d97706',
+    tags: ['#사회수업', '#역사단원', '#초등5학년', '#퀘스트학습'],
+    tip: '각 시대별 핵심 유물과 인물을 게임 퀘스트처럼 탐험하여 단원 정리 시 골든벨 대신 사용하기 좋습니다.',
   },
   {
     id: 'math-survival',
@@ -83,6 +99,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '초등 1~6학년 수학 문제를 풀며 몬스터·보스를 물리치는 서바이벌 게임 · 학습 결과 분석',
     url: 'https://gmlduqzhd123-lab.github.io/Math-Survival/',
     accent: '#22c55e',
+    tags: ['#수학연산', '#기초학력', '#수학게임', '#전학년'],
+    tip: '단원 마무리 시간이나 아침 자율학습 시간에 연산 자신감이 부족한 학생들에게 강력 추천합니다.',
   },
   {
     id: 'for-teacher',
@@ -93,6 +111,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '교직 용어 검색, 상황별 대응 가이드, 시간표·종 알림, 자리 배치, 생기부 문장 도우미를 한 곳에',
     url: 'https://gmlduqzhd123-lab.github.io/For-Teacher/',
     accent: '#3b82f6',
+    tags: ['#학급경영', '#신규교사', '#담임업무', '#교직백과'],
+    tip: '학기 초 학급 규칙 수립, 자리 배치, 생활지도 매뉴얼이 막막할 때 백과사전처럼 바로 검색해 보세요.',
   },
   {
     id: 'teacher-test',
@@ -102,6 +122,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '랜덤 교육 키워드로 교직논술을 연습하고 논점별 약점을 분석해 주는 모의고사',
     url: 'https://gmlduqzhd123-lab.github.io/teacher-test/',
     accent: '#6366f1',
+    tags: ['#임용고시', '#교직논술', '#승진전문직', '#전문성개발'],
+    tip: '최신 교육 정책 키워드를 랜덤으로 조합해 10분 논술 개요 작성 훈련을 하기에 적합합니다.',
   },
   {
     id: 'nicehelperys',
@@ -111,6 +133,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '학생 관찰 기록과 학기말 종합의견 작성을 돕고 나이스(NEIS) 입력을 준비하는 담임 업무 도구',
     url: 'https://nicehelperys.vercel.app/',
     accent: '#3b82f6',
+    tags: ['#나이스', '#행발작성', '#생활기록부', '#담임필수'],
+    tip: '학기말 행동특성 및 종합의견 작성 시 학생의 강점 키워드를 선택하면 맞춤형 문장이 생성됩니다.',
   },
   {
     id: 'padlet',
@@ -120,6 +144,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '패들렛 게시물과 첨부 파일을 한곳에 모아 정리하고 폴더·ZIP으로 저장하는 도구',
     url: 'https://gmlduqzhd123-lab.github.io/padlet/',
     accent: '#14b8a6',
+    tags: ['#패들렛', '#수업자료백업', '#포트폴리오', '#파일정리'],
+    tip: '학기 말 학생들의 패들렛 산출물과 그림/글 파일들을 한꺼번에 다운로드하여 학급 문집용으로 보관하세요.',
   },
   {
     id: 'hwp',
@@ -129,6 +155,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '줄글이나 HWPX 파일로 연구대회 보고서·논문 초안을 만들어 주는 도구 (시험판)',
     url: 'https://gmlduqzhd123-lab.github.io/Hwp/',
     accent: '#0ea5e9',
+    tags: ['#연구대회', '#보고서작성', '#HWPX', '#문서자동화'],
+    tip: '수업혁신사례연구대회나 인성교육 연구보고서의 목차와 서식 틀을 빠르게 잡아줍니다.',
   },
   {
     id: 'making-film',
@@ -138,6 +166,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '웹앱 화면과 특징을 넣으면 소개영상 콘티·내레이션·자막·자동재생 영상까지 만들어 주는 도구',
     url: 'https://gmlduqzhd123-lab.github.io/Making-Film/',
     accent: '#f43f5e',
+    tags: ['#영상제작', '#수업소개영상', '#콘티자동화', '#쇼츠릴스'],
+    tip: '공개수업 홍보영상이나 동아리 소개 숏폼 영상을 5분 만에 대본과 함께 기획할 수 있습니다.',
   },
   {
     id: 'hallyoswim',
@@ -147,6 +177,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '여수한려초등학교 수영부 선수단 및 훈련 관리 플랫폼 (로그인 필요)',
     url: 'https://hallyo.vercel.app/',
     accent: '#0ea5e9',
+    tags: ['#운동부관리', '#수영부', '#선수단', '#출결훈련'],
+    tip: '학교 운동부 학생들의 훈련 기록, 전국체전 출전 이력, 컨디션을 체계적으로 관리합니다.',
   },
   {
     id: 'lesson-plan',
@@ -156,6 +188,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '학년·교과·단원으로 찾는 초등·유아 지도안 1,700여 개 · 한글 파일 분석까지',
     url: 'https://gmlduqzhd123-lab.github.io/lesson-plan/',
     accent: '#10b981',
+    tags: ['#수업지도안', '#수업설계', '#1700개지도안', '#임용실연'],
+    tip: '공개수업 지도안 세안/약안을 작성할 때 학년과 성취기준으로 기존 우수 사례를 참고하세요.',
   },
   {
     id: 'teacher-game',
@@ -165,6 +199,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '오늘도 무사히 퇴근하고, 언젠가는 건물주! 선생님 생활 시뮬레이션 게임',
     url: 'https://gmlduqzhd123-lab.github.io/teacher-game/',
     accent: '#ec4899',
+    tags: ['#시뮬레이션', '#교사힐링', '#선생님공감', '#재미'],
+    tip: '교단 일상의 다양한 선택지와 돌발 이벤트를 유쾌하게 풀어낸 힐링 텍스트 시뮬레이션입니다.',
   },
   {
     id: 'destiny',
@@ -174,6 +210,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '이름, 생년월일, 성별, MBTI로 보는 사주·궁합·오늘의 운세와 타로',
     url: 'https://gmlduqzhd123-lab.github.io/destiny/',
     accent: '#a855f7',
+    tags: ['#운세', '#타로', '#MBTI', '#아이스브레이킹'],
+    tip: '교직원 친목회나 새 학기 교실 아이스브레이킹 대화 주제로 가볍게 활용해 보세요.',
   },
   {
     id: 'hand-free-game',
@@ -183,6 +221,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '귀여운 선생님이 교실 몬스터를 물리치는 방치형 RPG · 켜자마자 자동 전투, 가입 없이 바로',
     url: 'https://gmlduqzhd123-lab.github.io/Hand-Free-Game/',
     accent: '#2dd4bf',
+    tags: ['#방치형RPG', '#자동사냥', '#선생님게임', '#퇴근길'],
+    tip: '설치 없이 브라우저 탭에 띄워두기만 해도 캐릭터가 성장하는 아기자기한 방치형 웹게임입니다.',
   },
   {
     id: 'worms',
@@ -192,6 +232,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '바람을 읽고 한 방을 노리는 턴제 포격전 · 10가지 전장 테마, CPU 대전, 설치 없이 바로',
     url: 'https://gmlduqzhd123-lab.github.io/Worms/',
     accent: '#f97316',
+    tags: ['#포격게임', '#2인용', '#쉬는시간', '#물리엔진'],
+    tip: '각도와 파워, 바람을 계산하는 물리 시뮬레이션 원리로 쉬는 시간 2인 친선전에 제격입니다.',
   },
   {
     id: 'acaraca',
@@ -201,6 +243,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '곡과 내 파트를 골라 바로 연습하는 아카펠라 팀 연습실 · 시작음 듣기·교육 자료·진도 체크',
     url: 'https://gmlduqzhd123-lab.github.io/Acaraca/',
     accent: '#8b5cf6',
+    tags: ['#아카라카', '#아카펠라', '#합창연습', '#파트연습'],
+    tip: '교사 아카펠라 연구회 아카라카의 실제 편곡 악보와 파트별 연습 음원을 제공합니다.',
   },
   {
     id: 'acapella-maker',
@@ -210,6 +254,8 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '오디오의 BPM·조성·음정을 분석하는 아카펠라 작업실 · 자동 채보 기능 개발 중',
     url: 'https://gmlduqzhd123-lab.github.io/Acapella-maker/',
     accent: '#8b5cf6',
+    tags: ['#AI음악', '#BPM분석', '#음정추출', '#자동채보'],
+    tip: '부르고 싶은 음악 파일을 올리면 BPM과 화음 코드를 추출해 주는 에듀테크 음악 툴입니다.',
   },
   {
     id: 'ysschool',
@@ -219,5 +265,7 @@ export const yscodeApps: YsCodeApp[] = [
     desc: '엽쌤스쿨 | 경계를 넘어서는 교육. 수업 자료, 연구대회 포트폴리오, 블로그',
     url: 'https://ysschool.vercel.app/',
     accent: '#38bdf8',
+    tags: ['#엽쌤스쿨', '#공식홈페이지', '#포트폴리오', '#에듀테크'],
+    tip: '모든 수업 자료, 100종 배움게임, 23종 웹앱을 집대성한 올인원 교육 플랫폼입니다.',
   },
 ];

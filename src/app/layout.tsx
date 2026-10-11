@@ -10,6 +10,8 @@ import { BgmProvider } from "@/components/BgmContext";
 import SplashScreen from "@/components/SplashScreen";
 import SearchModal from "@/components/SearchModal";
 import ChatBot from "@/components/ChatBot";
+import ClassroomFloatingHUD from "@/components/ClassroomFloatingHUD";
+import OfflinePwaManager from "@/components/OfflinePwaManager";
 import { AdminProvider } from "@/components/AdminContext";
 
 const geistSans = Geist({
@@ -87,11 +89,13 @@ export default function RootLayout({
         <LanguageProvider>
           <BgmProvider>
             <AdminProvider>
+              <OfflinePwaManager />
               <SplashScreen />
               <ScrollToTopOnMount />
               <ScrollProgressBar />
               <SearchModal />
               {children}
+              <ClassroomFloatingHUD />
               <ScrollToTopButton />
               <ChatBot />
             </AdminProvider>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
@@ -16,14 +16,17 @@ import {
   Sparkles,
   Plus,
   Minus,
+  Trophy,
+  PenTool,
+  Eraser,
+  Trash2,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import Link from 'next/link';
 
 interface ClassroomToolsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  defaultTab?: 'timer' | 'picker';
+  defaultTab?: 'timer' | 'picker' | 'scoreboard' | 'canvas';
 }
 
 // Web Audio API를 활용한 무설치 차임벨 사운드
@@ -83,7 +86,7 @@ export default function ClassroomToolsModal({
   onClose,
   defaultTab = 'timer',
 }: ClassroomToolsModalProps) {
-  const [activeTab, setActiveTab] = useState<'timer' | 'picker'>(defaultTab);
+  const [activeTab, setActiveTab] = useState<'timer' | 'picker' | 'scoreboard' | 'canvas'>(defaultTab);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
@@ -111,6 +114,17 @@ export default function ClassroomToolsModal({
   const [pickedResult, setPickedResult] = useState<string | null>(null);
   const [pickedHistory, setPickedHistory] = useState<string[]>([]);
   const [excludeAlreadyPicked, setExcludeAlreadyPicked] = useState(true);
+
+  // ===== 모둠 점수판 상태 =====
+  const [scoreboardGroupCount, setScoreboardGroupCount] = useState(6);
+  const [scores, setScores] = useState<number[]>([0, 0, 0, 0, 0, 0]);
+
+  // ===== 전자칠판 퀵 캔버스 상태 =====
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [penColor, setPenColor] = useState('#38bdf8');
+  const [penWidth, setPenWidth] = useState(4);
+  const [isEraser, setIsEraser] = useState(false);
 
   // 탭 변경 시
   const [prevDefaultTab, setPrevDefaultTab] = useState(defaultTab);
@@ -151,92 +165,176 @@ export default function ClassroomToolsModal({
     setIsTimerRunning(false);
     setTotalSeconds(secs);
     setRemainingSeconds(secs);
+    playTickSound();
   };
 
   const adjustTimer = (deltaSecs: number) => {
-    setTotalSeconds((prev) => {
-      const next = Math.max(30, Math.min(3600, prev + deltaSecs));
-      setRemainingSeconds(next);
+    setRemainingSeconds((prev) => {
+      const next = Math.max(0, prev + deltaSecs);
+      setTotalSeconds((tot) => Math.max(tot, next));
       return next;
     });
+    playTickSound();
   };
 
-  // 전체화면 토글
+  const resetTimer = () => {
+    setIsTimerRunning(false);
+    setRemainingSeconds(totalSeconds);
+    playTickSound();
+  };
+
+  const toggleTimer = () => {
+    if (remainingSeconds === 0) {
+      setRemainingSeconds(totalSeconds);
+    }
+    setIsTimerRunning((prev) => !prev);
+    playTickSound();
+  };
+
+  // 풀스크린 토글
   const toggleFullscreen = () => {
+    if (!modalContainerRef.current) return;
     if (!document.fullscreenElement) {
-      modalContainerRef.current?.requestFullscreen?.();
-      setIsFullscreen(true);
+      modalContainerRef.current.requestFullscreen?.().then(() => setIsFullscreen(true)).catch(() => {});
     } else {
-      document.exitFullscreen?.();
-      setIsFullscreen(false);
+      document.exitFullscreen?.().then(() => setIsFullscreen(false)).catch(() => {});
     }
   };
 
   // 뽑기 실행
-  const runPicker = useCallback(() => {
-    let pool: string[] = [];
+  const runPicker = () => {
+    if (isSpinning) return;
 
+    let pool: string[] = [];
     if (pickerMode === 'number') {
       pool = Array.from({ length: maxStudentNumber }, (_, i) => `${i + 1}번`);
     } else if (pickerMode === 'group') {
       pool = Array.from({ length: groupCount }, (_, i) => `${i + 1}모둠`);
     } else {
       pool = customNamesInput
-        .split(/[\n,]/)
+        .split(/[,\n]/)
         .map((s) => s.trim())
         .filter(Boolean);
     }
 
-    if (pool.length === 0) return;
-
-    // 이미 뽑힌 사람 제외
-    const availablePool = excludeAlreadyPicked
-      ? pool.filter((item) => !pickedHistory.includes(item))
-      : pool;
-
-    if (availablePool.length === 0) {
-      alert('모든 대상이 이미 뽑혔습니다! 목록을 초기화합니다.');
-      setPickedHistory([]);
+    if (pool.length === 0) {
+      alert('추첨할 대상 목록이 비어 있습니다.');
       return;
     }
 
+    if (excludeAlreadyPicked) {
+      pool = pool.filter((item) => !pickedHistory.includes(item));
+      if (pool.length === 0) {
+        alert('모든 대상이 한 번씩 뽑혔습니다! 기록을 초기화하거나 중복 방지를 해제하세요.');
+        return;
+      }
+    }
+
     setIsSpinning(true);
-    setPickedResult(null);
-
-    // 셔플 애니메이션
     let counter = 0;
-    const totalFlips = 24;
-    const interval = setInterval(() => {
+    const maxTicks = 18;
+    const spinInterval = setInterval(() => {
       counter++;
-      const randomIdx = Math.floor(Math.random() * availablePool.length);
-      setPickedResult(availablePool[randomIdx]);
-      if (isSoundEnabled) playTickSound();
+      const tempPick = pool[Math.floor(Math.random() * pool.length)];
+      setPickedResult(tempPick);
+      playTickSound();
 
-      if (counter >= totalFlips) {
-        clearInterval(interval);
-        const finalWinner = availablePool[Math.floor(Math.random() * availablePool.length)];
-        setPickedResult(finalWinner);
+      if (counter >= maxTicks) {
+        clearInterval(spinInterval);
+        const finalPick = pool[Math.floor(Math.random() * pool.length)];
+        setPickedResult(finalPick);
+        setPickedHistory((prev) => [finalPick, ...prev]);
         setIsSpinning(false);
-        setPickedHistory((prev) => [finalWinner, ...prev]);
-
         if (isSoundEnabled) playChimeSound();
         confetti({
-          particleCount: 80,
-          spread: 80,
+          particleCount: 40,
+          spread: 50,
           origin: { y: 0.6 },
+          colors: ['#38bdf8', '#f59e0b', '#10b981'],
         });
       }
     }, 70);
-  }, [pickerMode, maxStudentNumber, groupCount, customNamesInput, excludeAlreadyPicked, pickedHistory, isSoundEnabled]);
+  };
 
-  // 커스텀 이름 변경 저장
-  const handleCustomNamesChange = (val: string) => {
-    setCustomNamesInput(val);
-    try {
-      localStorage.setItem('ysschool-picker-names', val);
-    } catch {
-      // 무시
+  // 모둠 점수판 함수
+  const updateScore = (index: number, delta: number) => {
+    setScores((prev) => {
+      const next = [...prev];
+      next[index] = Math.max(0, (next[index] || 0) + delta);
+      return next;
+    });
+    playTickSound();
+  };
+
+  const resetScores = () => {
+    if (confirm('모든 모둠의 점수를 0점으로 초기화하시겠습니까?')) {
+      setScores(new Array(scoreboardGroupCount).fill(0));
     }
+  };
+
+  const handleGroupCountChange = (count: number) => {
+    setScoreboardGroupCount(count);
+    setScores((prev) => {
+      const next = new Array(count).fill(0);
+      for (let i = 0; i < count; i++) {
+        next[i] = prev[i] || 0;
+      }
+      return next;
+    });
+  };
+
+  // 캔버스 드로잉 로직
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = 'touches' in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+    const y = 'touches' in e ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    setIsDrawing(true);
+  };
+
+  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    if (!isDrawing) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = 'touches' in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+    const y = 'touches' in e ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+
+    ctx.lineWidth = penWidth;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    if (isEraser) {
+      ctx.strokeStyle = '#020617'; // 다크 캔버스 배경색과 일치
+      ctx.lineWidth = penWidth * 4;
+    } else {
+      ctx.strokeStyle = penColor;
+    }
+
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  };
+
+  const stopDrawing = () => {
+    setIsDrawing(false);
+  };
+
+  const clearCanvas = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   if (!isOpen) return null;
@@ -247,91 +345,107 @@ export default function ClassroomToolsModal({
   const seconds = remainingSeconds % 60;
   const timeFormatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
+  const maxScore = Math.max(...scores);
+
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/70 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md">
         <motion.div
           ref={modalContainerRef}
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.25 }}
-          className={`relative w-full max-w-3xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col ${
-            isFullscreen ? 'h-full max-w-none rounded-none' : 'max-h-[92vh]'
+          className={`relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col ${
+            isFullscreen ? 'h-full max-w-none rounded-none' : 'max-h-[94vh]'
           }`}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/50">
             <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-amber-500/10 text-amber-500 font-bold">
+              <span className="p-2 rounded-xl bg-amber-500/10 text-amber-500 font-bold text-lg">
                 🏫
               </span>
               <div>
-                <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
-                  교실 수업 도구
+                <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>스마트 수업 대시보드</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-brand-sky/20 text-brand-sky font-bold">
+                    Classroom HUD
+                  </span>
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  전자칠판·스마트보드용 타이머 & 뽑기
+                  교실 전자칠판·스마트보드 전용 타이머, 뽑기, 모둠 점수판, 판서 도구
                 </p>
               </div>
             </div>
 
             {/* Mode Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-slate-200/80 dark:bg-slate-800 rounded-2xl">
+            <div className="flex items-center gap-1 p-1 bg-slate-200/80 dark:bg-slate-800 rounded-2xl overflow-x-auto">
               <button
                 type="button"
                 onClick={() => setActiveTab('timer')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'timer'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                 }`}
               >
-                <Timer className="w-4 h-4" />
-                <span>수업 타이머</span>
+                <Timer className="w-3.5 h-3.5" />
+                <span>타이머</span>
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('picker')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'picker'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                 }`}
               >
-                <Dices className="w-4 h-4" />
-                <span>발표자·모둠 뽑기</span>
+                <Dices className="w-3.5 h-3.5" />
+                <span>뽑기</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('scoreboard')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  activeTab === 'scoreboard'
+                    ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                }`}
+              >
+                <Trophy className="w-3.5 h-3.5 text-amber-500" />
+                <span>모둠 점수판</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('canvas')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  activeTab === 'canvas'
+                    ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                }`}
+              >
+                <PenTool className="w-3.5 h-3.5 text-emerald-500" />
+                <span>퀵 판서</span>
               </button>
             </div>
 
-            {/* Top Controls */}
-            <div className="flex items-center gap-2">
-              <Link
-                href="/morning"
-                onClick={onClose}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-300/50 transition-colors"
-                title="전자칠판 전용 아침 맞이 교실 데스크 전체화면 열기"
-              >
-                <span>🌅</span>
-                <span>아침 교실 데스크</span>
-              </Link>
+            {/* Controls */}
+            <div className="flex items-center gap-1">
               <button
                 type="button"
                 onClick={() => setIsSoundEnabled(!isSoundEnabled)}
-                className={`p-2 rounded-xl transition-colors cursor-pointer ${
-                  isSoundEnabled
-                    ? 'text-brand-navy dark:text-brand-sky bg-brand-sky/10'
-                    : 'text-slate-400 bg-slate-100 dark:bg-slate-800'
-                }`}
-                title={isSoundEnabled ? '소리 켜짐' : '음소거'}
+                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                title={isSoundEnabled ? '효과음 끄기' : '효과음 켜기'}
               >
-                {isSoundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                {isSoundEnabled ? <Volume2 className="w-4 h-4 text-emerald-500" /> : <VolumeX className="w-4 h-4" />}
               </button>
               <button
                 type="button"
                 onClick={toggleFullscreen}
-                className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800 transition-colors cursor-pointer"
-                title="전자칠판 전체화면"
+                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                title={isFullscreen ? '창 모드로 복귀' : '전자칠판 전체화면'}
               >
                 {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
               </button>
@@ -346,100 +460,89 @@ export default function ClassroomToolsModal({
             </div>
           </div>
 
-          {/* Modal Content */}
-          <div className="flex-1 overflow-y-auto p-6 flex flex-col items-center justify-center">
-            {/* ==================== 1. 비주얼 타이머 ==================== */}
+          {/* Body Content */}
+          <div className="p-6 flex-1 overflow-y-auto">
             {activeTab === 'timer' && (
-              <div className="w-full flex flex-col items-center text-center">
-                {/* Visual Circle & Time Display */}
-                <div className="relative my-4 flex items-center justify-center">
-                  <svg className="w-64 h-64 sm:w-80 sm:h-80 -rotate-90 transform" viewBox="0 0 100 100">
+              /* TAB 1: TIMER */
+              <div className="flex flex-col items-center max-w-xl mx-auto py-2">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center my-4">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 240 240">
+                    <circle cx="120" cy="120" r="104" stroke="currentColor" strokeWidth="12" fill="none" className="text-slate-100 dark:text-slate-800" />
                     <circle
-                      cx="50"
-                      cy="50"
-                      r="42"
-                      className="text-slate-100 dark:text-slate-800"
-                      strokeWidth="8"
+                      cx="120"
+                      cy="120"
+                      r="104"
                       stroke="currentColor"
-                      fill="transparent"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="42"
-                      className={`transition-all duration-1000 ${
-                        remainingSeconds <= 10
+                      strokeWidth="12"
+                      fill="none"
+                      strokeDasharray={2 * Math.PI * 104}
+                      strokeDashoffset={2 * Math.PI * 104 * (1 - progressRatio)}
+                      strokeLinecap="round"
+                      className={`transition-all duration-300 ${
+                        remainingSeconds <= 30
                           ? 'text-rose-500'
-                          : remainingSeconds <= 30
+                          : remainingSeconds <= 60
                           ? 'text-amber-500'
                           : 'text-brand-sky'
                       }`}
-                      strokeWidth="8"
-                      strokeDasharray={264}
-                      strokeDashoffset={264 - 264 * progressRatio}
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="transparent"
                     />
                   </svg>
 
-                  <div className="absolute flex flex-col items-center">
-                    <span
-                      className={`font-mono font-black tracking-tight text-5xl sm:text-7xl transition-colors ${
-                        remainingSeconds <= 10
-                          ? 'text-rose-600 dark:text-rose-400 animate-pulse'
-                          : remainingSeconds <= 30
-                          ? 'text-amber-500'
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    <div
+                      className={`font-mono font-black tracking-tight ${
+                        isFullscreen ? 'text-7xl sm:text-8xl' : 'text-5xl sm:text-6xl'
+                      } ${
+                        remainingSeconds <= 30
+                          ? 'text-rose-600 animate-pulse'
                           : 'text-slate-900 dark:text-white'
                       }`}
                     >
                       {timeFormatted}
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 mt-2">
-                      {isTimerRunning ? '🔥 집중 시간 진행 중' : remainingSeconds === 0 ? '🎉 시간 완료!' : '수업 준비'}
+                    </div>
+                    <span className="text-xs text-slate-400 font-medium mt-1">
+                      {isTimerRunning ? '진행 중' : remainingSeconds === 0 ? '시간 종료!' : '일시정지'}
                     </span>
                   </div>
                 </div>
 
-                {/* Adjust & Action Controls */}
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 my-4">
                   <button
                     type="button"
                     onClick={() => adjustTimer(-30)}
-                    disabled={isTimerRunning}
-                    className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors cursor-pointer"
+                    className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors font-bold text-xs"
                     title="30초 빼기"
                   >
-                    <Minus className="w-5 h-5" />
+                    -30초
                   </button>
 
                   <button
                     type="button"
-                    onClick={() => setIsTimerRunning(!isTimerRunning)}
-                    className={`flex items-center gap-2 px-8 py-4 rounded-2xl text-lg font-extrabold text-white shadow-lg active:scale-95 transition-all cursor-pointer ${
+                    onClick={toggleTimer}
+                    className={`flex items-center gap-2 px-8 py-4 rounded-2xl text-white font-extrabold text-lg shadow-lg active:scale-95 transition-all cursor-pointer ${
                       isTimerRunning
-                        ? 'bg-amber-500 hover:bg-amber-600 shadow-amber-500/25'
-                        : 'bg-brand-navy hover:bg-brand-sky shadow-brand-navy/25'
+                        ? 'bg-amber-500 hover:bg-amber-600 shadow-amber-500/30'
+                        : 'bg-brand-navy hover:bg-brand-sky shadow-brand-navy/30'
                     }`}
                   >
                     {isTimerRunning ? (
                       <>
                         <Pause className="w-6 h-6 fill-current" />
-                        <span>일시정지</span>
+                        <span>일시 정지</span>
                       </>
                     ) : (
                       <>
                         <Play className="w-6 h-6 fill-current" />
-                        <span>타이머 시작</span>
+                        <span>{remainingSeconds === 0 ? '다시 시작' : '타이머 시작'}</span>
                       </>
                     )}
                   </button>
 
                   <button
                     type="button"
-                    onClick={() => setTimerPreset(totalSeconds)}
-                    className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
-                    title="다시 설정 시간으로 리셋"
+                    onClick={resetTimer}
+                    className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors"
+                    title="초기화"
                   >
                     <RotateCcw className="w-5 h-5" />
                   </button>
@@ -447,32 +550,31 @@ export default function ClassroomToolsModal({
                   <button
                     type="button"
                     onClick={() => adjustTimer(30)}
-                    disabled={isTimerRunning}
-                    className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors cursor-pointer"
+                    className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors font-bold text-xs"
                     title="30초 더하기"
                   >
-                    <Plus className="w-5 h-5" />
+                    +30초
                   </button>
                 </div>
 
-                {/* Preset Chips */}
-                <div className="flex flex-wrap items-center justify-center gap-2">
+                {/* Presets */}
+                <div className="flex flex-wrap items-center justify-center gap-2 mt-2">
                   {[
-                    { label: '1분 (생각)', sec: 60 },
-                    { label: '3분 (짝나눔)', sec: 180 },
-                    { label: '5분 (모둠활동)', sec: 300 },
-                    { label: '10분 (개별학습)', sec: 600 },
+                    { label: '1분', sec: 60 },
+                    { label: '2분', sec: 120 },
+                    { label: '3분', sec: 180 },
+                    { label: '5분', sec: 300 },
+                    { label: '10분', sec: 600 },
                     { label: '15분', sec: 900 },
-                    { label: '20분 (단원평가)', sec: 1200 },
                   ].map((preset) => (
                     <button
                       key={preset.sec}
                       type="button"
                       onClick={() => setTimerPreset(preset.sec)}
-                      className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         totalSeconds === preset.sec && !isTimerRunning
-                          ? 'bg-brand-navy dark:bg-brand-sky text-white dark:text-slate-900 shadow-sm'
-                          : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                          ? 'bg-brand-sky text-slate-900 shadow-sm'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                       }`}
                     >
                       {preset.label}
@@ -482,71 +584,71 @@ export default function ClassroomToolsModal({
               </div>
             )}
 
-            {/* ==================== 2. 발표자·모둠 뽑기 ==================== */}
             {activeTab === 'picker' && (
-              <div className="w-full flex flex-col items-center text-center">
-                {/* Mode Selector */}
-                <div className="flex items-center gap-2 mb-6">
+              /* TAB 2: PICKER */
+              <div className="flex flex-col items-center max-w-xl mx-auto py-2">
+                <div className="flex items-center gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl mb-6">
                   {[
-                    { key: 'number' as const, label: '🔢 학생 번호 뽑기' },
-                    { key: 'group' as const, label: '👥 모둠 뽑기' },
-                    { key: 'custom' as const, label: '📝 이름 명렬표' },
-                  ].map((tab) => (
+                    { key: 'number', label: '학생 번호' },
+                    { key: 'group', label: '모둠 번호' },
+                    { key: 'custom', label: '직접 입력' },
+                  ].map((mode) => (
                     <button
-                      key={tab.key}
+                      key={mode.key}
                       type="button"
-                      onClick={() => {
-                        setPickerMode(tab.key);
-                        setPickedResult(null);
-                      }}
-                      className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                        pickerMode === tab.key
-                          ? 'bg-amber-500 text-white shadow-sm'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                      onClick={() => setPickerMode(mode.key as 'number' | 'group' | 'custom')}
+                      className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                        pickerMode === mode.key
+                          ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
+                          : 'text-slate-500'
                       }`}
                     >
-                      {tab.label}
+                      {mode.label}
                     </button>
                   ))}
                 </div>
 
-                {/* Mode Option Inputs */}
                 {pickerMode === 'number' && (
-                  <div className="flex items-center gap-3 mb-6 text-sm text-slate-600 dark:text-slate-400">
-                    <span>학급 인원:</span>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-xs text-slate-500">학급 총 학생 수:</span>
                     <input
                       type="number"
-                      min={5}
+                      min={1}
                       max={45}
                       value={maxStudentNumber}
-                      onChange={(e) => setMaxStudentNumber(Math.max(1, parseInt(e.target.value) || 25))}
-                      className="w-20 px-3 py-1.5 text-center font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl"
+                      onChange={(e) => setMaxStudentNumber(Math.max(1, parseInt(e.target.value) || 1))}
+                      className="w-20 text-center font-bold text-base py-1 px-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
                     />
-                    <span>번까지 (1 ~ {maxStudentNumber}번)</span>
+                    <span className="text-xs text-slate-500">명</span>
                   </div>
                 )}
 
                 {pickerMode === 'group' && (
-                  <div className="flex items-center gap-3 mb-6 text-sm text-slate-600 dark:text-slate-400">
-                    <span>모둠 개수:</span>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-xs text-slate-500">총 모둠 수:</span>
                     <input
                       type="number"
                       min={2}
                       max={12}
                       value={groupCount}
-                      onChange={(e) => setGroupCount(Math.max(2, parseInt(e.target.value) || 6))}
-                      className="w-20 px-3 py-1.5 text-center font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl"
+                      onChange={(e) => setGroupCount(Math.max(2, parseInt(e.target.value) || 2))}
+                      className="w-20 text-center font-bold text-base py-1 px-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
                     />
-                    <span>모둠까지 (1 ~ {groupCount}모둠)</span>
+                    <span className="text-xs text-slate-500">모둠</span>
                   </div>
                 )}
 
                 {pickerMode === 'custom' && (
-                  <div className="w-full max-w-md mb-6">
+                  <div className="w-full mb-6">
                     <textarea
                       rows={3}
                       value={customNamesInput}
-                      onChange={(e) => handleCustomNamesChange(e.target.value)}
+                      onChange={(e) => {
+                        setCustomNamesInput(e.target.value);
+                        try {
+                          localStorage.setItem('ysschool-picker-names', e.target.value);
+                        } catch {}
+                      }}
                       placeholder="학생 이름을 쉼표(,)나 줄바꿈으로 입력하세요. (예: 민수, 지우, 서연, 도윤)"
                       className="w-full p-3 text-xs sm:text-sm bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-amber-500"
                     />
@@ -616,6 +718,187 @@ export default function ClassroomToolsModal({
                     ))}
                   </div>
                 )}
+              </div>
+            )}
+
+            {activeTab === 'scoreboard' && (
+              /* TAB 3: SCOREBOARD */
+              <div className="flex flex-col items-center max-w-2xl mx-auto py-2">
+                <div className="w-full flex items-center justify-between mb-6 pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-slate-500 font-bold">모둠 수:</span>
+                    {[4, 5, 6, 7, 8].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => handleGroupCountChange(n)}
+                        className={`w-7 h-7 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          scoreboardGroupCount === n
+                            ? 'bg-amber-500 text-white shadow-sm'
+                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                        }`}
+                      >
+                        {n}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={resetScores}
+                    className="flex items-center gap-1 text-xs text-slate-400 hover:text-rose-500 cursor-pointer"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>점수 리셋</span>
+                  </button>
+                </div>
+
+                {/* Score Cards Grid */}
+                <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {Array.from({ length: scoreboardGroupCount }).map((_, idx) => {
+                    const score = scores[idx] || 0;
+                    const isTop = score > 0 && score === maxScore;
+
+                    return (
+                      <div
+                        key={idx}
+                        className={`relative p-5 rounded-3xl border text-center transition-all ${
+                          isTop
+                            ? 'bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-400 shadow-lg scale-102'
+                            : 'bg-white dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 shadow-sm'
+                        }`}
+                      >
+                        {isTop && (
+                          <div className="absolute top-2 right-2 flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-amber-500 text-white text-[10px] font-black shadow-sm">
+                            <Trophy className="w-3 h-3 fill-current" />
+                            <span>1위</span>
+                          </div>
+                        )}
+
+                        <div className="text-sm font-extrabold text-slate-600 dark:text-slate-300 mb-2">
+                          {idx + 1}모둠
+                        </div>
+
+                        <div className="font-mono font-black text-4xl sm:text-5xl text-slate-900 dark:text-white mb-4">
+                          {score}
+                        </div>
+
+                        <div className="flex items-center justify-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => updateScore(idx, -1)}
+                            className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 flex items-center justify-center font-black cursor-pointer"
+                            title="1점 감점"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => updateScore(idx, 1)}
+                            className="flex-1 h-10 rounded-xl bg-amber-500 hover:bg-amber-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-amber-500/20 cursor-pointer"
+                            title="1점 득점"
+                          >
+                            <Plus className="w-4 h-4 mr-0.5" />
+                            <span>1점</span>
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'canvas' && (
+              /* TAB 4: CANVAS QUICK NOTE */
+              <div className="flex flex-col items-center w-full h-full max-w-3xl mx-auto py-1">
+                {/* Canvas Toolbar */}
+                <div className="w-full flex flex-wrap items-center justify-between gap-3 p-3 bg-slate-100 dark:bg-slate-800/80 rounded-2xl mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-slate-500">펜 색상:</span>
+                    {[
+                      { color: '#38bdf8', label: '스카이블루' },
+                      { color: '#f43f5e', label: '빨강' },
+                      { color: '#eab308', label: '노랑 형광' },
+                      { color: '#ffffff', label: '흰색' },
+                    ].map((c) => (
+                      <button
+                        key={c.color}
+                        type="button"
+                        onClick={() => {
+                          setPenColor(c.color);
+                          setIsEraser(false);
+                        }}
+                        style={{ backgroundColor: c.color }}
+                        className={`w-6 h-6 rounded-full border-2 transition-transform cursor-pointer ${
+                          penColor === c.color && !isEraser ? 'scale-125 border-slate-900 shadow-sm' : 'border-transparent'
+                        }`}
+                        title={c.label}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-slate-500">굵기:</span>
+                    {[2, 4, 8].map((w) => (
+                      <button
+                        key={w}
+                        type="button"
+                        onClick={() => setPenWidth(w)}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          penWidth === w
+                            ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900'
+                            : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        }`}
+                      >
+                        {w === 2 ? '얇게' : w === 4 ? '보통' : '두껍게'}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsEraser(!isEraser)}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                        isEraser
+                          ? 'bg-rose-500 text-white shadow-sm'
+                          : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                      }`}
+                    >
+                      <Eraser className="w-3.5 h-3.5" />
+                      <span>지우개</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={clearCanvas}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-rose-500 cursor-pointer"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>모두 지우기</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Drawing Surface */}
+                <div className="w-full flex-1 min-h-[380px] bg-slate-950 rounded-3xl border-2 border-slate-800 overflow-hidden relative shadow-inner cursor-crosshair">
+                  <canvas
+                    ref={canvasRef}
+                    width={800}
+                    height={460}
+                    onMouseDown={startDrawing}
+                    onMouseMove={draw}
+                    onMouseUp={stopDrawing}
+                    onMouseLeave={stopDrawing}
+                    onTouchStart={startDrawing}
+                    onTouchMove={draw}
+                    onTouchEnd={stopDrawing}
+                    className="w-full h-full touch-none"
+                  />
+                  <div className="absolute bottom-3 left-4 text-[11px] text-slate-500 pointer-events-none">
+                    전자칠판 터치펜 또는 마우스로 즉시 판서하세요.
+                  </div>
+                </div>
               </div>
             )}
           </div>

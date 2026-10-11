@@ -60,11 +60,14 @@ export function BgmProvider({ children }: { children: ReactNode }) {
 
   // 1. 초기 볼륨 복원 및 오디오 요소 볼륨 동기화
   useEffect(() => {
-    const currentVol = getSavedOrInitialVolume();
-    setVolumeState(currentVol);
-    if (audioRef.current) {
-      audioRef.current.volume = toActualAudioVolume(currentVol);
-    }
+    const frame = requestAnimationFrame(() => {
+      const currentVol = getSavedOrInitialVolume();
+      setVolumeState(currentVol);
+      if (audioRef.current) {
+        audioRef.current.volume = toActualAudioVolume(currentVol);
+      }
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // 2. 첫 접속 시 자동 재생 처리 (브라우저 Autoplay 보안 정책 완벽 대응)

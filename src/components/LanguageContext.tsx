@@ -23,10 +23,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     requestAnimationFrame(() => {
       setMounted(true);
-      const saved = localStorage.getItem('lang') as Language;
-      if (saved === 'en') {
-        setLang('en');
-        document.documentElement.lang = 'en';
+      try {
+        const saved = localStorage.getItem('lang') as Language;
+        if (saved === 'en') {
+          setLang('en');
+          document.documentElement.lang = 'en';
+        }
+      } catch {
+        // ignore
       }
     });
   }, []);
@@ -34,7 +38,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = () => {
     const newLang = lang === 'ko' ? 'en' : 'ko';
     setLang(newLang);
-    localStorage.setItem('lang', newLang);
+    try {
+      localStorage.setItem('lang', newLang);
+    } catch {
+      // ignore
+    }
     document.documentElement.lang = newLang;
   };
 
