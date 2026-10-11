@@ -11,14 +11,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number;
     changeFrequency: 'weekly' | 'monthly';
   }> = [
-    { route: '', lastModified: '2026-10-06', priority: 1.0, changeFrequency: 'weekly' },
-    { route: '/portfolio', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'monthly' },
-    { route: '/showcase', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'monthly' },
-    { route: '/library', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'monthly' },
-    { route: '/playground', lastModified: '2026-10-06', priority: 0.7, changeFrequency: 'monthly' },
-    { route: '/training', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'weekly' },
-    { route: '/training/student-growth-2026', lastModified: '2026-10-06', priority: 0.7, changeFrequency: 'monthly' },
-    { route: '/blog', lastModified: '2026-10-06', priority: 0.8, changeFrequency: 'weekly' },
+    { route: '', lastModified: '2026-10-11', priority: 1.0, changeFrequency: 'weekly' },
+    { route: '/materials', lastModified: '2026-10-11', priority: 0.9, changeFrequency: 'weekly' },
+    { route: '/portfolio', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'monthly' },
+    { route: '/showcase', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'monthly' },
+    { route: '/library', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'monthly' },
+    { route: '/playground', lastModified: '2026-10-11', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/morning', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'monthly' },
+    { route: '/tools', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'monthly' },
+    { route: '/training', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'weekly' },
+    { route: '/training/student-growth-2026', lastModified: '2026-10-11', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/training/ai-lesson-design-2026', lastModified: '2026-10-11', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/training/school-curriculum-2026', lastModified: '2026-10-11', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/blog', lastModified: '2026-10-11', priority: 0.8, changeFrequency: 'weekly' },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((item) => ({

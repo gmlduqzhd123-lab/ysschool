@@ -125,8 +125,8 @@ export default function HomeQuickDesk() {
           </Link>
         </div>
 
-        {/* 4 Quick Action Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
+        {/* 5 Quick Action Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 pt-6">
           {/* 1. 100종 배움게임 */}
           <Link
             href="/showcase#learning-games"
@@ -194,7 +194,37 @@ export default function HomeQuickDesk() {
             </div>
           </div>
 
-          {/* 3. 연수 자료 & PPT */}
+          {/* 3. 엽쌤 제작 수업 자료 (NEW!) */}
+          <Link
+            href="/materials"
+            className="group flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-br from-sky-50/60 to-indigo-50/40 dark:from-slate-800/90 dark:to-slate-800/50 border border-sky-200 dark:border-sky-900/40 hover:border-brand-sky hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-600 dark:text-brand-sky flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <FileText className="w-6 h-6" />
+              </div>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-sky-600 dark:text-brand-sky uppercase">
+                  실천 수업 자료
+                </span>
+                <span className="px-1.5 py-0.2 rounded bg-sky-500/15 text-sky-700 dark:text-sky-300 text-[10px] font-extrabold">
+                  59종 HWP
+                </span>
+              </div>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">
+                엽쌤 제작 수업 자료
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                국어·독서, 인문·토론, 에듀테크·AI, 발명영재 지도안 & HWP 활동지
+              </p>
+            </div>
+            <div className="flex items-center gap-1 text-xs font-bold text-sky-600 dark:text-brand-sky mt-4 group-hover:translate-x-1 transition-transform">
+              <span>수업 자료실 바로가기</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+
+          {/* 4. 연수 자료 & PPT */}
           <Link
             href="/training"
             className="group flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-br from-blue-50/50 to-indigo-50/30 dark:from-slate-800/80 dark:to-slate-800/40 border border-blue-100 dark:border-blue-900/30 hover:border-blue-500/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
@@ -203,23 +233,28 @@ export default function HomeQuickDesk() {
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <FileText className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400 uppercase">
-                연수 강의안·서식
-              </span>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400 uppercase">
+                  연수 강의안·서식
+                </span>
+                <span className="px-1.5 py-0.2 rounded bg-blue-500/15 text-blue-700 dark:text-blue-300 text-[10px] font-extrabold">
+                  844종 DB
+                </span>
+              </div>
               <h3 className="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">
                 연수 강의안·자료실
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                학생성장 수업·평가·기록, AI 디지털선도 PPT 다운로드
+                학생성장 수업·평가·기록, AI 디지털선도, 2026 교육과정 설계 자료
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 mt-4 group-hover:translate-x-1 transition-transform">
-              <span>연수 강의안·자료실 바로가기</span>
+              <span>연수 자료실 바로가기</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
 
-          {/* 4. 추천 에듀테크 도구함 */}
+          {/* 5. 추천 에듀테크 도구함 */}
           <Link
             href="/library#tools"
             className="group flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-br from-purple-50/50 to-pink-50/30 dark:from-slate-800/80 dark:to-slate-800/40 border border-purple-100 dark:border-purple-900/30 hover:border-purple-500/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"

@@ -198,6 +198,8 @@ export default function TeachingMaterialsPage() {
                       {item.fileUrl && (
                         <a
                           href={item.fileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           download
                           className="inline-flex w-full items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-brand-navy hover:bg-brand-sky hover:text-slate-950 text-white font-bold text-xs shadow-sm transition-all"
                         >

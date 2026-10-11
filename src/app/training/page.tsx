@@ -701,14 +701,21 @@ export default function TrainingPage() {
                 ))}
               </div>
               {visibleCount < filteredData.length && (
-                <div className="mt-12 text-center">
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
                   <button
                     type="button"
-                    onClick={() => setVisibleCount((prev) => prev + 18)}
+                    onClick={() => setVisibleCount((prev) => prev + 36)}
                     className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-sky text-slate-800 dark:text-slate-200 font-bold px-6 py-3.5 rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer text-sm"
                   >
-                    <span>더 많은 연수 자료 보기 ({visibleCount} / {filteredData.length})</span>
+                    <span>+36개 더 보기 ({visibleCount} / {filteredData.length})</span>
                     <ChevronDown className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setVisibleCount(filteredData.length)}
+                    className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-700/60 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-5 py-3.5 rounded-2xl transition-all cursor-pointer text-sm"
+                  >
+                    <span>전체 자료 한 번에 펼치기 ({filteredData.length}개)</span>
                   </button>
                 </div>
               )}

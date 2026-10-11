@@ -6,6 +6,7 @@ import QrButton from './QrButton';
 const footerLinks = [
   { href: '/', label: '홈' },
   { href: '/portfolio', label: '프로필 & 발자취' },
+  { href: '/materials', label: '엽쌤 제작 수업 자료' },
   { href: '/training', label: '연수 강의안·자료실' },
   { href: '/showcase', label: '100종 배움게임' },
   { href: '/library', label: '에듀테크 나눔 서재' },
