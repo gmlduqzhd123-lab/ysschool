@@ -64,20 +64,19 @@ function getRoleBadgeStyle(affiliation: string) {
 }
 
 function loadLocalEntries(): GuestEntry[] {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
-    try {
+  if (typeof window === 'undefined') return [];
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
       return (JSON.parse(saved) as Array<Omit<GuestEntry, 'source'>>).map((entry) => ({
         ...entry,
         source: 'local' as const,
       }));
-    } catch {}
-  }
+    }
 
-  const legacy = localStorage.getItem(LEGACY_KEY);
-  if (!legacy) return [];
+    const legacy = localStorage.getItem(LEGACY_KEY);
+    if (!legacy) return [];
 
-  try {
     const parsed = JSON.parse(legacy) as Array<{
       name?: string;
       affiliation?: string;

@@ -17,11 +17,11 @@ import StudentPinModal from './StudentPinModal';
 
 export default function HomeQuickDesk() {
   const [isToolsModalOpen, setIsToolsModalOpen] = useState(false);
-  const [toolsDefaultTab, setToolsDefaultTab] = useState<'timer' | 'picker'>('timer');
+  const [toolsDefaultTab, setToolsDefaultTab] = useState<'timer' | 'picker' | 'scoreboard' | 'canvas'>('timer');
   const [isPinModalOpen, setIsPinModalOpen] = useState(false);
   const [homePinInput, setHomePinInput] = useState('');
 
-  const handleOpenTools = (tab: 'timer' | 'picker') => {
+  const handleOpenTools = (tab: 'timer' | 'picker' | 'scoreboard' | 'canvas') => {
     setToolsDefaultTab(tab);
     setIsToolsModalOpen(true);
   };
