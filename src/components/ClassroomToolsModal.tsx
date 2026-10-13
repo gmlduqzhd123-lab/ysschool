@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
@@ -20,8 +20,22 @@ import {
   PenTool,
   Eraser,
   Trash2,
+  Undo2,
+  Download,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+
+interface StrokePoint {
+  x: number;
+  y: number;
+}
+
+interface Stroke {
+  points: StrokePoint[];
+  color: string;
+  width: number;
+  isEraser: boolean;
+}
 
 interface ClassroomToolsModalProps {
   isOpen: boolean;
@@ -121,10 +135,15 @@ export default function ClassroomToolsModal({
 
   // ===== 전자칠판 퀵 캔버스 상태 =====
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [penColor, setPenColor] = useState('#38bdf8');
   const [penWidth, setPenWidth] = useState(4);
   const [isEraser, setIsEraser] = useState(false);
+  const [strokes, setStrokes] = useState<Stroke[]>([]);
+  const strokesRef = useRef<Stroke[]>([]);
+  const currentStrokeRef = useRef<Stroke | null>(null);
+  const activePointerIdRef = useRef<number | null>(null);
 
   // 탭 변경 시
   const [prevDefaultTab, setPrevDefaultTab] = useState(defaultTab);
@@ -142,6 +161,15 @@ export default function ClassroomToolsModal({
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [isOpen, isFullscreen, onClose]);
+
+  // 전체화면 변경 이벤트 감지 (ESC 키나 브라우저 컨트롤 등으로 나갈 때 동기화)
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   // 타이머 실행 루프
   useEffect(() => {
@@ -195,9 +223,19 @@ export default function ClassroomToolsModal({
   const toggleFullscreen = () => {
     if (!modalContainerRef.current) return;
     if (!document.fullscreenElement) {
-      modalContainerRef.current.requestFullscreen?.().then(() => setIsFullscreen(true)).catch(() => {});
+      modalContainerRef.current
+        .requestFullscreen?.()
+        .then(() => setIsFullscreen(true))
+        .catch(() => {
+          setIsFullscreen(true);
+        });
     } else {
-      document.exitFullscreen?.().then(() => setIsFullscreen(false)).catch(() => {});
+      document
+        .exitFullscreen?.()
+        .then(() => setIsFullscreen(false))
+        .catch(() => {
+          setIsFullscreen(false);
+        });
     }
   };
 
@@ -283,58 +321,231 @@ export default function ClassroomToolsModal({
     });
   };
 
-  // 캔버스 드로잉 로직
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+  // 캔버스 드로잉 로직 및 고해상도 리사이즈 보정
+  const redrawCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = 'touches' in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
-    const y = 'touches' in e ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
 
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    setIsDrawing(true);
-  };
+    const allStrokes = strokesRef.current;
+    for (const stroke of allStrokes) {
+      if (stroke.points.length === 0) continue;
+      ctx.beginPath();
+      ctx.lineWidth = stroke.width;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = stroke.isEraser ? '#020617' : stroke.color;
 
-  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDrawing) return;
+      const first = stroke.points[0];
+      ctx.moveTo(first.x, first.y);
+
+      if (stroke.points.length === 1) {
+        ctx.lineTo(first.x + 0.1, first.y + 0.1);
+      } else {
+        for (let i = 1; i < stroke.points.length; i++) {
+          ctx.lineTo(stroke.points[i].x, stroke.points[i].y);
+        }
+      }
+      ctx.stroke();
+    }
+  }, []);
+
+  const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const container = canvasContainerRef.current;
+    if (!canvas || !container) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = 'touches' in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
-    const y = 'touches' in e ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+    const rect = container.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
 
-    ctx.lineWidth = penWidth;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
+    const dpr = window.devicePixelRatio || 1;
+    const newWidth = Math.floor(rect.width * dpr);
+    const newHeight = Math.floor(rect.height * dpr);
 
-    if (isEraser) {
-      ctx.strokeStyle = '#020617'; // 다크 캔버스 배경색과 일치
-      ctx.lineWidth = penWidth * 4;
-    } else {
-      ctx.strokeStyle = penColor;
+    if (canvas.width !== newWidth || canvas.height !== newHeight) {
+      canvas.width = newWidth;
+      canvas.height = newHeight;
     }
 
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    }
+    redrawCanvas();
+  }, [redrawCanvas]);
+
+  // 캔버스 리사이즈 감지 (전체화면, 창 크기 변경 시 자동 재조정)
+  useEffect(() => {
+    if (!isOpen || activeTab !== 'canvas') return;
+    const container = canvasContainerRef.current;
+    if (!container) return;
+
+    const animId = requestAnimationFrame(() => {
+      resizeCanvas();
+    });
+    const timerId = setTimeout(() => {
+      resizeCanvas();
+    }, 280);
+
+    const observer = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+    observer.observe(container);
+
+    window.addEventListener('resize', resizeCanvas);
+    return () => {
+      cancelAnimationFrame(animId);
+      clearTimeout(timerId);
+      observer.disconnect();
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, [isOpen, activeTab, isFullscreen, resizeCanvas]);
+
+  // 포인터 이벤트 기반 판서 핸들러 (전자칠판 터치펜/손가락/마우스 완벽 대응)
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+      activePointerIdRef.current = e.pointerId;
+    } catch {
+      // ignore
+    }
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const strokeWidth = isEraser ? penWidth * 5 : penWidth;
+    const strokeColor = isEraser ? '#020617' : penColor;
+
+    const newStroke: Stroke = {
+      points: [{ x, y }],
+      color: strokeColor,
+      width: strokeWidth,
+      isEraser,
+    };
+
+    currentStrokeRef.current = newStroke;
+    setIsDrawing(true);
+
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.beginPath();
+      ctx.lineWidth = strokeWidth;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = strokeColor;
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + 0.1, y + 0.1);
+      ctx.stroke();
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isDrawing || !currentStrokeRef.current) return;
+    if (activePointerIdRef.current !== null && e.pointerId !== activePointerIdRef.current) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const stroke = currentStrokeRef.current;
+    const lastPoint = stroke.points[stroke.points.length - 1];
+
+    stroke.points.push({ x, y });
+
+    ctx.beginPath();
+    ctx.lineWidth = stroke.width;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = stroke.color;
+    ctx.moveTo(lastPoint.x, lastPoint.y);
     ctx.lineTo(x, y);
     ctx.stroke();
   };
 
-  const stopDrawing = () => {
+  const handlePointerUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (activePointerIdRef.current !== null && e.pointerId === activePointerIdRef.current) {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        // ignore
+      }
+      activePointerIdRef.current = null;
+    }
+
+    if (currentStrokeRef.current) {
+      const finishedStroke = currentStrokeRef.current;
+      currentStrokeRef.current = null;
+      setStrokes((prev) => {
+        const next = [...prev, finishedStroke];
+        strokesRef.current = next;
+        return next;
+      });
+    }
     setIsDrawing(false);
   };
 
+  const undoLastStroke = () => {
+    setStrokes((prev) => {
+      if (prev.length === 0) return prev;
+      const next = prev.slice(0, -1);
+      strokesRef.current = next;
+      requestAnimationFrame(redrawCanvas);
+      return next;
+    });
+  };
+
   const clearCanvas = () => {
+    if (strokesRef.current.length === 0) return;
+    if (confirm('판서 내용을 모두 지우시겠습니까?')) {
+      strokesRef.current = [];
+      setStrokes([]);
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
+    }
+  };
+
+  const downloadCanvasImage = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    const tempCtx = tempCanvas.getContext('2d');
+    if (!tempCtx) return;
+
+    // 칠판 배경색 채우기
+    tempCtx.fillStyle = '#020617';
+    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    // 캔버스 내용 복사
+    tempCtx.drawImage(canvas, 0, 0);
+
+    const link = document.createElement('a');
+    link.download = `ysschool-chalkboard-${new Date().toISOString().slice(0, 10)}.png`;
+    link.href = tempCanvas.toDataURL('image/png');
+    link.click();
   };
 
   if (!isOpen) return null;
@@ -349,16 +560,22 @@ export default function ClassroomToolsModal({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md">
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center ${
+          isFullscreen ? 'p-0' : 'p-2 sm:p-6'
+        } bg-black/80 backdrop-blur-md`}
+      >
         <motion.div
           ref={modalContainerRef}
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.25 }}
-          className={`relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col ${
-            isFullscreen ? 'h-full max-w-none rounded-none' : 'max-h-[94vh]'
-          }`}
+          className={`relative ${
+            isFullscreen
+              ? 'w-full h-full w-screen h-screen max-w-none max-h-none rounded-none border-0'
+              : 'w-full max-w-5xl max-h-[94vh] rounded-3xl border border-slate-200 dark:border-slate-800'
+          } bg-white dark:bg-slate-900 shadow-2xl overflow-hidden flex flex-col`}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/50">
@@ -461,7 +678,13 @@ export default function ClassroomToolsModal({
           </div>
 
           {/* Body Content */}
-          <div className="p-6 flex-1 overflow-y-auto">
+          <div
+            className={`flex-1 min-h-0 ${
+              activeTab === 'canvas'
+                ? 'p-2 sm:p-4 flex flex-col overflow-hidden'
+                : 'p-6 overflow-y-auto'
+            }`}
+          >
             {activeTab === 'timer' && (
               /* TAB 1: TIMER */
               <div className="flex flex-col items-center max-w-xl mx-auto py-2">
@@ -811,15 +1034,17 @@ export default function ClassroomToolsModal({
 
             {activeTab === 'canvas' && (
               /* TAB 4: CANVAS QUICK NOTE */
-              <div className="flex flex-col items-center w-full h-full max-w-3xl mx-auto py-1">
+              <div className="flex flex-col w-full h-full flex-1 min-h-0">
                 {/* Canvas Toolbar */}
-                <div className="w-full flex flex-wrap items-center justify-between gap-3 p-3 bg-slate-100 dark:bg-slate-800/80 rounded-2xl mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">펜 색상:</span>
+                <div className="w-full flex flex-wrap items-center justify-between gap-2 p-2 sm:p-3 bg-slate-100 dark:bg-slate-800/80 rounded-2xl mb-2 sm:mb-3 shrink-0">
+                  {/* 펜 색상 */}
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <span className="text-xs font-bold text-slate-500">색상:</span>
                     {[
                       { color: '#38bdf8', label: '스카이블루' },
                       { color: '#f43f5e', label: '빨강' },
-                      { color: '#eab308', label: '노랑 형광' },
+                      { color: '#eab308', label: '형광노랑' },
+                      { color: '#22c55e', label: '에메랄드' },
                       { color: '#ffffff', label: '흰색' },
                     ].map((c) => (
                       <button
@@ -831,16 +1056,19 @@ export default function ClassroomToolsModal({
                         }}
                         style={{ backgroundColor: c.color }}
                         className={`w-6 h-6 rounded-full border-2 transition-transform cursor-pointer ${
-                          penColor === c.color && !isEraser ? 'scale-125 border-slate-900 shadow-sm' : 'border-transparent'
+                          penColor === c.color && !isEraser
+                            ? 'scale-125 border-slate-900 shadow-sm'
+                            : 'border-transparent'
                         }`}
                         title={c.label}
                       />
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  {/* 굵기 */}
+                  <div className="flex items-center gap-1 sm:gap-2">
                     <span className="text-xs font-bold text-slate-500">굵기:</span>
-                    {[2, 4, 8].map((w) => (
+                    {[3, 6, 12].map((w) => (
                       <button
                         key={w}
                         type="button"
@@ -851,52 +1079,78 @@ export default function ClassroomToolsModal({
                             : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300'
                         }`}
                       >
-                        {w === 2 ? '얇게' : w === 4 ? '보통' : '두껍게'}
+                        {w === 3 ? '얇게' : w === 6 ? '보통' : '두껍게'}
                       </button>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  {/* 액션 버튼들 */}
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     <button
                       type="button"
                       onClick={() => setIsEraser(!isEraser)}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                      className={`flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         isEraser
                           ? 'bg-rose-500 text-white shadow-sm'
                           : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                       }`}
+                      title="지우개 모드"
                     >
                       <Eraser className="w-3.5 h-3.5" />
-                      <span>지우개</span>
+                      <span className="hidden sm:inline">지우개</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={undoLastStroke}
+                      disabled={strokes.length === 0}
+                      className={`flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                        strokes.length === 0
+                          ? 'opacity-40 cursor-not-allowed bg-slate-200 dark:bg-slate-800 text-slate-400'
+                          : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                      }`}
+                      title="실행 취소 (Undo)"
+                    >
+                      <Undo2 className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">되돌리기</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={downloadCanvasImage}
+                      className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-sky transition-colors cursor-pointer"
+                      title="판서 이미지 다운로드"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">저장</span>
                     </button>
                     <button
                       type="button"
                       onClick={clearCanvas}
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-rose-500 cursor-pointer"
+                      className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-rose-500 transition-colors cursor-pointer"
+                      title="판서 전체 지우기"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
-                      <span>모두 지우기</span>
+                      <span className="hidden sm:inline">모두 지우기</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Drawing Surface */}
-                <div className="w-full flex-1 min-h-[380px] bg-slate-950 rounded-3xl border-2 border-slate-800 overflow-hidden relative shadow-inner cursor-crosshair">
+                <div
+                  ref={canvasContainerRef}
+                  className="w-full flex-1 min-h-0 bg-slate-950 rounded-2xl border-2 border-slate-800 overflow-hidden relative shadow-inner cursor-crosshair touch-none"
+                >
                   <canvas
                     ref={canvasRef}
-                    width={800}
-                    height={460}
-                    onMouseDown={startDrawing}
-                    onMouseMove={draw}
-                    onMouseUp={stopDrawing}
-                    onMouseLeave={stopDrawing}
-                    onTouchStart={startDrawing}
-                    onTouchMove={draw}
-                    onTouchEnd={stopDrawing}
-                    className="w-full h-full touch-none"
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerUp}
+                    className="w-full h-full block touch-none"
+                    style={{ touchAction: 'none' }}
                   />
-                  <div className="absolute bottom-3 left-4 text-[11px] text-slate-500 pointer-events-none">
-                    전자칠판 터치펜 또는 마우스로 즉시 판서하세요.
+                  <div className="absolute bottom-2.5 left-3.5 text-[11px] text-slate-500 pointer-events-none select-none flex items-center gap-2">
+                    <span>🖊️ 전자칠판 터치펜·터치·마우스로 자유롭게 판서하세요</span>
+                    <span className="hidden md:inline text-slate-600">| 우측 상단 ⛶ 전체화면으로 교실 전체에 꽉 채울 수 있습니다</span>
                   </div>
                 </div>
               </div>
