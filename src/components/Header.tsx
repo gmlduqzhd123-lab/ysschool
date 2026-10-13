@@ -21,6 +21,7 @@ import {
   Sparkles,
   Code2,
   QrCode,
+  Share2,
 } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
@@ -28,6 +29,7 @@ import LanguageToggle from './LanguageToggle';
 import InstallAppButton from './InstallAppButton';
 import QrButton from './QrButton';
 import BgmToggle from './BgmToggle';
+import TeacherShareModal from './TeacherShareModal';
 
 // ========== 메뉴 아이콘 렌더링 ==========
 function RenderNavIcon({ iconName }: { iconName?: string }) {
@@ -387,6 +389,7 @@ function MobileAccordion({ item, onClose }: { item: NavItem; onClose: () => void
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -487,6 +490,15 @@ export default function Header() {
             </button>
             <InstallAppButton className="px-3 py-1.5 rounded-full bg-brand-navy text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer" />
             <QrButton label="📱 QR" className="px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold whitespace-nowrap hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer" />
+            <button
+              type="button"
+              onClick={() => setIsShareModalOpen(true)}
+              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-sky/40 text-brand-navy dark:text-brand-sky text-xs font-bold whitespace-nowrap hover:bg-brand-sky/10 transition-colors cursor-pointer"
+              title="교사 메신저 공유 & 전자칠판 바로가기 안내"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              <span>교사 공유</span>
+            </button>
             <BgmToggle />
             <LanguageToggle />
             <ThemeToggle />
@@ -528,6 +540,15 @@ export default function Header() {
               }
               className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold leading-4 whitespace-nowrap cursor-pointer"
             />
+            <button
+              type="button"
+              onClick={() => setIsShareModalOpen(true)}
+              className="p-1.5 rounded-xl border border-brand-sky/40 text-brand-navy dark:text-brand-sky hover:bg-brand-sky/10 transition-colors cursor-pointer"
+              aria-label="교사 공유"
+              title="교사 공유 & 바탕화면 바로가기"
+            >
+              <Share2 className="w-4 h-4" />
+            </button>
             <div className="hidden sm:flex items-center gap-1.5">
               <LanguageToggle />
             </div>
@@ -639,6 +660,12 @@ export default function Header() {
           </div>
         </nav>
       )}
+
+      {/* Teacher Share & Desktop Shortcut Guide Modal */}
+      <TeacherShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+      />
     </header>
   );
 }

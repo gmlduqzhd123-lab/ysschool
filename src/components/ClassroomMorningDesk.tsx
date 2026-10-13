@@ -18,6 +18,7 @@ import {
   Gamepad2,
   Home,
   Trash2,
+  Share2,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import Link from 'next/link';
@@ -27,6 +28,7 @@ import {
   setAmbientVolume,
 } from '@/lib/webAudioAmbient';
 import MorningSchoolMealCard from './MorningSchoolMealCard';
+import TeacherShareModal from './TeacherShareModal';
 
 type DeskTheme = 'chalkboard' | 'slate' | 'whiteboard';
 
@@ -52,6 +54,10 @@ const TEMPLATES = [
   {
     label: '🌈 활기찬 하루 시작',
     content: `☀️ 1. 짝꿍에게 "오늘 하루도 힘내자!" 밝게 인사하기\n🎯 2. 오늘 하루 내가 실천할 작은 친절 한 가지 정하기\n🥛 3. 물 한 잔 마시고 바른 자세로 자리에 앉기\n💡 4. 오늘의 질문: 오늘 학교에서 가장 기대되는 것은?`,
+  },
+  {
+    label: '💡 1일 1생각 대화의 날',
+    content: `☀️ 1. 바른 자세로 단정하게 앉아 심호흡 3번 하기\n💡 2. 오늘의 생각거리: 오늘 하루 친구에게 전하고 싶은 따뜻한 칭찬 나누기\n📖 3. 1교시 교과서와 필기도구 책상 위에 미리 꺼내기\n🤝 4. 짝꿍과 함께 오늘 하루 멋지게 보낼 응원 하이파이브!`,
   },
 ];
 
@@ -86,6 +92,7 @@ export default function ClassroomMorningDesk() {
   // 테마 상태
   const [theme, setTheme] = useState<DeskTheme>('chalkboard');
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 실시간 시계 & 날짜
@@ -409,6 +416,17 @@ export default function ClassroomMorningDesk() {
               화이트
             </button>
           </div>
+
+          {/* 교사 공유 & 바로가기 버튼 */}
+          <button
+            type="button"
+            onClick={() => setIsShareModalOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 border border-amber-400/30 text-xs font-extrabold transition-all cursor-pointer"
+            title="교사 메신저 공유 및 전자칠판 바로가기 안내"
+          >
+            <Share2 className="w-3.5 h-3.5 text-amber-300" />
+            <span className="hidden sm:inline">교사 공유</span>
+          </button>
 
           {/* 전체화면 버튼 */}
           <button
@@ -913,6 +931,12 @@ export default function ClassroomMorningDesk() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Teacher Share & Desktop Shortcut Guide Modal */}
+      <TeacherShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+      />
     </div>
   );
 }

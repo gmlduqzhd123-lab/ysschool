@@ -10,16 +10,22 @@ import {
   ArrowRight,
   Sparkles,
   Play,
+  Share2,
 } from 'lucide-react';
 import Link from 'next/link';
 import ClassroomToolsModal from './ClassroomToolsModal';
 import StudentPinModal from './StudentPinModal';
+import ClassroomDailyPick from './ClassroomDailyPick';
+import TeacherShareModal from './TeacherShareModal';
+import { LearningGame } from '@/data/learningGamesData';
 
 export default function HomeQuickDesk() {
   const [isToolsModalOpen, setIsToolsModalOpen] = useState(false);
   const [toolsDefaultTab, setToolsDefaultTab] = useState<'timer' | 'picker' | 'scoreboard' | 'canvas'>('timer');
   const [isPinModalOpen, setIsPinModalOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [homePinInput, setHomePinInput] = useState('');
+  const [selectedGame, setSelectedGame] = useState<LearningGame | null>(null);
 
   const handleOpenTools = (tab: 'timer' | 'picker' | 'scoreboard' | 'canvas') => {
     setToolsDefaultTab(tab);
@@ -63,31 +69,44 @@ export default function HomeQuickDesk() {
             </div>
           </div>
 
-          {/* Student Fast PIN Bar */}
-          <form
-            onSubmit={handlePinSubmit}
-            className="w-full lg:w-auto flex items-center justify-between sm:justify-start gap-1.5 sm:gap-2 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700"
-          >
-            <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-bold whitespace-nowrap">
-              <Gamepad2 className="w-4 h-4 text-emerald-500" />
-              <span>학생 게임 PIN:</span>
-            </div>
-            <input
-              type="text"
-              maxLength={4}
-              value={homePinInput}
-              onChange={(e) => setHomePinInput(e.target.value)}
-              placeholder="예: 001"
-              className="w-24 text-center font-mono font-bold text-sm bg-white dark:bg-slate-700 py-1.5 px-2 rounded-xl text-slate-900 dark:text-white border border-slate-200 dark:border-slate-600 focus:outline-none focus:border-brand-sky"
-            />
+          {/* Action Bar: Teacher Share & Student Fast PIN Bar */}
+          <div className="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
             <button
-              type="submit"
-              className="flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-extrabold shadow-sm transition-colors cursor-pointer whitespace-nowrap"
+              type="button"
+              onClick={() => setIsShareModalOpen(true)}
+              className="flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-brand-navy hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-bold border border-slate-700/60 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+              title="쿨메신저/카톡 공유 및 전자칠판 바로가기 만들기"
             >
-              <Play className="w-3.5 h-3.5 fill-current" />
-              <span>입장</span>
+              <Share2 className="w-3.5 h-3.5 text-brand-sky" />
+              <span>교사 공유 & 바로가기</span>
             </button>
-          </form>
+
+            {/* Student Fast PIN Bar */}
+            <form
+              onSubmit={handlePinSubmit}
+              className="flex items-center justify-between sm:justify-start gap-1.5 sm:gap-2 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700"
+            >
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-bold whitespace-nowrap">
+                <Gamepad2 className="w-4 h-4 text-emerald-500" />
+                <span>학생 게임 PIN:</span>
+              </div>
+              <input
+                type="text"
+                maxLength={4}
+                value={homePinInput}
+                onChange={(e) => setHomePinInput(e.target.value)}
+                placeholder="예: 001"
+                className="w-20 sm:w-24 text-center font-mono font-bold text-sm bg-white dark:bg-slate-700 py-1.5 px-2 rounded-xl text-slate-900 dark:text-white border border-slate-200 dark:border-slate-600 focus:outline-none focus:border-brand-sky"
+              />
+              <button
+                type="submit"
+                className="flex items-center gap-1 px-3.5 sm:px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-extrabold shadow-sm transition-colors cursor-pointer whitespace-nowrap"
+              >
+                <Play className="w-3.5 h-3.5 fill-current" />
+                <span>입장</span>
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Morning Desk Highlight Banner (Strategy 1) */}
@@ -279,6 +298,15 @@ export default function HomeQuickDesk() {
             </div>
           </Link>
         </div>
+
+        {/* Daily Classroom Pick & Routine (Question of the day, today's game, today's app, recent games) */}
+        <ClassroomDailyPick
+          onOpenPinModal={(game) => {
+            setSelectedGame(game);
+            setHomePinInput(game.pin);
+            setIsPinModalOpen(true);
+          }}
+        />
       </motion.div>
 
       {/* Classroom Tools Modal */}
@@ -291,8 +319,18 @@ export default function HomeQuickDesk() {
       {/* Student PIN Modal */}
       <StudentPinModal
         isOpen={isPinModalOpen}
-        onClose={() => setIsPinModalOpen(false)}
+        onClose={() => {
+          setIsPinModalOpen(false);
+          setSelectedGame(null);
+        }}
         initialPin={homePinInput}
+        initialGame={selectedGame}
+      />
+
+      {/* Teacher Share & Desktop Shortcut Guide Modal */}
+      <TeacherShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
       />
     </section>
   );
