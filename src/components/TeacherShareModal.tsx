@@ -7,27 +7,22 @@ import {
   Copy,
   Check,
   Monitor,
-  Smartphone,
   QrCode,
   X,
   Sparkles,
-  ExternalLink,
   MessageSquare,
-  Bookmark,
 } from 'lucide-react';
 import QRCode from 'qrcode';
 
 interface TeacherShareModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
   url?: string;
 }
 
 export default function TeacherShareModal({
   isOpen,
   onClose,
-  title = '엽쌤스쿨 | 교실 전자칠판 아침데스크 & 100종 배움게임',
   url,
 }: TeacherShareModalProps) {
   const [copiedText, setCopiedText] = useState(false);
@@ -244,7 +239,7 @@ export default function TeacherShareModal({
                 <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-900 dark:text-amber-200 text-xs leading-relaxed space-y-2">
                   <div className="font-extrabold flex items-center gap-2 text-sm text-amber-600 dark:text-amber-400">
                     <Monitor className="w-4 h-4" />
-                    <span>전자칠판 바탕화면에 '1초 바로가기 앱' 만들기</span>
+                    <span>전자칠판 바탕화면에 &apos;1초 바로가기 앱&apos; 만들기</span>
                   </div>
                   <p>
                     매번 인터넷 주소를 치지 않아도, 교실 컴퓨터나 전자칠판 바탕화면에서 더블 클릭 한 번으로 무광고 전체화면 교실 데스크가 열립니다.
@@ -272,10 +267,10 @@ export default function TeacherShareModal({
                     </div>
                     <div className="text-xs">
                       <strong className="text-slate-900 dark:text-white block font-bold mb-0.5">
-                        '저장 및 공유' ➡️ '바로가기 만들기' 클릭
+                        &lsquo;저장 및 공유&rsquo; ➡️ &lsquo;바로가기 만들기&rsquo; 클릭
                       </strong>
                       <span className="text-slate-500 dark:text-slate-400">
-                        (엣지 브라우저는 <strong>'앱' ➡️ '이 사이트를 앱으로 설치'</strong>를 선택합니다)
+                        (엣지 브라우저는 <strong>&lsquo;앱&rsquo; ➡️ &lsquo;이 사이트를 앱으로 설치&rsquo;</strong>를 선택합니다)
                       </span>
                     </div>
                   </div>
@@ -286,7 +281,7 @@ export default function TeacherShareModal({
                     </div>
                     <div className="text-xs">
                       <strong className="text-slate-900 dark:text-white block font-bold mb-0.5">
-                        '창으로 열기' 체크 후 [만들기]
+                        &lsquo;창으로 열기&rsquo; 체크 후 [만들기]
                       </strong>
                       <span className="text-slate-500 dark:text-slate-400">
                         바탕화면에 생성된 아이콘을 더블클릭하면 주소창 없이 앱처럼 깔끔하게 교실 데스크가 시작됩니다!
@@ -318,6 +313,7 @@ export default function TeacherShareModal({
 
                 {qrCodeUrl ? (
                   <div className="p-4 bg-white rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col items-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={qrCodeUrl}
                       alt="접속용 QR 코드"

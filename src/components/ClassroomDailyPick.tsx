@@ -1,12 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
-  Sparkles,
-  Gamepad2,
   Play,
-  RotateCcw,
   Lightbulb,
   ArrowRight,
   Copy,
@@ -15,10 +11,10 @@ import {
   Flame,
   Clock,
   Compass,
+  Sparkles,
 } from 'lucide-react';
-import Link from 'next/link';
 import { learningGamesData, LearningGame } from '@/data/learningGamesData';
-import { yscodeApps, YsCodeApp } from '@/data/yscodeData';
+import { yscodeApps } from '@/data/yscodeData';
 
 // 31가지 매일 바뀌는 아침 교실 생각거리 (Question of the Day)
 const DAILY_QUESTIONS = [
@@ -60,33 +56,33 @@ interface ClassroomDailyPickProps {
 }
 
 export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPickProps) {
-  const [todayGame, setTodayGame] = useState<LearningGame | null>(null);
-  const [todayApp, setTodayApp] = useState<YsCodeApp | null>(null);
-  const [todayQuestion, setTodayQuestion] = useState<string>('');
   const [recentGames, setRecentGames] = useState<LearningGame[]>([]);
   const [copiedQuestion, setCopiedQuestion] = useState(false);
 
-  useEffect(() => {
+  // 날짜 기반 결정론적 추천 (매일 자동 변경)
+  const { todayGame, todayApp, todayQuestion } = useMemo(() => {
     const today = new Date();
     const dayOfYear = Math.floor(
       (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24
     );
 
-    // 날짜 기반 결정론적 추천 (매일 변경)
-    if (learningGamesData.length > 0) {
-      const gameIdx = Math.abs(dayOfYear * 7 + today.getDate()) % learningGamesData.length;
-      setTodayGame(learningGamesData[gameIdx]);
-    }
+    const game =
+      learningGamesData.length > 0
+        ? learningGamesData[Math.abs(dayOfYear * 7 + today.getDate()) % learningGamesData.length]
+        : null;
 
-    if (yscodeApps.length > 0) {
-      const appIdx = Math.abs(dayOfYear * 3 + today.getDate()) % yscodeApps.length;
-      setTodayApp(yscodeApps[appIdx]);
-    }
+    const app =
+      yscodeApps.length > 0
+        ? yscodeApps[Math.abs(dayOfYear * 3 + today.getDate()) % yscodeApps.length]
+        : null;
 
-    const qIdx = today.getDate() % DAILY_QUESTIONS.length;
-    setTodayQuestion(DAILY_QUESTIONS[qIdx]);
+    const q = DAILY_QUESTIONS[today.getDate() % DAILY_QUESTIONS.length];
 
-    // 최근 플레이한 게임 불러오기
+    return { todayGame: game, todayApp: app, todayQuestion: q };
+  }, []);
+
+  // 최근 플레이한 게임 불러오기
+  useEffect(() => {
     try {
       const savedRecent = localStorage.getItem('ys_recent_games');
       if (savedRecent) {
@@ -95,6 +91,7 @@ export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPic
           .map((pin) => learningGamesData.find((g) => g.pin === pin))
           .filter((g): g is LearningGame => Boolean(g))
           .slice(0, 3);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setRecentGames(games);
       }
     } catch {
