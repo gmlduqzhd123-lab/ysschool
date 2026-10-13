@@ -74,7 +74,7 @@ export default function HomeQuickDesk() {
             <button
               type="button"
               onClick={() => setIsShareModalOpen(true)}
-              className="flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-brand-navy hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-bold border border-slate-700/60 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-brand-navy hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-bold border border-slate-700/60 shadow-sm transition-all cursor-pointer whitespace-nowrap"
               title="쿨메신저/카톡 공유 및 전자칠판 바로가기 만들기"
             >
               <Share2 className="w-3.5 h-3.5 text-brand-sky" />

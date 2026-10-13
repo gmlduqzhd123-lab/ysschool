@@ -132,42 +132,42 @@ export default function TeacherShareModal({
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 p-2 gap-1.5">
+          <div className="flex border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 p-1.5 sm:p-2 gap-1 sm:gap-1.5">
             <button
               type="button"
               onClick={() => setActiveTab('messenger')}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-2.5 px-1 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'messenger'
                   ? 'bg-white dark:bg-slate-800 text-brand-navy dark:text-brand-sky shadow-sm'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>메신저 추천 문구</span>
+              <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate"><span className="hidden min-[400px]:inline">메신저 </span>추천 문구</span>
             </button>
             <button
               type="button"
               onClick={() => setActiveTab('shortcut')}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-2.5 px-1 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'shortcut'
                   ? 'bg-white dark:bg-slate-800 text-brand-navy dark:text-brand-sky shadow-sm'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <Monitor className="w-3.5 h-3.5" />
-              <span>전자칠판 바탕화면 앱</span>
+              <Monitor className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate"><span className="hidden min-[400px]:inline">전자칠판 </span>바탕화면 앱</span>
             </button>
             <button
               type="button"
               onClick={() => setActiveTab('qr')}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-2.5 px-1 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'qr'
                   ? 'bg-white dark:bg-slate-800 text-brand-navy dark:text-brand-sky shadow-sm'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <QrCode className="w-3.5 h-3.5" />
-              <span>학생 태블릿 QR</span>
+              <QrCode className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate"><span className="hidden min-[400px]:inline">학생 </span>태블릿 QR</span>
             </button>
           </div>
 
