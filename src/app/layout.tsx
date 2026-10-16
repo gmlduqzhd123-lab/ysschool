@@ -13,6 +13,10 @@ import ChatBot from "@/components/ChatBot";
 import ClassroomFloatingHUD from "@/components/ClassroomFloatingHUD";
 import OfflinePwaManager from "@/components/OfflinePwaManager";
 import { AdminProvider } from "@/components/AdminContext";
+import NewsBanner from "@/components/NewsBanner";
+import MobileBottomNav from "@/components/MobileBottomNav";
+import AccessibilityControls from "@/components/AccessibilityControls";
+import OnboardingTour from "@/components/OnboardingTour";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -89,14 +93,18 @@ export default function RootLayout({
         <LanguageProvider>
           <BgmProvider>
             <AdminProvider>
+              <NewsBanner />
               <OfflinePwaManager />
               <SplashScreen />
+              <OnboardingTour />
               <ScrollToTopOnMount />
               <ScrollProgressBar />
               <SearchModal />
               {children}
               <ClassroomFloatingHUD />
+              <AccessibilityControls />
               <ScrollToTopButton />
+              <MobileBottomNav />
               <ChatBot />
             </AdminProvider>
           </BgmProvider>

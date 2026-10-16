@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail, BookOpen } from 'lucide-react';
 import InstallAppButton from './InstallAppButton';
 import QrButton from './QrButton';
+import KeyboardShortcutsModal from './KeyboardShortcutsModal';
 
 const footerLinks = [
   { href: '/', label: '홈' },
@@ -107,6 +108,7 @@ export default function Footer() {
             </a>
             <InstallAppButton className="text-slate-300 hover:text-white transition-colors" />
             <QrButton className="text-slate-300 hover:text-white transition-colors" />
+            <KeyboardShortcutsModal />
             <span>Powered by Next.js & Vercel</span>
           </div>
         </div>

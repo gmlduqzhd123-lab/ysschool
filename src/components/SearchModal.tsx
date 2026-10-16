@@ -157,7 +157,43 @@ export default function SearchModal() {
     }
   }, [isOpen]);
 
-  // 검색어 및 카테고리 필터링
+  // ───── 자연어 검색 파서 ─────
+  const parseNaturalQuery = (raw: string) => {
+    const q = raw.toLowerCase().trim();
+    let grade: string | null = null;
+    let subject: string | null = null;
+
+    // 학년 추출
+    const gradeMatch = q.match(/(([1-2])\s*학년|저학년)/);
+    const gradeMatchMid = q.match(/(([3-4])\s*학년|중학년)/);
+    const gradeMatchUp = q.match(/(([5-6])\s*학년|고학년)/);
+    if (gradeMatch) grade = 'lower';
+    if (gradeMatchMid) grade = 'middle';
+    if (gradeMatchUp) grade = 'upper';
+
+    // 과목 추출
+    const subjectMap: Record<string, string> = {
+      '수학': '수학', '산수': '수학', '덧셈': '수학', '뺄셈': '수학', '곱셈': '수학', '나눗셈': '수학', '분수': '수학',
+      '국어': '국어', '어휘': '국어', '맞춤법': '국어', '독해': '국어', '글쓰기': '국어',
+      '과학': '과학', '우주': '과학', '생태': '과학',
+      '사회': '사회', '역사': '사회',
+      '영어': '영어',
+    };
+    for (const [kw, subj] of Object.entries(subjectMap)) {
+      if (q.includes(kw)) { subject = subj; break; }
+    }
+
+    // 질문에서 키워드 제거해 나머지 검색어 추출
+    const cleanQ = q
+      .replace(/[1-6]\s*학년|저학년|중학년|고학년/g, '')
+      .replace(/수학|산수|국어|과학|사회|영어|어휘|맞춤법/g, '')
+      .replace(/게임|뭐\s*있|추천|알려|보여|찾아/g, '')
+      .trim();
+
+    return { grade, subject, cleanQ };
+  };
+
+  // 검색어 및 카테고리 필터링 (자연어 지원)
   const filteredItems = useMemo(() => {
     let list = allIndexedItems;
 
@@ -169,16 +205,47 @@ export default function SearchModal() {
       return list.slice(0, 30);
     }
 
+    const { grade, subject, cleanQ } = parseNaturalQuery(query);
     const q = query.toLowerCase().trim();
-    return list
-      .filter((item) => {
-        const matchTitle = item.title.toLowerCase().includes(q);
-        const matchDesc = item.description?.toLowerCase().includes(q);
-        const matchTags = item.tags?.some((t) => t.toLowerCase().includes(q));
-        const matchCat = item.category.toLowerCase().includes(q);
-        return matchTitle || matchDesc || matchTags || matchCat;
-      })
-      .slice(0, 50); // 성능과 UI 가독성을 위한 상위 50개 컷
+
+    // 자연어 파싱된 결과가 있으면 먼저 필터
+    const scored = list.map((item) => {
+      let score = 0;
+      const titleLow = item.title.toLowerCase();
+      const descLow = item.description?.toLowerCase() || '';
+      const tagsJoined = item.tags?.join(' ').toLowerCase() || '';
+
+      // 기본 키워드 매칭
+      if (titleLow.includes(q)) score += 10;
+      if (descLow.includes(q)) score += 5;
+      if (tagsJoined.includes(q)) score += 5;
+      if (item.category.toLowerCase().includes(q)) score += 3;
+
+      // cleanQ 매칭
+      if (cleanQ && cleanQ.length > 0) {
+        if (titleLow.includes(cleanQ)) score += 8;
+        if (descLow.includes(cleanQ)) score += 4;
+      }
+
+      // 자연어 파싱 보너스
+      if (grade) {
+        if (tagsJoined.includes(grade === 'lower' ? '1~2학년' : grade === 'middle' ? '3~4학년' : '5~6학년')) score += 15;
+        if (descLow.includes(grade === 'lower' ? '1~2학년' : grade === 'middle' ? '3~4학년' : '5~6학년')) score += 10;
+      }
+      if (subject) {
+        if (tagsJoined.includes(subject)) score += 15;
+        if (titleLow.includes(subject)) score += 10;
+        if (item.category === '배움게임') score += 5;
+      }
+
+      return { item, score };
+    });
+
+    return scored
+      .filter((s) => s.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map((s) => s.item)
+      .slice(0, 50);
   }, [allIndexedItems, activeCategory, query]);
 
   // 키보드 엔터 또는 클릭 시 이동

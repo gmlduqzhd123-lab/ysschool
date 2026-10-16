@@ -276,6 +276,51 @@ export default function LearningGamesHub() {
         </div>
       </div>
 
+      {/* ───── Feature 9: 이 게임은 어때요? 추천 ───── */}
+      {(() => {
+        const PLAYED_KEY = 'ysschool-played-games';
+        let playedIds: string[] = [];
+        try {
+          playedIds = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(PLAYED_KEY) || '[]') : [];
+        } catch { /* ignore */ }
+        const playedGames = learningGamesData.filter((g) => playedIds.includes(g.id));
+        if (playedGames.length > 0) {
+          // 가장 많이 플레이한 과목 찾기
+          const subjectCount: Record<string, number> = {};
+          playedGames.forEach((g) => { subjectCount[g.subject] = (subjectCount[g.subject] || 0) + 1; });
+          const topSubject = Object.entries(subjectCount).sort((a, b) => b[1] - a[1])[0]?.[0];
+          const recs = learningGamesData
+            .filter((g) => g.subject === topSubject && !playedIds.includes(g.id))
+            .slice(0, 3);
+          if (recs.length > 0) {
+            return (
+              <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border border-amber-200/60 dark:border-amber-800/40">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  <span className="text-sm font-extrabold text-amber-700 dark:text-amber-400">이 게임은 어때요?</span>
+                  <span className="text-xs text-amber-600/70 dark:text-amber-400/70">({topSubject} 과목 추천)</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {recs.map((game) => (
+                    <button
+                      key={game.id}
+                      type="button"
+                      onClick={() => setActivePlayGame(game)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-amber-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:shadow-sm transition-all cursor-pointer"
+                    >
+                      <span>{game.icon}</span>
+                      <span>{game.title}</span>
+                      <Play className="w-3 h-3 text-amber-500" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+        }
+        return null;
+      })()}
+
       {/* Result Counter */}
       <div className="flex items-center justify-between mb-6 px-1">
         <span className="text-sm font-bold text-slate-600 dark:text-slate-300">
