@@ -35,7 +35,7 @@ const steps: Step[] = [
   },
   {
     title: 'AI 챗봇 어시스턴트',
-    description: '오른쪽 하단 말풍선을 누르면 엽쌤 AI가 궁금한 것을 안내해드려요.',
+    description: '왼쪽 하단 말풍선을 누르면 엽쌤 AI가 궁금한 것을 안내해드려요.',
     icon: <MessageCircle className="w-6 h-6 text-violet-500" />,
   },
 ];

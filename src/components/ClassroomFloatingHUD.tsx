@@ -52,7 +52,7 @@ export default function ClassroomFloatingHUD() {
       {/* 화면 우하단 고정 플로팅 수업 HUD 런처 (ScrollToTopButton 위쪽) */}
       <div
         id="classroom-hud-container"
-        className="fixed bottom-24 right-3 sm:right-6 md:right-8 z-40 flex flex-col items-end gap-2 pointer-events-auto"
+        className="fixed bottom-[7.5rem] right-3 sm:bottom-24 sm:right-6 md:right-8 z-40 flex flex-col items-end gap-2 pointer-events-auto"
       >
         <AnimatePresence>
           {showQuickBar && (
@@ -137,14 +137,14 @@ export default function ClassroomFloatingHUD() {
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-full bg-slate-900/95 hover:bg-slate-900 dark:bg-slate-800/95 dark:hover:bg-slate-800 text-white shadow-2xl border border-slate-700/70 backdrop-blur-md transition-all cursor-pointer group"
+          className="flex items-center justify-center sm:gap-2 w-10 h-10 sm:w-auto sm:h-auto sm:px-4 sm:py-3 rounded-full bg-slate-900/90 hover:bg-slate-900 dark:bg-slate-800/90 dark:hover:bg-slate-800 text-white shadow-xl border border-slate-700/70 backdrop-blur-md transition-all cursor-pointer group"
           title="교실 전자칠판 수업 도구 (단축키 Alt+C)"
           aria-label="수업 대시보드 열기"
         >
           <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-sky to-brand-navy flex items-center justify-center text-white shadow-sm shrink-0">
             <Monitor className="w-3.5 h-3.5" />
           </div>
-          <span className="text-xs font-extrabold tracking-tight group-hover:text-brand-sky transition-colors hidden min-[360px]:inline">
+          <span className="text-xs font-extrabold tracking-tight group-hover:text-brand-sky transition-colors hidden sm:inline">
             수업 HUD
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-slate-300 font-mono hidden md:inline">

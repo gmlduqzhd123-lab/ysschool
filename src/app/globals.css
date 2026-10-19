@@ -150,10 +150,10 @@ html, body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* 모바일에서 하단 내비에 가려지지 않도록 footer 여백 확보 */
+/* 모바일에서 하단 내비 및 플로팅 위젯에 가려지지 않도록 footer 여백 확보 */
 @media (max-width: 639px) {
   footer {
-    padding-bottom: 4rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 

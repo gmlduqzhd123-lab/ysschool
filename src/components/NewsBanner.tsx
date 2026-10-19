@@ -58,7 +58,7 @@ export default function NewsBanner() {
         exit={{ height: 0, opacity: 0 }}
         className="relative z-50 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-3 text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto pl-3 pr-9 sm:px-10 py-2 flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
           <Sparkles className="w-3.5 h-3.5 shrink-0 animate-pulse" />
           <AnimatePresence mode="wait">
             <motion.div
@@ -67,10 +67,10 @@ export default function NewsBanner() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-1.5 sm:gap-2 min-w-0"
             >
               {item.badge && (
-                <span className="px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-black uppercase">
+                <span className="px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-black uppercase shrink-0">
                   {item.badge}
                 </span>
               )}
@@ -82,7 +82,7 @@ export default function NewsBanner() {
           </AnimatePresence>
           <button
             onClick={dismiss}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-white/20 transition-colors"
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-white/20 transition-colors"
             aria-label="닫기"
           >
             <X className="w-3.5 h-3.5" />

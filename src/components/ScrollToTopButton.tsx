@@ -29,7 +29,7 @@ export default function ScrollToTopButton() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-brand-navy to-brand-sky text-white shadow-lg shadow-brand-navy/30 hover:shadow-brand-sky/40 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+          className="fixed bottom-[4.25rem] right-3 sm:bottom-8 sm:right-8 z-40 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-brand-navy to-brand-sky text-white shadow-lg shadow-brand-navy/30 hover:shadow-brand-sky/40 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
           aria-label="페이지 맨 위로 이동"
         >
           <ArrowUp className="h-5 w-5" />

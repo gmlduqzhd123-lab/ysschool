@@ -78,7 +78,7 @@ export default function HomeQuickDesk() {
               title="쿨메신저/카톡 공유 및 전자칠판 바로가기 만들기"
             >
               <Share2 className="w-3.5 h-3.5 text-brand-sky" />
-              <span>교사 공유 & 바로가기</span>
+              <span>공유</span>
             </button>
 
             {/* Student Fast PIN Bar */}

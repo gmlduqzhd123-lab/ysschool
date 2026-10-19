@@ -49,7 +49,7 @@ export default function AccessibilityControls() {
   };
 
   return (
-    <div className="fixed bottom-24 left-3 sm:left-6 z-40 flex flex-col items-start gap-2">
+    <div className="fixed bottom-[7.5rem] left-3 sm:bottom-24 sm:left-8 z-40 flex flex-col items-start gap-2">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -96,11 +96,11 @@ export default function AccessibilityControls() {
 
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="w-11 h-11 rounded-full bg-slate-800 dark:bg-slate-700 text-white shadow-lg hover:bg-slate-700 dark:hover:bg-slate-600 flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+        className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-800/85 dark:bg-slate-700/85 backdrop-blur-md text-white shadow-md hover:bg-slate-700 dark:hover:bg-slate-600 flex items-center justify-center transition-all hover:scale-105 active:scale-95"
         aria-label="접근성 설정"
         title="접근성 설정 (글꼴 크기·고대비)"
       >
-        <Accessibility className="w-5 h-5" />
+        <Accessibility className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
     </div>
   );

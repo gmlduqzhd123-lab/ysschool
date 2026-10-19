@@ -219,6 +219,16 @@ export default function ChatBot() {
     }
   };
 
+  // 모바일 하단바 등 외부에서 챗봇 열기 이벤트 수신
+  useEffect(() => {
+    const handleOpenChatbot = () => {
+      setIsEnabled(true);
+      setIsOpen((prev) => !prev);
+    };
+    window.addEventListener('open-chatbot', handleOpenChatbot);
+    return () => window.removeEventListener('open-chatbot', handleOpenChatbot);
+  }, []);
+
   return (
     <>
       {/* 챗봇 다시 켜기 버튼 (비활성화 상태일 때) */}
@@ -231,19 +241,19 @@ export default function ChatBot() {
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
             whileHover={{ scale: 1.1 }}
             onClick={handleEnable}
-            className="fixed bottom-5 left-5 sm:bottom-8 sm:left-8 z-50 w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 shadow-md flex items-center justify-center cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-600 hover:text-brand-navy dark:hover:text-brand-sky transition-all group"
+            className="fixed bottom-[4.25rem] left-3 sm:bottom-8 sm:left-8 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-200/90 dark:bg-slate-700/90 backdrop-blur-md text-slate-500 dark:text-slate-400 shadow-md flex items-center justify-center cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-600 hover:text-brand-navy dark:hover:text-brand-sky transition-all group"
             aria-label="채팅봇 다시 켜기"
             title="채팅봇 켜기"
           >
             <Power className="w-4 h-4" />
-            <span className="absolute left-full ml-2 px-2.5 py-1 rounded-lg bg-slate-800 dark:bg-slate-600 text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <span className="hidden sm:inline absolute left-full ml-2 px-2.5 py-1 rounded-lg bg-slate-800 dark:bg-slate-600 text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               챗봇 켜기
             </span>
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* 플로팅 챗봇 버튼 */}
+      {/* 플로팅 챗봇 버튼 (모바일에서는 글씨 가림 방지를 위해 컴팩트 원형 아이콘, 데스크톱에서는 라벨 포함) */}
       <AnimatePresence>
         {isEnabled && !isOpen && (
           <motion.button
@@ -253,15 +263,15 @@ export default function ChatBot() {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-5 left-5 sm:bottom-8 sm:left-8 z-50 px-4 py-3 sm:px-4 sm:py-3.5 rounded-full bg-gradient-to-r from-brand-navy via-indigo-600 to-sky-500 text-white shadow-xl shadow-blue-900/30 flex items-center gap-2.5 cursor-pointer hover:shadow-sky-500/40 transition-all border border-white/20"
+            className="fixed bottom-[4.25rem] left-3 sm:bottom-8 sm:left-8 z-40 w-11 h-11 sm:w-auto sm:h-auto sm:px-4 sm:py-3.5 rounded-full bg-gradient-to-r from-brand-navy via-indigo-600 to-sky-500 text-white shadow-lg shadow-blue-900/25 flex items-center justify-center sm:gap-2.5 cursor-pointer hover:shadow-sky-500/40 transition-all border border-white/25"
             aria-label="엽쌤 AI 안내봇 열기"
           >
-            <div className="relative">
+            <div className="relative flex items-center justify-center">
               <MessageCircle className="w-5 h-5 text-white" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full animate-ping" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full" />
             </div>
-            <span className="text-xs sm:text-sm font-extrabold tracking-tight">
+            <span className="hidden sm:inline text-sm font-extrabold tracking-tight">
               엽쌤 안내봇
             </span>
           </motion.button>
@@ -275,7 +285,7 @@ export default function ChatBot() {
             initial={{ opacity: 0, y: 20, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.92 }}
-            className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-50 sm:w-[390px] h-[580px] max-h-[85dvh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/90 dark:border-slate-800 flex flex-col overflow-hidden backdrop-blur-xl"
+            className="fixed bottom-[4.25rem] left-3 right-3 sm:bottom-8 sm:left-8 sm:right-auto z-50 sm:w-[390px] h-[520px] sm:h-[580px] max-h-[calc(100dvh-5.5rem)] sm:max-h-[85dvh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/90 dark:border-slate-800 flex flex-col overflow-hidden backdrop-blur-xl"
             role="dialog"
             aria-label="엽쌤 AI 안내봇"
           >
