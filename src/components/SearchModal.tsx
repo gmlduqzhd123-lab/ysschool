@@ -260,9 +260,11 @@ export default function SearchModal() {
     if (hashIdx !== -1) {
       const pagePath = item.href.substring(0, hashIdx) || '/';
       const hash = item.href.substring(hashIdx);
-      router.push(pagePath);
+      router.push(item.href);
+      void pagePath;
       setTimeout(() => {
         window.location.hash = hash;
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
         const el = document.querySelector(hash);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
@@ -307,7 +309,7 @@ export default function SearchModal() {
             aria-label="사이트 스마트 통합 검색"
           >
             {/* 1. 상단 검색창 */}
-            <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-100 dark:border-slate-800">
+            <div className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-100 dark:border-slate-800">
               <Search className="w-5 h-5 text-brand-sky shrink-0" />
               <input
                 ref={inputRef}
@@ -342,7 +344,7 @@ export default function SearchModal() {
             </div>
 
             {/* 2. 카테고리 퀵 탭 */}
-            <div className="flex items-center gap-1.5 px-6 py-2.5 bg-slate-50/70 dark:bg-slate-800/40 border-b border-slate-100 dark:border-slate-800 overflow-x-auto scrollbar-none">
+            <div className="flex items-center gap-1.5 px-4 sm:px-6 py-2.5 bg-slate-50/70 dark:bg-slate-800/40 border-b border-slate-100 dark:border-slate-800 overflow-x-auto scrollbar-none">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -367,7 +369,7 @@ export default function SearchModal() {
             </div>
 
             {/* 3. 본문 2열 레이아웃: 좌측 목록 + 우측 퀵 프리뷰어 */}
-            <div className="flex-1 min-h-[380px] max-h-[55vh] flex overflow-hidden">
+            <div className="flex-1 min-h-[240px] sm:min-h-[380px] max-h-[55vh] flex overflow-hidden">
               {/* 좌측: 검색 결과 리스트 */}
               <div className="flex-1 overflow-y-auto p-3 space-y-1.5 border-r border-slate-100 dark:border-slate-800">
                 {filteredItems.length === 0 ? (

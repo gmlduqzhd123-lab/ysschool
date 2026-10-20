@@ -116,6 +116,16 @@ export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPic
       const pins: string[] = savedRecent ? JSON.parse(savedRecent) : [];
       const updated = [game.pin, ...pins.filter((p) => p !== game.pin)].slice(0, 5);
       localStorage.setItem('ys_recent_games', JSON.stringify(updated));
+      const savedPlayed = localStorage.getItem('ysschool-played-games');
+      const playedIds: string[] = savedPlayed ? JSON.parse(savedPlayed) : [];
+      const updatedPlayed = [game.id, ...playedIds.filter((id) => id !== game.id)].slice(0, 20);
+      localStorage.setItem('ysschool-played-games', JSON.stringify(updatedPlayed));
+      setRecentGames(
+        updated
+          .map((pin) => learningGamesData.find((g) => g.pin === pin))
+          .filter((g): g is LearningGame => Boolean(g))
+          .slice(0, 3)
+      );
     } catch {
       // ignore
     }

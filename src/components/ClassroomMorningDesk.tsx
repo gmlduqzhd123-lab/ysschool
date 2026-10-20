@@ -766,7 +766,7 @@ export default function ClassroomMorningDesk() {
       </main>
 
       {/* 3. 하단 빠른 바로가기 바 (교실 도구 연계) */}
-      <footer className="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs opacity-80">
+      <footer className="pt-3 pb-28 lg:pb-16 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs opacity-80">
         <div className="flex flex-wrap items-center gap-2">
           <span>🎒 다음 수업 준비:</span>
           <Link

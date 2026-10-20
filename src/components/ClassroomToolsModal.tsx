@@ -578,7 +578,7 @@ export default function ClassroomToolsModal({
           } bg-white dark:bg-slate-900 shadow-2xl overflow-hidden flex flex-col`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/50">
+          <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/50">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-amber-500/10 text-amber-500 font-bold text-lg">
                 🏫
@@ -597,11 +597,11 @@ export default function ClassroomToolsModal({
             </div>
 
             {/* Mode Tabs */}
-            <div className="flex items-center gap-1 p-1 bg-slate-200/80 dark:bg-slate-800 rounded-2xl overflow-x-auto">
+            <div className="order-3 lg:order-2 w-full lg:w-auto flex items-center gap-1 p-1 bg-slate-200/80 dark:bg-slate-800 rounded-2xl overflow-x-auto">
               <button
                 type="button"
                 onClick={() => setActiveTab('timer')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex-1 lg:flex-initial justify-center shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'timer'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -613,7 +613,7 @@ export default function ClassroomToolsModal({
               <button
                 type="button"
                 onClick={() => setActiveTab('picker')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex-1 lg:flex-initial justify-center shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'picker'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -625,7 +625,7 @@ export default function ClassroomToolsModal({
               <button
                 type="button"
                 onClick={() => setActiveTab('scoreboard')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex-1 lg:flex-initial justify-center shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'scoreboard'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -637,7 +637,7 @@ export default function ClassroomToolsModal({
               <button
                 type="button"
                 onClick={() => setActiveTab('canvas')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex-1 lg:flex-initial justify-center shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'canvas'
                     ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-brand-sky shadow-sm'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -649,7 +649,7 @@ export default function ClassroomToolsModal({
             </div>
 
             {/* Controls */}
-            <div className="flex items-center gap-1">
+            <div className="order-2 lg:order-3 flex items-center gap-1 shrink-0">
               <button
                 type="button"
                 onClick={() => setIsSoundEnabled(!isSoundEnabled)}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -40,6 +40,39 @@ export default function LearningGamesHub() {
   // 모달 상태
   const [activePlayGame, setActivePlayGame] = useState<LearningGame | null>(null);
   const [pinTargetGame, setPinTargetGame] = useState<LearningGame | null>(null);
+  const [playedIds, setPlayedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('ysschool-played-games') || '[]');
+      if (Array.isArray(saved)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setPlayedIds(saved);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const recordGamePlay = (game: LearningGame) => {
+    try {
+      const savedPlayed = JSON.parse(localStorage.getItem('ysschool-played-games') || '[]');
+      const nextPlayed = [game.id, ...(Array.isArray(savedPlayed) ? savedPlayed : []).filter((id: string) => id !== game.id)].slice(0, 20);
+      localStorage.setItem('ysschool-played-games', JSON.stringify(nextPlayed));
+      setPlayedIds(nextPlayed);
+
+      const savedRecent = JSON.parse(localStorage.getItem('ys_recent_games') || '[]');
+      const nextRecent = [game.pin, ...(Array.isArray(savedRecent) ? savedRecent : []).filter((p: string) => p !== game.pin)].slice(0, 5);
+      localStorage.setItem('ys_recent_games', JSON.stringify(nextRecent));
+    } catch {
+      // ignore
+    }
+  };
+
+  const launchGame = (game: LearningGame) => {
+    recordGamePlay(game);
+    setActivePlayGame(game);
+  };
 
   // 필터링 계산
   const filteredGames = useMemo(() => {
@@ -81,7 +114,7 @@ export default function LearningGamesHub() {
   const pickRandomGame = () => {
     if (filteredGames.length === 0) return;
     const rand = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-    setActivePlayGame(rand);
+    launchGame(rand);
   };
 
   const visibleGames = filteredGames.slice(0, displayLimit);
@@ -278,10 +311,10 @@ export default function LearningGamesHub() {
 
       {/* ───── Feature 9: 이 게임은 어때요? 추천 ───── */}
       {(() => {
-        const PLAYED_KEY = 'ysschool-played-games';
-        let playedIds: string[] = [];
-        try {
-          playedIds = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(PLAYED_KEY) || '[]') : [];
+        const currentPlayedIds = playedIds;
+        void currentPlayedIds;
+        try { void 0;
+          void 0;
         } catch { /* ignore */ }
         const playedGames = learningGamesData.filter((g) => playedIds.includes(g.id));
         if (playedGames.length > 0) {
@@ -305,7 +338,7 @@ export default function LearningGamesHub() {
                     <button
                       key={game.id}
                       type="button"
-                      onClick={() => setActivePlayGame(game)}
+                      onClick={() => launchGame(game)}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-amber-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:shadow-sm transition-all cursor-pointer"
                     >
                       <span>{game.icon}</span>
@@ -343,7 +376,7 @@ export default function LearningGamesHub() {
                 transition={{ duration: 0.3, delay: Math.min(idx * 0.03, 0.3) }}
                 className="group flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
               >
-                <div>
+                <div className="min-w-0">
                   {/* Top Bar with Icon & PIN */}
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <div className="text-3xl p-2.5 bg-slate-100 dark:bg-slate-800 rounded-2xl group-hover:scale-110 transition-transform">
@@ -401,7 +434,7 @@ export default function LearningGamesHub() {
                 <div className="flex items-center gap-2 pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
                   <button
                     type="button"
-                    onClick={() => setActivePlayGame(game)}
+                    onClick={() => launchGame(game)}
                     className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-brand-navy hover:bg-brand-sky text-white font-extrabold text-xs shadow-sm active:scale-95 transition-all cursor-pointer"
                   >
                     <Play className="w-3.5 h-3.5 fill-current" />
@@ -470,17 +503,17 @@ export default function LearningGamesHub() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md">
           <div className="relative w-full max-w-5xl h-[92vh] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col">
             {/* Modal Bar */}
-            <div className="flex items-center justify-between px-6 py-3 bg-slate-800 border-b border-slate-700 text-white shrink-0">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-slate-800 border-b border-slate-700 text-white shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                 <span className="text-2xl">{activePlayGame.icon}</span>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-extrabold text-base">{activePlayGame.title}</h3>
+                    <h3 className="font-extrabold text-sm sm:text-base truncate">{activePlayGame.title}</h3>
                     <span className="px-2 py-0.5 bg-emerald-500 text-white font-mono font-bold text-xs rounded">
                       PIN {activePlayGame.pin}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400">{activePlayGame.description}</p>
+                  <p className="hidden sm:block text-xs text-slate-400 truncate">{activePlayGame.description}</p>
                 </div>
               </div>
 
@@ -523,7 +556,7 @@ export default function LearningGamesHub() {
         isOpen={Boolean(pinTargetGame)}
         onClose={() => setPinTargetGame(null)}
         initialGame={pinTargetGame}
-        onPlayGame={(g) => setActivePlayGame(g)}
+        onPlayGame={(g) => launchGame(g)}
       />
     </div>
   );

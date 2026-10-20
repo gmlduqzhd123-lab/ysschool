@@ -178,6 +178,16 @@ export default function StudentPinModal({
   };
 
   const handleLaunch = (game: LearningGame) => {
+    try {
+      const savedRecent = localStorage.getItem('ys_recent_games');
+      const pins: string[] = savedRecent ? JSON.parse(savedRecent) : [];
+      localStorage.setItem('ys_recent_games', JSON.stringify([game.pin, ...pins.filter((p) => p !== game.pin)].slice(0, 5)));
+      const savedPlayed = localStorage.getItem('ysschool-played-games');
+      const playedIds: string[] = savedPlayed ? JSON.parse(savedPlayed) : [];
+      localStorage.setItem('ysschool-played-games', JSON.stringify([game.id, ...playedIds.filter((id) => id !== game.id)].slice(0, 20)));
+    } catch {
+      // ignore
+    }
     if (onPlayGame) {
       onPlayGame(game);
       onClose();

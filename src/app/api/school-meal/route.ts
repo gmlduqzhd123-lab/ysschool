@@ -135,9 +135,9 @@ export async function GET(request: NextRequest) {
     }
 
     // 2. 급식 조회 (action=meal 또는 기본)
-    // 기본값: 여수한려초등학교 (Q10 / 8490078)
+    // 기본값: 여수한려초등학교 (Q10 / 8512038)
     const officeCode = searchParams.get('officeCode')?.trim() || 'Q10';
-    const schoolCode = searchParams.get('schoolCode')?.trim() || '8490078';
+    const schoolCode = searchParams.get('schoolCode')?.trim() || '8512038';
 
     const todayYmd = getTodayKstYmd();
     const targetYmd = searchParams.get('date')?.replace(/-/g, '').trim() || todayYmd;

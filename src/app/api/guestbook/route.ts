@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
   }
 
   const name = requiredText(body.name, 20);
-  const affiliation = body.affiliation ? optionalText(body.affiliation, 30) : null;
+  const affiliation = body.affiliation ? optionalText(body.affiliation, 50) : null;
   const message = requiredText(body.message, 300);
 
   if (!name || !message) {
