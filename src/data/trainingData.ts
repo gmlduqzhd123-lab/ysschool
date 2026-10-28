@@ -2590,14 +2590,6 @@ export const trainingData: TrainingMaterial[] = [
     "link": "https://padlet.com/gmlduqzhd12/oo03v5bufuah2kf5/wish/3775964455"
   },
   {
-    "id": 301,
-    "title": "지도 기능",
-    "description": "교육 현장에서 검증된 수업 및 연구 참고 자료입니다.",
-    "category": "기타",
-    "date": "2026-02-03",
-    "link": "https://google-maps-static-proxy-f80f.padlet.workers.dev/?center=Palm+Jumeirah&key=AIzaSyD3kjetwpeAYF-eXThlRhc1F1EYwsQvHcY&size=640x480&scale=2&maptype=hybrid&language=ko&region=KR&markers="
-  },
-  {
     "id": 302,
     "title": "사진 앨범 기능",
     "description": "학생 작품 및 수업 활동 결과물을 담은 고해상도 이미지 자료입니다.",
