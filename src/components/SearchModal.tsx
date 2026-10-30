@@ -252,7 +252,7 @@ export default function SearchModal() {
   const handleSelect = (item: SearchItem) => {
     setIsOpen(false);
     if (item.externalUrl && (item.category === '웹앱' || item.category === '배움게임')) {
-      window.open(item.externalUrl, '_blank');
+      window.open(item.externalUrl, '_blank', 'noopener,noreferrer');
       return;
     }
 
