@@ -192,7 +192,7 @@ export default function StudentPinModal({
       onPlayGame(game);
       onClose();
     } else {
-      window.open(game.url, '_blank');
+      window.open(game.url, '_blank', 'noopener,noreferrer');
       onClose();
     }
   };
