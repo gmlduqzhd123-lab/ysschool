@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 // 📱 QR로 접속: 교실 TV·전자칠판에 띄우는 큰 QR (다른 엽쌤 앱들과 같은 화면)
 const SITE_URL = 'https://ysschool.vercel.app/';
@@ -30,7 +31,8 @@ export default function QrButton({ className, label = '📱 QR로 접속' }: { c
       <button ref={openerRef} type="button" onClick={() => setOpen(true)} className={className} aria-label="QR 코드로 접속">
         {label}
       </button>
-      {open && (
+      {/* 헤더(backdrop-blur) 안에 두면 fixed 창이 헤더 높이로 눌리므로 body에 붙인다 */}
+      {open && createPortal(
         <div
           className="fixed inset-0 z-[2147483000] flex items-center justify-center bg-slate-900/70 p-4"
           onClick={(e) => {
@@ -60,7 +62,8 @@ export default function QrButton({ className, label = '📱 QR로 접속' }: { c
               닫기
             </button>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
