@@ -60,8 +60,16 @@ export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPic
   const [copiedQuestion, setCopiedQuestion] = useState(false);
 
   // 날짜 기반 결정론적 추천 (매일 자동 변경)
+  // 첫 화면은 미리 만들어 둔(빌드한 날의) HTML이라, 날짜는 브라우저에서 화면이 뜬 뒤에 정한다.
+  // (렌더 중에 new Date()를 쓰면 빌드한 날과 오늘의 추천이 달라 React 하이드레이션 오류 #418이 난다)
+  const [today, setToday] = useState<Date | null>(null);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setToday(new Date());
+  }, []);
+
   const { todayGame, todayApp, todayQuestion } = useMemo(() => {
-    const today = new Date();
+    if (!today) return { todayGame: null, todayApp: null, todayQuestion: '' };
     const dayOfYear = Math.floor(
       (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24
     );
@@ -79,7 +87,7 @@ export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPic
     const q = DAILY_QUESTIONS[today.getDate() % DAILY_QUESTIONS.length];
 
     return { todayGame: game, todayApp: app, todayQuestion: q };
-  }, []);
+  }, [today]);
 
   // 최근 플레이한 게임 불러오기
   useEffect(() => {
@@ -149,7 +157,7 @@ export default function ClassroomDailyPick({ onOpenPinModal }: ClassroomDailyPic
               </span>
             </div>
             <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 mt-1 leading-snug">
-              &ldquo;{todayQuestion}&rdquo;
+              {todayQuestion ? <>&ldquo;{todayQuestion}&rdquo;</> : <span className="text-slate-400">오늘의 생각거리를 불러오는 중…</span>}
             </p>
           </div>
         </div>
